@@ -6,7 +6,7 @@
 
   function run(){
 
-    renderizar("registroUsuarios");
+    renderizar("registroUsuarios",  array());
   }
 
   run();

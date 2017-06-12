@@ -1,7 +1,7 @@
 <?php
   $server = "127.0.0.1";
-  $user = "rot";
-  $pswd = "root";
-  $database = "phpmvc";
+  $user = "root";
+  $pswd = "";
+  $database = "prueba";
   $port = "3306";
  ?>
