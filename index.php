@@ -21,7 +21,7 @@
             //llamar al controlador
             require_once("controllers/home.control.php");
             break;
-<<<<<<< HEAD
+            
         case "productos":
             //llamar al controlador
             require_once("controllers/productos.control.php");
