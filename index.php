@@ -21,7 +21,12 @@
             //llamar al controlador
             require_once("controllers/home.control.php");
             break;
-            
+
+        case "registroUsuarios":
+            //llamar al controlador
+            require_once("controllers/registroUsuarios.control.php");
+            break;
+
         case "productos":
             //llamar al controlador
             require_once("controllers/productos.control.php");
