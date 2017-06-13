@@ -36,10 +36,16 @@
             //llamar al controlador
             require_once("controllers/registroUsuarios.control.php");
             break;
+
         case "aprobacionProyectos":
             //llamar al controlador
             require_once("controllers/aprobacionProyectos.control.php");
             break;
+
+            case "solicitudDespeje":
+                //llamar al controlador
+                require_once("controllers/solicitudDespeje.control.php");
+                break;
 
         case "productos":
             //llamar al controlador
