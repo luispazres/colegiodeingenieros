@@ -3,5 +3,5 @@
   $user = "root";
   $pswd = "Conectahn_2017";
   $database = "cimeqh";
-  $port = "3306";
+  $port = "3333";
  ?>
