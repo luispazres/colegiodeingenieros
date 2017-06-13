@@ -1,5 +1,3 @@
-CREATE DATABASE  IF NOT EXISTS `cimeqh` /*!40100 DEFAULT CHARACTER SET latin1 */;
-USE `cimeqh`;
 -- MySQL dump 10.13  Distrib 5.7.17, for Win64 (x86_64)
 --
 -- Host: localhost    Database: cimeqh
@@ -72,10 +70,13 @@ DROP TABLE IF EXISTS `tbldocumentosaprobacion`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `tbldocumentosaprobacion` (
   `documentosAprobacionId` int(11) NOT NULL AUTO_INCREMENT,
-  `solicitudAprobacionId` int(11) NOT NULL,
   `documentoDireccion` varchar(300) NOT NULL,
+  `tbldocumentosaprobacioncol` varchar(45) NOT NULL,
+  `solicitudAprobacionId` int(11) NOT NULL,
   PRIMARY KEY (`documentosAprobacionId`),
-  KEY `solicitudAprobacionId_idx` (`solicitudAprobacionId`)
+  KEY `solicitudAprobacionId_idx` (`solicitudAprobacionId`),
+  KEY `fksolicitudAprobacionId_idx` (`solicitudAprobacionId`),
+  CONSTRAINT `fksolicitudAprobacionId` FOREIGN KEY (`solicitudAprobacionId`) REFERENCES `tblsolicitudaprobacion` (`solicitudAprobacionId`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -86,6 +87,29 @@ CREATE TABLE `tbldocumentosaprobacion` (
 LOCK TABLES `tbldocumentosaprobacion` WRITE;
 /*!40000 ALTER TABLE `tbldocumentosaprobacion` DISABLE KEYS */;
 /*!40000 ALTER TABLE `tbldocumentosaprobacion` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `tblestadoaprobacion`
+--
+
+DROP TABLE IF EXISTS `tblestadoaprobacion`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `tblestadoaprobacion` (
+  `estadoAprobacionId` int(11) NOT NULL AUTO_INCREMENT,
+  `estadoAprobacionDescripcion` varchar(100) NOT NULL,
+  PRIMARY KEY (`estadoAprobacionId`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `tblestadoaprobacion`
+--
+
+LOCK TABLES `tblestadoaprobacion` WRITE;
+/*!40000 ALTER TABLE `tblestadoaprobacion` DISABLE KEYS */;
+/*!40000 ALTER TABLE `tblestadoaprobacion` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -109,6 +133,58 @@ CREATE TABLE `tblestadocuenta` (
 LOCK TABLES `tblestadocuenta` WRITE;
 /*!40000 ALTER TABLE `tblestadocuenta` DISABLE KEYS */;
 /*!40000 ALTER TABLE `tblestadocuenta` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `tblestadodespeje`
+--
+
+DROP TABLE IF EXISTS `tblestadodespeje`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `tblestadodespeje` (
+  `estadoDespejeId` int(11) NOT NULL AUTO_INCREMENT,
+  `estadoDespejeDescripcion` varchar(100) NOT NULL,
+  `tblsolicituddespeje_solicitudDespejeId` int(11) NOT NULL,
+  PRIMARY KEY (`estadoDespejeId`),
+  KEY `fk_tblestadodespeje_tblsolicituddespeje1_idx` (`tblsolicituddespeje_solicitudDespejeId`),
+  CONSTRAINT `fk_tblestadodespeje_tblsolicituddespeje1` FOREIGN KEY (`tblsolicituddespeje_solicitudDespejeId`) REFERENCES `tblsolicituddespeje` (`solicitudDespejeId`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `tblestadodespeje`
+--
+
+LOCK TABLES `tblestadodespeje` WRITE;
+/*!40000 ALTER TABLE `tblestadodespeje` DISABLE KEYS */;
+/*!40000 ALTER TABLE `tblestadodespeje` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `tblestadorecepcion`
+--
+
+DROP TABLE IF EXISTS `tblestadorecepcion`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `tblestadorecepcion` (
+  `estadoRecepcionId` int(11) NOT NULL AUTO_INCREMENT,
+  `estadoRecepcionDescripcion` varchar(100) NOT NULL,
+  `tblsolicitudrecepcion_solicitudRecepcioId` int(11) NOT NULL,
+  PRIMARY KEY (`estadoRecepcionId`),
+  KEY `fk_tblestadorecepcion_tblsolicitudrecepcion1_idx` (`tblsolicitudrecepcion_solicitudRecepcioId`),
+  CONSTRAINT `fk_tblestadorecepcion_tblsolicitudrecepcion1` FOREIGN KEY (`tblsolicitudrecepcion_solicitudRecepcioId`) REFERENCES `tblsolicitudrecepcion` (`solicitudRecepcioId`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `tblestadorecepcion`
+--
+
+LOCK TABLES `tblestadorecepcion` WRITE;
+/*!40000 ALTER TABLE `tblestadorecepcion` DISABLE KEYS */;
+/*!40000 ALTER TABLE `tblestadorecepcion` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -198,6 +274,36 @@ LOCK TABLES `tblsolicitudaprobacion` WRITE;
 UNLOCK TABLES;
 
 --
+-- Table structure for table `tblsolicituddespeje`
+--
+
+DROP TABLE IF EXISTS `tblsolicituddespeje`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `tblsolicituddespeje` (
+  `solicitudDespejeId` int(11) NOT NULL AUTO_INCREMENT,
+  `solicitudDespejeHoras` float NOT NULL,
+  `solicitudDespejeCuadrillas` int(11) NOT NULL,
+  `solicitudDespejeCantidadPersonal` int(11) NOT NULL,
+  `solicitudDespejeFecha` datetime NOT NULL,
+  `solicitudDespejeCosto` float NOT NULL,
+  `tblsolicitudaprobacion_solicitudAprobacionId` int(11) NOT NULL,
+  PRIMARY KEY (`solicitudDespejeId`),
+  KEY `fk_tblsolicituddespeje_tblsolicitudaprobacion1_idx` (`tblsolicitudaprobacion_solicitudAprobacionId`),
+  CONSTRAINT `fk_tblsolicituddespeje_tblsolicitudaprobacion1` FOREIGN KEY (`tblsolicitudaprobacion_solicitudAprobacionId`) REFERENCES `tblsolicitudaprobacion` (`solicitudAprobacionId`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `tblsolicituddespeje`
+--
+
+LOCK TABLES `tblsolicituddespeje` WRITE;
+/*!40000 ALTER TABLE `tblsolicituddespeje` DISABLE KEYS */;
+/*!40000 ALTER TABLE `tblsolicituddespeje` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `tblsolicitudfactibilidad`
 --
 
@@ -233,13 +339,13 @@ LOCK TABLES `tblsolicitudfactibilidad` WRITE;
 UNLOCK TABLES;
 
 --
--- Table structure for table `tblsolicitudrecpcion`
+-- Table structure for table `tblsolicitudrecepcion`
 --
 
-DROP TABLE IF EXISTS `tblsolicitudrecpcion`;
+DROP TABLE IF EXISTS `tblsolicitudrecepcion`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `tblsolicitudrecpcion` (
+CREATE TABLE `tblsolicitudrecepcion` (
   `solicitudRecepcioId` int(11) NOT NULL AUTO_INCREMENT,
   `solicitudRecepcionCosto` float NOT NULL,
   `solicitudRecepcioEstado` int(11) NOT NULL,
@@ -251,12 +357,12 @@ CREATE TABLE `tblsolicitudrecpcion` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `tblsolicitudrecpcion`
+-- Dumping data for table `tblsolicitudrecepcion`
 --
 
-LOCK TABLES `tblsolicitudrecpcion` WRITE;
-/*!40000 ALTER TABLE `tblsolicitudrecpcion` DISABLE KEYS */;
-/*!40000 ALTER TABLE `tblsolicitudrecpcion` ENABLE KEYS */;
+LOCK TABLES `tblsolicitudrecepcion` WRITE;
+/*!40000 ALTER TABLE `tblsolicitudrecepcion` DISABLE KEYS */;
+/*!40000 ALTER TABLE `tblsolicitudrecepcion` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -353,4 +459,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-06-13 15:15:14
+-- Dump completed on 2017-06-13 15:59:39
