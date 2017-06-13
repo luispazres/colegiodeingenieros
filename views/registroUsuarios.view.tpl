@@ -1,3 +1,5 @@
+
+  <div class="right_col" role="main">
 <div class="page-header">
   <h1>
     Registro
@@ -100,3 +102,4 @@
     Submit
   </button>
 </form>
+</div>
