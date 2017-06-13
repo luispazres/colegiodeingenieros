@@ -2,7 +2,7 @@
     <div class="">
       <div class="page-title">
         <div class="title_left">
-          <h3>Factibilidad de Proyectos</h3>
+          <h3>Solicitud de Despeje</h3>
         </div>
 
         <div class="title_right">
@@ -36,7 +36,7 @@
                     </li>
                     <li><a class="close-link"><i class="fa fa-close"></i></a>
                     </li>
-                  </ul>
+                  </ul> 
                   <div class="clearfix"></div>
                 </div>
                 <div class="x_content">
