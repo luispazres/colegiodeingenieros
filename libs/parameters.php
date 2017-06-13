@@ -1,7 +1,7 @@
 <?php
   $server = "127.0.0.1";
   $user = "root";
-  $pswd = "Conectahn_2017";
+  $pswd = "";
   $database = "cimeqh";
-  $port = "3333";
+  $port = "3306";
  ?>
