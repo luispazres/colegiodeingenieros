@@ -1,7 +1,8 @@
 <!DOCTYPE html>
     <html>
         <head>
-            <meta charset="utf-8" />
+            <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+            <!--<meta charset="utf-8" />-->
             <title>{{page_title}}</title>
             <meta http-equiv="X-UA-Compatible" content="IE=edge">
             <meta name="viewport" content="width=device-width, initial-scale=1"/>
@@ -287,7 +288,7 @@
               <!-- /top navigation -->
 
               <!-- page content -->
-            
+
             <div class="contenido">
                 {{{page_content}}}
             </div>
