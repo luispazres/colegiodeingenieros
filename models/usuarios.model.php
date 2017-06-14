@@ -11,14 +11,14 @@
     }
 
     function insertUsuario($userId, $userPrimernombre, $userSegundonombre, $primerApellido, $segundoApellido,
-    $numeroColegiacion, $userCelular,$userTelefono, $userDireccion, $userPassword, $estadoCuenta, $rolId){
+    $numeroColegiacion, $userCelular,$userTelefono, $userDireccion, $userPassword, $estadoCuenta, $rolId, $email){
 
         $strsql = "INSERT INTO `tblusuarios`
   (`usuarioIdentidad`,`usuarioPrimerNombre`,`usuarioSegundoNombre`,`usuarioPrimerApellido`,
   `usuarioSegundoApellido`,`usuarioNumeroColegiacion`,`usuarioCelular`,`usuarioTelefono`,
-  `usuarioDireccion`,`usuarioContrasenia`, estadoCuentaId, rolId)
+  `usuarioDireccion`,`usuarioContrasenia`, estadoCuentaId, rolId, `usuarioCorreo`)
   VALUES
-  ('%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', %d, %d);";
+  ('%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', %d, %d, '%s');";
         $strsql = sprintf($strsql,
         valstr($userId),
         valstr($userPrimernombre),
@@ -31,7 +31,8 @@
         valstr($userDireccion),
         valstr($userPassword),
         $estadoCuenta,
-        $rolId);
+        $rolId,
+        valstr($email));
         if(ejecutarNonQuery($strsql)){
             return getLastInserId();
         }

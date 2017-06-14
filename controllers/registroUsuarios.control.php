@@ -22,6 +22,7 @@ require_once("models/usuarios.model.php");
       $usuarios["txtDireccion"]=$_POST["txtDireccion"];
       $usuarios["txtContrasena"]=$_POST["txtContrasena"];
       $usuarios["txtContrasenaConfirmacion"]=$_POST["txtContrasenaConfirmacion"];
+      $usuarios["txtCorreo"]=$_POST["txtCorreo"];
       $rolId = 3;
       $estadoCuenta = 3;
       $resultado = 0;
@@ -31,14 +32,19 @@ $numeroColegiacion, $userCelular,$userTelefono, $userDireccion, $userPassword, $
 
 */
 
-      if($usuarios["txtContrasena"]==$usuarios["txtContrasenaConfirmacion"]){
-        /*
-        Crear contraseña encriptada
-        */
-        $contrasena= "";
-        $contrasena = md5($usuarios["txtContrasena"]);
-        //ingresar datos a la base de datos este caso tabla de usuarios
-
+    if($usuarios["txtContrasena"]==$usuarios["txtContrasenaConfirmacion"]){
+    /*Crear contraseña encriptada*/
+    $fchingreso = time(); //date("YmdHisu"); //20141104203730069785
+    //$pswdSalted = "";
+    $contrasena= "";
+    if($fchingreso % 2 == 0){
+      $contrasena = $usuarios["txtContrasena"] . $fchingreso;
+    }else{
+      $contrasena = $fchingreso . $pswd;
+    }
+    //$pswdSalted = md5($pswdSalted);
+    $contrasena = md5($contrasena);
+    //ingresar datos a la base de datos este caso tabla de usuarios
     $respueta = insertUsuario($usuarios["txtNumeroId"],
     $usuarios["txtPrimerNombre"],
     $usuarios["txtSegundoNombre"],
@@ -50,20 +56,21 @@ $numeroColegiacion, $userCelular,$userTelefono, $userDireccion, $userPassword, $
     $usuarios["txtDireccion"],
     $contrasena,
     $estadoCuenta,
-    $rolId);
+    $rolId,
+    $usuarios["txtCorreo"]);
 
     print_r($usuarios);
     echo $respueta;
 
-    $location="Location:index.php?page=registroProyectos&error=".$respueta;
+    $location="Location:index.php?page=registroUsuarios&error=".$respueta;
     header($location);
 
     }
-
-    else {
+    else{
       $htmlData["mostrarErrores"] = true;
       $htmlData["errores"][]=array("errmsg"=>"Contraseñas no coinciden");
       }
+
     }
     print_r($usuarios);
     echo $respueta;

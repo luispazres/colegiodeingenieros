@@ -128,7 +128,16 @@
                                                       <input id="txtContrasenaConfirmacion" type="password" name="txtContrasenaConfirmacion" class="form-control" placeholder="Escriba una contraseña con 8 caracteres o mas con mayusculas y minusculas">
                                                   </div>
                                               </div>
-                                          </div>
+                          </div>
+
+                          <div class="row">
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label for="form_name">Correo Electronico *</label>
+                                                        <input id="txtCorreo" type="email" name="txtCorreo" class="form-control" placeholder="Escriba su correo ejemplo@ejemplo.com *">
+                                                    </div>
+                                                </div>
+                            </div>
 
 
                       </div>
