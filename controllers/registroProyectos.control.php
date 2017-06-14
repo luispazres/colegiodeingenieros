@@ -35,7 +35,8 @@
       $proyecto["txtLongitud"],
       $proyecto["txtDescripcionProyecto"],
       $proyecto["cmbDepartamentoProyecto"],
-      $proyecto["txtDireccionProyecto"]);
+      $proyecto["txtDireccionProyecto"],
+      $proyecto["txtNombreProyecto"]);
 
 
       print_r($proyecto);

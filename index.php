@@ -21,6 +21,11 @@
             //llamar al controlador
             require_once("controllers/home.control.php");
             break;
+
+        case "verProyectos":
+            //llamar al controlador
+            require_once("controllers/verProyectos.control.php");
+            break;
         case "registroProyectos":
             //llamar al controlador
             require_once("controllers/registroProyectos.control.php");
