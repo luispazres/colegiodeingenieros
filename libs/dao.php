@@ -46,6 +46,12 @@
       return $conexion->escape_string($str);
    }
 
+   function ejecutarNonQueryConErrores($sqlstr, &$conexion = null){
+        if(!$conexion) global $conexion;
+        $result = $conexion->query($sqlstr);
+        return $conexion->error;
+   }
+
    function getLastInserId(&$conexion = null){
      if(!$conexion) global $conexion;
      return $conexion->insert_id;
