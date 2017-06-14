@@ -2,18 +2,20 @@
     //modelo de datos de productos
     require_once("libs/dao.php");
 
-    function obtenerUsuario($userName){
+    function obtenerUsuarios(){
         $usuario = array();
-        $sqlstr = sprintf("SELECT idusuarios, usuarioemail, usuarionom, usuariopwd, usuarioest, UNIX_TIMESTAMP(usuariofching) as usuariofching, usuariolstlgn, usuariofatm, usuariofchlp FROM usuarios where usuarioemail = '%s';",$userName);
-
-        $usuario = obtenerUnRegistro($sqlstr);
+        $sqlstr = sprintf("SELECT *
+  FROM tblusuarios tblu, tblroles tblr, tblestadocuenta tble WHERE tblu.rolId=tblr.rolId
+  AND tblu.estadoCuentaId=tble.estadoCuentaId;");
+        $usuario = obtenerRegistros($sqlstr);
         return $usuario;
     }
 
-    function insertUsuario($userId, $userPrimernombre, $userSegundonombre, $primerApellido, $segundoApellido,
-    $numeroColegiacion, $userCelular,$userTelefono, $userDireccion, $userPassword, $estadoCuenta, $rolId, $email){
 
-        $strsql = "INSERT INTO `tblusuarios`
+  function insertUsuario($userId, $userPrimernombre, $userSegundonombre, $primerApellido, $segundoApellido,
+  $numeroColegiacion, $userCelular,$userTelefono, $userDireccion, $userPassword, $estadoCuenta, $rolId, $email){
+
+  $strsql = "INSERT INTO `tblusuarios`
   (`usuarioIdentidad`,`usuarioPrimerNombre`,`usuarioSegundoNombre`,`usuarioPrimerApellido`,
   `usuarioSegundoApellido`,`usuarioNumeroColegiacion`,`usuarioCelular`,`usuarioTelefono`,
   `usuarioDireccion`,`usuarioContrasenia`, estadoCuentaId, rolId, `usuarioCorreo`)
