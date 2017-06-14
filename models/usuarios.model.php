@@ -11,6 +11,16 @@
         return $usuario;
     }
 
+  function actualizarEstado($usuarioIdentidad, $estadoCuenta){
+    $sqlstr="UPDATE `cimeqh`.`tblusuarios`
+    SET `estadoCuentaId` = $estadoCuenta
+    WHERE `usuarioIdentidad` = $usuarioIdentidad;";
+    if(ejecutarNonQuery($sqlstr)){
+    return ejecutarNonQueryConErrores($sqlstr);    
+    }
+    return 0;
+    }
+
 
   function insertUsuario($userId, $userPrimernombre, $userSegundonombre, $primerApellido, $segundoApellido,
   $numeroColegiacion, $userCelular,$userTelefono, $userDireccion, $userPassword, $estadoCuenta, $rolId, $email){

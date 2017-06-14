@@ -33,6 +33,7 @@
                 <th>Nombre de Colegiación</th>
                 <th>Primer Nombre</th>
                 <th>Primer Apellido</th>
+                <th>Estado Cuenta</th>
                 <th>Acciones</th>
               </tr>
             </thead>
@@ -43,7 +44,8 @@
                   <td>{{usuarioNumeroColegiacion}}</td>
                   <td>{{usuarioPrimerNombre}}</td>
                   <td>{{usuarioPrimerApellido}}</td>
-                  <td> <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-lg-{{usuarioIdentidad}}">Large modal</button>
+                  <td>{{estadoCuentaDescripcion}}</td>
+                  <td> <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-lg-{{usuarioIdentidad}}">Opciones</button>
 
                     <div class="modal fade bs-example-modal-lg-{{usuarioIdentidad}}" tabindex="-1" role="dialog" aria-hidden="true">
                       <div class="modal-dialog modal-lg">
@@ -80,8 +82,11 @@
                             <br>
                           </div>
                           <div class="modal-footer">
-                            <button type="button" class="btn btn-danger" data-dismiss="modal">Rechazar Usuario</button>
-                            <button type="button" class="btn btn-success">Aprobar Usuario</button>
+                              <form method="post" action="index.php?page=verUsuarios">
+                              <input id="usuarioIdentidad" type="hidden" name="usuarioIdentidad" value={{usuarioIdentidad}}>
+                              <input type="submit" name="btnRechazar" id="btnRechazar" class="btn btn-danger" value="Rechazar Usuario">
+                              <input type="submit" name="btnAceptar" id="btnAceptar" class="btn btn-success" value="Aceptar Usuario">                              
+                              </form>
                           </div>
                         </div>
                       </div>

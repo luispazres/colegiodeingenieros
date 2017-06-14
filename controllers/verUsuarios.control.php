@@ -8,13 +8,25 @@
   require_once("models/usuarios.model.php");
 
   function run(){
-    $usuario = array( );
+  $usuario = array();
 
-    $usuario=obtenerUsuarios();
+  if(isset($_POST["btnRechazar"])){
+    $numeroId="";
+    $estadoCuenta=2;
+    $numeroId=$_POST["usuarioIdentidad"];
+    actualizarEstado($numeroId,$estadoCuenta);
+    }
 
-    renderizar("verUsuarios",array('usuario'=>$usuario));
+  if(isset($_POST["btnAceptar"])){
+    $location="";
+    $numeroId="";
+    $estadoCuenta=1;
+    $numeroId=$_POST["usuarioIdentidad"];
+    actualizarEstado($numeroId,$estadoCuenta);
   }
-
-
+  
+  $usuario=obtenerUsuarios();
+  renderizar("verUsuarios",array('usuario'=>$usuario));
+  }
   run();
 ?>
