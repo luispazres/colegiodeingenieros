@@ -4,7 +4,7 @@
 
     function obtenerCategorias(){
         $categorias = array();
-        $sqlstr = "select * from categorias;";
+        $sqlstr = "select * from tblroles;";
         $categorias = obtenerRegistros($sqlstr);
         return $categorias;
     }

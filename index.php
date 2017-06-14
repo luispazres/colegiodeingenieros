@@ -54,6 +54,7 @@
             //llamar al controlador
             require_once("controllers/productos.control.php");
             break;
+
         /*case "login":
 =======
         case "menu":

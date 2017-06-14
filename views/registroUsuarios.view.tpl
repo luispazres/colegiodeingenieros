@@ -42,7 +42,7 @@
                 <div class="x_content">
                   <br>
 
-                    <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left">
+                    <form id="demo-form2" action="index.php?page=registroUsuarios" class="form-horizontal form-label-left" method="post">
 
                       <div class="form-group">
 
@@ -50,13 +50,13 @@
                                               <div class="col-md-6">
                                                   <div class="form-group">
                                                       <label for="form_name">Numero Identidad *</label>
-                                                      <input id="form_name" type="text" name="name" class="form-control" placeholder="Ej. 0801-XXXX-XXXXX *">
+                                                      <input id="txtNumeroId" type="text" name="txtNumeroId" class="form-control" placeholder="Ej. 0801-XXXX-XXXXX *">
                                                   </div>
                                               </div>
                                               <div class="col-md-6">
                                                   <div class="form-group">
                                                       <label for="form_lastname">Numero de Colegiacion *</label>
-                                                      <input id="form_lastname" type="text" name="surname" class="form-control" placeholder="Ej. XXXX-XXXX *">
+                                                      <input id="txtNumeroColegiacion" type="text" name="txtNumeroColegiacion" class="form-control" placeholder="Ej. XXXX-XXXX *">
                                                   </div>
                                               </div>
                                           </div>
@@ -65,13 +65,13 @@
                                               <div class="col-md-6">
                                                   <div class="form-group">
                                                       <label for="form_name">Primer Nombre *</label>
-                                                      <input id="form_name" type="text" name="name" class="form-control" placeholder="Ej. Juan *">
+                                                      <input id="txtPrimerNombre" type="text" name="txtPrimerNombre" class="form-control" placeholder="Ej. Juan *">
                                                   </div>
                                               </div>
                                               <div class="col-md-6">
                                                   <div class="form-group">
                                                       <label for="form_lastname">Segundo Nombre *</label>
-                                                      <input id="form_lastname" type="text" name="surname" class="form-control" placeholder="Ej. Luis *">
+                                                      <input id="txtSegundoNombre" type="text" name="txtSegundoNombre" class="form-control" placeholder="Ej. Luis *">
                                                   </div>
                                               </div>
                                           </div>
@@ -80,13 +80,13 @@
                                               <div class="col-md-6">
                                                   <div class="form-group">
                                                       <label for="form_name">Primer Apellido *</label>
-                                                      <input id="form_name" type="text" name="name" class="form-control" placeholder="Ej. Lopez *">
+                                                      <input id="txtPrimerApellido" type="text" name="txtPrimerApellido" class="form-control" placeholder="Ej. Lopez *">
                                                   </div>
                                               </div>
                                               <div class="col-md-6">
                                                   <div class="form-group">
                                                       <label for="form_lastname">Segundo Apellido *</label>
-                                                      <input id="form_lastname" type="text" name="surname" class="form-control" placeholder="Ej. Paz *">
+                                                      <input id="txtSegundoApellido" type="text" name="txtSegundoApellido" class="form-control" placeholder="Ej. Paz *">
                                                   </div>
                                               </div>
                                           </div>
@@ -95,13 +95,13 @@
                                               <div class="col-md-6">
                                                   <div class="form-group">
                                                       <label for="form_name">Numero de Celular *</label>
-                                                      <input id="form_name" type="text" name="name" class="form-control" placeholder="Ej. 99XX-XXXX *">
+                                                      <input id="txtNumeroCelular" type="text" name="txtNumeroCelular" class="form-control" placeholder="Ej. 99XX-XXXX *">
                                                   </div>
                                               </div>
                                               <div class="col-md-6">
                                                   <div class="form-group">
                                                       <label for="form_lastname">Numero de Telefono Fijo *</label>
-                                                      <input id="form_lastname" type="text" name="surname" class="form-control" placeholder="Ej. 22XX-XXXX *">
+                                                      <input id="txtNumeroFijo" type="text" name="txtNumeroFijo" class="form-control" placeholder="Ej. 22XX-XXXX *">
                                                   </div>
                                               </div>
                                           </div>
@@ -110,7 +110,7 @@
                                               <div class="col-md-12">
                                                   <div class="form-group">
                                                       <label for="form_message">Dirección de residencia *</label>
-                                                      <textarea id="form_message" name="message" class="form-control" placeholder="Ej. Colonia X bloque X casa numero xxx *" rows="4"></textarea>
+                                                      <textarea id="txtDireccion" name="txtDireccion" class="form-control" placeholder="Ej. Colonia X bloque X casa numero xxx *" rows="4"></textarea>
                                                   </div>
                                               </div>
                                           </div>
@@ -119,21 +119,21 @@
                                               <div class="col-md-6">
                                                   <div class="form-group">
                                                       <label for="form_name">Contraseña *</label>
-                                                      <input id="form_name" type="text" name="name" class="form-control" placeholder="Escriba una contraseña con 8 caracteres o mas con mayusculas y minusculas *">
+                                                      <input id="txtContrasena" type="password" name="txtContrasena" class="form-control" placeholder="Escriba una contraseña con 8 caracteres o mas con mayusculas y minusculas *">
                                                   </div>
                                               </div>
                                               <div class="col-md-6">
                                                   <div class="form-group">
                                                       <label for="form_lastname">Confirme Contraseña *</label>
-                                                      <input id="form_lastname" type="text" name="surname" class="form-control" placeholder="Escriba una contraseña con 8 caracteres o mas con mayusculas y minusculas">
+                                                      <input id="txtContrasenaConfirmacion" type="password" name="txtContrasenaConfirmacion" class="form-control" placeholder="Escriba una contraseña con 8 caracteres o mas con mayusculas y minusculas">
                                                   </div>
                                               </div>
                                           </div>
 
 
                       </div>
-                      <button type="submit" class="btn btn-default">
-                        Submit
+                      <button type="submit" class="btn btn-default" name="btnRegistroUsuarios" id="btnRegistroUsuarios">
+                        Registrarme
                       </button>
 
                     </form>

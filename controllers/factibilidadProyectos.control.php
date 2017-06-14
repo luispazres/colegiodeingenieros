@@ -4,8 +4,7 @@
 
   require_once("models/categorias.model.php");
 
-  function run(){
-
+  function run(){  
     renderizar("factibilidadProyectos",  array());
   }
 
