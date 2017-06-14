@@ -47,8 +47,10 @@
                     <td>{{proyectoLongitud}}</td>
                     <td>{{proyectoNombrePropietario}}</td>
                     <td>{{proyectoIdentidadPropietario}}</td>
-                    <td>  <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-lg-{{proyectoId}}">Large modal</button>
-
+                    <td>  <button type="button" class="btn btn-primary glyphicon glyphicon-eye-open" data-toggle="modal" data-target=".bs-example-modal-lg-{{proyectoId}}"> Ver</button>
+                              {{foreach direccion}}
+                              <a href="index.php?page={{direccionARedireccionar}}&proyectoId={{proyectoId}}"><button type="button" class="btn btn-success glyphicon glyphicon-eye-open" > Seleccionar</button></a>
+                              {{endfor direccion}}
                       <div class="modal fade bs-example-modal-lg-{{proyectoId}}" tabindex="-1" role="dialog" aria-hidden="true">
                         <div class="modal-dialog modal-lg">
                           <div class="modal-content">
@@ -56,23 +58,43 @@
                             <div class="modal-header">
                               <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span>
                               </button>
-                              <h4 class="modal-title" id="myModalLabel">Datos del Proyecto</h4>
+                              <h4 class="modal-title" id="myModalLabel">Detalle del Proyecto</h4>
                             </div>
                             <div class="modal-body">
                               <h4>Datos del Proyecto</h4>
                               Código del Proyecto: {{proyectoId}}
                               <br>
                               Nombre del Proyecto: {{proyectoNombre}}
-
+                              <br>
+                              Descripcion del Proyecto: {{proyectoDescrpcion}}
+                              <br>
+                              Departamento del Proyecto: {{departamentoDescripcion}}
+                              <br>
+                              Dirección del Proyecto: {{proyectoDireccion}}
+                              <h4>Coordenadas Del Proyecto</h4>
+                              Latitud: {{proyectoLatitud}}
+                              <br>
+                              Longitud: {{proyectoLongitud}}
+                              <br>
+                              <h4>Datos del Propietario</h4>
+                              Nombre de Propietario: {{proyectoNombrePropietario}}
+                              <br>
+                              Identidad del Propietario: {{proyectoIdentidadPropietario}}
+                              <br>
+                              Teléfono del Propietario: {{proyectoTelefonoPropietario}}
+                              <br>
+                              Celular delPropietario: {{proyectoCelularPropietario}}
+                              <br>
+                              Dirección del Propietario: {{proyectoPropietarioDireccion}}
                             </div>
                             <div class="modal-footer">
-                              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                              <button type="button" class="btn btn-primary">Save changes</button>
+                              <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
                             </div>
-
                           </div>
                         </div>
-                      </div></td>
+                      </div>
+
+                    </td>
                   </tr>
                 {{endfor proyectos}}
               </tbody>
