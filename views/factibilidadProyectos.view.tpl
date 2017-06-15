@@ -42,7 +42,8 @@
                 <div class="x_content">
                   <br>
 
-                    <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left">
+                    <form action="index.php?page=factibilidadProyectos" id="demo-form2" data-parsley-validate class="form-horizontal form-label-left" method="post">
+                      <input type="hidden" name="proyectoId" id="proyectoId" value="{{proyectoId}}">
                       <div class="form-group">
 
               					 <div class="row">
@@ -139,8 +140,8 @@
               													<div class="row">
                                               <div class="col-md-6">
                                                   <div class="form-group">
-                                                      <label for="form_name">Voltaje *</label>
-                                                      <select ng-model="datos.departamento" name="departamento" id="departamento" class="form-control margin ng-pristine ng-valid ui-corner-all formularios ng-touched">
+                                                      <label for="cmbVoltaje">Voltaje *</label>
+                                                      <select ng-model="datos.departamento" name="cmbVoltaje" id="cmbVoltaje"  class="form-control margin ng-pristine ng-valid ui-corner-all formularios ng-touched">
                                                       <option value="">Seleccione...</option>
                                                       {{foreach voltajes}}
                                                         <option value="{{voltajeId}}">{{voltajeDescripcion}}</option>
@@ -150,8 +151,8 @@
                                               </div>
                                               <div class="col-md-6">
                                                   <div class="form-group">
-                                                      <label for="form_lastname">Tipo de Conexión *</label>
-                                                      <select ng-model="datos.departamento" name="departamento" id="departamento" class="form-control margin ng-pristine ng-valid ui-corner-all formularios ng-touched">
+                                                      <label for="cmbConexion">Tipo de Conexión *</label>
+                                                      <select ng-model="datos.conexiones" name="cmbConexion" id="cmbConexion" class="form-control margin ng-pristine ng-valid ui-corner-all formularios ng-touched">
                                                       <option value="">Seleccione...</option>
                                                       {{foreach conexiones}}
                                                         <option value="{{conexionId}}">{{conexionDescripcion}}</option>
@@ -164,14 +165,20 @@
               		<div class="row">
                                               <div class="col-md-6">
                                                   <div class="form-group">
-                                                      <label for="form_name">Potencia *</label>
-                                                      <input id="form_name" type="text" name="name" class="form-control" placeholder="Potencia *">
+                                                      <label for="txtPotencia">Potencia *</label>
+                                                      <input id="txtPotencia" type="text" name="txtPotencia"  class="form-control" placeholder="Potencia *">
                                                   </div>
                                               </div>
               																<div class="col-md-6">
                                                   <div class="form-group">
-                                                      <label for="form_name">Crecimiento Futuro Esperado en % *</label>
-                                                      <input id="form_name" type="text" name="name" class="form-control" placeholder="Crecimiento Futuro Esperado en % *">
+                                                      <label for="txtCrecimientoEsperado">Crecimiento Futuro Esperado en % *</label>
+                                                      <input type="text" name="txtCrecimientoEsperado" id="txtCrecimientoEsperado" class="form-control" placeholder="Crecimiento Futuro Esperado en % *">
+                                                  </div>
+                                              </div>
+                                              <div class="col-md-6">
+                                                  <div class="form-group">
+                                                      <label for="txtKva">KVA a Instalar</label>
+                                                      <input type="text" id="txtKva" name="txtKva" id="txtCrecimientoEsperado" class="form-control" placeholder="Crecimiento Futuro Esperado en % *">
                                                   </div>
                                               </div>
               		</div>
@@ -183,9 +190,7 @@
               				</div>
 
               				<!--Boton Submit-->
-              				<button type="submit" class="btn btn-default">
-              					Enviar
-              				</button>
+              				<input type="submit" id="btnSolicitarFactibilidad" name="btnSolicitarFactibilidad"class="btn btn-default" value="Solicitar Factibilidad">
               				<!--Fin Boton Submit-->
 
 

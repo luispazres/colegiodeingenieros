@@ -2,12 +2,14 @@
 
   require_once("libs/template_engine.php");
 
-  require_once("models/proyectos.model.php");
+  require_once("models/factibilidad.model.php");
+    require_once("models/proyectos.model.php");
 
   function run(){
 
     $proyectos = array();
     $htmlDatos = array( );
+    $resultado="";
 
     if (isset($_GET["proyectoId"])) {
       $proyectos=obtnerProyectosPorId($_GET["proyectoId"]);
@@ -34,7 +36,11 @@
         }
       }
 
-    print_r($htmlDatos);
+      if (isset($_POST["btnSolicitarFactibilidad"])) {
+        $resultado=registrarFactibilidad($_POST["cmbVoltaje"],$_POST["cmbConexion"],$_POST["txtPotencia"],$_POST["txtCrecimientoEsperado"],$_POST["txtKva"],$_POST["proyectoId"]);
+      }
+
+      echo $resultado;
 
     renderizar("factibilidadProyectos",  $htmlDatos);
   }

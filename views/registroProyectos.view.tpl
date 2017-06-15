@@ -42,7 +42,7 @@
                 <div class="x_content">
                   <br>
 
-                    <form id="defaultForm" action="index.php?page=registroProyectos" data-parsley-validate class="form-horizontal form-label-left" method="post">
+                    <form id="defaultForm" action="index.php?page=registrarProyecto" data-parsley-validate class="form-horizontal form-label-left" method="post">
 
 
                       <div class="form-group">
