@@ -11,14 +11,27 @@
           return $usuario;
     }
 
-    function obtenerUsuariosPorId($id){
-          $usuario = array();
-          $sqlstr = "SELECT *
-          FROM tblusuarios tblu, tblroles tblr, tblestadocuenta tble WHERE tblu.rolId=tblr.rolId
-          AND tblu.estadoCuentaId=tble.estadoCuentaId AND tblu.usuarioIdentidad='%s';";
-          $sqlstr = sprintf($sqlstr, valstr($id));
-          $usuario = obtenerUnRegistro($sqlstr);
-          return $usuario;
+    function obtenerRoles(){
+        $roles = array();
+        $sqlstr = "select * from tblroles;";
+        $roles = obtenerRegistros($sqlstr);
+        return $roles;
+    }
+
+    function obtenerEstadoCuenta(){
+        $estado = array();
+        $sqlstr = "select * from tblestadocuenta;";
+        $estado = obtenerRegistros($sqlstr);
+        return $estado;
+    }
+
+    function obtnerUsuriosPorId($numeroId){
+        $proyecto = array();
+        $sqlstr = "select * from tblusuarios as tblu, tblroles as tblr, tblestadocuenta as tble WHERE tblu.rolId=tblr.rolId
+        AND tblu.estadoCuentaId=tble.estadoCuentaId AND tblu.usuarioIdentidad='0801-1995-08222asdasd';";
+        $sqlstr = sprintf($sqlstr, $numeroId);
+        $proyecto = obtenerUnRegistro($sqlstr);
+        return $proyecto;
     }
 
 
