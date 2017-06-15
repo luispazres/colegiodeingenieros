@@ -6,6 +6,13 @@
   $usuarios = array();
   $htmlDatos = array();
 
+  if(isset($_POST["btnActualizarUsuario"])){
+    $estadoCuenta=$_POST["cmbEstadoCuenta"];
+    $usuarioIdentidad=$_POST["txtUsuarioId"];
+    $rolId=$_POST["cmbTipoCuenta"];
+    modificarUsuarios($usuarioIdentidad, $estadoCuenta, $rolId);
+    }
+
   if(isset($_GET["usuarioId"])){
     $algo=$_GET["usuarioId"];
     $usuarios=obtnerUsuriosPorId($algo);

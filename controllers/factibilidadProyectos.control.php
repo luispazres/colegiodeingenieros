@@ -8,11 +8,11 @@
 
     $proyectos = array();
     $htmlDatos = array( );
-
+/*
     if (isset($_GET["proyectoId"])) {
       $proyectos=obtnerProyectosPorId($_GET["proyectoId"]);
     }
-
+*/
     if(isset($_GET["proyectoId"])){
       $proyectos=obtnerProyectosPorId($_GET["proyectoId"]);
       if($proyectos){

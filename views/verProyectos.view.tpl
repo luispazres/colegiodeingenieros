@@ -70,12 +70,21 @@
                           </div>
                         </div>
                       </div>
+<<<<<<< Updated upstream
                     </div>
                   </td>
                 </tr>
               {{endfor proyectos}}
             </tbody>
           </table>
+=======
+                    </td>
+                  </tr>
+                {{endfor proyectos}}
+              </tbody>
+            </table>
+          </div>
+>>>>>>> Stashed changes
         </div>
       </div>
     </div>

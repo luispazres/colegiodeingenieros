@@ -44,7 +44,18 @@
           return $usuario;
     }
 
-  function actualizarEstado($usuarioIdentidad, $estadoCuenta){
+    function modificarUsuarios($usuarioIdentidad, $estadoCuenta,$rolId){
+    $sqlstr="UPDATE `tblusuarios`
+    SET `estadoCuentaId` = $estadoCuenta,
+    SET `rolId` = $rolId
+    WHERE `usuarioIdentidad` = '$usuarioIdentidad';";
+    if(ejecutarNonQuery($sqlstr)){
+    return ejecutarNonQueryConErrores($sqlstr);
+    }
+    return 0;
+    }
+
+    function actualizarEstado($usuarioIdentidad, $estadoCuenta){
     $sqlstr="UPDATE `tblusuarios`
     SET `estadoCuentaId` = $estadoCuenta
     WHERE `usuarioIdentidad` = '$usuarioIdentidad';";
