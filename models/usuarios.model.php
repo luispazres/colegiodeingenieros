@@ -11,6 +11,7 @@
           return $usuario;
     }
 
+
     function obtenerRoles(){
         $roles = array();
         $sqlstr = "select * from tblroles;";
@@ -31,7 +32,13 @@
         AND tblu.estadoCuentaId=tble.estadoCuentaId AND tblu.usuarioIdentidad='0801-1995-08222asdasd';";
         $sqlstr = sprintf($sqlstr, $numeroId);
         $proyecto = obtenerUnRegistro($sqlstr);
-        return $proyecto;
+
+    function obtenerUsuariosPorId($id){
+          $usuario = array();
+          $sqlstr = "select * from tblusuarios as u, tblroles as r, tblestadocuenta as ec  where u.estadoCuentaId=ec.estadoCuentaId and u.rolId=r.rolId and usuarioIdentidad='0801-1995-08222asdasd';";
+          //$sqlstr = sprintf($sqlstr, valstr($id));
+          $usuario = obtenerUnRegistro($sqlstr);
+          return $usuario;
     }
 
 

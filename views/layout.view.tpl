@@ -351,5 +351,27 @@
 
           <!-- Custom Theme Scripts -->
           <script src="public/js/custom.min.js"></script>
+
+          <script type="text/javascript">
+
+              $("#txtMonto").on('input',function(e){
+                var monto =$("#txtMonto").val();
+                var cantidadAPagar=0;
+                if (monto>=1 && monto<=100000) {
+                  cantidadAPagar=50;
+                }else if (monto>100000 && monto<=250000) {
+                  cantidadAPagar=150;
+                }else if (monto>500000 && monto<=1000000) {
+                  cantidadAPagar=700;
+                }else if (monto>1000000 && monto<=2000000) {
+                  cantidadAPagar=10000;
+                }else if (monto>2000000) {
+                  cantidadAPagar=13000;
+                }
+                $("#txtTotal").val(cantidadAPagar);
+              });
+
+          </script>
+
         </body>
     </html>

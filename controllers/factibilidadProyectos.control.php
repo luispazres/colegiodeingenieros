@@ -40,8 +40,6 @@
         $resultado=registrarFactibilidad($_POST["cmbVoltaje"],$_POST["cmbConexion"],$_POST["txtPotencia"],$_POST["txtCrecimientoEsperado"],$_POST["txtKva"],$_POST["proyectoId"]);
       }
 
-      echo $resultado;
-
     renderizar("factibilidadProyectos",  $htmlDatos);
   }
   run();
