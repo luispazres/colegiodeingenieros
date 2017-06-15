@@ -3,20 +3,20 @@
     require_once("libs/dao.php");
 
     function obtenerUsuarios(){
-        $usuario = array();
-        $sqlstr = sprintf("SELECT *
-  FROM tblusuarios tblu, tblroles tblr, tblestadocuenta tble WHERE tblu.rolId=tblr.rolId
-  AND tblu.estadoCuentaId=tble.estadoCuentaId;");
-        $usuario = obtenerRegistros($sqlstr);
-        return $usuario;
+          $usuario = array();
+          $sqlstr = sprintf("SELECT *
+          FROM tblusuarios tblu, tblroles tblr, tblestadocuenta tble WHERE tblu.rolId=tblr.rolId
+          AND tblu.estadoCuentaId=tble.estadoCuentaId AND tble.estadoCuentaDescripcion='suspendido';");
+          $usuario = obtenerRegistros($sqlstr);
+          return $usuario;
     }
 
   function actualizarEstado($usuarioIdentidad, $estadoCuenta){
-    $sqlstr="UPDATE `cimeqh`.`tblusuarios`
+    $sqlstr="UPDATE `tblusuarios`
     SET `estadoCuentaId` = $estadoCuenta
-    WHERE `usuarioIdentidad` = $usuarioIdentidad;";
+    WHERE `usuarioIdentidad` = '$usuarioIdentidad';";
     if(ejecutarNonQuery($sqlstr)){
-    return ejecutarNonQueryConErrores($sqlstr);    
+    return ejecutarNonQueryConErrores($sqlstr);
     }
     return 0;
     }

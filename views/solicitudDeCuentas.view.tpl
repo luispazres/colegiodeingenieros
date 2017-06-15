@@ -82,10 +82,10 @@
                             <br>
                           </div>
                           <div class="modal-footer">
-                              <form method="post" action="index.php?page=verUsuarios">
+                              <form method="post" action="index.php?page=solicitudDeCuentas">
                               <input id="usuarioIdentidad" type="hidden" name="usuarioIdentidad" value={{usuarioIdentidad}}>
                               <input type="submit" name="btnRechazar" id="btnRechazar" class="btn btn-danger" value="Rechazar Usuario">
-                              <input type="submit" name="btnAceptar" id="btnAceptar" class="btn btn-success" value="Aceptar Usuario">                              
+                              <input type="submit" name="btnAceptar" id="btnAceptar" class="btn btn-success" value="Aceptar Usuario">
                               </form>
                           </div>
                         </div>

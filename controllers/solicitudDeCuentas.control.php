@@ -11,6 +11,7 @@
   $usuario = array();
 
   if(isset($_POST["btnRechazar"])){
+
     $numeroId="";
     $estadoCuenta=2;
     $numeroId=$_POST["usuarioIdentidad"];
@@ -18,15 +19,17 @@
     }
 
   if(isset($_POST["btnAceptar"])){
-    $location="";
+    $respuesta="";
     $numeroId="";
     $estadoCuenta=1;
     $numeroId=$_POST["usuarioIdentidad"];
-    actualizarEstado($numeroId,$estadoCuenta);
+    $respuesta=actualizarEstado($numeroId,$estadoCuenta);
+    echo $respuesta;
   }
-  
+
   $usuario=obtenerUsuarios();
-  renderizar("verUsuarios",array('usuario'=>$usuario));
+  renderizar("solicitudDeCuentas",array('usuario'=>$usuario));
+
   }
   run();
 ?>

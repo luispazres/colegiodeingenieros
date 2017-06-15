@@ -32,9 +32,9 @@
             require_once("controllers/verProyectos.control.php");
             break;
 
-            case "verUsuarios":
+            case "solicitudDeCuentas":
                 //llamar al controlador
-                require_once("controllers/verUsuarios.control.php");
+                require_once("controllers/solicitudDeCuentas.control.php");
                 break;
 
         case "registroProyectos":
