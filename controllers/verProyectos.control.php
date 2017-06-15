@@ -14,20 +14,8 @@
 
     $proyectos=obtenerTodosLosProyectos();
 
-    if (isset($_GET["accion"])){
-      switch ($_GET["accion"]) {
-        case 'Factibilidad':
-        $accion["direccionARedireccionar"]="factibilidadProyectos";
-          break;
-
-        default:
-
-          break;
-      }
-    }
-
     print_r($accion);
-    renderizar("verProyectos",array('proyectos' => $proyectos, 'direccion'=>$accion));
+    renderizar("verProyectos",array('proyectos' => $proyectos));
   }
 
 

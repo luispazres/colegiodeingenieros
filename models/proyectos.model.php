@@ -15,6 +15,13 @@
         return $departamentos;
     }
 
+    function obtnerProyectosPorId($proyectoId){
+        $proyecto = array();
+        $sqlstr = "select * from tblproyectos as p, tbldepartamentos as d where d.departamentoId=p.departamentoId;";
+        $departamentos = obtenerRegistros($sqlstr);
+        return $departamentos;
+    }
+
     function registrarProyecto($txtNombrePropietario,$txtIdentidadPropietario,$txtDireccionPropietario,$txtEmailPropietario,$txtTelefonoPropietario, $txtCelularPropietario, $txtProyectoNombre, $txtLatitud, $txtLongitud, $txtDescripcionProyecto,$cmbDepartamentoProyecto,$txtDireccionProyecto, $txtProyectoNombre){
       $insertSQL = "INSERT INTO `tblProyectos` (`proyectoNombrePropietario`,`proyectoIdentidadPropietario`,
         `proyectoDireccionPropietario`, `proyectoCelularPropietario`,`proyectoEmailPropietario`,
