@@ -1,8 +1,8 @@
 -- MySQL dump 10.13  Distrib 5.7.17, for Win64 (x86_64)
 --
--- Host: localhost    Database: cimeqh
+-- Host: 127.0.0.1    Database: cimeqh
 -- ------------------------------------------------------
--- Server version	5.7.14
+-- Server version	5.7.18-log
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -58,6 +58,7 @@ CREATE TABLE `tbldepartamentos` (
 
 LOCK TABLES `tbldepartamentos` WRITE;
 /*!40000 ALTER TABLE `tbldepartamentos` DISABLE KEYS */;
+INSERT INTO `tbldepartamentos` VALUES (1,'Francisco Morazan'),(2,'Islas de la Bahia'),(3,'Comayagua'),(4,'Santa Barbara'),(5,'Gracias a Dios'),(6,'Lempira'),(7,'Valle'),(8,'Atlantida'),(9,'Cortes');
 /*!40000 ALTER TABLE `tbldepartamentos` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -123,7 +124,7 @@ CREATE TABLE `tblestadocuenta` (
   `estadoCuentaId` int(11) NOT NULL AUTO_INCREMENT,
   `estadoCuentaDescripcion` varchar(100) NOT NULL,
   PRIMARY KEY (`estadoCuentaId`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -132,6 +133,7 @@ CREATE TABLE `tblestadocuenta` (
 
 LOCK TABLES `tblestadocuenta` WRITE;
 /*!40000 ALTER TABLE `tblestadocuenta` DISABLE KEYS */;
+INSERT INTO `tblestadocuenta` VALUES (1,'aprobado'),(2,'denegado'),(3,'suspendido');
 /*!40000 ALTER TABLE `tblestadocuenta` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -208,12 +210,13 @@ CREATE TABLE `tblproyectos` (
   `proyectoLongitud` float NOT NULL,
   `proyectoDireccion` varchar(200) NOT NULL,
   `usuarioIdentidad` varchar(25) NOT NULL,
+  `proyectoNombre` varchar(200) NOT NULL,
   PRIMARY KEY (`proyectoId`),
   KEY `usuarioIdentidad_idx` (`usuarioIdentidad`),
   KEY `departamentoId_idx` (`departamentoId`),
   CONSTRAINT `departamentoId` FOREIGN KEY (`departamentoId`) REFERENCES `tbldepartamentos` (`departamentoId`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `usuarioIdentidad` FOREIGN KEY (`usuarioIdentidad`) REFERENCES `tblusuarios` (`usuarioIdentidad`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -222,6 +225,7 @@ CREATE TABLE `tblproyectos` (
 
 LOCK TABLES `tblproyectos` WRITE;
 /*!40000 ALTER TABLE `tblproyectos` DISABLE KEYS */;
+INSERT INTO `tblproyectos` VALUES (2,'sdasad','123312','987','a@algo.com','sadasd','546',1,'lkasdd',312,654,'asd','0801199503314','ajx'),(3,'sdasad','123312','987','a@algo.com','sadasd','546',1,'lkasdd',312,654,'asd','0801199503314','ajx'),(4,'sdasad','123312','987','a@algo.com','sadasd','546',7,'lkasdd',312,654,'asd','0801199503314','ajx');
 /*!40000 ALTER TABLE `tblproyectos` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -236,7 +240,7 @@ CREATE TABLE `tblroles` (
   `rolId` int(11) NOT NULL AUTO_INCREMENT,
   `rolDescripcion` varchar(100) NOT NULL,
   PRIMARY KEY (`rolId`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -245,6 +249,7 @@ CREATE TABLE `tblroles` (
 
 LOCK TABLES `tblroles` WRITE;
 /*!40000 ALTER TABLE `tblroles` DISABLE KEYS */;
+INSERT INTO `tblroles` VALUES (1,'cimeqh'),(2,'enee'),(3,'publico');
 /*!40000 ALTER TABLE `tblroles` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -410,6 +415,7 @@ CREATE TABLE `tblusuarios` (
   `usuarioContrasenia` varchar(45) NOT NULL,
   `estadoCuentaId` int(11) NOT NULL,
   `rolId` int(11) NOT NULL,
+  `usuarioCorreo` varchar(100) NOT NULL,
   PRIMARY KEY (`usuarioIdentidad`),
   KEY `rolId_idx` (`rolId`),
   KEY `estadoCuentaId_idx` (`estadoCuentaId`),
@@ -424,6 +430,7 @@ CREATE TABLE `tblusuarios` (
 
 LOCK TABLES `tblusuarios` WRITE;
 /*!40000 ALTER TABLE `tblusuarios` DISABLE KEYS */;
+INSERT INTO `tblusuarios` VALUES ('0801-1995-08222asdasd','asd','asd','asddfs','asd','qwe','asd','asd','asd','a3ac3570da3247fb6938d3a5543549ba',2,3,'j@superrito.com'),('0801-1995-085858','asd','asd','asd','sad','ads','99999','9999999','asdsdasad','4e55305a027551bf6e92a9019b57f80a',1,3,'j@superrito.com'),('0801199503314','Juan','Luis','Lopez','Paz','123456789','9876-5432','22244-8572','Colonia Palmira','47e2d80be5e155d4bade80d05828bf82',3,3,'prueba1@superrito.com'),('1','asd','asd','asddfs','dfdf','654','546','123','asdasd','0c9c61851b54a0765af2fe0502aee178',3,3,'j@superrito.com'),('1111111','X','Y','Z','W','11111','99-85','88-85','tegus','xD',3,3,''),('123123','jk','lp','xyz','abcd','1212132123','9966','5522','sdfdfsdfs','d41d8cd98f00b204e9800998ecf8427e',3,3,''),('123456789','jkkk','lllll','llll','ooooo','321654','99999','888888','asd','67e76f0191fa3a273ed2ef60c8c37789',3,3,'a@b.com'),('13212132132123','Juan','lp','asda','Paz','12123','9642-3311','2245-6875','asadsads','caf1a3dfb505ffed0d024130f58c5cfa',3,3,''),('321','asdadsasdads','zxczxzcx','sdfsdf','zxcfd','321','456','456','fg','6c4cd3e54f1558cdfcd36b9c7bdef137',3,3,'j@superrito.com'),('789654','jkl','asdasd','vgfui','jhv','8745','987','09','kjkj','79c57c591d62a2c57d17b3be5cf0385a',3,3,''),('9999','dfsdsf','lp','5334','456456456','45343','9966','6345','fgjfgfgj','d6acc0b68b294c64de181af391941921',3,3,'');
 /*!40000 ALTER TABLE `tblusuarios` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -459,4 +466,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-06-13 15:59:39
+-- Dump completed on 2017-06-15  9:56:11
