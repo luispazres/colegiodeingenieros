@@ -4,7 +4,7 @@
         <div class="title_left">
           <h3>Factibilidad de Proyectos</h3>
         </div>
-
+        <h1>{{proyectoId}}</h1>
         <div class="title_right">
           <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
             <div class="input-group">
@@ -48,26 +48,26 @@
               					 <div class="row">
                                               <div class="col-md-6">
                                                   <div class="form-group">
-                                                      <label for="form_name">Nombre del proyecto *</label>
-                                                      <input  id="form_name" type="text" name="name" class="form-control" placeholder="{{proyectoNombre}}">
+                                                      <label for="txtProyectoNombre">Nombre del proyecto *</label>
+                                                      <input type="text" id="txtProyectoNombre"class="form-control" name="txtProyectoNombre" value="{{proyectoNombre}}" disabled="disabled">
                                                   </div>
                                               </div>
                                               <div class="col-md-6">
                                                   <div class="form-group">
                                                       <label for="form_lastname">Departamento *</label>
-                                                      <input type="text" id="txtproyectoDepartamento"class="form-control" name="txtproyectoDepartamento" value="">
+                                                      <input type="text" id="txtproyectoDepartamento"class="form-control" name="txtproyectoDepartamento" value="{{departamentoNombre}}" disabled="disabled">
                                                   </div>
                                               </div>
                                               <div class="col-md-6">
                                                   <div class="form-group">
                                                       <label for="form_name">Dirección Exacta del Proyecto *</label>
-                                                      <input id="form_name" type="text" name="name" class="form-control" placeholder="Dirección Exacta del Proyecto *">
+                                                      <input id="form_name" type="text" name="name" class="form-control"  value="{{proyectoDireccion}}" disabled="disabled">
                                                   </div>
                                               </div>
                                               <div class="col-md-12">
                                                <div class="form-group">
                                                    <label for="form_message">Descripcion del Proyecto *</label>
-                                                   <textarea id="form_message" name="message" class="form-control" placeholder="Descripcion del Proyecto *" rows="4"></textarea>
+                                                   <textarea id="form_message" name="message" class="form-control" disabled="disabled" rows="4">{{proyectoDescrpcion}}</textarea>
                                                </div>
                                            </div>
                                           </div>
@@ -78,13 +78,13 @@
                                                                       <div class="col-md-6">
                                                                           <div class="form-group">
                                                                               <label for="form_name">Latitud *</label>
-                                                                              <input id="form_name" type="text" name="name" class="form-control" placeholder="Latitud *">
+                                                                              <input id="form_name" type="text" name="name" class="form-control" value="{{proyectoLatitud}}" disabled="disabled">
                                                                           </div>
                                                                       </div>
                                                                       <div class="col-md-6">
                                                                           <div class="form-group">
                                                                               <label for="form_lastname">Longitud *</label>
-                                                                              <input id="form_lastname" type="text" name="surname" class="form-control" placeholder="Longitud *">
+                                                                              <input id="form_lastname" type="text" name="surname" class="form-control" value="{{proyectoLongitud}}" disabled="disabled">
                                                                           </div>
                                                                       </div>
                                           </div>
@@ -94,13 +94,13 @@
                                               <div class="col-md-6">
                                                   <div class="form-group">
                                                       <label for="form_name">Propietario *</label>
-                                                      <input id="form_name" type="text" name="name" class="form-control" placeholder="Propietario del proyecto *">
+                                                      <input id="form_name" type="text" name="name" class="form-control" value="{{proyectoNombrePropietario}}" disabled="disabled">
                                                   </div>
                                               </div>
                                               <div class="col-md-6">
                                                   <div class="form-group">
                                                       <label for="form_lastname">Numero de Identidad del Propietario *</label>
-                                                      <input id="form_lastname" type="text" name="surname" class="form-control" placeholder="N° de identidad del propietario *">
+                                                      <input id="form_lastname" type="text" name="surname" class="form-control" value="{{proyectoIdentidadPropietario}}" disabled="disabled">
                                                   </div>
                                               </div>
                                           </div>
@@ -109,13 +109,13 @@
                                               <div class="col-md-6">
                                                   <div class="form-group">
                                                       <label for="form_name">Telefono Propietario *</label>
-                                                      <input id="form_name" type="text" name="name" class="form-control" placeholder="Telefono Propietario *">
+                                                      <input id="form_name" type="text" name="name" class="form-control" value="{{proyectoTelefonoPropietario}}" disabled="disabled">
                                                   </div>
                                               </div>
                                               <div class="col-md-6">
                                                   <div class="form-group">
                                                       <label for="form_lastname">Celular Propietario *</label>
-                                                      <input id="form_lastname" type="text" name="surname" class="form-control" placeholder="Celular Propietario *">
+                                                      <input id="form_lastname" type="text" name="surname" class="form-control" value="{{proyectoCelularPropietario}}" disabled="disabled">
                                                   </div>
                                               </div>
                                           </div>
@@ -124,13 +124,13 @@
                                               <div class="col-md-6">
                                                   <div class="form-group">
                                                       <label for="form_name">Email Propietario *</label>
-                                                      <input id="form_name" type="text" name="name" class="form-control" placeholder="Email Propietario *">
+                                                      <input id="form_name" type="text" name="name" class="form-control"value="{{proyectoEmailPropietario}}" disabled="disabled">
                                                   </div>
                                               </div>
                                               <div class="col-md-6">
                                                   <div class="form-group">
                                                       <label for="form_lastname">Dirección Propietario *</label>
-                                                      <input id="form_lastname" type="text" name="surname" class="form-control" placeholder="Dirección Propietario *">
+                                                      <input id="form_lastname" type="text" name="surname" class="form-control" value="{{proyectoDireccionPropietario}}" disabled="disabled">
                                                   </div>
                                               </div>
                                           </div>
@@ -140,10 +140,11 @@
                                               <div class="col-md-6">
                                                   <div class="form-group">
                                                       <label for="form_name">Voltaje *</label>
-              																				<select ng-model="datos.departamento" name="departamento" id="departamento" class="form-control margin ng-pristine ng-valid ui-corner-all formularios ng-touched">
-              																				<option value="">Seleccione...</option>
-              																				<option value="T1">13.4 KV</option>
-              																				<option value="T2">34.5 KV</option>
+                                                      <select ng-model="datos.departamento" name="departamento" id="departamento" class="form-control margin ng-pristine ng-valid ui-corner-all formularios ng-touched">
+                                                      <option value="">Seleccione...</option>
+                                                      {{foreach voltajes}}
+                                                        <option value="{{voltajeId}}">{{voltajeDescripcion}}</option>
+                                                      {{endfor voltajes}}
               																				</select>
                                                   </div>
                                               </div>
@@ -151,9 +152,10 @@
                                                   <div class="form-group">
                                                       <label for="form_lastname">Tipo de Conexión *</label>
                                                       <select ng-model="datos.departamento" name="departamento" id="departamento" class="form-control margin ng-pristine ng-valid ui-corner-all formularios ng-touched">
-              																				<option value="">Seleccione...</option>
-              																				<option value="T1">Monofásico</option>
-              																				<option value="T2">Trifasico</option>
+                                                      <option value="">Seleccione...</option>
+                                                      {{foreach conexiones}}
+                                                        <option value="{{conexionId}}">{{conexionDescripcion}}</option>
+                                                      {{endfor conexiones}}
               																				</select>
                                                   </div>
                                               </div>

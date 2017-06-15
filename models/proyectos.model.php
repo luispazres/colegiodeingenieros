@@ -8,6 +8,20 @@
         return $departamentos;
     }
 
+    function obtenerVoltajes(){
+        $voltajes = array();
+        $sqlstr = "select * from tblvoltajes;";
+        $voltajes = obtenerRegistros($sqlstr);
+        return $voltajes;
+    }
+
+    function obtenerConexions(){
+        $conexiones = array();
+        $sqlstr = "select * from tblconexiones;";
+        $conexiones = obtenerRegistros($sqlstr);
+        return $conexiones;
+    }
+
     function obtenerTodosLosProyectos(){
         $departamentos = array();
         $sqlstr = "select * from tblproyectos as p, tbldepartamentos as d where d.departamentoId=p.departamentoId;";
@@ -17,9 +31,10 @@
 
     function obtnerProyectosPorId($proyectoId){
         $proyecto = array();
-        $sqlstr = "select * from tblproyectos as p, tbldepartamentos as d where d.departamentoId=p.departamentoId;";
-        $departamentos = obtenerRegistros($sqlstr);
-        return $departamentos;
+        $sqlstr = "select * from tblproyectos as p, tbldepartamentos as d where d.departamentoId=p.departamentoId and p.proyectoId=%d;";
+        $sqlstr = sprintf($sqlstr, $proyectoId);
+        $proyecto = obtenerUnRegistro($sqlstr);
+        return $proyecto;
     }
 
     function registrarProyecto($txtNombrePropietario,$txtIdentidadPropietario,$txtDireccionPropietario,$txtEmailPropietario,$txtTelefonoPropietario, $txtCelularPropietario, $txtProyectoNombre, $txtLatitud, $txtLongitud, $txtDescripcionProyecto,$cmbDepartamentoProyecto,$txtDireccionProyecto, $txtProyectoNombre){
