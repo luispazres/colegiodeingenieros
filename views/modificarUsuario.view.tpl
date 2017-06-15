@@ -4,7 +4,6 @@
         <div class="title_left">
           <h3>Modificar Usuarios</h3>
         </div>
-        <h1>{{usuarioIdentidad}}</h1>
         <div class="title_right">
           <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
             <div class="input-group">
@@ -48,139 +47,65 @@
               					 <div class="row">
                                               <div class="col-md-6">
                                                   <div class="form-group">
-                                                      <label for="txtProyectoNombre">Nombre del Usuario *</label>
-                                                      <input type="text" id="txtProyectoNombre"class="form-control" name="txtProyectoNombre" value="{{usuarioPrimerNombre}} {{usuarioPrimerApellido}}" disabled="disabled">
+                                                      <label for="txtProyectoNombre">Numero de Identidad *</label>
+                                                      <input type="text" id="txtProyectoNombre"class="form-control" name="txtProyectoNombre" value="{{usuarioIdentidad}}" disabled="disabled">
                                                   </div>
                                               </div>
                                               <div class="col-md-6">
                                                   <div class="form-group">
-                                                      <label for="form_lastname">Departamento *</label>
-                                                      <input type="text" id="txtproyectoDepartamento"class="form-control" name="txtproyectoDepartamento" value="{{departamentoNombre}}" disabled="disabled">
+                                                      <label for="form_lastname">Numero de Colegiación *</label>
+                                                      <input type="text" id="txtproyectoDepartamento"class="form-control" name="txtproyectoDepartamento" value="{{usuarioNumeroColegiacion}}" disabled="disabled">
                                                   </div>
                                               </div>
                                               <div class="col-md-6">
                                                   <div class="form-group">
-                                                      <label for="form_name">Dirección Exacta del Proyecto *</label>
-                                                      <input id="form_name" type="text" name="name" class="form-control"  value="{{proyectoDireccion}}" disabled="disabled">
+                                                      <label for="form_name">Nombre *</label>
+                                                      <input id="form_name" type="text" name="name" class="form-control"  value="{{usuarioPrimerNombre}} {{usuarioSegundoNombre}} {{usuarioPrimerApellido}} {{usuarioSegundoApellido}}" disabled="disabled">
+                                                  </div>
+                                              </div>
+                                              <div class="col-md-6">
+                                                  <div class="form-group">
+                                                      <label for="form_name">Numero de Celular *</label>
+                                                      <input id="form_name" type="text" name="name" class="form-control"  value="{{usuarioCelular}}" disabled="disabled">
+                                                  </div>
+                                              </div>
+                                              <div class="col-md-6">
+                                                  <div class="form-group">
+                                                      <label for="form_name">Numero Telefonico *</label>
+                                                      <input id="form_name" type="text" name="name" class="form-control"  value="{{usuarioTelefono}}" disabled="disabled">
                                                   </div>
                                               </div>
                                               <div class="col-md-12">
                                                <div class="form-group">
-                                                   <label for="form_message">Descripcion del Proyecto *</label>
-                                                   <textarea id="form_message" name="message" class="form-control" disabled="disabled" rows="4">{{proyectoDescrpcion}}</textarea>
+                                                   <label for="form_message">Dirección *</label>
+                                                   <textarea id="form_message" name="message" class="form-control" disabled="disabled" rows="4">{{usuarioDireccion}}</textarea>
                                                </div>
                                            </div>
-                                          </div>
 
-                                          <h4>Coordenadas</h4>
 
-                                          <div class="row">
-                                                                      <div class="col-md-6">
-                                                                          <div class="form-group">
-                                                                              <label for="form_name">Latitud *</label>
-                                                                              <input id="form_name" type="text" name="name" class="form-control" value="{{proyectoLatitud}}" disabled="disabled">
-                                                                          </div>
-                                                                      </div>
-                                                                      <div class="col-md-6">
-                                                                          <div class="form-group">
-                                                                              <label for="form_lastname">Longitud *</label>
-                                                                              <input id="form_lastname" type="text" name="surname" class="form-control" value="{{proyectoLongitud}}" disabled="disabled">
-                                                                          </div>
-                                                                      </div>
-                                          </div>
-
-              					 <h4>Datos Propietario</h4></br>
-              					 <div class="row">
-                                              <div class="col-md-6">
-                                                  <div class="form-group">
-                                                      <label for="form_name">Propietario *</label>
-                                                      <input id="form_name" type="text" name="name" class="form-control" value="{{proyectoNombrePropietario}}" disabled="disabled">
-                                                  </div>
-                                              </div>
-                                              <div class="col-md-6">
-                                                  <div class="form-group">
-                                                      <label for="form_lastname">Numero de Identidad del Propietario *</label>
-                                                      <input id="form_lastname" type="text" name="surname" class="form-control" value="{{proyectoIdentidadPropietario}}" disabled="disabled">
-                                                  </div>
+                                          <div class="col-md-6">
+                                              <div class="form-group">
+                                                  <label for="form_name">Estado Cuenta *</label>
+                                                  <select ng-model="datos.departamento" name="departamento" id="departamento" class="form-control margin ng-pristine ng-valid ui-corner-all formularios ng-touched">
+                                                  <option value="">Seleccione...</option>
+                                                  {{foreach roles}}
+                                                    <option value="{{rolId}}">{{rolDescripcion}}</option>
+                                                  {{endfor roles}}
+                                                  </select>
                                               </div>
                                           </div>
-
-              					 <div class="row">
                                               <div class="col-md-6">
                                                   <div class="form-group">
-                                                      <label for="form_name">Telefono Propietario *</label>
-                                                      <input id="form_name" type="text" name="name" class="form-control" value="{{proyectoTelefonoPropietario}}" disabled="disabled">
-                                                  </div>
-                                              </div>
-                                              <div class="col-md-6">
-                                                  <div class="form-group">
-                                                      <label for="form_lastname">Celular Propietario *</label>
-                                                      <input id="form_lastname" type="text" name="surname" class="form-control" value="{{proyectoCelularPropietario}}" disabled="disabled">
-                                                  </div>
-                                              </div>
-                                          </div>
-
-              					 <div class="row">
-                                              <div class="col-md-6">
-                                                  <div class="form-group">
-                                                      <label for="form_name">Email Propietario *</label>
-                                                      <input id="form_name" type="text" name="name" class="form-control"value="{{proyectoEmailPropietario}}" disabled="disabled">
-                                                  </div>
-                                              </div>
-                                              <div class="col-md-6">
-                                                  <div class="form-group">
-                                                      <label for="form_lastname">Dirección Propietario *</label>
-                                                      <input id="form_lastname" type="text" name="surname" class="form-control" value="{{proyectoDireccionPropietario}}" disabled="disabled">
-                                                  </div>
-                                              </div>
-                                          </div>
-
-
-              													<div class="row">
-                                              <div class="col-md-6">
-                                                  <div class="form-group">
-                                                      <label for="form_name">Voltaje *</label>
+                                                      <label for="form_lastname">Tipo de Cuenta *</label>
                                                       <select ng-model="datos.departamento" name="departamento" id="departamento" class="form-control margin ng-pristine ng-valid ui-corner-all formularios ng-touched">
                                                       <option value="">Seleccione...</option>
-                                                      {{foreach voltajes}}
-                                                        <option value="{{voltajeId}}">{{voltajeDescripcion}}</option>
-                                                      {{endfor voltajes}}
-              																				</select>
-                                                  </div>
-                                              </div>
-                                              <div class="col-md-6">
-                                                  <div class="form-group">
-                                                      <label for="form_lastname">Tipo de Conexión *</label>
-                                                      <select ng-model="datos.departamento" name="departamento" id="departamento" class="form-control margin ng-pristine ng-valid ui-corner-all formularios ng-touched">
-                                                      <option value="">Seleccione...</option>
-                                                      {{foreach conexiones}}
-                                                        <option value="{{conexionId}}">{{conexionDescripcion}}</option>
-                                                      {{endfor conexiones}}
+                                                      {{foreach estado}}
+                                                        <option value="{{estadoCuentaId}}">{{estadoCuentaDescripcion}}</option>
+                                                      {{endfor estado}}
               																				</select>
                                                   </div>
                                               </div>
               													</div>
-
-              		<div class="row">
-                                              <div class="col-md-6">
-                                                  <div class="form-group">
-                                                      <label for="form_name">Potencia *</label>
-                                                      <input id="form_name" type="text" name="name" class="form-control" placeholder="Potencia *">
-                                                  </div>
-                                              </div>
-              																<div class="col-md-6">
-                                                  <div class="form-group">
-                                                      <label for="form_name">Crecimiento Futuro Esperado en % *</label>
-                                                      <input id="form_name" type="text" name="name" class="form-control" placeholder="Crecimiento Futuro Esperado en % *">
-                                                  </div>
-                                              </div>
-              		</div>
-
-
-              			<div class="row">
-
-                                          </div>
-              				</div>
 
               				<!--Boton Submit-->
               				<button type="submit" class="btn btn-default">
