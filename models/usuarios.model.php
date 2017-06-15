@@ -11,6 +11,26 @@
           return $usuario;
     }
 
+    function obtenerUsuariosPorId($id){
+          $usuario = array();
+          $sqlstr = "SELECT *
+          FROM tblusuarios tblu, tblroles tblr, tblestadocuenta tble WHERE tblu.rolId=tblr.rolId
+          AND tblu.estadoCuentaId=tble.estadoCuentaId AND tblu.usuarioIdentidad='%s';";
+          $sqlstr = sprintf($sqlstr, valstr($id));
+          $usuario = obtenerUnRegistro($sqlstr);
+          return $usuario;
+    }
+
+
+    function obtenerTodosLosUsuarios(){
+          $usuario = array();
+          $sqlstr = sprintf("SELECT *
+          FROM tblusuarios tblu, tblroles tblr, tblestadocuenta tble WHERE tblu.rolId=tblr.rolId
+          AND tblu.estadoCuentaId=tble.estadoCuentaId;");
+          $usuario = obtenerRegistros($sqlstr);
+          return $usuario;
+    }
+
   function actualizarEstado($usuarioIdentidad, $estadoCuenta){
     $sqlstr="UPDATE `tblusuarios`
     SET `estadoCuentaId` = $estadoCuenta
