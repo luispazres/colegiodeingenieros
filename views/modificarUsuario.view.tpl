@@ -41,44 +41,45 @@
                 <div class="x_content">
                   <br>
 
-                    <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left">
+                    <form method="post" action="index.php?page=modificarUsuario" id="demo-form2" data-parsley-validate class="form-horizontal form-label-left">
                       <div class="form-group">
 
               					 <div class="row">
                                               <div class="col-md-6">
                                                   <div class="form-group">
                                                       <label for="txtProyectoNombre">Numero de Identidad *</label>
-                                                      <input type="text" id="txtProyectoNombre"class="form-control" name="txtProyectoNombre" value="{{usuarioIdentidad}}" disabled="disabled">
+                                                      <input type="text" id="txtUs"class="form-control" name="txtUs" value="{{usuarioIdentidad}}" disabled="disabled">
+                                                      <input type="hidden" id="txtUsuarioId"class="form-control" name="txtUsuarioId" value="{{usuarioIdentidad}}">
                                                   </div>
                                               </div>
                                               <div class="col-md-6">
                                                   <div class="form-group">
                                                       <label for="form_lastname">Numero de Colegiación *</label>
-                                                      <input type="text" id="txtproyectoDepartamento"class="form-control" name="txtproyectoDepartamento" value="{{usuarioNumeroColegiacion}}" disabled="disabled">
+                                                      <input type="text" id="txtNumeroColegiacion"class="form-control" name="txtNumeroColegiacion" value="{{usuarioNumeroColegiacion}}" disabled="disabled">
                                                   </div>
                                               </div>
                                               <div class="col-md-6">
                                                   <div class="form-group">
                                                       <label for="form_name">Nombre *</label>
-                                                      <input id="form_name" type="text" name="name" class="form-control"  value="{{usuarioPrimerNombre}} {{usuarioSegundoNombre}} {{usuarioPrimerApellido}} {{usuarioSegundoApellido}}" disabled="disabled">
+                                                      <input id="txtUsuarioNombre" type="text" name="txtUsuarioNombre" class="form-control"  value="{{usuarioPrimerNombre}} {{usuarioSegundoNombre}} {{usuarioPrimerApellido}} {{usuarioSegundoApellido}}" disabled="disabled">
                                                   </div>
                                               </div>
                                               <div class="col-md-6">
                                                   <div class="form-group">
                                                       <label for="form_name">Numero de Celular *</label>
-                                                      <input id="form_name" type="text" name="name" class="form-control"  value="{{usuarioCelular}}" disabled="disabled">
+                                                      <input id="txtNumeroCelular" type="text" name="txtNumeroCelular" class="form-control"  value="{{usuarioCelular}}" disabled="disabled">
                                                   </div>
                                               </div>
                                               <div class="col-md-6">
                                                   <div class="form-group">
                                                       <label for="form_name">Numero Telefonico *</label>
-                                                      <input id="form_name" type="text" name="name" class="form-control"  value="{{usuarioTelefono}}" disabled="disabled">
+                                                      <input id="txtNumeroTelefono" type="text" name="txtNumeroTelefono" class="form-control"  value="{{usuarioTelefono}}" disabled="disabled">
                                                   </div>
                                               </div>
                                               <div class="col-md-12">
                                                <div class="form-group">
                                                    <label for="form_message">Dirección *</label>
-                                                   <textarea id="form_message" name="message" class="form-control" disabled="disabled" rows="4">{{usuarioDireccion}}</textarea>
+                                                   <textarea id="txtDireccion" name="txtDireccion" class="form-control" disabled="disabled" rows="4">{{usuarioDireccion}}</textarea>
                                                </div>
                                            </div>
 
@@ -86,8 +87,8 @@
                                           <div class="col-md-6">
                                               <div class="form-group">
                                                   <label for="form_name">Estado Cuenta *</label>
-                                                  <select ng-model="datos.departamento" name="departamento" id="departamento" class="form-control margin ng-pristine ng-valid ui-corner-all formularios ng-touched">
-                                                  <option value="">Seleccione...</option>
+                                                  <select ng-model="datos.departamento" name="cmbEstadoCuenta" id="cmbEstadoCuenta" class="form-control margin ng-pristine ng-valid ui-corner-all formularios ng-touched">
+                                                  <option value="{{rolId}}" selected disabled>{{rolDescripcion}}</option>
                                                   {{foreach roles}}
                                                     <option value="{{rolId}}">{{rolDescripcion}}</option>
                                                   {{endfor roles}}
@@ -97,8 +98,8 @@
                                               <div class="col-md-6">
                                                   <div class="form-group">
                                                       <label for="form_lastname">Tipo de Cuenta *</label>
-                                                      <select ng-model="datos.departamento" name="departamento" id="departamento" class="form-control margin ng-pristine ng-valid ui-corner-all formularios ng-touched">
-                                                      <option value="">Seleccione...</option>
+                                                      <select ng-model="datos.departamento" name="cmbTipoCuenta" id="cmbTipoCuenta" class="form-control margin ng-pristine ng-valid ui-corner-all formularios ng-touched">
+                                                          <option value="{{estadoCuentaId}}" selected>{{estadoCuentaDescripcion}}</option>
                                                       {{foreach estado}}
                                                         <option value="{{estadoCuentaId}}">{{estadoCuentaDescripcion}}</option>
                                                       {{endfor estado}}
@@ -108,13 +109,11 @@
               													</div>
 
               				<!--Boton Submit-->
-              				<button type="submit" class="btn btn-default">
-              					Enviar
+              				<button type="submit" id="btnActualizarUsuario" name="btnActualizarUsuario" class="btn btn-default">
+              					Actualizar
               				</button>
               				<!--Fin Boton Submit-->
-
-
-                    </form>
+            </form>
           </div>
         </div>
       </div>

@@ -9,12 +9,16 @@
 
     $proyectos = array();
     $htmlDatos = array( );
+<<<<<<< HEAD
     $resultado="";
 
+=======
+/*
+>>>>>>> master
     if (isset($_GET["proyectoId"])) {
       $proyectos=obtnerProyectosPorId($_GET["proyectoId"]);
     }
-
+*/
     if(isset($_GET["proyectoId"])){
       $proyectos=obtnerProyectosPorId($_GET["proyectoId"]);
       if($proyectos){
