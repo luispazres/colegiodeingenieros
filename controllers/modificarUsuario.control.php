@@ -10,10 +10,12 @@
 <<<<<<< Updated upstream
 =======
   if(isset($_POST["btnActualizarUsuario"])){
+    $respuesta="";
     $estadoCuenta=$_POST["cmbEstadoCuenta"];
     $usuarioIdentidad=$_POST["txtUsuarioId"];
     $rolId=$_POST["cmbTipoCuenta"];
-    modificarUsuarios($usuarioIdentidad, $estadoCuenta, $rolId);
+    $respuesta=modificarUsuarios($usuarioIdentidad, $estadoCuenta, $rolId);
+    echo $respuesta;
     }
 
 >>>>>>> master
@@ -34,6 +36,8 @@
       $htmlDatos["estadoCuentaDescripcion"] = $usuarios["estadoCuentaDescripcion"];
       $htmlDatos["estado"]=obtenerEstadoCuenta();
       $htmlDatos["roles"]=obtenerRoles();
+      $htmlDatos["rolId"]=$usuarios["rolId"];
+      $htmlDatos["estadoCuentaId"]=$usuarios["estadoCuentaId"];
     }
     }
     print_r($htmlDatos);

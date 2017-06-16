@@ -88,7 +88,7 @@
                                               <div class="form-group">
                                                   <label for="form_name">Estado Cuenta *</label>
                                                   <select ng-model="datos.departamento" name="cmbEstadoCuenta" id="cmbEstadoCuenta" class="form-control margin ng-pristine ng-valid ui-corner-all formularios ng-touched">
-                                                  <option value="{{rolId}}" selected disabled>{{rolDescripcion}}</option>
+                                                  <option value="{{rolId}}" selected>{{rolDescripcion}}</option>
                                                   {{foreach roles}}
                                                     <option value="{{rolId}}">{{rolDescripcion}}</option>
                                                   {{endfor roles}}
