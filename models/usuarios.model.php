@@ -28,7 +28,7 @@
     function obtnerUsuriosPorId($numeroId){
         $proyecto = array();
         $sqlstr = "select * from tblusuarios as tblu, tblroles as tblr, tblestadocuenta as tble WHERE tblu.rolId=tblr.rolId
-        AND tblu.estadoCuentaId=tble.estadoCuentaId AND tblu.usuarioIdentidad='0801-1995-08222asdasd';";
+        AND tblu.estadoCuentaId=tble.estadoCuentaId AND tblu.usuarioIdentidad='$numeroId';";
         $sqlstr = sprintf($sqlstr, $numeroId);
         $proyecto = obtenerUnRegistro($sqlstr);
         return $proyecto;
@@ -45,9 +45,9 @@
     }
 
     function modificarUsuarios($usuarioIdentidad, $estadoCuenta,$rolId){
-    $sqlstr="UPDATE `tblusuarios`
+    $sqlstr="UPDATE `cimeqh`.`tblusuarios`
     SET `estadoCuentaId` = $estadoCuenta,
-    SET `rolId` = $rolId
+    `rolId` = $rolId
     WHERE `usuarioIdentidad` = '$usuarioIdentidad';";
     if(ejecutarNonQuery($sqlstr)){
     return ejecutarNonQueryConErrores($sqlstr);
