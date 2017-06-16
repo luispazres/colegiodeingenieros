@@ -81,6 +81,18 @@
                     require_once("controllers/modificarUsuario.control.php");
                     break;
 
+
+                    case "revisarSolicitudFactibilidad":
+                        //llamar al controlador
+                    require_once("controllers/revisarSolicitudFactibilidad.control.php");
+                    break;
+
+                    case "comentarios":
+                        //llamar al controlador
+                    require_once("controllers/comentarios.control.php");
+                    break;
+
+
         /*case "login":
 =======
         case "menu":
