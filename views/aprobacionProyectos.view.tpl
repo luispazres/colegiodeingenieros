@@ -45,7 +45,6 @@
                     <form action="index.php?page=factibilidadProyectos" id="demo-form2" data-parsley-validate class="form-horizontal form-label-left" method="post">
                       <input type="hidden" name="proyectoId" id="proyectoId" value="{{proyectoId}}">
                       <div class="form-group">
-
               					 <div class="row">
                                               <div class="col-md-6">
                                                   <div class="form-group">
@@ -145,8 +144,8 @@
                                                                </div>
                                                                <div class="col-md-6">
                                                                    <div class="form-group">
-                                                                       <label for="txtTotal">Total a Pagar</label>
-                                                                       <input id="txtTotal" type="text" name="txtTotal" class="form-control" >
+                                                                       <label for="txtTotalTimbres">Total de Timbres a Pagar</label>
+                                                                       <input id="txtTotalTimbres" type="text" name="txtTotalTimbres" class="form-control" >
                                                                    </div>
                                                                </div>
 

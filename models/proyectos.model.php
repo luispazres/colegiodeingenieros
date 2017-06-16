@@ -42,7 +42,7 @@
         `proyectoDireccionPropietario`, `proyectoCelularPropietario`,`proyectoEmailPropietario`,
         `proyectoTelefonoPropietario`,departamentoId, `proyectoDescrpcion`, proyectoLatitud, proyectoLongitud,
         `proyectoDireccion`, `usuarioIdentidad`,`proyectoNombre`)
-      values ('%s','%s','%s','%s','%s','%s',%d,'%s',%d,%d,'%s','0801199503314','%s');";
+      values ('%s','%s','%s','%s','%s','%s',%d,'%s',%f,%f,'%s','0801199503314','%s');";
       $insertSQL = sprintf($insertSQL,
                            valstr($txtNombrePropietario),
                            valstr($txtIdentidadPropietario),
