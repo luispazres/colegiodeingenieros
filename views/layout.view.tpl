@@ -49,8 +49,6 @@
             <link href="vendors/pnotify/dist/pnotify.buttons.css" rel="stylesheet">
             <link href="vendors/pnotify/dist/pnotify.nonblock.css" rel="stylesheet">
 
-            <link href="vendors/dropzone/dist/min/dropzone.min.css" rel="stylesheet">
-
             <!-- Custom Theme Style -->
             <link href="public/css/custom.min.css" rel="stylesheet">
         </head>
@@ -346,11 +344,11 @@
           <!-- iCheck -->
           <script src="vendors/iCheck/icheck.min.js"></script>
           <!-- PNotify -->
-        <!--  <script src="vendors/pnotify/dist/pnotify.js"></script>-->
+        <!--  <script src="vendors/pnotify/dist/pnotify.js"></script>
           <script src="vendors/pnotify/dist/pnotify.buttons.js"></script>
           <script src="vendors/pnotify/dist/pnotify.nonblock.js"></script>
 
-          <script src="vendors/dropzone/dist/min/dropzone.min.js"></script>
+          <script src="vendors/dropzone/dist/min/dropzone.min.js"></script>-->
 
 
           <!-- Custom Theme Scripts -->

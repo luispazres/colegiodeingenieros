@@ -42,7 +42,7 @@
                 <div class="x_content">
                   <br>
 
-                    <form action="index.php?page=factibilidadProyectos" id="demo-form2" data-parsley-validate class="form-horizontal form-label-left" method="post">
+                    <form form id="defaultForm" action="index.php?page=aprobacionProyectos"  method="post" class="form-horizontal" enctype="multipart/form-data">
                       <input type="hidden" name="proyectoId" id="proyectoId" value="{{proyectoId}}">
                       <div class="form-group">
               					 <div class="row">
@@ -136,6 +136,7 @@
                                           </div>
 
                                           <div class="row">
+
                                                                <div class="col-md-6">
                                                                    <div class="form-group">
                                                                        <label for="txtMonto">Monto Estimado del Proyecto</label>
@@ -154,23 +155,23 @@
 
 
                                                            <div class="row">
+
                                                                                 <div class="col-md-6">
                                                                                     <div class="form-group">
-                                                                                        <label for="txtDocumentos">Propietario *</label>
-                                                                                        <input id="txtDocumentos[]" type="file" name="txtDocumentos[]" class="form-control" value="{{proyectoNombrePropietario}}" disabled="disabled">
+                                                                                      <label>Archivo 2:</label><input type="file" name="userfile[]" /><br /><br />
+
                                                                                     </div>
                                                                                 </div>
                                                                                 <div class="col-md-6">
                                                                                     <div class="form-group">
-                                                                                        <label for="txtDocumentos">Numero de Identidad del Propietario *</label>
-                                                                                        <input id="txtDocumentos[]" type="text" name="txtDocumentos[]" class="form-control" value="{{proyectoIdentidadPropietario}}" disabled="disabled">
+                                                                                        <label>Archivo 3:</label><input type="file" name="userfile[]" /><br /><br />
                                                                                     </div>
                                                                                 </div>
                                                                             </div>
               				</div>
 
               				<!--Boton Submit-->
-              				<input type="button" id="btnSolicitarFactibilidad" name="btnSolicitarFactibilidad"class="btn btn-default" value="Solicitar Factibilidad">
+            <input type="submit" id="btnSolicitarAprobacion" name="btnSolicitarAprobacion" class="btn btn-default" value="Solicitar Aprobacion">
               				<!--Fin Boton Submit-->
 
 
