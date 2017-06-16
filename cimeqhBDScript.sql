@@ -2,7 +2,7 @@
 --
 -- Host: 127.0.0.1    Database: cimeqh
 -- ------------------------------------------------------
--- Server version	5.7.18-log
+-- Server version	5.7.14
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -26,7 +26,7 @@ CREATE TABLE `tblconexiones` (
   `conexionId` int(11) NOT NULL AUTO_INCREMENT,
   `conexionDescripcion` varchar(100) NOT NULL,
   PRIMARY KEY (`conexionId`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -35,6 +35,7 @@ CREATE TABLE `tblconexiones` (
 
 LOCK TABLES `tblconexiones` WRITE;
 /*!40000 ALTER TABLE `tblconexiones` DISABLE KEYS */;
+INSERT INTO `tblconexiones` VALUES (1,'Monofásico'),(2,'Trifásico');
 /*!40000 ALTER TABLE `tblconexiones` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -71,14 +72,13 @@ DROP TABLE IF EXISTS `tbldocumentosaprobacion`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `tbldocumentosaprobacion` (
   `documentosAprobacionId` int(11) NOT NULL AUTO_INCREMENT,
-  `documentoDireccion` varchar(300) NOT NULL,
-  `tbldocumentosaprobacioncol` varchar(45) NOT NULL,
+  `documentoDireccion` varchar(600) NOT NULL,
   `solicitudAprobacionId` int(11) NOT NULL,
   PRIMARY KEY (`documentosAprobacionId`),
   KEY `solicitudAprobacionId_idx` (`solicitudAprobacionId`),
   KEY `fksolicitudAprobacionId_idx` (`solicitudAprobacionId`),
   CONSTRAINT `fksolicitudAprobacionId` FOREIGN KEY (`solicitudAprobacionId`) REFERENCES `tblsolicitudaprobacion` (`solicitudAprobacionId`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -161,6 +161,30 @@ CREATE TABLE `tblestadodespeje` (
 LOCK TABLES `tblestadodespeje` WRITE;
 /*!40000 ALTER TABLE `tblestadodespeje` DISABLE KEYS */;
 /*!40000 ALTER TABLE `tblestadodespeje` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `tblestadofactibilidad`
+--
+
+DROP TABLE IF EXISTS `tblestadofactibilidad`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `tblestadofactibilidad` (
+  `estadoFactibilidadId` int(11) NOT NULL AUTO_INCREMENT,
+  `estadoFactibilidadDescripcion` varchar(120) NOT NULL,
+  PRIMARY KEY (`estadoFactibilidadId`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `tblestadofactibilidad`
+--
+
+LOCK TABLES `tblestadofactibilidad` WRITE;
+/*!40000 ALTER TABLE `tblestadofactibilidad` DISABLE KEYS */;
+INSERT INTO `tblestadofactibilidad` VALUES (1,'Rechazado'),(2,'Aprobado'),(3,'Aprobado con Observaciones'),(4,'En Revision');
+/*!40000 ALTER TABLE `tblestadofactibilidad` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -319,7 +343,7 @@ CREATE TABLE `tblsolicitudfactibilidad` (
   `solicitudFactibilidadId` int(11) NOT NULL AUTO_INCREMENT,
   `voltajeId` int(11) NOT NULL,
   `conexionId` int(11) NOT NULL,
-  `solicitudFactibilidadPotencia` int(11) NOT NULL,
+  `solicitudFactibilidadPotencia` float NOT NULL,
   `solicitudadFactibilidadCrecimientoEsperado` float NOT NULL,
   `solicitudFactibilidadKva` float NOT NULL,
   `estadoFactibilidadId` int(11) NOT NULL,
@@ -328,10 +352,12 @@ CREATE TABLE `tblsolicitudfactibilidad` (
   KEY `proyectoId_idx` (`proyectoId`),
   KEY `voltajeId_idx` (`voltajeId`),
   KEY `conexionID_idx` (`conexionId`),
+  KEY `estadoFactibilidadId_idx` (`estadoFactibilidadId`),
   CONSTRAINT `conexionID` FOREIGN KEY (`conexionId`) REFERENCES `tblconexiones` (`conexionId`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `estadoFactibilidadId` FOREIGN KEY (`estadoFactibilidadId`) REFERENCES `tblestadofactibilidad` (`estadoFactibilidadId`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `proyectoId` FOREIGN KEY (`proyectoId`) REFERENCES `tblproyectos` (`proyectoId`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `voltajeId` FOREIGN KEY (`voltajeId`) REFERENCES `tblvoltajes` (`voltajeId`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -340,6 +366,7 @@ CREATE TABLE `tblsolicitudfactibilidad` (
 
 LOCK TABLES `tblsolicitudfactibilidad` WRITE;
 /*!40000 ALTER TABLE `tblsolicitudfactibilidad` DISABLE KEYS */;
+INSERT INTO `tblsolicitudfactibilidad` VALUES (5,1,2,12,12,12,4,2);
 /*!40000 ALTER TABLE `tblsolicitudfactibilidad` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -430,7 +457,7 @@ CREATE TABLE `tblusuarios` (
 
 LOCK TABLES `tblusuarios` WRITE;
 /*!40000 ALTER TABLE `tblusuarios` DISABLE KEYS */;
-INSERT INTO `tblusuarios` VALUES ('0801-1995-08222asdasd','asd','asd','asddfs','asd','qwe','asd','asd','asd','a3ac3570da3247fb6938d3a5543549ba',2,3,'j@superrito.com'),('0801-1995-085858','asd','asd','asd','sad','ads','99999','9999999','asdsdasad','4e55305a027551bf6e92a9019b57f80a',1,3,'j@superrito.com'),('0801199503314','Juan','Luis','Lopez','Paz','123456789','9876-5432','22244-8572','Colonia Palmira','47e2d80be5e155d4bade80d05828bf82',3,3,'prueba1@superrito.com'),('1','asd','asd','asddfs','dfdf','654','546','123','asdasd','0c9c61851b54a0765af2fe0502aee178',3,3,'j@superrito.com'),('1111111','X','Y','Z','W','11111','99-85','88-85','tegus','xD',3,3,''),('123123','jk','lp','xyz','abcd','1212132123','9966','5522','sdfdfsdfs','d41d8cd98f00b204e9800998ecf8427e',3,3,''),('123456789','jkkk','lllll','llll','ooooo','321654','99999','888888','asd','67e76f0191fa3a273ed2ef60c8c37789',3,3,'a@b.com'),('13212132132123','Juan','lp','asda','Paz','12123','9642-3311','2245-6875','asadsads','caf1a3dfb505ffed0d024130f58c5cfa',3,3,''),('321','asdadsasdads','zxczxzcx','sdfsdf','zxcfd','321','456','456','fg','6c4cd3e54f1558cdfcd36b9c7bdef137',3,3,'j@superrito.com'),('789654','jkl','asdasd','vgfui','jhv','8745','987','09','kjkj','79c57c591d62a2c57d17b3be5cf0385a',3,3,''),('9999','dfsdsf','lp','5334','456456456','45343','9966','6345','fgjfgfgj','d6acc0b68b294c64de181af391941921',3,3,'');
+INSERT INTO `tblusuarios` VALUES ('0801-1995-08222asdasd','asd','asd','asddfs','asd','qwe','asd','asd','asd','a3ac3570da3247fb6938d3a5543549ba',2,3,'j@superrito.com'),('0801-1995-085858','asd','asd','asd','sad','ads','99999','9999999','asdsdasad','4e55305a027551bf6e92a9019b57f80a',1,3,'j@superrito.com'),('0801199503314','Juan','Luis','Lopez','Paz','123456789','9876-5432','22244-8572','Colonia Palmira','47e2d80be5e155d4bade80d05828bf82',3,3,'prueba1@superrito.com'),('1','asd','asd','asddfs','dfdf','654','546','123','asdasd','0c9c61851b54a0765af2fe0502aee178',3,3,'j@superrito.com'),('1111111','X','Y','Z','W','11111','99-85','88-85','tegus','xD',3,3,''),('123123','jk','lp','xyz','abcd','1212132123','9966','5522','sdfdfsdfs','d41d8cd98f00b204e9800998ecf8427e',3,3,''),('123456789','jkkk','lllll','llll','ooooo','321654','99999','888888','asd','67e76f0191fa3a273ed2ef60c8c37789',3,3,'a@b.com'),('13212132132123','Juan','lp','asda','Paz','12123','9642-3311','2245-6875','asadsads','caf1a3dfb505ffed0d024130f58c5cfa',3,3,''),('321','asdadsasdads','zxczxzcx','sdfsdf','zxcfd','321','456','456','fg','6c4cd3e54f1558cdfcd36b9c7bdef137',3,3,'j@superrito.com'),('53535','ssa','sssd','dsdsds','cdcd','53535','545454','545454','sdsds','6900795a6abba4305e3905b1851c7d39',3,3,'luis@hotmail.es'),('789654','jkl','asdasd','vgfui','jhv','8745','987','09','kjkj','79c57c591d62a2c57d17b3be5cf0385a',3,3,''),('9999','dfsdsf','lp','5334','456456456','45343','9966','6345','fgjfgfgj','d6acc0b68b294c64de181af391941921',3,3,'');
 /*!40000 ALTER TABLE `tblusuarios` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -445,7 +472,7 @@ CREATE TABLE `tblvoltajes` (
   `voltajeId` int(11) NOT NULL AUTO_INCREMENT,
   `voltajeDescripcion` varchar(100) NOT NULL,
   PRIMARY KEY (`voltajeId`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -454,6 +481,7 @@ CREATE TABLE `tblvoltajes` (
 
 LOCK TABLES `tblvoltajes` WRITE;
 /*!40000 ALTER TABLE `tblvoltajes` DISABLE KEYS */;
+INSERT INTO `tblvoltajes` VALUES (1,'13.4 KV'),(2,'34.5 KV');
 /*!40000 ALTER TABLE `tblvoltajes` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -466,4 +494,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-06-15  9:56:11
+-- Dump completed on 2017-06-16 10:54:22

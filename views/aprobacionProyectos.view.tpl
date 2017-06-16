@@ -153,9 +153,20 @@
                                                            </div>
 
 
-              			<div class="row">
-
-                                          </div>
+                                                           <div class="row">
+                                                                                <div class="col-md-6">
+                                                                                    <div class="form-group">
+                                                                                        <label for="txtDocumentos">Propietario *</label>
+                                                                                        <input id="txtDocumentos[]" type="file" name="txtDocumentos[]" class="form-control" value="{{proyectoNombrePropietario}}" disabled="disabled">
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="col-md-6">
+                                                                                    <div class="form-group">
+                                                                                        <label for="txtDocumentos">Numero de Identidad del Propietario *</label>
+                                                                                        <input id="txtDocumentos[]" type="text" name="txtDocumentos[]" class="form-control" value="{{proyectoIdentidadPropietario}}" disabled="disabled">
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
               				</div>
 
               				<!--Boton Submit-->
