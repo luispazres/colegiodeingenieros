@@ -24,7 +24,7 @@
 
     function verSolicitudesFactbilidad(){
         $solicitudFactibilidad = array();
-        $sqlstr = "SELECT tblsf.estadoFactibilidadId,proyectoNombre, departamentoDescripcion, proyectoDireccion, proyectoDescrpcion,
+        $sqlstr = "SELECT  tblsf.solicitudFactibilidadId,tblsf.estadoFactibilidadId,proyectoNombre, departamentoDescripcion, proyectoDireccion, proyectoDescrpcion,
         proyectoLatitud,proyectoLongitud, proyectoNombrePropietario,
         proyectoIdentidadPropietario, proyectoTelefonoPropietario, proyectoCelularPropietario,
         proyectoEmailPropietario, proyectoDireccionPropietario,concat(usuarioPrimerNombre, ' ' ,usuarioSegundoNombre ,' '

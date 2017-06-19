@@ -6,9 +6,7 @@
   $usuarios = array();
   $htmlDatos = array();
 
-<<<<<<< HEAD
-<<<<<<< Updated upstream
-=======
+
   if(isset($_POST["btnActualizarUsuario"])){
     $respuesta="";
     $estadoCuenta=$_POST["cmbEstadoCuenta"];
@@ -18,7 +16,6 @@
     echo $respuesta;
     }
 
->>>>>>> master
   if(isset($_GET["usuarioId"])){
     $algo=$_GET["usuarioId"];
     $usuarios=obtnerUsuriosPorId($algo);
@@ -42,7 +39,6 @@
     }
     print_r($htmlDatos);
   renderizar("modificarUsuario", $htmlDatos);
-=======
 
   if(isset($_GET["usuarioId"])){
 
@@ -64,7 +60,7 @@
     }
 
   renderizar("modificarUsuario",$htmlDatos);
->>>>>>> Stashed changes
+
   }
   run();
 ?>
