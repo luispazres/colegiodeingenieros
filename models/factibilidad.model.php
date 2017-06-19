@@ -20,8 +20,6 @@ $insertSQL = sprintf($insertSQL, $voltajeId, $conexionId, $potencia, $crecmiento
 return ejecutarNonQueryConErrores($insertSQL);
 }
 
-<<<<<<< HEAD
-
 function verFactbilidadPorId($factId){
 $solicitudFactibilidad = array();
 $sqlstr = "SELECT  tblsf.solicitudFactibilidadId,proyectoNombre,departamentoDescripcion,proyectoDireccion,proyectoDescrpcion,
@@ -38,8 +36,6 @@ and tblsf.solicitudFactibilidadId=$factId;";
 $solicitudFactibilidad = obtenerUnRegistro($sqlstr);
 return $solicitudFactibilidad;
 }
-
-
 
 function verSolicitudesFactbilidad(){
     $solicitudFactibilidad = array();
@@ -62,8 +58,6 @@ function verSolicitudesFactbilidad(){
     return $solicitudFactibilidad;
 }
 
-
-=======
 function obtenerSolicitudesFactibilidad(){
     $solicitudes = array();
     $sqlstr = "SELECT * FROM tblsolicitudfactibilidad as sf, tblproyectos as p, tblestadofactibilidad as ef where p.proyectoId=sf.proyectoId and sf.estadoFactibilidadId=ef.estadoFactibilidadId;";
@@ -71,5 +65,4 @@ function obtenerSolicitudesFactibilidad(){
     return $solicitudes;
 }
 
->>>>>>> master
  ?>

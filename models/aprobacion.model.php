@@ -41,4 +41,11 @@ function obtnerAprobacionPorId($proyectoId){
     $proyecto = obtenerUnRegistro($sqlstr);
     return $proyecto;
 }
+
+function obtenerAprobacion(){
+    $solicitudes = array();
+    $sqlstr = "SELECT * FROM tblsolicitudaprobacion as sa, tblproyectos as p, tblestadoaprobacion as ea where p.proyectoId=sa.proyectoId and sa.estadoSolicitudAprobacion=ea.estadoAprobacionId;";
+    $solicitudes = obtenerRegistros($sqlstr);
+    return $solicitudes;
+}
  ?>

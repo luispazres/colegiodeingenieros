@@ -22,5 +22,4 @@ function borrarRecepcion($recepcionId){
        return getLastInserId();
    }
 }
-
  ?>

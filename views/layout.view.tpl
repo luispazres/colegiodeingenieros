@@ -99,7 +99,7 @@
                         <li><a><i class="fa fa-check"></i> Solicitudes de Aprobación de Proyectos <span class="fa fa-chevron-down"></span></a>
                           <ul class="nav child_menu">
                             <li><a href="">Realizar Solicitud de Aprobación de Proyectos</a></li>
-                            <li><a href="">Ver Mis Solicitudes de Aprobación</a></li>
+                            <li><a href="index.php?page=verMisSolicitudesDeAprobacion">Ver Mis Solicitudes de Aprobación</a></li>
                           </ul>
                         </li>
                         <li><a><i class="fa fa-cloud-upload"></i>Solicitudes de Recepción de Proyectos <span class="fa fa-chevron-down"></span></a>

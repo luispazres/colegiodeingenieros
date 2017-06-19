@@ -40,11 +40,11 @@
             <tbody>
               {{foreach solicitudes}}
                 <tr>
-                  <td>{{solicitudFactibilidadId}}</td>
+                  <td>{{solicitudAprobacionId}}</td>
                   <td>{{proyectoNombre}}</td>
                   <td>{{proyectoNombrePropietario}}</td>
                   <td>{{proyectoIdentidadPropietario}}</td>
-                  <td>{{estadoFactibilidadDescripcion}}</td>
+                  <td>{{estadoAprobacionDescripcion}}</td>
                   <td>
                     <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-lg-{{proyectoId}}">Ver</button>
 
@@ -59,6 +59,7 @@
                           </div>
                           <div class="modal-body">
                             <h4>Dictamen</h4>
+                            {{comentario}}
                           </div>
                           <div class="modal-footer">
                               <form method="post" action="index.php?page=solicitudDeCuentas">

@@ -22,6 +22,11 @@
             require_once("controllers/home.control.php");
             break;
 
+        case "verMisSolicitudesDeAprobacion":
+            //llamar al controlador
+            require_once("controllers/verMisSolicitudesDeAprobacion.control.php");
+            break;
+
         case "verMisSolicitudesDeFactibilidad":
             //llamar al controlador
             require_once("controllers/verMisSolicitudesDeFactibilidad.control.php");
