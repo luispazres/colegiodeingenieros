@@ -59,7 +59,7 @@
               <div class="col-md-3 left_col">
                 <div class="left_col scroll-view">
                   <div class="navbar nav_title" style="border: 0;">
-                    <a href="index.html" class="site_title"><i class="fa fa-paw"></i> <span>Gentelella Alela!</span></a>
+                    <a href="index.html" class="site_title"><i class="fa fa-paw"></i> <span>CIMEQH</span></a>
                   </div>
 
                   <div class="clearfix"></div>
@@ -84,55 +84,34 @@
                     <div class="menu_section">
                       <h3>General</h3>
                       <ul class="nav side-menu">
-                        <li><a><i class="fa fa-home"></i> Home <span class="fa fa-chevron-down"></span></a>
+                        <li><a><i class="fa fa-briefcase"></i>Proyectos <span class="fa fa-chevron-down"></span></a>
                           <ul class="nav child_menu">
-                            <li><a href="index.html">Dashboard</a></li>
-                            <li><a href="index2.html">Dashboard2</a></li>
-                            <li><a href="index3.html">Dashboard3</a></li>
+                            <li><a href="index.php?page=registroProyectos">Agregar Proyectos</a></li>
+                            <li><a href="index.php?page=verProyectos">Ver Proyectos Registrados</a></li>
                           </ul>
                         </li>
-                        <li><a><i class="fa fa-edit"></i> Forms <span class="fa fa-chevron-down"></span></a>
+                        <li><a><i class="fa fa-list-alt"></i> Solicitud de Factibilidad de Proyectos <span class="fa fa-chevron-down"></span></a>
                           <ul class="nav child_menu">
-                            <li><a href="form.html">General Form</a></li>
-                            <li><a href="form_advanced.html">Advanced Components</a></li>
-                            <li><a href="form_validation.html">Form Validation</a></li>
-                            <li><a href="form_wizards.html">Form Wizard</a></li>
-                            <li><a href="form_upload.html">Form Upload</a></li>
-                            <li><a href="form_buttons.html">Form Buttons</a></li>
+                            <li><a href="index.php?page=transicionFactibilidad">Realizar Solicitud de Factibilidad</a></li>
+                            <li><a href="index.php?page=verMisSolicitudesDeFactibilidad">Ver Mis Solicitudes de Factibilidad</a></li>
                           </ul>
                         </li>
-                        <li><a><i class="fa fa-desktop"></i> UI Elements <span class="fa fa-chevron-down"></span></a>
+                        <li><a><i class="fa fa-check"></i> Solicitudes de Aprobación de Proyectos <span class="fa fa-chevron-down"></span></a>
                           <ul class="nav child_menu">
-                            <li><a href="general_elements.html">General Elements</a></li>
-                            <li><a href="media_gallery.html">Media Gallery</a></li>
-                            <li><a href="typography.html">Typography</a></li>
-                            <li><a href="icons.html">Icons</a></li>
-                            <li><a href="glyphicons.html">Glyphicons</a></li>
-                            <li><a href="widgets.html">Widgets</a></li>
-                            <li><a href="invoice.html">Invoice</a></li>
-                            <li><a href="inbox.html">Inbox</a></li>
-                            <li><a href="calendar.html">Calendar</a></li>
+                            <li><a href="">Realizar Solicitud de Aprobación de Proyectos</a></li>
+                            <li><a href="">Ver Mis Solicitudes de Aprobación</a></li>
                           </ul>
                         </li>
-                        <li><a><i class="fa fa-table"></i> Tables <span class="fa fa-chevron-down"></span></a>
+                        <li><a><i class="fa fa-cloud-upload"></i>Solicitudes de Recepción de Proyectos <span class="fa fa-chevron-down"></span></a>
                           <ul class="nav child_menu">
-                            <li><a href="tables.html">Tables</a></li>
-                            <li><a href="tables_dynamic.html">Table Dynamic</a></li>
+                            <li><a href="">Realizar Solicitud de Recepción de Proyectos</a></li>
+                            <li><a href="">Ver Mis Soliciutdes de Recepción</a></li>
                           </ul>
                         </li>
-                        <li><a><i class="fa fa-bar-chart-o"></i> Data Presentation <span class="fa fa-chevron-down"></span></a>
+                        <li><a><i class="fa fa-flash"></i> Solicitudes de Despeje de Energia <span class="fa fa-chevron-down"></span></a>
                           <ul class="nav child_menu">
-                            <li><a href="chartjs.html">Chart JS</a></li>
-                            <li><a href="chartjs2.html">Chart JS2</a></li>
-                            <li><a href="morisjs.html">Moris JS</a></li>
-                            <li><a href="echarts.html">ECharts</a></li>
-                            <li><a href="other_charts.html">Other Charts</a></li>
-                          </ul>
-                        </li>
-                        <li><a><i class="fa fa-clone"></i>Layouts <span class="fa fa-chevron-down"></span></a>
-                          <ul class="nav child_menu">
-                            <li><a href="fixed_sidebar.html">Fixed Sidebar</a></li>
-                            <li><a href="fixed_footer.html">Fixed Footer</a></li>
+                            <li><a href="">Realizar Solicitud de Despeje de Energia</a></li>
+                            <li><a href="">Ver Solicitudes de Despeje</a></li>
                           </ul>
                         </li>
                       </ul>

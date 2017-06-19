@@ -3,7 +3,7 @@
     <div class="col-md-12 col-sm-12 col-xs-12">
       <div class="x_panel">
         <div class="x_title">
-          <h2>Proyectos Registrados<small></small></h2>
+          <h2>Mis Solicitudes de Factibilidad<small></small></h2>
           <ul class="nav navbar-right panel_toolbox">
             <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
             </li>
@@ -29,22 +29,22 @@
           <table id="datatable-responsive" class="table table-striped table-bordered dt-responsive nowrap" cellspacing="0" width="100%">
             <thead>
               <tr>
-                <th>Código del Poyecto</th>
+                <th>Código de la  Solicitud</th>
                 <th>Nombre del Proyecto</th>
-                <th>Departamento del Proyecto</th>
                 <th>Nombre del Propietario</th>
                 <th>Identidad del Propietario</th>
+                <th>Estado e la Solicitud</th>
                 <th>Acciones</th>
               </tr>
             </thead>
             <tbody>
-              {{foreach proyectos}}
+              {{foreach solicitudes}}
                 <tr>
-                  <td>{{proyectoId}}</td>
+                  <td>{{solicitudFactibilidadId}}</td>
                   <td>{{proyectoNombre}}</td>
-                  <td>{{departamentoDescripcion}}</td>
                   <td>{{proyectoNombrePropietario}}</td>
                   <td>{{proyectoIdentidadPropietario}}</td>
+                  <td>{{estadoFactibilidadDescripcion}}</td>
                   <td>
                     <a href="index.php?page=factibilidadProyectos&proyectoId={{proyectoId}}"><button type="button" class="btn btn-success">Solicitar Factibilidad</button></a>
                     <a href="index.php?page=aprobacionProyectos&proyectoId={{proyectoId}}"><button type="button" class="btn btn-success">Solicitar Aprobación</button></a>
@@ -76,7 +76,7 @@
                     </div>
                   </td>
                 </tr>
-              {{endfor proyectos}}
+              {{endfor solicitudes}}
             </tbody>
           </table>
           </div>
