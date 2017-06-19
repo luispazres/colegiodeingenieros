@@ -1,66 +1,85 @@
 <?php
-  require_once("libs/dao.php");
 class Multiupload
 {
+
     /**
-    *sube archivos al servidor a trav�s de un formulario
+    *sube archivos al servidor a través de un formulario
     *@access public
     *@param array $files estructura de array con todos los archivos a subir
     */
-    public function upFiles($files = array(),$solicitudAprobacionId)
+    public function upFiles($files = array(), $Id, $accion)
     {
         //inicializamos un contador para recorrer los archivos
         $i = 0;
-        $tamanio="";
-        $nombreArchivo="";
-        $tipoDocumento="";
         $direccion="";
         //si no existe la carpeta files la creamos
         if(!is_dir("files/"))
             mkdir("files/", 0777);
+
         //recorremos los input files del formulario
         foreach($files as $file)
         {
-            $tamanio= $_FILES["userfile"]["size"][$i];
-            $nombreArchivo=$_FILES["userfile"]["name"][$i];
-            $tipoDocumento=$_FILES["userfile"]["type"][$i];
-            $direccion="files/".$_FILES["userfile"]["name"][$i];
-            //si se est� subiendo alg�n archivo en ese indice
+            //si se está subiendo algún archivo en ese indice
             if($_FILES['userfile']['tmp_name'][$i])
             {
+                $direccion="files/".$_FILES["userfile"]["name"][$i];
                 //separamos los trozos del archivo, nombre extension
                 $trozos[$i] = explode(".", $_FILES["userfile"]["name"][$i]);
+
                 //obtenemos la extension
                 $extension[$i] = end($trozos[$i]);
-                //si la extensi�n es una de las permitidas
+
+                //si la extensión es una de las permitidas
                 if($this->checkExtension($extension[$i]) === TRUE)
                 {
+
                     //comprobamos si el archivo existe o no, si existe renombramos
                     //para evitar que sean eliminados
                     $_FILES['userfile']['name'][$i] = $this->checkExists($trozos[$i]);
+
                     //comprobamos si el archivo ha subido
                     if(move_uploaded_file($_FILES['userfile']['tmp_name'][$i],"files/".$_FILES['userfile']['name'][$i]))
                     {
+
+                      switch ($accion) {
+                        case 'aprobacion':
                           $strsql = "INSERT INTO `tbldocumentosaprobacion`(`documentoDireccion`,`solicitudAprobacionId`) VALUES('%s',%d);";
-                          $strsql = sprintf($strsql,  $direccion, $solicitudAprobacionId);
+                          $strsql = sprintf($strsql,  $direccion, $Id);
                           $resultado=0;
-                        $resultado=  ejecutarNonQuery($strsql);
-                      //  echo '<script language="javascript">alert("Archivo subido correctamente.");</script>';
+                          $resultado=  ejecutarNonQuery($strsql);
+                          echo "subida correctamente";
+                          break;
+
+                          case 'recepcion':
+                            $strsql = "INSERT INTO `tbldocumentosrecepcion`(`documentoRecepcionDireccion`,`solicitudRecepcionId`) VALUES('%s',%d);";
+                            $strsql = sprintf($strsql,  $direccion, $Id);
+                            $resultado=0;
+                            $resultado=  ejecutarNonQuery($strsql);
+                            echo "subida correctamente";
+                            break;
+
+                        default:
+                          # code...
+                          break;
+                      }
+
+
                         //aqui podemos procesar info de la bd referente a este archivo
                     }
                 //si la extension no es una de las permitidas
                 }else{
-                  //echo '<script language="javascript">alert("Extension del archivo no permitida");</script>';
+                    echo "la extension no esta permitida";
                 }
             //si ese input file no ha sido cargado con un archivo
             }else{
-                //echo '<script language="javascript">alert("Debe seleccionar un archivo.");</script>';
+                echo "sin imagen";
             }
-            //echo "<br />";
+            echo "<br />";
             //en cada pasada por el loop incrementamos i para acceder al siguiente archivo
             $i++;
         }
     }
+
     /**
     *funcion privada que devuelve true o false dependiendo de la extension
     *@access private
@@ -69,8 +88,8 @@ class Multiupload
     */
     private function checkExtension($extension)
     {
-        //aqui podemos a�adir las extensiones que deseemos permitir
-        $extensiones = array("pdf");
+        //aqui podemos añadir las extensiones que deseemos permitir
+        $extensiones = array("jpg","png","gif","pdf");
         if(in_array(strtolower($extension), $extensiones))
         {
             return TRUE;
@@ -78,6 +97,7 @@ class Multiupload
             return FALSE;
         }
     }
+
     /**
     *funcion que comprueba si el archivo existe, si es asi, iteramos en un loop
     *y conseguimos un nuevo nombre para el, finalmente lo retornamos
@@ -102,4 +122,3 @@ class Multiupload
         return $archivo;
     }
 }
- ?>

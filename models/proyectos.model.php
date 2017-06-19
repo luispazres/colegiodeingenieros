@@ -8,6 +8,13 @@
         return $departamentos;
     }
 
+    function obtenerTipoProyectos(){
+        $tipos = array();
+        $sqlstr = "select * from tbltipoproyectos;";
+        $tipos = obtenerRegistros($sqlstr);
+        return $tipos;
+    }
+
     function obtenerVoltajes(){
         $voltajes = array();
         $sqlstr = "select * from tblvoltajes;";
@@ -39,12 +46,14 @@
         return $proyecto;
     }
 
-    function registrarProyecto($txtNombrePropietario,$txtIdentidadPropietario,$txtDireccionPropietario,$txtEmailPropietario,$txtTelefonoPropietario, $txtCelularPropietario, $txtProyectoNombre, $txtLatitud, $txtLongitud, $txtDescripcionProyecto,$cmbDepartamentoProyecto,$txtDireccionProyecto, $txtProyectoNombre){
+    
+
+    function registrarProyecto($txtNombrePropietario,$txtIdentidadPropietario,$txtDireccionPropietario,$txtEmailPropietario,$txtTelefonoPropietario, $txtCelularPropietario, $txtProyectoNombre, $txtLatitud, $txtLongitud, $txtDescripcionProyecto,$cmbDepartamentoProyecto,$txtDireccionProyecto, $txtProyectoNombre,$tipos){
       $insertSQL = "INSERT INTO `tblProyectos` (`proyectoNombrePropietario`,`proyectoIdentidadPropietario`,
         `proyectoDireccionPropietario`, `proyectoCelularPropietario`,`proyectoEmailPropietario`,
         `proyectoTelefonoPropietario`,departamentoId, `proyectoDescrpcion`, proyectoLatitud, proyectoLongitud,
-        `proyectoDireccion`, `usuarioIdentidad`,`proyectoNombre`)
-      values ('%s','%s','%s','%s','%s','%s',%d,'%s',%f,%f,'%s','0801199503314','%s');";
+        `proyectoDireccion`, `usuarioIdentidad`,`proyectoNombre`,`tipoId`)
+      values ('%s','%s','%s','%s','%s','%s',%d,'%s',%f,%f,'%s','0801199503314','%s',%d);";
       $insertSQL = sprintf($insertSQL,
                            valstr($txtNombrePropietario),
                            valstr($txtIdentidadPropietario),
@@ -57,7 +66,8 @@
                            $txtLatitud,
                            $txtLongitud,
                            valstr($txtDireccionProyecto),
-                           valstr($txtProyectoNombre));
+                           valstr($txtProyectoNombre),
+                           $tipos);
       return ejecutarNonQueryConErrores($insertSQL);
     }
  ?>

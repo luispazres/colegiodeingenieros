@@ -14,7 +14,6 @@
 
     $proyectos=obtenerTodosLosProyectos();
 
-    print_r($accion);
     renderizar("verProyectos",array('proyectos' => $proyectos));
   }
 
