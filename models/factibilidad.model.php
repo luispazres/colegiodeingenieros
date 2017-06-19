@@ -1,6 +1,8 @@
 <?php
 require_once("libs/dao.php");
 
+  require_once("libs/dao.php");
+
 function registrarFactibilidad($voltajeId, $conexionId, $potencia, $crecmientoesperado, $kva, $proyectoId){
   $insertSQL = "INSERT INTO `tblsolicitudfactibilidad`
 (
@@ -18,6 +20,7 @@ $insertSQL = sprintf($insertSQL, $voltajeId, $conexionId, $potencia, $crecmiento
 return ejecutarNonQueryConErrores($insertSQL);
 }
 
+<<<<<<< HEAD
 
 function verFactbilidadPorId($factId){
 $solicitudFactibilidad = array();
@@ -60,4 +63,13 @@ function verSolicitudesFactbilidad(){
 }
 
 
+=======
+function obtenerSolicitudesFactibilidad(){
+    $solicitudes = array();
+    $sqlstr = "SELECT * FROM tblsolicitudfactibilidad as sf, tblproyectos as p, tblestadofactibilidad as ef where p.proyectoId=sf.proyectoId and sf.estadoFactibilidadId=ef.estadoFactibilidadId;";
+    $solicitudes = obtenerRegistros($sqlstr);
+    return $solicitudes;
+}
+
+>>>>>>> master
  ?>
