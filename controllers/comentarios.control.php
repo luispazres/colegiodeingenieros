@@ -28,7 +28,7 @@
       $htmlDatos["solicitudadFactibilidadCrecimientoEsperado"] = $solicitud["solicitudadFactibilidadCrecimientoEsperado"];
       $htmlDatos["solicitudFactibilidadKva"] = $solicitud["solicitudFactibilidadKva"];
       $htmlDatos["estadoFactibilidadDescripcion"] = $solicitud["estadoFactibilidadDescripcion"];
-      $htmlDatos["vista"]=vistaComentarios::vista($htmlDatos["proyectoNombre"],$htmlDatos["departamentoDescripcion"],$htmlDatos["proyectoDireccion"], $htmlDatos["proyectoDescrpcion"],
+      $htmlDatos["vista"]=vistaComentariosFactibilidad::vista($_GET["codigo"],$htmlDatos["proyectoNombre"],$htmlDatos["departamentoDescripcion"],$htmlDatos["proyectoDireccion"], $htmlDatos["proyectoDescrpcion"],
       $htmlDatos["proyectoNombrePropietario"],$htmlDatos["ingenieroNombre"],$htmlDatos["usuarioNumeroColegiacion"],$htmlDatos["voltajeDescripcion"],
       $htmlDatos["conexionDescripcion"],$htmlDatos["solicitudFactibilidadPotencia"],$htmlDatos["solicitudadFactibilidadCrecimientoEsperado"],$htmlDatos["solicitudFactibilidadKva"]);
     }

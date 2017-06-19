@@ -22,6 +22,11 @@
     echo $respuesta;
   }
 
+  if (isset($_POST["btnComentarFactibilidad"])) {
+    agregarComentarioFactibilidad($_POST["codigoProyecto"],$_POST["comentario"]);
+  }
+
+
   $revisar=verSolicitudesFactbilidad();
   renderizar("revisarSolicitudFactibilidad",array('solicitud'=>$revisar));
 

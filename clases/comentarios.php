@@ -2,12 +2,12 @@
 require_once("libs/dao.php");
 require_once('models/factibilidad.model.php');
 
-class vistaComentarios
+class vistaComentariosFactibilidad
 {
-  public static function vista($proyectoNombre,$depto,$direccion,
+  public static function vista($codigo,$proyectoNombre,$depto,$direccion,
   $descripcion,$nombrePropietario,$nombreIngeniero,$numeroColeg,
   $voltaje,$tipoConexion,$potencia,$crecimiento,$kva){
-    $vista="<div class='right_col' role='main'>
+  $vista="<div class='right_col' role='main'>
         <div class=''>
           <div class='page-title'>
             <div class='title_left'>
@@ -50,7 +50,7 @@ class vistaComentarios
                     <div class='x_content'>
                       <br>
 
-                        <form method='post' action='index.php?page=modificarUsuario' id='demo-form2' data-parsley-validate class='form-horizontal form-label-left'>
+                        <form method='post' action='index.php?page=revisarSolicitudFactibilidad' id='demo-form2' data-parsley-validate class='form-horizontal form-label-left'>
                           <div class='form-group'>
 
                              <div class='row'>
@@ -58,93 +58,93 @@ class vistaComentarios
                                                       <div class='form-group'>
                                                           <label for='txtProyectoNombre'>Nombre del Proyecto *</label>
                                                           <input type='text' id='txtUs'class='form-control' name='txtUs' value='".$proyectoNombre."' disabled='disabled'>
-                                                          <input type='hidden' id='txtUsuarioId'class='form-control' name='txtUsuarioId' value='{{usuarioIdentidad}}'>
+                                                          <input type='hidden' id='codigoProyecto'class='form-control' name='codigoProyecto' value='".$codigo."'>
                                                       </div>
                                                   </div>
                                                   <div class='col-md-6'>
                                                       <div class='form-group'>
                                                           <label for='form_lastname'>Departamento *</label>
-                                                          <input type='text' id='txtNumeroColegiacion'class='form-control' name='txtNumeroColegiacion' value='".$depto."' disabled='disabled'>
+                                                          <input type='text' id='departamento'class='form-control' name='departamento' value='".$depto."' disabled='disabled'>
                                                       </div>
                                                   </div>
                                                   <div class='col-md-6'>
                                                       <div class='form-group'>
                                                           <label for='form_name'>Direccion del Proyecto *</label>
-                                                          <input id='txtUsuarioNombre' type='text' name='txtUsuarioNombre' class='form-control'  value='".$direccion."' disabled='disabled'>
+                                                          <input id='direccion' type='text' name='direccion' class='form-control'  value='".$direccion."' disabled='disabled'>
                                                       </div>
                                                   </div>
                                                   <div class='col-md-6'>
                                                       <div class='form-group'>
                                                           <label for='form_name'>Descripcion del Proyecto *</label>
-                                                          <input id='txtNumeroCelular' type='text' name='txtNumeroCelular' class='form-control'  value='".$descripcion."' disabled='disabled'>
+                                                          <input id='descripcionProyecto' type='text' name='descripcionProyecto' class='form-control'  value='".$descripcion."' disabled='disabled'>
                                                       </div>
                                                   </div>
                                                   <div class='col-md-6'>
                                                       <div class='form-group'>
                                                           <label for='form_name'>Nombre del Propietario *</label>
-                                                          <input id='txtNumeroTelefono' type='text' name='txtNumeroTelefono' class='form-control'  value='".$nombrePropietario."' disabled='disabled'>
+                                                          <input id='nombrePripietario' type='text' name='nombrePropietario' class='form-control'  value='".$nombrePropietario."' disabled='disabled'>
                                                       </div>
                                                   </div>
 
                                                   <div class='col-md-6'>
                                                       <div class='form-group'>
                                                           <label for='form_name'>Nombre del Ingeniero *</label>
-                                                          <input id='txtNumeroTelefono' type='text' name='txtNumeroTelefono' class='form-control'  value='".$nombreIngeniero."' disabled='disabled'>
+                                                          <input id='nombreIngeniero' type='text' name='nombreIngeniero' class='form-control'  value='".$nombreIngeniero."' disabled='disabled'>
                                                       </div>
                                                   </div>
 
                                                   <div class='col-md-6'>
                                                       <div class='form-group'>
                                                           <label for='form_name'>Numero de Colegiación *</label>
-                                                          <input id='txtNumeroTelefono' type='text' name='txtNumeroTelefono' class='form-control'  value='".$numeroColeg."' disabled='disabled'>
+                                                          <input id='numeroColeg' type='text' name='numeroColeg' class='form-control'  value='".$numeroColeg."' disabled='disabled'>
                                                       </div>
                                                   </div>
 
                                                   <div class='col-md-6'>
                                                       <div class='form-group'>
                                                           <label for='form_name'>Voltaje *</label>
-                                                          <input id='txtNumeroTelefono' type='text' name='txtNumeroTelefono' class='form-control'  value='".$voltaje."' disabled='disabled'>
+                                                          <input id='voltaje' type='text' name='voltaje' class='form-control'  value='".$voltaje."' disabled='disabled'>
                                                       </div>
                                                   </div>
 
                                                   <div class='col-md-6'>
                                                       <div class='form-group'>
                                                           <label for='form_name'>Tipo de Conexion *</label>
-                                                          <input id='txtNumeroTelefono' type='text' name='txtNumeroTelefono' class='form-control'  value='".$tipoConexion."' disabled='disabled'>
+                                                          <input id='tipoConexion' type='text' name='tipoConexion' class='form-control'  value='".$tipoConexion."' disabled='disabled'>
                                                       </div>
                                                   </div>
 
                                                   <div class='col-md-6'>
                                                       <div class='form-group'>
                                                           <label for='form_name'>Potencia *</label>
-                                                          <input id='txtNumeroTelefono' type='text' name='txtNumeroTelefono' class='form-control'  value='".$potencia."' disabled='disabled'>
+                                                          <input id='potencia' type='text' name='potencia' class='form-control'  value='".$potencia."' disabled='disabled'>
                                                       </div>
                                                   </div>
 
                                                   <div class='col-md-6'>
                                                       <div class='form-group'>
                                                           <label for='form_name'>Crecimiento Futuro *</label>
-                                                          <input id='txtNumeroTelefono' type='text' name='txtNumeroTelefono' class='form-control'  value='".$crecimiento." %' disabled='disabled'>
+                                                          <input id='crecimiento' type='text' name='crecimiento' class='form-control'  value='".$crecimiento." %' disabled='disabled'>
                                                       </div>
                                                   </div>
 
                                                   <div class='col-md-6'>
                                                       <div class='form-group'>
                                                           <label for='form_name'>KVA a Instalar *</label>
-                                                          <input id='txtNumeroTelefono' type='text' name='txtNumeroTelefono' class='form-control'  value='".$kva."' disabled='disabled'>
+                                                          <input id='kva' type='text' name='kva' class='form-control'  value='".$kva."' disabled='disabled'>
                                                       </div>
                                                   </div>
 
                                                   <div class='col-md-12'>
                                                    <div class='form-group'>
                                                        <label for='form_message'>Comentarios *</label>
-                                                       <textarea id='txtDireccion' placeholder='Describa Porque ha sido rechazado el proyecto' name='txtDireccion' class='form-control' rows='4'></textarea>
+                                                       <textarea id='comentario' placeholder='Describa Porque ha sido rechazado el proyecto' name='comentario' class='form-control' rows='4'></textarea>
                                                    </div>
                                                </div>
                           <div class='col-md-12'>
                           <div class='form-group'>
                           <!--Boton Submit-->
-                          <button type='submit' id='btnActualizarUsuario' name='btnActualizarUsuario' class='btn btn-default'>
+                          <button type='submit' id='btnComentarFactibilidad' name='btnComentarFactibilidad' class='btn btn-default'>
                             Actualizar
                           </button>
                           <!--Fin Boton Submit-->
