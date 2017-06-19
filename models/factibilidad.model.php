@@ -20,12 +20,12 @@ $insertSQL = sprintf($insertSQL, $voltajeId, $conexionId, $potencia, $crecmiento
 return ejecutarNonQueryConErrores($insertSQL);
 }
 
-<<<<<<< Updated upstream
-=======
-function agregarComentarioFactibilidad($solicitudId, $comentario){
+//<<<<<<< Updated upstream
+//=======
+function agregarComentarioFactibilidad($solicitudId, $comentario, $estado){
   $sqlstr="UPDATE `tblsolicitudfactibilidad`
-  SET `estadoFactibilidadId` = 1,
-  SET `comentario` = '$comentario'
+  SET `estadoFactibilidadId` = $estado,
+  `comentario` = '$comentario'
   WHERE `solicitudFactibilidadId` = $solicitudId;";
   if(ejecutarNonQuery($sqlstr)){
   return ejecutarNonQueryConErrores($sqlstr);
@@ -33,7 +33,7 @@ function agregarComentarioFactibilidad($solicitudId, $comentario){
 }
 
 
->>>>>>> Stashed changes
+//>>>>>>> Stashed changes
 function verFactbilidadPorId($factId){
 $solicitudFactibilidad = array();
 $sqlstr = "SELECT  tblsf.solicitudFactibilidadId,proyectoNombre,departamentoDescripcion,proyectoDireccion,proyectoDescrpcion,
@@ -71,11 +71,12 @@ function verSolicitudesFactbilidad(){
     $solicitudFactibilidad = obtenerRegistros($sqlstr);
     return $solicitudFactibilidad;
 }
-
+/*
 <<<<<<< Updated upstream
 =======
 
 >>>>>>> Stashed changes
+*/
 function obtenerSolicitudesFactibilidad(){
     $solicitudes = array();
     $sqlstr = "SELECT * FROM tblsolicitudfactibilidad as sf, tblproyectos as p, tblestadofactibilidad as ef where p.proyectoId=sf.proyectoId and sf.estadoFactibilidadId=ef.estadoFactibilidadId;";

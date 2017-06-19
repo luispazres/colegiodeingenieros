@@ -4,7 +4,7 @@ require_once('models/factibilidad.model.php');
 
 class vistaComentariosFactibilidad
 {
-  public static function vista($codigo,$proyectoNombre,$depto,$direccion,
+  public static function vista($tipo,$codigo,$proyectoNombre,$depto,$direccion,
   $descripcion,$nombrePropietario,$nombreIngeniero,$numeroColeg,
   $voltaje,$tipoConexion,$potencia,$crecimiento,$kva){
   $vista="<div class='right_col' role='main'>
@@ -59,6 +59,7 @@ class vistaComentariosFactibilidad
                                                           <label for='txtProyectoNombre'>Nombre del Proyecto *</label>
                                                           <input type='text' id='txtUs'class='form-control' name='txtUs' value='".$proyectoNombre."' disabled='disabled'>
                                                           <input type='hidden' id='codigoProyecto'class='form-control' name='codigoProyecto' value='".$codigo."'>
+                                                          <input type='hidden' id='tipo'class='form-control' name='tipo' value='".$tipo."'>
                                                       </div>
                                                   </div>
                                                   <div class='col-md-6'>

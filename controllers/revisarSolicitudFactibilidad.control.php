@@ -23,7 +23,14 @@
   }
 
   if (isset($_POST["btnComentarFactibilidad"])) {
-    agregarComentarioFactibilidad($_POST["codigoProyecto"],$_POST["comentario"]);
+    if ($_POST["tipo"]=="rechazo") {
+    agregarComentarioFactibilidad($_POST["codigoProyecto"],$_POST["comentario"],1);
+  }elseif ($_POST["tipo"]=="") {
+    agregarComentarioFactibilidad($_POST["codigoProyecto"],$_POST["comentario"],2);
+  }
+
+
+
   }
 
 
