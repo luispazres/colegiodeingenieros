@@ -32,6 +32,7 @@
         AND tblu.estadoCuentaId=tble.estadoCuentaId AND tblu.usuarioIdentidad='$numeroId';";
         $sqlstr = sprintf($sqlstr, $numeroId);
         $proyecto = obtenerUnRegistro($sqlstr);
+        }
 
     function obtenerUsuariosPorId($id){
           $usuario = array();
@@ -101,5 +102,5 @@
         }
         return 0;
     }
-
+ 
 ?>

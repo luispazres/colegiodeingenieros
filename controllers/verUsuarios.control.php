@@ -9,7 +9,7 @@
 
   function run(){
   $usuario = array();
-/*
+
   if(isset($_POST["btnRechazar"])){
 
     $numeroId="";
@@ -26,7 +26,7 @@
     $respuesta=actualizarEstado($numeroId,$estadoCuenta);
     echo $respuesta;
   }
-*/
+
   $usuario=obtenerTodosLosUsuarios();
   renderizar("verUsuarios",array('usuario'=>$usuario));
 

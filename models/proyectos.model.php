@@ -15,30 +15,7 @@
         return $voltajes;
     }
 
-    function verSolicitudesFactbilidad(){
-        $solicitudFactibilidad = array();
-        $sqlstr = "SELECT  tblsf.solicitudFactibilidadId,tblsf.estadoFactibilidadId,proyectoNombre, departamentoDescripcion, proyectoDireccion, proyectoDescrpcion,
-        proyectoLatitud,proyectoLongitud, proyectoNombrePropietario,
-        proyectoIdentidadPropietario, proyectoTelefonoPropietario, proyectoCelularPropietario,
-        proyectoEmailPropietario, proyectoDireccionPropietario,concat(usuarioPrimerNombre, ' ' ,usuarioSegundoNombre ,' '
-        ,usuarioPrimerApellido, ' ', usuarioSegundoApellido) 'ingenieroNombre',
-        usuarioNumeroColegiacion, usuarioTelefono, usuarioCelular, voltajeDescripcion, conexionDescripcion,
-        solicitudFactibilidadPotencia, solicitudadFactibilidadCrecimientoEsperado, solicitudFactibilidadKva,
-        estadoFactibilidadDescripcion
-        FROM tblsolicitudfactibilidad tblsf, tblconexiones tblc, tblvoltajes tblv, tbldepartamentos tbld,
-        tblproyectos tblp, tblusuarios tblu,  tblestadofactibilidad
-        where tblsf.proyectoId=tblp.proyectoId and tblsf.conexionId=tblc.conexionId
-        and tblsf.voltajeId=tblv.voltajeId and tblp.usuarioIdentidad=tblu.usuarioIdentidad
-        and tbld.departamentoId=tblp.departamentoId
-        and tblsf.estadoFactibilidadId=tblestadofactibilidad.estadoFactibilidadId
-        and tblsf.estadoFactibilidadId=4;";
-        $solicitudFactibilidad = obtenerRegistros($sqlstr);
-        return $solicitudFactibilidad;
-    }
 
-/*
-solicitudFactibilidadId, voltajeId, conexionId, solicitudFactibilidadPotencia, solicitudadFactibilidadCrecimientoEsperado, solicitudFactibilidadKva, estadoFactibilidadId, proyectoId, conexionId, conexionDescripcion, voltajeId, voltajeDescripcion, departamentoId, departamentoDescripcion, proyectoId, proyectoNombrePropietario, proyectoIdentidadPropietario, proyectoCelularPropietario, proyectoEmailPropietario, proyectoDireccionPropietario, proyectoTelefonoPropietario, departamentoId, proyectoDescrpcion, proyectoLatitud, proyectoLongitud, proyectoDireccion, usuarioIdentidad, proyectoNombre, usuarioIdentidad, usuarioPrimerNombre, usuarioSegundoNombre, usuarioPrimerApellido, usuarioSegundoApellido, usuarioNumeroColegiacion, usuarioCelular, usuarioTelefono, usuarioDireccion, usuarioContrasenia, estadoCuentaId, rolId, usuarioCorreo
-*/
 
     function obtenerConexions(){
         $conexiones = array();

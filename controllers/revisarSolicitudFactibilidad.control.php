@@ -1,6 +1,6 @@
 <?php
   require_once("libs/template_engine.php");
-  require_once("models/proyectos.model.php");
+  require_once("models/factibilidad.model.php");
 
   function run(){
   $revisar = array();
