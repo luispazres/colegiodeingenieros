@@ -128,6 +128,16 @@
                         </div>
                       </div>
                       <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Seleccione el Tipo del Proyecto</label>
+                        <div class="col-md-9 col-sm-9 col-xs-12">
+                          <select class="form-control" name="cmbProyectoTipo" id="cmbProyectoTipo">
+                            {{foreach tipos}}
+                              <option value="{{tipoId}}">{{tipoDescrpcion}}</option>
+                            {{endfor tipos}}
+                          </select>
+                        </div>
+                      </div>
+                      <div class="form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Dirección del Proyecto <span class="required">*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">

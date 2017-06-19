@@ -49,14 +49,8 @@
                          <div class="row">
                                               <div class="col-md-6">
                                                   <div class="form-group">
-                                                      <label for="form_name">Código del diseño aprobado por ENEE *</label>
-                                                      <input id="form_name" type="text" name="name" class="form-control" placeholder="Código del diseño aprobado por ENEE *">
-                                                  </div>
-                                              </div>
-                                              <div class="col-md-6">
-                                                  <div class="form-group">
                                                       <label for="form_lastname">Tiempo que ocupara tener la red sin energía *</label>
-                                                      <input id="form_name" type="range" name="name" class="form-control" placeholder="Tiempo que ocupara tener la red sin energía *">
+                                                      <input id="form_name" type="text" name="name" class="form-control" placeholder="Tiempo que ocupara tener la red sin energía *">
                                                   </div>
                                               </div>
                                           </div>
@@ -64,7 +58,7 @@
                                               <div class="col-md-6">
                                                   <div class="form-group">
                                                       <label for="form_name">Cuadrillas *</label>
-                                                      <input id="form_name" type="number" name="name" class="form-control" placeholder="Cuadrillas y cantidad de personal a laborar *">
+                                                      <input id="form_name" type="text" name="name" class="form-control" placeholder="Cuadrillas y cantidad de personal a laborar *">
                                                   </div>
                                               </div>
                                               <div class="col-md-6">

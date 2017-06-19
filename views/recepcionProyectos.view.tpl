@@ -4,7 +4,7 @@
         <div class="title_left">
           <h3>Recepcion de Proyectos</h3>
         </div>
-
+        <h1>{{proyectoId}}</h1>
         <div class="title_right">
           <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
             <div class="input-group">
@@ -42,60 +42,128 @@
                 <div class="x_content">
                   <br>
 
-
-
-                    <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left">
-
+                    <form action="index.php?page=recepcionProyectos" id="demo-form2" data-parsley-validate class="form-horizontal form-label-left" enctype="multipart/form-data" method="post">
+                      <input type="hidden" name="solicitudAprobacionId" id="solicitudAprobacionId" value="{{solicitudAprobacionId}}">
                       <div class="form-group">
+              					 <div class="row">
+                                              <div class="col-md-6">
+                                                  <div class="form-group">
+                                                      <label for="txtProyectoNombre">Nombre del proyecto *</label>
+                                                      <input type="text" id="txtProyectoNombre"class="form-control" name="txtProyectoNombre" value="{{proyectoNombre}}" disabled="disabled">
+                                                  </div>
+                                              </div>
+                                              <div class="col-md-6">
+                                                  <div class="form-group">
+                                                      <label for="txtAprobacion">Código de Aprobación: </label>
+                                                      <input type="text" id="txtAprobacion" class="form-control" name="txtAprobacion" value="{{codigoAprobacion}}" disabled="disabled">
+                                                  </div>
+                                              </div>
+                                              <div class="col-md-6">
+                                                  <div class="form-group">
+                                                      <label for="form_lastname">Departamento *</label>
+                                                      <input type="text" id="txtproyectoDepartamento"class="form-control" name="txtproyectoDepartamento" value="{{departamentoNombre}}" disabled="disabled">
+                                                  </div>
+                                              </div>
+                                              <div class="col-md-6">
+                                                  <div class="form-group">
+                                                      <label for="form_name">Dirección Exacta del Proyecto *</label>
+                                                      <input id="form_name" type="text" name="name" class="form-control"  value="{{proyectoDireccion}}" disabled="disabled">
+                                                  </div>
+                                              </div>
+                                              <div class="col-md-12">
+                                               <div class="form-group">
+                                                   <label for="form_message">Descripcion del Proyecto *</label>
+                                                   <textarea id="form_message" name="message" class="form-control" disabled="disabled" rows="4">{{proyectoDescrpcion}}</textarea>
+                                               </div>
+                                           </div>
+                                          </div>
 
-                      					<label for="exampleInputEmail1">
-                      						Codigo Emitido por la ENEE para la Aprobación del Diseño
-                      					</label>
-                      					<input type="email" class="form-control" id="exampleInputEmail1" placeholder="Codigo Emitido por la ENEE para la Aprobación del Diseño *">
-                      				</div>
-                      				<div class="form-group">
+                                          <h4>Coordenadas</h4>
 
-                      					<label for="exampleInputFile">
-                      						Suba su Documentación
-                      					</label>
-                      					<input type="file" id="exampleInputFile">
-                      					<p class="help-block">
-                      						Documentos que puede subir: Plano Digital(En caso de modificaciones), Facturas, Solicitudes, ETC.
-                      					</p>
-                      				<button type="buton" class="btn btn-default">
-                      					Añadir otro archivo
-                      				</button>
-                      				</div>
-                              <br></br>
-                      				<div class="form-group">
+                                          <div class="row">
+                                                                      <div class="col-md-6">
+                                                                          <div class="form-group">
+                                                                              <label for="form_name">Latitud *</label>
+                                                                              <input id="form_name" type="text" name="name" class="form-control" value="{{proyectoLatitud}}" disabled="disabled">
+                                                                          </div>
+                                                                      </div>
+                                                                      <div class="col-md-6">
+                                                                          <div class="form-group">
+                                                                              <label for="form_lastname">Longitud *</label>
+                                                                              <input id="form_lastname" type="text" name="surname" class="form-control" value="{{proyectoLongitud}}" disabled="disabled">
+                                                                          </div>
+                                                                      </div>
+                                          </div>
 
-                      					<label for="exampleInputEmail1">
-                      						Metodo de Pago
-                      					</label>
-                      					<select class="btn btn-default">
-                      						<option>Targeta de Credito</option>
-                      						<option>Deposito Bancario</option>
-                      					</select>
-                      					<br></br>
-                      					<label for="exampleInputEmail1">
-                      						Targeta
-                      					</label>
-                      					<input type="email" class="form-control" id="exampleInputEmail1" placeholder="Ingrese el Numero de su Targeta para Realizar el Pago Respectivo *">
-                      					<label for="exampleInputEmail1">
-                      						Deposito
-                      					</label>
-                      					<input type="email" class="form-control" id="exampleInputEmail1" placeholder="Ingrese el Numero de Transacción Bancario *">
-                      				</div>
-                      				<div class="checkbox">
-                      				</div>
-                      				<button type="submit" class="btn btn-default">
-                      					Enviar
-                      				</button>
+              					 <h4>Datos Propietario</h4></br>
+              					 <div class="row">
+                                              <div class="col-md-6">
+                                                  <div class="form-group">
+                                                      <label for="form_name">Propietario *</label>
+                                                      <input id="form_name" type="text" name="name" class="form-control" value="{{proyectoNombrePropietario}}" disabled="disabled">
+                                                  </div>
+                                              </div>
+                                              <div class="col-md-6">
+                                                  <div class="form-group">
+                                                      <label for="form_lastname">Numero de Identidad del Propietario *</label>
+                                                      <input id="form_lastname" type="text" name="surname" class="form-control" value="{{proyectoIdentidadPropietario}}" disabled="disabled">
+                                                  </div>
+                                              </div>
+                                          </div>
+
+              					 <div class="row">
+                                              <div class="col-md-6">
+                                                  <div class="form-group">
+                                                      <label for="form_name">Telefono Propietario *</label>
+                                                      <input id="form_name" type="text" name="name" class="form-control" value="{{proyectoTelefonoPropietario}}" disabled="disabled">
+                                                  </div>
+                                              </div>
+                                              <div class="col-md-6">
+                                                  <div class="form-group">
+                                                      <label for="form_lastname">Celular Propietario *</label>
+                                                      <input id="form_lastname" type="text" name="surname" class="form-control" value="{{proyectoCelularPropietario}}" disabled="disabled">
+                                                  </div>
+                                              </div>
+                                          </div>
+
+              					 <div class="row">
+                                              <div class="col-md-6">
+                                                  <div class="form-group">
+                                                      <label for="form_name">Email Propietario *</label>
+                                                      <input id="form_name" type="text" name="name" class="form-control"value="{{proyectoEmailPropietario}}" disabled="disabled">
+                                                  </div>
+                                              </div>
+                                              <div class="col-md-6">
+                                                  <div class="form-group">
+                                                      <label for="form_lastname">Dirección Propietario *</label>
+                                                      <input id="form_lastname" type="text" name="surname" class="form-control" value="{{proyectoDireccionPropietario}}" disabled="disabled">
+                                                  </div>
+                                              </div>
+                                          </div>
+
+
+                                                           <div class="row">
+                                                                                <div class="col-md-6">
+                                                                                    <div class="form-group">
+                                                                                        <label for="userfile">Documento</label>
+                                                                                        <input id="userfile" type="file" name="userfile[]" class="form-control"  >
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="col-md-6">
+                                                                                    <div class="form-group">
+                                                                                        <label for="userfile">Documento 2</label>
+                                                                                        <input id="userfile" type="file" name="userfile[]" class="form-control" >
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+              				</div>
+
+              				<!--Boton Submit-->
+              				<input type="submit" id="btnSolicitarAprobacion" name="btnSolicitarAprobacion" class="btn btn-default" value="Solicitar Recepción">
+              				<!--Fin Boton Submit-->
+
 
                     </form>
-
-
-
           </div>
         </div>
       </div>

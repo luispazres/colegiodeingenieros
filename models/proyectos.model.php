@@ -8,6 +8,13 @@
         return $departamentos;
     }
 
+    function obtenerTipoProyectos(){
+        $tipos = array();
+        $sqlstr = "select * from tbltipoproyectos;";
+        $tipos = obtenerRegistros($sqlstr);
+        return $tipos;
+    }
+
     function obtenerVoltajes(){
         $voltajes = array();
         $sqlstr = "select * from tblvoltajes;";
@@ -21,7 +28,7 @@
         proyectoLatitud,proyectoLongitud, proyectoNombrePropietario,
         proyectoIdentidadPropietario, proyectoTelefonoPropietario, proyectoCelularPropietario,
         proyectoEmailPropietario, proyectoDireccionPropietario,concat(usuarioPrimerNombre, ' ' ,usuarioSegundoNombre ,' '
-        ,usuarioPrimerApellido, ' ', usuarioSegundoApellido) 'ingenieroNombre', 
+        ,usuarioPrimerApellido, ' ', usuarioSegundoApellido) 'ingenieroNombre',
         usuarioNumeroColegiacion, usuarioTelefono, usuarioCelular, voltajeDescripcion, conexionDescripcion,
         solicitudFactibilidadPotencia, solicitudadFactibilidadCrecimientoEsperado, solicitudFactibilidadKva,
         estadoFactibilidadDescripcion
@@ -62,12 +69,14 @@ solicitudFactibilidadId, voltajeId, conexionId, solicitudFactibilidadPotencia, s
         return $proyecto;
     }
 
-    function registrarProyecto($txtNombrePropietario,$txtIdentidadPropietario,$txtDireccionPropietario,$txtEmailPropietario,$txtTelefonoPropietario, $txtCelularPropietario, $txtProyectoNombre, $txtLatitud, $txtLongitud, $txtDescripcionProyecto,$cmbDepartamentoProyecto,$txtDireccionProyecto, $txtProyectoNombre){
+    
+
+    function registrarProyecto($txtNombrePropietario,$txtIdentidadPropietario,$txtDireccionPropietario,$txtEmailPropietario,$txtTelefonoPropietario, $txtCelularPropietario, $txtProyectoNombre, $txtLatitud, $txtLongitud, $txtDescripcionProyecto,$cmbDepartamentoProyecto,$txtDireccionProyecto, $txtProyectoNombre,$tipos){
       $insertSQL = "INSERT INTO `tblProyectos` (`proyectoNombrePropietario`,`proyectoIdentidadPropietario`,
         `proyectoDireccionPropietario`, `proyectoCelularPropietario`,`proyectoEmailPropietario`,
         `proyectoTelefonoPropietario`,departamentoId, `proyectoDescrpcion`, proyectoLatitud, proyectoLongitud,
-        `proyectoDireccion`, `usuarioIdentidad`,`proyectoNombre`)
-      values ('%s','%s','%s','%s','%s','%s',%d,'%s',%f,%f,'%s','0801199503314','%s');";
+        `proyectoDireccion`, `usuarioIdentidad`,`proyectoNombre`,`tipoId`)
+      values ('%s','%s','%s','%s','%s','%s',%d,'%s',%f,%f,'%s','0801199503314','%s',%d);";
       $insertSQL = sprintf($insertSQL,
                            valstr($txtNombrePropietario),
                            valstr($txtIdentidadPropietario),
@@ -80,7 +89,8 @@ solicitudFactibilidadId, voltajeId, conexionId, solicitudFactibilidadPotencia, s
                            $txtLatitud,
                            $txtLongitud,
                            valstr($txtDireccionProyecto),
-                           valstr($txtProyectoNombre));
+                           valstr($txtProyectoNombre),
+                           $tipos);
       return ejecutarNonQueryConErrores($insertSQL);
     }
  ?>

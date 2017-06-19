@@ -20,13 +20,14 @@
       //creamos una nueva instancia de la clase multiupload
      $upload = new Multiupload();
       //llamamos a la funcion upFiles y le pasamos el array de campos file del formulario
-      $isUpload = $upload->upFiles($files,$respuesta);
+      $isUpload = $upload->upFiles($files,$respuesta,"aprobacion");
        //llamamos a la funcion upFiles y le pasamos el array de campos file del formulari
       if ($isUpload===FALSE) {
          borrarAprobacion($respuesta);
          $alerta=redirectWithMessage("Error al subir el archivo ","index.php?page=aprobacionProyectos");
       }else {
-         header("Location:index.php?page=aprobacionProyectos");
+         $header="Location:index.php?page=aprobacionProyectos&respuesta=".$respuesta;
+         header($header);
        }
     }
 

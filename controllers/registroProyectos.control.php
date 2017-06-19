@@ -8,6 +8,7 @@
     $departamentos= array( );
     $proyecto = array( );
     $departamentos=obtenerDepartamentos();
+    $tipos=obtenerTipoProyectos();
     $respueta="";
 
     if (isset($_POST["btnRegistrarProyecto"])) {
@@ -23,6 +24,7 @@
       $proyecto["cmbDepartamentoProyecto"]=$_POST["cmbProyectoDepartamento"];
       $proyecto["txtDireccionProyecto"]=$_POST["txtDireccionProyecto"];
       $proyecto["txtDescripcionProyecto"]=$_POST["txtDescripcionProyecto"];
+      $proyecto["cmbProyectoTipo"]=$_POST["cmbProyectoTipo"];
 
       $respueta=registrarProyecto($proyecto["txtNombrePropietario"],
       $proyecto["txtIdentidadPropietario"],
@@ -36,19 +38,14 @@
       $proyecto["txtDescripcionProyecto"],
       $proyecto["cmbDepartamentoProyecto"],
       $proyecto["txtDireccionProyecto"],
-      $proyecto["txtNombreProyecto"]);
-
-
-      print_r($proyecto);
-      echo $respueta;
+      $proyecto["txtNombreProyecto"],
+      $proyecto["cmbProyectoTipo"]);
 
       $location="Location:index.php?page=registroProyectos&error=".$respueta;
       header($location);
     }
 
-    print_r($proyecto);
-    echo $respueta;
-    renderizar("registroProyectos",  array("departamentos"=>$departamentos));
+    renderizar("registroProyectos",  array("departamentos"=>$departamentos, "tipos"=>$tipos));
 
   }
 

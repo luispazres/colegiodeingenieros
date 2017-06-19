@@ -355,7 +355,6 @@
           <script src="public/js/custom.min.js"></script>
 
           <script type="text/javascript">
-
               $("#txtMonto").on('input',function(e){
                 var monto =$("#txtMonto").val();
                 var cantidadAPagar=0;

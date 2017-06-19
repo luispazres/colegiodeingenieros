@@ -42,7 +42,7 @@
                 <div class="x_content">
                   <br>
 
-                    <form form id="defaultForm" action="index.php?page=aprobacionProyectos"  method="post" class="form-horizontal" enctype="multipart/form-data">
+                    <form action="index.php?page=aprobacionProyectos" id="demo-form2" data-parsley-validate class="form-horizontal form-label-left" enctype="multipart/form-data" method="post">
                       <input type="hidden" name="proyectoId" id="proyectoId" value="{{proyectoId}}">
                       <div class="form-group">
               					 <div class="row">
@@ -136,7 +136,6 @@
                                           </div>
 
                                           <div class="row">
-
                                                                <div class="col-md-6">
                                                                    <div class="form-group">
                                                                        <label for="txtMonto">Monto Estimado del Proyecto</label>
@@ -155,23 +154,23 @@
 
 
                                                            <div class="row">
-
                                                                                 <div class="col-md-6">
                                                                                     <div class="form-group">
-                                                                                      <label>Archivo 2:</label><input type="file" name="userfile[]" /><br /><br />
-
+                                                                                        <label for="userfile">Documento</label>
+                                                                                        <input id="userfile" type="file" name="userfile[]" class="form-control"  >
                                                                                     </div>
                                                                                 </div>
                                                                                 <div class="col-md-6">
                                                                                     <div class="form-group">
-                                                                                        <label>Archivo 3:</label><input type="file" name="userfile[]" /><br /><br />
+                                                                                        <label for="userfile">Documento 2</label>
+                                                                                        <input id="userfile" type="file" name="userfile[]" class="form-control" >
                                                                                     </div>
                                                                                 </div>
                                                                             </div>
               				</div>
 
               				<!--Boton Submit-->
-            <input type="submit" id="btnSolicitarAprobacion" name="btnSolicitarAprobacion" class="btn btn-default" value="Solicitar Aprobacion">
+              				<input type="submit" id="btnSolicitarAprobacion" name="btnSolicitarAprobacion" class="btn btn-default" value="Solicitar Aprobación">
               				<!--Fin Boton Submit-->
 
 

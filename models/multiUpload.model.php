@@ -7,7 +7,7 @@ class Multiupload
     *@access public
     *@param array $files estructura de array con todos los archivos a subir
     */
-    public function upFiles($files = array(), $solicitudAprobacionId)
+    public function upFiles($files = array(), $Id, $accion)
     {
         //inicializamos un contador para recorrer los archivos
         $i = 0;
@@ -40,11 +40,30 @@ class Multiupload
                     //comprobamos si el archivo ha subido
                     if(move_uploaded_file($_FILES['userfile']['tmp_name'][$i],"files/".$_FILES['userfile']['name'][$i]))
                     {
-                      $strsql = "INSERT INTO `tbldocumentosaprobacion`(`documentoDireccion`,`solicitudAprobacionId`) VALUES('%s',%d);";
-                      $strsql = sprintf($strsql,  $direccion, $solicitudAprobacionId);
-                      $resultado=0;
-                      $resultado=  ejecutarNonQuery($strsql);
-                        echo "subida correctamente";
+
+                      switch ($accion) {
+                        case 'aprobacion':
+                          $strsql = "INSERT INTO `tbldocumentosaprobacion`(`documentoDireccion`,`solicitudAprobacionId`) VALUES('%s',%d);";
+                          $strsql = sprintf($strsql,  $direccion, $Id);
+                          $resultado=0;
+                          $resultado=  ejecutarNonQuery($strsql);
+                          echo "subida correctamente";
+                          break;
+
+                          case 'recepcion':
+                            $strsql = "INSERT INTO `tbldocumentosrecepcion`(`documentoRecepcionDireccion`,`solicitudRecepcionId`) VALUES('%s',%d);";
+                            $strsql = sprintf($strsql,  $direccion, $Id);
+                            $resultado=0;
+                            $resultado=  ejecutarNonQuery($strsql);
+                            echo "subida correctamente";
+                            break;
+
+                        default:
+                          # code...
+                          break;
+                      }
+
+
                         //aqui podemos procesar info de la bd referente a este archivo
                     }
                 //si la extension no es una de las permitidas
