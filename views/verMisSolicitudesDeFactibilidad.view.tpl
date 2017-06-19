@@ -59,6 +59,7 @@
                           </div>
                           <div class="modal-body">
                             <h4>Dictamen</h4>
+                            {{comentario}}
                           </div>
                           <div class="modal-footer">
                               <form method="post" action="index.php?page=solicitudDeCuentas">
