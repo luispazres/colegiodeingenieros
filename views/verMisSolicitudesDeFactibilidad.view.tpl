@@ -46,9 +46,9 @@
                   <td>{{proyectoIdentidadPropietario}}</td>
                   <td>{{estadoFactibilidadDescripcion}}</td>
                   <td>
-                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-lg-{{proyectoId}}">Ver</button>
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-lg-{{solicitudFactibilidadId}}">Ver</button>
 
-                    <div class="modal fade bs-example-modal-lg-{{proyectoId}}" tabindex="-1" role="dialog" aria-hidden="true">
+                    <div class="modal fade bs-example-modal-lg-{{solicitudFactibilidadId}}" tabindex="-1" role="dialog" aria-hidden="true">
                       <div class="modal-dialog modal-lg">
                         <div class="modal-content">
 
@@ -62,10 +62,9 @@
                             {{comentario}}
                           </div>
                           <div class="modal-footer">
-                              <form method="post" action="index.php?page=solicitudDeCuentas">
-                              <input id="usuarioIdentidad" type="hidden" name="usuarioIdentidad" value={{usuarioIdentidad}}>
-
-                              </form>
+                            {{if reintentar}}
+                                <a href="index.php?page=factibilidadProyectos&proyectoId={{proyectoId}}&accion=UPD"><button type="button" class="btn btn-success">Modificar Solicitud</button></a>
+                            {{endif reintentar}}
                           </div>
                         </div>
                       </div>

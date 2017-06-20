@@ -16,6 +16,7 @@
     if(isset($_GET["proyectoId"])){
       $proyectos=obtnerProyectosPorId($_GET["proyectoId"]);
       if($proyectos){
+        $htmlDatos["accion"] = $_GET["accion"];
         $htmlDatos["proyectoId"] = $proyectos["proyectoId"];
         $htmlDatos["proyectoNombre"] = $proyectos["proyectoNombre"];
         $htmlDatos["departamentoNombre"] = $proyectos["departamentoDescripcion"];
@@ -35,7 +36,28 @@
       }
 
       if (isset($_POST["btnSolicitarFactibilidad"])) {
-        $resultado=registrarFactibilidad($_POST["cmbVoltaje"],$_POST["cmbConexion"],$_POST["txtPotencia"],$_POST["txtCrecimientoEsperado"],$_POST["txtKva"],$_POST["proyectoId"]);
+
+        switch ($_POST["accion"]) {
+          case 'INS':
+            $resultado=registrarFactibilidad($_POST["cmbVoltaje"],$_POST["cmbConexion"],$_POST["txtPotencia"],$_POST["txtCrecimientoEsperado"],$_POST["txtKva"],$_POST["proyectoId"]);
+            //$location="Location:index.php?page=factibilidadProyectos&error=".$resultado;
+            //header($location);
+          //  echo $resultado;
+            break;
+
+          case 'UPD':
+            $resultado=actualizarFactibilidad($_POST["cmbVoltaje"],$_POST["cmbConexion"],$_POST["txtPotencia"],$_POST["txtCrecimientoEsperado"],$_POST["txtKva"],$_POST["proyectoId"]);
+            //$location="Location:index.php?page=factibilidadProyectos&error=".$resultado;
+            //header($location);
+            echo $resultado;
+            break;
+
+          default:
+            # code...
+            break;
+        }
+
+
       }
 
     renderizar("factibilidadProyectos",  $htmlDatos);

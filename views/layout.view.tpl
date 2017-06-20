@@ -105,13 +105,13 @@
                         <li><a><i class="fa fa-cloud-upload"></i>Solicitudes de Recepción de Proyectos <span class="fa fa-chevron-down"></span></a>
                           <ul class="nav child_menu">
                             <li><a href="">Realizar Solicitud de Recepción de Proyectos</a></li>
-                            <li><a href="">Ver Mis Soliciutdes de Recepción</a></li>
+                            <li><a href="index.php?page=verMisSolicitudesDeRecepcion">Ver Mis Soliciutdes de Recepción</a></li>
                           </ul>
                         </li>
                         <li><a><i class="fa fa-flash"></i> Solicitudes de Despeje de Energia <span class="fa fa-chevron-down"></span></a>
                           <ul class="nav child_menu">
                             <li><a href="">Realizar Solicitud de Despeje de Energia</a></li>
-                            <li><a href="">Ver Solicitudes de Despeje</a></li>
+                            <li><a href="index.php?page=verMisSolicitudesDeDespeje">Ver Solicitudes de Despeje</a></li>
                           </ul>
                         </li>
                       </ul>

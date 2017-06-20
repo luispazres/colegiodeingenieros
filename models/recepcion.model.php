@@ -22,4 +22,11 @@ function borrarRecepcion($recepcionId){
        return getLastInserId();
    }
 }
+
+function obtenerRecepcion(){
+    $solicitudes = array();
+    $sqlstr = "SELECT * FROM tblsolicitudrecepcion as sr, tblsolicitudaprobacion as sa, tblproyectos as p, tblestadorecepcion as er where p.proyectoId=sa.proyectoId and sa.solicitudAprobacionId=sr.solicitudAprobacionId and sr.solicitudRecepcioEstado=er.estadoRecepcionId;";
+    $solicitudes = obtenerRegistros($sqlstr);
+    return $solicitudes;
+}
  ?>

@@ -45,9 +45,9 @@
                   <td>{{ingenieroNombre}}</td>
                   <td>{{usuarioNumeroColegiacion}}</td>
                   <td>{{estadoFactibilidadDescripcion}}</td>
-                  <td> <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-lg-{{estadoFactibilidadId}}">Opciones</button>
+                  <td> <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-lg-{{proyectoId}}">Opciones</button>
 
-                    <div class="modal fade bs-example-modal-lg-{{estadoFactibilidadId}}" tabindex="-1" role="dialog" aria-hidden="true">
+                    <div class="modal fade bs-example-modal-lg-{{proyectoId}}" tabindex="-1" role="dialog" aria-hidden="true">
                       <div class="modal-dialog modal-lg">
                         <div class="modal-content">
 

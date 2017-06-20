@@ -44,6 +44,8 @@
 
                     <form action="index.php?page=factibilidadProyectos" id="demo-form2" data-parsley-validate class="form-horizontal form-label-left" method="post">
                       <input type="hidden" name="proyectoId" id="proyectoId" value="{{proyectoId}}">
+                      <input type="hidden" name="accion" id="accion" value="{{accion}}">
+
                       <div class="form-group">
 
               					 <div class="row">

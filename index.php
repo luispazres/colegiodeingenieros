@@ -27,9 +27,19 @@
             require_once("controllers/transicionAprobacion.control.php");
             break;
 
+        case "verMisSolicitudesDeDespeje":
+            //llamar al controlador
+            require_once("controllers/verMisSolicitudesDeDespeje.control.php");
+            break;
+
         case "verMisSolicitudesDeAprobacion":
             //llamar al controlador
             require_once("controllers/verMisSolicitudesDeAprobacion.control.php");
+            break;
+
+        case "verMisSolicitudesDeRecepcion":
+            //llamar al controlador
+            require_once("controllers/verMisSolicitudesDeRecepcion.control.php");
             break;
 
         case "verMisSolicitudesDeFactibilidad":

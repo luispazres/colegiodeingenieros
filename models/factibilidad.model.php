@@ -20,6 +20,21 @@ $insertSQL = sprintf($insertSQL, $voltajeId, $conexionId, $potencia, $crecmiento
 return ejecutarNonQueryConErrores($insertSQL);
 }
 
+function actualizarFactibilidad($voltajeId, $conexionId, $potencia, $crecmientoesperado, $kva, $proyectoId){
+  $insertSQL = "UPDATE `tblsolicitudfactibilidad`
+SET `voltajeId` = %d,
+`conexionId` = %d,
+`solicitudFactibilidadPotencia` = %f,
+`solicitudadFactibilidadCrecimientoEsperado` = %f,
+`solicitudFactibilidadKva` = %f,
+`estadoFactibilidadId` = 4,
+`comentario` = ' '
+WHERE `proyectoId` = %d;";
+$insertSQL = sprintf($insertSQL, $voltajeId, $conexionId, $potencia, $crecmientoesperado,$kva, $proyectoId);
+
+return ejecutarNonQueryConErrores($insertSQL);
+}
+
 //<<<<<<< Updated upstream
 //=======
 function agregarComentarioFactibilidad($solicitudId, $comentario, $estado){
@@ -79,7 +94,9 @@ function verSolicitudesFactbilidad(){
 */
 function obtenerSolicitudesFactibilidad(){
     $solicitudes = array();
-    $sqlstr = "SELECT * FROM tblsolicitudfactibilidad as sf, tblproyectos as p, tblestadofactibilidad as ef where p.proyectoId=sf.proyectoId and sf.estadoFactibilidadId=ef.estadoFactibilidadId;";
+    $sqlstr = "SELECT if(ef.estadoFactibilidadId=1,true,null) 'reintentar',p.proyectoId, sf.solicitudFactibilidadId, p.proyectoNombre, p.proyectoNombrePropietario, p.proyectoIdentidadPropietario, ef.estadoFactibilidadDescripcion
+FROM tblsolicitudfactibilidad as sf, tblproyectos as p, tblestadofactibilidad as ef
+where p.proyectoId=sf.proyectoId and sf.estadoFactibilidadId=ef.estadoFactibilidadId;";
     $solicitudes = obtenerRegistros($sqlstr);
     return $solicitudes;
 }
