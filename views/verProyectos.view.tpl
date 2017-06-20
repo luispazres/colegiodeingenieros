@@ -46,9 +46,7 @@
                   <td>{{proyectoNombrePropietario}}</td>
                   <td>{{proyectoIdentidadPropietario}}</td>
                   <td>
-                    <a href="index.php?page=factibilidadProyectos&proyectoId={{proyectoId}}"><button type="button" class="btn btn-success">Solicitar Factibilidad</button></a>
-                    <a href="index.php?page=aprobacionProyectos&proyectoId={{proyectoId}}"><button type="button" class="btn btn-success">Solicitar Aprobación</button></a>
-                    <a href="index.php?page=recepcionProyectos&proyectoId={{proyectoId}}"><button type="button" class="btn btn-success">Solicitar Recepción</button></a>
+
                     <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-lg-{{proyectoId}}">Ver</button>
 
                     <div class="modal fade bs-example-modal-lg-{{proyectoId}}" tabindex="-1" role="dialog" aria-hidden="true">
@@ -64,11 +62,9 @@
 
                           </div>
                           <div class="modal-footer">
-                              <form method="post" action="index.php?page=solicitudDeCuentas">
-                              <input id="usuarioIdentidad" type="hidden" name="usuarioIdentidad" value={{usuarioIdentidad}}>
-                              <input type="submit" name="btnRechazar" id="btnRechazar" class="btn btn-danger" value="Rechazar Usuario">
-                              <input type="submit" name="btnAceptar" id="btnAceptar" class="btn btn-success" value="Aceptar Usuario">
-                              </form>
+                            <a href="index.php?page=factibilidadProyectos&proyectoId={{proyectoId}}"><button type="button" class="btn btn-success">Solicitar Factibilidad</button></a>
+                            <a href="index.php?page=aprobacionProyectos&proyectoId={{proyectoId}}"><button type="button" class="btn btn-success">Solicitar Aprobación</button></a>
+
                           </div>
                         </div>
                       </div>

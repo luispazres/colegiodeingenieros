@@ -4,6 +4,7 @@
 function site_init(){
     mw_estaLogueado();
     addToContext("page_title","Simple MVC Example");
+    addToContext("prueba","CIMEQH");
 }
 
 site_init();

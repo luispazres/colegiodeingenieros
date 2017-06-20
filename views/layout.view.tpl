@@ -3,7 +3,7 @@
         <head>
             <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
             <!--<meta charset="utf-8" />-->
-            <title>{{page_title}}</title>
+            <title>{{prueba}}</title>
             <meta http-equiv="X-UA-Compatible" content="IE=edge">
             <meta name="viewport" content="width=device-width, initial-scale=1"/>
           <!--  <link href="public/css/bootstrap.min.css" rel="stylesheet">
@@ -98,7 +98,7 @@
                         </li>
                         <li><a><i class="fa fa-check"></i> Solicitudes de Aprobación de Proyectos <span class="fa fa-chevron-down"></span></a>
                           <ul class="nav child_menu">
-                            <li><a href="">Realizar Solicitud de Aprobación de Proyectos</a></li>
+                            <li><a href="index.php?page=transicionAprobacion">Realizar Solicitud de Aprobación de Proyectos</a></li>
                             <li><a href="index.php?page=verMisSolicitudesDeAprobacion">Ver Mis Solicitudes de Aprobación</a></li>
                           </ul>
                         </li>

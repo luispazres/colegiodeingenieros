@@ -62,10 +62,8 @@
                             {{comentario}}
                           </div>
                           <div class="modal-footer">
-                              <form method="post" action="index.php?page=solicitudDeCuentas">
-                              <input id="usuarioIdentidad" type="hidden" name="usuarioIdentidad" value={{usuarioIdentidad}}>
-
-                              </form>
+                            <a href="index.php?page=recepcionProyectos&proyectoId={{proyectoId}}"><button type="button" class="btn btn-success">Solicitar Recepción del Proyecto</button></a>
+                            <a href="index.php?page=aprobacionDespeje&proyectoId={{proyectoId}}"><button type="button" class="btn btn-success">Solicitar Despeje de energia</button></a>
                           </div>
                         </div>
                       </div>
