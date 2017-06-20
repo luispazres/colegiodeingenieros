@@ -63,7 +63,7 @@
                           </div>
                           <div class="modal-footer">
                             <a href="index.php?page=recepcionProyectos&proyectoId={{proyectoId}}"><button type="button" class="btn btn-success">Solicitar Recepción del Proyecto</button></a>
-                            <a href="index.php?page=aprobacionDespeje&proyectoId={{proyectoId}}"><button type="button" class="btn btn-success">Solicitar Despeje de energia</button></a>
+                            <a href="index.php?page=solicitudDespeje&proyectoId={{proyectoId}}"><button type="button" class="btn btn-success">Solicitar Despeje de energia</button></a>
                           </div>
                         </div>
                       </div>

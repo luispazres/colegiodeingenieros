@@ -42,40 +42,47 @@
                 <div class="x_content">
                   <br>
 
-                    <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left">
-
+                  <form action="index.php?page=solicitudDespeje" id="demo-form2" data-parsley-validate class="form-horizontal form-label-left" enctype="multipart/form-data" method="post">
+                      <input type="hidden" name="solicitudAprobacionId" id="solicitudAprobacionId" value="{{solicitudAprobacionId}}">
                       <div class="form-group">
 
                          <div class="row">
+                           <div class="col-md-6">
+                               <div class="form-group">
+                                   <label for="txtAprobacion">Código de Aprobación de la ENEE</label>
+                                   <input id="txtAprobacion" type="text" name="txtAprobacion" class="form-control" placeholder="" value="{{codigoAprobacion}}" disabled="disabled">
+                               </div>
+                           </div>
                                               <div class="col-md-6">
                                                   <div class="form-group">
-                                                      <label for="form_lastname">Tiempo que ocupara tener la red sin energía *</label>
-                                                      <input id="form_name" type="text" name="name" class="form-control" placeholder="Tiempo que ocupara tener la red sin energía *">
+                                                      <label for="txtTiempo">Tiempo que ocupara tener la red sin energía *</label>
+                                                      <input id="txtTiempo" type="text" name="txtTiempo" class="form-control" placeholder="Tiempo que ocupara tener la red sin energía *">
                                                   </div>
                                               </div>
                                           </div>
                          <div class="row">
                                               <div class="col-md-6">
                                                   <div class="form-group">
-                                                      <label for="form_name">Cuadrillas *</label>
-                                                      <input id="form_name" type="text" name="name" class="form-control" placeholder="Cuadrillas y cantidad de personal a laborar *">
+                                                      <label for="txtCuadrillas">Cuadrillas *</label>
+                                                      <input id="txtCuadrillas" type="text" name="txtCuadrillas" class="form-control" placeholder="Cuadrillas y cantidad de personal a laborar *">
                                                   </div>
                                               </div>
                                               <div class="col-md-6">
                                                   <div class="form-group">
-                                                      <label for="form_lastname">Cantidad de Personal a laborar *</label>
-                                                      <input id="form_lastname" type="number" name="surname" class="form-control" placeholder="N° de identidad del propietario *">
+                                                      <label for="txtCantidadPersonal">Cantidad de Personal a laborar *</label>
+                                                      <input id="txtCantidadPersonal" type="number" name="txtCantidadPersonal" class="form-control" placeholder="N° de identidad del propietario *">
                                                   </div>
                                               </div>
                                           </div>
                                           <div class="row">
                                                                <div class="col-md-6">
                                                                    <div class="form-group">
-                                                                       <label for="form_lastname">Fecha que requiere el despeje *</label>
-                                                                       <input id="form_lastname" type="date" name="surname" class="form-control" placeholder="N° de identidad del propietario *">
+                                                                       <label for="txtFecha">Fecha que requiere el despeje *</label>
+                                                                       <input id="txtFecha" type="date" name="txtFecha" class="form-control" placeholder="N° de identidad del propietario *">
                                                                    </div>
                                                                </div>
                                                            </div>
+                                                           <input type="submit" id="btnSolicitarDespeje" name="btnSolicitarDespeje" class="btn btn-default" value="Solicitar Despeje">
 
                     </form>
           </div>
