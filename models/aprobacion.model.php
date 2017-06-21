@@ -57,11 +57,7 @@ function borrarAprobacion($aprobacionID){
    }
 }
 
-<<<<<<< HEAD
 
-=======
-<<<<<<< HEAD
->>>>>>> master
 function borrarDocumentoAprobacion($documentoId,$direccion){
   unlink($direccion);
    $sqlstr = sprintf("DELETE FROM `tbldocumentosaprobacion` WHERE `documentosAprobacionId`= %d;",$documentoId);
@@ -70,11 +66,7 @@ function borrarDocumentoAprobacion($documentoId,$direccion){
    }
 }
 
-<<<<<<< HEAD
 
-=======
-=======
->>>>>>> master
 
 function obtenerSolicitudAprobacionPorId($solicitudId){
     $proyecto = array();
@@ -99,11 +91,6 @@ function obtenerSolicitudAprobacionPorId($solicitudId){
 
 
 
-<<<<<<< HEAD
-
-=======
->>>>>>> master
->>>>>>> master
 function obtnerAprobacionPorId($proyectoId){
     $proyecto = array();
     $sqlstr = "select * from tblproyectos as p, tbldepartamentos as d, tblsolicitudaprobacion as sa where d.departamentoId=p.departamentoId and p.proyectoId=sa.proyectoId and p.proyectoId=%d;";
@@ -166,15 +153,23 @@ $sqlstr = sprintf($sqlstr, $estado,$comentario,$solicitudId);
   }
 }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> master
->>>>>>> master
 function obtenerAprobacion(){
     $solicitudes = array();
     $sqlstr = "SELECT if(ea.estadoAprobacionId=3,true,null) 'reintentar', p.proyectoId, p.proyectoNombre, p.proyectoNombrePropietario, p.proyectoIdentidadPropietario, sa.solicitudAprobacionId, ea.estadoAprobacionId, ea.estadoAprobacionDescripcion FROM tblsolicitudaprobacion as sa, tblproyectos as p, tblestadoaprobacion as ea where p.proyectoId=sa.proyectoId and sa.estadoSolicitudAprobacion=ea.estadoAprobacionId;";
     $solicitudes = obtenerRegistros($sqlstr);
     return $solicitudes;
+}
+
+function actualizarAprobacion($monto, $costo, $aprobacionId){
+  $insertSQL = "UPDATE `tblsolicitudaprobacion`
+SET
+`solicitudAaprobacionMontoEstimado` = %f,
+`solicitudAprobacionCosto` = %f,
+`estadoSolicitudAprobacion` = 4,
+`comentarioAprobacion` = ''
+WHERE `solicitudAprobacionId` = %d";
+$insertSQL = sprintf($insertSQL,$monto, $costo, $aprobacionId);
+
+return ejecutarNonQueryConErrores($insertSQL);
 }
  ?>
