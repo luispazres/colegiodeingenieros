@@ -27,13 +27,13 @@ VALUES
          }
 }
 
-function obtenerDocumentos(){
+function obtenerDocumentos($solicitudId){
     $solicitudes = array();
     $sqlstr = "SELECT documentoNombre,proyectoNombre,proyectoDescrpcion,documentoDireccion
 FROM cimeqh.tbldocumentosaprobacion tbld, tblsolicitudaprobacion tbls, tblproyectos tblp,
 tblusuarios tblu
 where tbls.solicitudAprobacionId=tbld.solicitudAprobacionId and
-tblp.proyectoId=tbls.proyectoId and tblu.usuarioIdentidad=tblp.usuarioIdentidad and tbld.solicitudAprobacionId=84;";
+tblp.proyectoId=tbls.proyectoId and tblu.usuarioIdentidad=tblp.usuarioIdentidad and tbld.solicitudAprobacionId=$solicitudId;";
     $solicitudes = obtenerRegistros($sqlstr);
     return $solicitudes;
 }

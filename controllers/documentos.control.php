@@ -6,8 +6,13 @@
   $revisar = array();
   $nombre=array();
   $descripcion="";
-  $revisar=obtenerDocumentos();
-  $nombre=obtenerUnDocumento();  
+
+  if (isset($_GET["codigo"])) {
+    $revisar=obtenerDocumentos($_GET["codigo"]);
+    $nombre=obtenerUnDocumento($_GET["codigo"]);
+  }
+
+
   //$documentos=verSolicitudesArchivos($revisar[""]);
 
   renderizar("documentos",array('solicitud'=>$revisar,'nombre'=>$nombre["proyectoNombre"],'descripcion'=>$nombre["proyectoDescrpcion"]));
