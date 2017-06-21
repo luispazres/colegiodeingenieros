@@ -23,8 +23,7 @@ class Multiupload
             //si se está subiendo algún archivo en ese indice
             if($_FILES['userfile']['tmp_name'][$i])
             {
-                $direccion="files/".$_FILES["userfile"]["name"][$i];
-                $nombreArchivo=$_FILES["userfile"]["name"][$i];
+
                 //separamos los trozos del archivo, nombre extension
                 $trozos[$i] = explode(".", $_FILES["userfile"]["name"][$i]);
 
@@ -42,7 +41,8 @@ class Multiupload
                     //comprobamos si el archivo ha subido
                     if(move_uploaded_file($_FILES['userfile']['tmp_name'][$i],"files/".$_FILES['userfile']['name'][$i]))
                     {
-
+                      $direccion="files/".$_FILES["userfile"]["name"][$i];
+                      $nombreArchivo=$_FILES["userfile"]["name"][$i];
                       switch ($accion) {
                         case 'aprobacion':
                           $strsql = "INSERT INTO `tbldocumentosaprobacion`(`documentoDireccion`,`solicitudAprobacionId`,`documentoNombre`) VALUES('%s',%d,'%s');";
