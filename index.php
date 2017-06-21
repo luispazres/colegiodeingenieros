@@ -32,6 +32,12 @@
             require_once("controllers/verMisSolicitudesDeDespeje.control.php");
             break;
 
+        case "revisarSolicitudAprobacionCimeqh":
+                //llamar al controlador
+                require_once("controllers/revisarSolicitudAprobacionCimeqh.control.php");
+                break;
+
+
         case "verMisSolicitudesDeAprobacion":
             //llamar al controlador
             require_once("controllers/verMisSolicitudesDeAprobacion.control.php");
@@ -41,6 +47,11 @@
             //llamar al controlador
             require_once("controllers/verMisSolicitudesDeRecepcion.control.php");
             break;
+
+            case "documentos":
+                //llamar al controlador
+                require_once("controllers/documentos.control.php");
+                break;
 
         case "verMisSolicitudesDeFactibilidad":
             //llamar al controlador

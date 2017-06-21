@@ -27,6 +27,29 @@ VALUES
          }
 }
 
+function obtenerDocumentos(){
+    $solicitudes = array();
+    $sqlstr = "SELECT documentoNombre,proyectoNombre,proyectoDescrpcion,documentoDireccion
+FROM cimeqh.tbldocumentosaprobacion tbld, tblsolicitudaprobacion tbls, tblproyectos tblp,
+tblusuarios tblu
+where tbls.solicitudAprobacionId=tbld.solicitudAprobacionId and
+tblp.proyectoId=tbls.proyectoId and tblu.usuarioIdentidad=tblp.usuarioIdentidad and tbld.solicitudAprobacionId=84;";
+    $solicitudes = obtenerRegistros($sqlstr);
+    return $solicitudes;
+}
+
+function obtenerUnDocumento(){
+    $solicitudes = array();
+    $sqlstr = "SELECT documentoNombre,proyectoNombre,proyectoDescrpcion,documentoDireccion
+    FROM cimeqh.tbldocumentosaprobacion tbld, tblsolicitudaprobacion tbls, tblproyectos tblp,
+    tblusuarios tblu
+    where tbls.solicitudAprobacionId=tbld.solicitudAprobacionId and
+    tblp.proyectoId=tbls.proyectoId and tblu.usuarioIdentidad=tblp.usuarioIdentidad and tbld.solicitudAprobacionId=84
+    order by proyectoNombre limit 1;";
+    $solicitudes = obtenerUnRegistro($sqlstr);
+    return $solicitudes;
+}
+
 function borrarAprobacion($aprobacionID){
    $sqlstr = sprintf("delete from tblsolicitudaprobacion where solicitudAprobacionId= %d",$aprobacionID);
    if(ejecutarNonQuery($sqlstr)){
@@ -41,6 +64,40 @@ function obtnerAprobacionPorId($proyectoId){
     $proyecto = obtenerUnRegistro($sqlstr);
     return $proyecto;
 }
+
+function obtenerSolicitudAprobacion(){
+    $solicitudes = array();
+    $sqlstr = "SELECT  *
+    FROM cimeqh.tblsolicitudaprobacion tbls, tblproyectos tblp, tblestadoaprobacion tble,
+    tblusuarios tblu, tbldepartamentos tbld, tbldocumentosaprobacion tbldoc
+    where tbls.proyectoId=tblp.proyectoId and
+    tble.estadoAprobacionId=tbls.estadoSolicitudAprobacion
+    and tblu.usuarioIdentidad=tblp.usuarioIdentidad and tbld.departamentoId=tblp.departamentoId
+    and tbldoc.solicitudAprobacionId and tbls.estadoSolicitudAprobacion=4;";
+    $solicitudes = obtenerRegistros($sqlstr);
+    return $solicitudes;
+}
+
+function verSolicitudesAprobacion(){
+    $solicitudes = array();
+    $sqlstr = "SELECT  estadoAprobacionDescripcion, proyectoNombre,departamentoDescripcion ,proyectoDireccion, proyectoDescrpcion,
+proyectoLatitud,proyectoLongitud,proyectoNombrePropietario,
+proyectoIdentidadPropietario, proyectoTelefonoPropietario, proyectoCelularPropietario,
+proyectoEmailPropietario, proyectoDireccionPropietario,
+concat(usuarioPrimerNombre, ' ' ,usuarioSegundoNombre ,' ',
+usuarioPrimerApellido, ' ', usuarioSegundoApellido) 'ingenieroNombre', usuarioNumeroColegiacion
+usuarioNumeroColegiacion, usuarioTelefono, usuarioCelular, solicitudAprobacionId,
+solicitudAaprobacionMontoEstimado, solicitudAprobacionCosto
+FROM cimeqh.tblsolicitudaprobacion tbls, tblproyectos tblp, tblestadoaprobacion tble,
+tblusuarios tblu, tbldepartamentos tbld
+where tbls.proyectoId=tblp.proyectoId and
+tble.estadoAprobacionId=tbls.estadoSolicitudAprobacion
+and tblu.usuarioIdentidad=tblp.usuarioIdentidad and tbld.departamentoId=tblp.departamentoId and tbls.estadoSolicitudAprobacion=4;";
+    $solicitudes = obtenerRegistros($sqlstr);
+    return $solicitudes;
+}
+
+
 
 function obtenerAprobacion(){
     $solicitudes = array();
