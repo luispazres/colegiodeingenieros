@@ -3,7 +3,7 @@
     <div class="col-md-12 col-sm-12 col-xs-12">
       <div class="x_panel">
         <div class="x_title">
-          <h2>Responsive example<small>Users</small></h2>
+          <h2><small>Users</small></h2>
           <ul class="nav navbar-right panel_toolbox">
             <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
             </li>
@@ -89,9 +89,9 @@
                           Celular Ingeniero: {{usuarioCelular}}
                           <br>
                           <h4>Datos de la Solicitud</h4>
-                          Monto Estimado del Proyecto: {{voltajeDescripcion}}
+                          Monto Estimado del Proyecto: {{solicitudAaprobacionMontoEstimado}}
                           <br>
-                          Total de Timbres a Pagar: {{conexionDescripcion}}
+                          Total de Timbres a Pagar: {{solicitudAprobacionCosto}}
                           <br>
                           </div>
                           <div class="modal-footer">

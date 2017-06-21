@@ -57,6 +57,7 @@ function borrarAprobacion($aprobacionID){
    }
 }
 
+<<<<<<< HEAD
 function borrarDocumentoAprobacion($documentoId,$direccion){
   unlink($direccion);
    $sqlstr = sprintf("DELETE FROM `tbldocumentosaprobacion` WHERE `documentosAprobacionId`= %d;",$documentoId);
@@ -65,6 +66,32 @@ function borrarDocumentoAprobacion($documentoId,$direccion){
    }
 }
 
+=======
+
+function obtenerSolicitudAprobacionPorId($solicitudId){
+    $proyecto = array();
+    $sqlstr = "SELECT  estadoAprobacionDescripcion, proyectoNombre,departamentoDescripcion ,proyectoDireccion, proyectoDescrpcion,
+    proyectoLatitud,proyectoLongitud,proyectoNombrePropietario,
+    proyectoIdentidadPropietario, proyectoTelefonoPropietario, proyectoCelularPropietario,
+    proyectoEmailPropietario, proyectoDireccionPropietario,
+    concat(usuarioPrimerNombre, ' ' ,usuarioSegundoNombre ,' ',
+    usuarioPrimerApellido, ' ', usuarioSegundoApellido) 'ingenieroNombre', usuarioNumeroColegiacion
+    usuarioNumeroColegiacion, usuarioTelefono, usuarioCelular, solicitudAprobacionId,
+    solicitudAaprobacionMontoEstimado, solicitudAprobacionCosto
+    FROM cimeqh.tblsolicitudaprobacion tbls, tblproyectos tblp, tblestadoaprobacion tble,
+    tblusuarios tblu, tbldepartamentos tbld
+    where tbls.proyectoId=tblp.proyectoId and
+    tble.estadoAprobacionId=tbls.estadoSolicitudAprobacion
+    and tblu.usuarioIdentidad=tblp.usuarioIdentidad and tbld.departamentoId=tblp.departamentoId and solicitudAprobacionId=%d;
+";
+    $sqlstr = sprintf($sqlstr, $solicitudId);
+    $proyecto = obtenerUnRegistro($sqlstr);
+    return $proyecto;
+}
+
+
+
+>>>>>>> master
 function obtnerAprobacionPorId($proyectoId){
     $proyecto = array();
     $sqlstr = "select * from tblproyectos as p, tbldepartamentos as d, tblsolicitudaprobacion as sa where d.departamentoId=p.departamentoId and p.proyectoId=sa.proyectoId and p.proyectoId=%d;";
@@ -115,7 +142,17 @@ and tblu.usuarioIdentidad=tblp.usuarioIdentidad and tbld.departamentoId=tblp.dep
     return $solicitudes;
 }
 
-
+function agregarComentarioAprobacion($solicitudId, $comentario, $estado){
+  $sqlstr="UPDATE `tblsolicitudaprobacion`
+SET
+`estadoSolicitudAprobacion` = %d,
+`comentarioAprobacion` ='%s'
+WHERE `solicitudAprobacionId` = %d;";
+$sqlstr = sprintf($sqlstr, $estado,$comentario,$solicitudId);
+  if(ejecutarNonQuery($sqlstr)){
+  return ejecutarNonQueryConErrores($sqlstr);
+  }
+}
 
 >>>>>>> master
 function obtenerAprobacion(){
