@@ -2,7 +2,9 @@
 
   require_once('libs/template_engine.php');
   require_once('models/factibilidad.model.php');
-  include 'clases\comentarios.php';
+  require_once('models/aprobacion.model.php');
+  include 'clases\comentariosFactibilidad.php';
+  include 'clases\comentariosAprobacion.php';
 
   function run(){
     $solicitud = array();
@@ -37,7 +39,23 @@
     break;
 
     case 'aprobacion':
-      
+    $solicitud=obtenerSolicitudAprobacionPorId($_GET["codigo"]);
+    if($solicitud){
+      $htmlDatos["proyectoNombre"] = $solicitud["proyectoNombre"];
+      $htmlDatos["departamentoDescripcion"] = $solicitud["departamentoDescripcion"];
+      $htmlDatos["proyectoDireccion"] = $solicitud["proyectoDireccion"];
+      $htmlDatos["proyectoNombrePropietario"] = $solicitud["proyectoNombrePropietario"];
+      $htmlDatos["proyectoDescrpcion"] = $solicitud["proyectoDescrpcion"];
+      $htmlDatos["ingenieroNombre"] = $solicitud["ingenieroNombre"];
+      $htmlDatos["usuarioNumeroColegiacion"] = $solicitud["usuarioNumeroColegiacion"];
+      $htmlDatos["solicitudAaprobacionMontoEstimado"] = $solicitud["solicitudAaprobacionMontoEstimado"];
+      $htmlDatos["solicitudAprobacionCosto"] = $solicitud["solicitudAprobacionCosto"];
+      $htmlDatos["vista"]=vistaComentariosAprobacion::vista($_GET["tipo"],$_GET["codigo"],
+      $htmlDatos["proyectoNombre"],$htmlDatos["departamentoDescripcion"],$htmlDatos["proyectoDireccion"],
+      $htmlDatos["proyectoDescrpcion"],$htmlDatos["proyectoNombrePropietario"],
+      $htmlDatos["ingenieroNombre"],$htmlDatos["usuarioNumeroColegiacion"],
+      $htmlDatos["solicitudAaprobacionMontoEstimado"],$htmlDatos["solicitudAprobacionCosto"]);
+    }
       break;
     }
 
