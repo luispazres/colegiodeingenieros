@@ -12,6 +12,7 @@ class Multiupload
         //inicializamos un contador para recorrer los archivos
         $i = 0;
         $direccion="";
+        $nombreArchivo="";
         //si no existe la carpeta files la creamos
         if(!is_dir("files/"))
             mkdir("files/", 0777);
@@ -23,6 +24,7 @@ class Multiupload
             if($_FILES['userfile']['tmp_name'][$i])
             {
                 $direccion="files/".$_FILES["userfile"]["name"][$i];
+                $nombreArchivo=$_FILES["userfile"]["name"][$i];
                 //separamos los trozos del archivo, nombre extension
                 $trozos[$i] = explode(".", $_FILES["userfile"]["name"][$i]);
 
@@ -43,16 +45,16 @@ class Multiupload
 
                       switch ($accion) {
                         case 'aprobacion':
-                          $strsql = "INSERT INTO `tbldocumentosaprobacion`(`documentoDireccion`,`solicitudAprobacionId`) VALUES('%s',%d);";
-                          $strsql = sprintf($strsql,  $direccion, $Id);
+                          $strsql = "INSERT INTO `tbldocumentosaprobacion`(`documentoDireccion`,`solicitudAprobacionId`,`documentoNombre`) VALUES('%s',%d,'%s');";
+                          $strsql = sprintf($strsql,  $direccion, $Id,$nombreArchivo);
                           $resultado=0;
                           $resultado=  ejecutarNonQuery($strsql);
                           echo "subida correctamente";
                           break;
 
                           case 'recepcion':
-                            $strsql = "INSERT INTO `tbldocumentosrecepcion`(`documentoRecepcionDireccion`,`solicitudRecepcionId`) VALUES('%s',%d);";
-                            $strsql = sprintf($strsql,  $direccion, $Id);
+                            $strsql = "INSERT INTO `tbldocumentosrecepcion`(`documentoRecepcionDireccion`,`solicitudRecepcionId`,`documentoNombre`) VALUES('%s',%d,'%s');";
+                            $strsql = sprintf($strsql,  $direccion, $Id,$nombreArchivo);
                             $resultado=0;
                             $resultado=  ejecutarNonQuery($strsql);
                             echo "subida correctamente";

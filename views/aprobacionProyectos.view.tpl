@@ -166,6 +166,10 @@
                                                                                         <input id="userfile" type="file" name="userfile[]" class="form-control" >
                                                                                     </div>
                                                                                 </div>
+                                                                                <div class="agregar-archivo">
+
+                                                                                </div>
+                                                                                <button type="button" id="btnAgregarArchivo" name="btnAgregarArchivo" class="btn btn-round btn-primary">Agregar Otro Archivo</button>
                                                                             </div>
               				</div>
 

@@ -334,6 +334,7 @@
           <script src="public/js/custom.min.js"></script>
 
           <script type="text/javascript">
+              var contadorImagenes=0;
               $("#txtMonto").on('input',function(e){
                 var monto =$("#txtMonto").val();
                 var cantidadAPagar=0;
@@ -352,6 +353,16 @@
                   cantidadAPagar=parseInt(cantidadAPagar);
                 }
                 $("#txtTotalTimbres").val(cantidadAPagar);
+              });
+
+              $('#btnAgregarArchivo').click(function(){
+
+                if (contadorImagenes>5) {
+                  alert("Ha alcanzado el límite máximo de archivos.");
+                }else {
+                  $(".agregar-archivo").append("<div class='col-md-6'><div class='form-group'><label for='userfile'>Documento 2</label><input id='userfile' type='file' name='userfile[]' class='form-control' ></div></div>");
+                  contadorImagenes++;
+                }
               });
 
           </script>
