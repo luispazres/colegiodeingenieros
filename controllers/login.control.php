@@ -49,7 +49,7 @@
                    "mostrarErrores" => (count($errores)>0),
                    "errores" => $errores);
 
-    renderizar("login", $datos);
+    renderizar("login", $datos,'layoutSinSesion.view.tpl');
 
   }
 

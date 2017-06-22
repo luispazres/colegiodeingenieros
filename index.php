@@ -4,7 +4,7 @@
 
     require_once("libs/utilities.php");
 
-    $pageRequest = "home";
+    $pageRequest = "login";
 
     if(isset($_GET["page"])){
         $pageRequest = $_GET["page"];
@@ -20,6 +20,11 @@
         case "home":
             //llamar al controlador
             require_once("controllers/home.control.php");
+            break;
+
+        case "login":
+            //llamar al controlador
+            require_once("controllers/login.control.php");
             break;
 
         case "transicionAprobacion":
