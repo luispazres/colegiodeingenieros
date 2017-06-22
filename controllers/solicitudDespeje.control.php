@@ -16,10 +16,27 @@
 
     if (isset($_POST["btnSolicitarDespeje"])) {
 
-      $respuesta=registrarDespeje($_POST["txtTiempo"],$_POST["txtCuadrillas"],$_POST["txtCantidadPersonal"],$_POST["txtFecha"],$_POST["solicitudAprobacionId"]);
+      switch ($_POST["accion"]) {
+        case 'INS':
+          $respuesta=registrarDespeje($_POST["txtTiempo"],$_POST["txtCuadrillas"],$_POST["txtCantidadPersonal"],$_POST["txtFecha"],$_POST["solicitudAprobacionId"]);
 
-      $header="Location:index.php?page=solicitudDespeje&respuesta=".$respuesta;
-      header($header);
+          $header="Location:index.php?page=solicitudDespeje&respuesta=".$respuesta;
+          header($header);
+          break;
+
+        case 'UPD':
+          $respuesta=actualizarDespeje($_POST["txtTiempo"],$_POST["txtCuadrillas"],$_POST["txtCantidadPersonal"],$_POST["txtFecha"],$_POST["despejeId"]);
+
+          $header="Location:index.php?page=solicitudDespeje&respuesta=".$respuesta;
+          header($header);
+          break;
+
+        default:
+          # code...
+          break;
+      }
+
+
 
     }
     echo $fecha;
@@ -28,6 +45,12 @@
 
       $proyectos=obtnerAprobacionPorId($_GET["proyectoId"]);
       if($proyectos){
+        if (isset($_GET["accion"])) {
+          $htmlDatos["accion"] = $_GET["accion"];
+        }
+        if (isset($_GET["despejeId"])) {
+          $htmlDatos["despejeId"] = $_GET["despejeId"];
+        }
         $htmlDatos["proyectoId"] = $proyectos["proyectoId"];
         $htmlDatos["proyectoNombre"] = $proyectos["proyectoNombre"];
         $htmlDatos["departamentoNombre"] = $proyectos["departamentoDescripcion"];
