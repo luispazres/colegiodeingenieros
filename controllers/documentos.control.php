@@ -8,23 +8,29 @@
   $nombre=array();
   $descripcion="";
 
-  if (isset($_GET["codigo"])) {
-    $revisar=obtenerDocumentos($_GET["codigo"]);
-    $nombre=obtenerUnDocumento($_GET["codigo"]);
-  }
 
-  switch (tipo) {
+
+  switch ($_GET["accion"]) {
     case 'recepcion':
-
+    if (isset($_GET["codigo"])) {
+      $revisar=obtenerDocumentosRecepcionPorId($_GET["codigo"]);
+      $nombre=obtenerUnDocumento($_GET["codigo"]);
+      renderizar("documentos",array('solicitud'=>$revisar,'nombre'=>$nombre["proyectoNombre"],'descripcion'=>$nombre["proyectoDescrpcion"]));
+    }
       break;
 
-    default:
-      # code...
+    case 'aprobacion':
+    if (isset($_GET["codigo"])) {
+      $revisar=obtenerDocumentos($_GET["codigo"]);
+      $nombre=obtenerUnDocumento($_GET["codigo"]);
+    }
+    renderizar("documentos",array('solicitud'=>$revisar,'nombre'=>$nombre["proyectoNombre"],'descripcion'=>$nombre["proyectoDescrpcion"]));
       break;
+
   }
   //$documentos=verSolicitudesArchivos($revisar[""]);
 
-  renderizar("documentos",array('solicitud'=>$revisar,'nombre'=>$nombre["proyectoNombre"],'descripcion'=>$nombre["proyectoDescrpcion"]));
+
 
   }
   run();
