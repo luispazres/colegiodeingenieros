@@ -64,6 +64,9 @@
                             {{comentario}}
                           </div>
                           <div class="modal-footer">
+                              {{if reintentar}}
+                                <a href="index.php?page=solicitudDespeje&proyectoId={{proyectoId}}&despejeId={{solicitudDespejeId}}&accion=UPD"><button type="button" class="btn btn-success">Modificar Solicitud de Aprobacion</button></a>
+                              {{endif reintentar}}
                               <form method="post" action="index.php?page=solicitudDeCuentas">
                               <input id="usuarioIdentidad" type="hidden" name="usuarioIdentidad" value={{usuarioIdentidad}}>
 

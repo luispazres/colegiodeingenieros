@@ -21,6 +21,10 @@
             //llamar al controlador
             require_once("controllers/home.control.php");
             break;
+        case "cerrarSesion":
+            //llamar al controlador
+            require_once("controllers/cerrarSesion.control.php");
+            break;
 
         case "login":
             //llamar al controlador
