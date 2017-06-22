@@ -63,7 +63,10 @@
       if($proyectos){
         if (isset($_GET["accion"])) {
           $htmlDatos["accion"] = $_GET["accion"];
-          $htmlDatos["aprobacionId"] = $_GET["aprobacionId"];
+
+        }
+        if (isset($_GET["aprobacionId"])) {
+            $htmlDatos["aprobacionId"] = $_GET["aprobacionId"];
         }
         $htmlDatos["proyectoId"] = $proyectos["proyectoId"];
         $htmlDatos["proyectoNombre"] = $proyectos["proyectoNombre"];

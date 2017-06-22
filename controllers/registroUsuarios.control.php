@@ -57,7 +57,8 @@ $numeroColegiacion, $userCelular,$userTelefono, $userDireccion, $userPassword, $
     $contrasena,
     $estadoCuenta,
     $rolId,
-    $usuarios["txtCorreo"]);
+    $usuarios["txtCorreo"],
+    $fchingreso);
 
     print_r($usuarios);
     echo $respueta;

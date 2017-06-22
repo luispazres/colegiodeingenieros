@@ -5,16 +5,16 @@
   <div class="login_wrapper">
     <div class="animate form login_form">
       <section class="login_content">
-        <form>
+        <form method="post">
           <h1>Inicio de Sesión</h1>
           <div>
-            <input type="text" class="form-control" placeholder="Número de Identidad" required="" />
+            <input type="text" id="txtUser" name="txtUser" class="form-control" placeholder="Número de Identidad" required="" />
           </div>
           <div>
-            <input type="password" class="form-control" placeholder="Contraseña" required="" />
+            <input type="password" name="txtPswd" id="txtPswd" class="form-control" placeholder="Contraseña" required="" />
           </div>
           <div>
-            <a class="btn btn-default submit" href="index.html">Entrar</a>
+            <input class="btn btn-default submit" type="submit" name="btnLogin" value="Entrar">
             <a class="reset_pass" href="#">Lost your password?</a>
           </div>
 

@@ -36,8 +36,8 @@
 
     function obtenerUsuariosPorId($id){
           $usuario = array();
-          $sqlstr = "select * from tblusuarios as u, tblroles as r, tblestadocuenta as ec  where u.estadoCuentaId=ec.estadoCuentaId and u.rolId=r.rolId and usuarioIdentidad='0801-1995-08222asdasd';";
-          //$sqlstr = sprintf($sqlstr, valstr($id));
+          $sqlstr = "select * from tblusuarios as u, tblroles as r, tblestadocuenta as ec  where u.estadoCuentaId=ec.estadoCuentaId and u.rolId=r.rolId and usuarioIdentidad='%s';";
+          $sqlstr = sprintf($sqlstr, valstr($id));
           $usuario = obtenerUnRegistro($sqlstr);
           return $usuario;
     }
@@ -75,14 +75,14 @@
 
 
   function insertUsuario($userId, $userPrimernombre, $userSegundonombre, $primerApellido, $segundoApellido,
-  $numeroColegiacion, $userCelular,$userTelefono, $userDireccion, $userPassword, $estadoCuenta, $rolId, $email){
+  $numeroColegiacion, $userCelular,$userTelefono, $userDireccion, $userPassword, $estadoCuenta, $rolId, $email,$fecha){
 
   $strsql = "INSERT INTO `tblusuarios`
   (`usuarioIdentidad`,`usuarioPrimerNombre`,`usuarioSegundoNombre`,`usuarioPrimerApellido`,
   `usuarioSegundoApellido`,`usuarioNumeroColegiacion`,`usuarioCelular`,`usuarioTelefono`,
-  `usuarioDireccion`,`usuarioContrasenia`, estadoCuentaId, rolId, `usuarioCorreo`)
+  `usuarioDireccion`,`usuarioContrasenia`, estadoCuentaId, rolId, `usuarioCorreo`,`usuarioFechaIngreso`)
   VALUES
-  ('%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', %d, %d, '%s');";
+  ('%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', %d, %d, '%s',%d);";
         $strsql = sprintf($strsql,
         valstr($userId),
         valstr($userPrimernombre),
@@ -96,11 +96,12 @@
         valstr($userPassword),
         $estadoCuenta,
         $rolId,
-        valstr($email));
+        valstr($email),
+        $fecha);
         if(ejecutarNonQuery($strsql)){
             return getLastInserId();
         }
         return 0;
     }
- 
+
 ?>

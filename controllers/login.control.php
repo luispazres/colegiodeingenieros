@@ -16,11 +16,10 @@
     if(isset($_POST["btnLogin"])){
         $userName = $_POST["txtUser"];
         $pswd = $_POST["txtPswd"];
-        $returnUrl = $_POST["returnUrl"];
-        $usuario = obtenerUsuario($userName);
+        $usuario = obtenerUsuariosPorId($userName);
 
         if($usuario){
-          $salt = $usuario["usuariofching"];
+          $salt = $usuario["usuarioFechaIngreso"];
           if ($salt % 2 == 0){
             $pswd = $pswd . $salt;
           }else {
@@ -28,9 +27,9 @@
           }
 
           $pswd = md5($pswd);
-          if($usuario["usuariopwd"] == $pswd){
-            mw_setEstaLogueado($userName, true);
-            header("Location:index.php" . $_POST["returnUrl"]);
+          if($usuario["usuarioContrasenia"] == $pswd){
+            mw_setEstaLogueado($userName, true,$usuario["rolId"],$usuario["estadoCuentaId"], $usuario["usuarioPrimerNombre"],$usuario["usuarioPrimerApellido"]);
+            header("Location:index.php?page=home");
             die();
           }else{
             $errores[] = array("errmsg"=>"Credenciales Incorrectas");
