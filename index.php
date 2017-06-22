@@ -123,9 +123,14 @@
                     break;
 
 
-                    case "revisarSolicitudFactibilidad":
+                    case "revisarSolicitudFactibilidadCimeqh":
                         //llamar al controlador
-                    require_once("controllers/revisarSolicitudFactibilidad.control.php");
+                    require_once("controllers/revisarSolicitudFactibilidadCimeqh.control.php");
+                    break;
+
+                    case "revisarSolicitudRecepcionCimeqh":
+                        //llamar al controlador
+                    require_once("controllers/revisarSolicitudRecepcionCimeqh.control.php");
                     break;
 
                     case "comentarios":
