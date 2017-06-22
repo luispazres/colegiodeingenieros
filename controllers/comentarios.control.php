@@ -83,6 +83,8 @@
 
     renderizar('comentarios',  $htmlDatos);
  }
+
+ }
   run();
 
 ?>
