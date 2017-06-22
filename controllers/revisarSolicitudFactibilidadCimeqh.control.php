@@ -34,7 +34,7 @@
 
 
   $revisar=verSolicitudesFactbilidad();
-  renderizar("revisarSolicitudFactibilidad",array('solicitud'=>$revisar));
+  renderizar("revisarSolicitudFactibilidadCimeqh",array('solicitud'=>$revisar));
 
   }
   run();
