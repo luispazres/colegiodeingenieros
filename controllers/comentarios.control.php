@@ -3,13 +3,14 @@
   require_once('libs/template_engine.php');
   require_once('models/factibilidad.model.php');
   require_once('models/aprobacion.model.php');
+  require_once('models/recepcion.model.php');
   include 'clases\comentariosFactibilidad.php';
   include 'clases\comentariosAprobacion.php';
+  include 'clases\comentariosRecepcion.php';
 
   function run(){
     $solicitud = array();
     $htmlDatos = array();
-    $htmlView = '';
 
     if(isset($_GET["accion"])){
 
@@ -103,7 +104,7 @@
         break;
 
       case 'recepcion':
-      $solicitud=obtenerSolicitudAprobacionPorId($_GET["codigo"]);
+      $solicitud=obtenerSolicitudRecepcionPorId($_GET["codigo"]);
       if($solicitud){
         $htmlDatos["proyectoNombre"] = $solicitud["proyectoNombre"];
         $htmlDatos["departamentoDescripcion"] = $solicitud["departamentoDescripcion"];
@@ -112,17 +113,12 @@
         $htmlDatos["proyectoDescrpcion"] = $solicitud["proyectoDescrpcion"];
         $htmlDatos["ingenieroNombre"] = $solicitud["ingenieroNombre"];
         $htmlDatos["usuarioNumeroColegiacion"] = $solicitud["usuarioNumeroColegiacion"];
-        $htmlDatos["solicitudAaprobacionMontoEstimado"] = $solicitud["solicitudAaprobacionMontoEstimado"];
-        $htmlDatos["solicitudAprobacionCosto"] = $solicitud["solicitudAprobacionCosto"];
-        $htmlDatos["vista"]=vistaComentariosAprobacion::vista($_GET["tipo"],$_GET["codigo"],
+        $htmlDatos["vista"]=vistaComentariosRecepcion::vista($_GET["tipo"],$_GET["codigo"],
         $htmlDatos["proyectoNombre"],$htmlDatos["departamentoDescripcion"],$htmlDatos["proyectoDireccion"],
         $htmlDatos["proyectoDescrpcion"],$htmlDatos["proyectoNombrePropietario"],
-        $htmlDatos["ingenieroNombre"],$htmlDatos["usuarioNumeroColegiacion"],
-        $htmlDatos["solicitudAaprobacionMontoEstimado"],$htmlDatos["solicitudAprobacionCosto"]);
-        break;
-
+        $htmlDatos["ingenieroNombre"],$htmlDatos["usuarioNumeroColegiacion"]);
     }
-
+    break;
   }
 
     renderizar('comentarios',  $htmlDatos);

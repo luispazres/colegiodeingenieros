@@ -24,11 +24,11 @@
 */
 //Agregar un comentario segun sea aprobada o rechazada la solicitud
 
-  if (isset($_POST["btnComentarFactibilidad"])) {
+  if (isset($_POST["btnComentarRecepcion"])) {
     if ($_POST["tipo"]=="rechazo") {
-    agregarComentarioFactibilidad($_POST["codigoProyecto"],$_POST["comentario"],1);
+    agregarComentarioRecepcion($_POST["codigoProyecto"],$_POST["comentario"],3);
   }elseif ($_POST["tipo"]=="aceptado") {
-    agregarComentarioFactibilidad($_POST["codigoProyecto"],$_POST["comentario"],2);
+    agregarComentarioRecepcion($_POST["codigoProyecto"],$_POST["comentario"],1);
   }
   }
 

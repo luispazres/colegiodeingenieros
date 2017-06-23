@@ -55,6 +55,26 @@ order by proyectoNombre limit 1;";
 }
 
 
+function obtenerSolicitudRecepcionPorId($solicitudId){
+    $solicitudes = array();
+    $sqlstr = "SELECT proyectoNombre,departamentoDescripcion ,proyectoDireccion, proyectoDescrpcion,
+    proyectoLatitud,proyectoLongitud,proyectoNombrePropietario,
+    proyectoIdentidadPropietario, proyectoTelefonoPropietario, proyectoCelularPropietario,
+    proyectoEmailPropietario, proyectoDireccionPropietario,
+    concat(usuarioPrimerNombre, ' ' ,usuarioSegundoNombre ,' ',
+    usuarioPrimerApellido, ' ', usuarioSegundoApellido) 'ingenieroNombre', usuarioNumeroColegiacion
+    usuarioNumeroColegiacion, usuarioTelefono, usuarioCelular
+    FROM cimeqh.tblsolicitudrecepcion tblre, tblsolicitudaprobacion tbla,
+    tblproyectos tblp, tbldepartamentos tblde,tblusuarios tblu
+    where tblre.solicitudAprobacionId=tbla.solicitudAprobacionId and tbla.proyectoId=tblp.proyectoId
+    and tblp.departamentoId=tblde.departamentoId and tblu.usuarioIdentidad=tblp.usuarioIdentidad
+    and solicitudRecepcioId=%d;";
+    $sqlstr = sprintf($sqlstr, $solicitudId);
+    $solicitudes = obtenerUnRegistro($sqlstr);
+    return $solicitudes;
+}
+
+
 function obtenerDocumentosRecepcion($solicitudId){
     $solicitudes = array();
     $sqlstr = "SELECT documentoNombre,proyectoNombre,proyectoDescrpcion,documentoRecepcionDireccion
