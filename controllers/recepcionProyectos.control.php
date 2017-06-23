@@ -32,7 +32,7 @@
            $header="Location:index.php?page=recepcionProyectos&respuesta=".$respuesta;
            header($header);
          }
-      }
+
           break;
 
         case 'UPD':
@@ -42,7 +42,7 @@
           //creamos una nueva instancia de la clase multiupload
           $upload = new Multiupload();
           //llamamos a la funcion upFiles y le pasamos el array de campos file del formulario
-          $isUpload = $upload->upFiles($files,$_POSt["recepcionId"],"recepcion");
+          $isUpload = $upload->upFiles($files,$_POST["recepcionId"],"recepcion");
            //llamamos a la funcion upFiles y le pasamos el array de campos file del formulari
 
           $header="Location:index.php?page=recepcionProyectos&respuesta=".$respuesta;
@@ -53,6 +53,7 @@
         default:
           # code...
           break;
+        }
       }
 
 
@@ -62,7 +63,7 @@
       $proyectos=obtnerAprobacionPorId($_GET["proyectoId"]);
       if($proyectos){
         if (isset($_GET["accion"])) {
-          $htmlDatos["accion"] = $_GET["recepcionId"];
+          $htmlDatos["accion"] = $_GET["accion"];
         }
 
         if (isset($_GET["recepcionId"])) {
