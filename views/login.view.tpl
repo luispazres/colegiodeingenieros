@@ -21,8 +21,8 @@
           <div class="clearfix"></div>
 
           <div class="separator">
-            <p class="change_link">New to site?
-              <a href="#signup" class="to_register"> Create Account </a>
+            <p class="change_link">Primera vez?
+              <a href="index.php?page=registroUsuarios" class="to_register"> Crea Una Cuenta </a>
             </p>
 
             <div class="clearfix"></div>
