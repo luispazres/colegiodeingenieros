@@ -39,7 +39,7 @@
               {{foreach solicitud}}
                 <tr>
                   <td>{{documentoNombre}}</td>
-                  <td> <a href="{{documentoDireccion}}" download>
+                  <td> <a href="{{documentoRecepcionDireccion}}" download>
                     <input type="button" name="btnDescargar" id="btnDescargar" class="btn btn-warning" value="Ver Documentos Agregados" target="_blank">
                   </a>
                   </td>

@@ -40,27 +40,31 @@ and solicitudRecepcioEstado=4;";
     return $solicitudes;
 }
 
-function obtenerUnDocumentoRecepcion(){
+
+function obtenerUnDocumentoRecepcion($solicitudId){
     $solicitudes = array();
-    $sqlstr = "SELECT documentoNombre,proyectoNombre,proyectoDescrpcion,documentoDireccion
-    FROM cimeqh.tbldocumentosaprobacion tbld, tblsolicitudaprobacion tbls, tblproyectos tblp,
-    tblusuarios tblu
-    where tbls.solicitudAprobacionId=tbld.solicitudAprobacionId and
-    tblp.proyectoId=tbls.proyectoId and tblu.usuarioIdentidad=tblp.usuarioIdentidad and tbld.solicitudAprobacionId=84
-    order by proyectoNombre limit 1;";
+    $sqlstr = "SELECT documentoNombre,proyectoNombre,proyectoDescrpcion,documentoRecepcionDireccion
+FROM tbldocumentosrecepcion tbld,tblsolicitudrecepcion tblr, tblsolicitudaprobacion tblsa,
+tblproyectos tblp
+where tbld.solicitudRecepcionId=tblr.solicitudRecepcioId and tblr.solicitudAprobacionId=tblsa.solicitudAprobacionId
+and tblsa.proyectoId=tblp.proyectoId
+and solicitudRecepcioId=$solicitudId
+order by proyectoNombre limit 1;";
     $solicitudes = obtenerUnRegistro($sqlstr);
     return $solicitudes;
 }
 
 
-
-function obtenerDocumentosRecepcionPorId($aprobacionId){
-    $proyecto = array();
-    $sqlstr = "SELECT * FROM tbldocumentosrecepcion
-    where solicitudRecepcionId=%d;";
-    $sqlstr = sprintf($sqlstr, $aprobacionId);
-    $proyecto = obtenerRegistros($sqlstr);
-    return $proyecto;
+function obtenerDocumentosRecepcion($solicitudId){
+    $solicitudes = array();
+    $sqlstr = "SELECT documentoNombre,proyectoNombre,proyectoDescrpcion,documentoRecepcionDireccion
+FROM tbldocumentosrecepcion tbld,tblsolicitudrecepcion tblr, tblsolicitudaprobacion tblsa,
+tblproyectos tblp
+where tbld.solicitudRecepcionId=tblr.solicitudRecepcioId and tblr.solicitudAprobacionId=tblsa.solicitudAprobacionId
+and tblsa.proyectoId=tblp.proyectoId
+and solicitudRecepcioId=$solicitudId;";
+    $solicitudes = obtenerRegistros($sqlstr);
+    return $solicitudes;
 }
 
 
