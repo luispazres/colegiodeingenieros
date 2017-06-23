@@ -7,6 +7,7 @@
   include 'clases\comentariosAprobacion.php';
 
   function run(){
+
     $solicitud = array();
     $htmlDatos = array();
     $htmlView = '';
