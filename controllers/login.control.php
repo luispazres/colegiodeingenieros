@@ -32,7 +32,7 @@
             header("Location:index.php?page=home");
             die();
           }else{
-            $errores[] = array("errmsg"=>"Credenciales Incorrectas");
+            redirectWithMessage("Usuario o contraseña incorrectas.","?page=login");
           }
         }else{
           $errores[] = array("errmsg"=>"Credenciales Incorrectas");
