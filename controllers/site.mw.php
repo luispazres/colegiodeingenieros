@@ -2,9 +2,12 @@
 //middleware de configuración de todo el sitio
 
 function site_init(){
-    mw_estaLogueado();
+  if (mw_estaLogueado()) {
     addToContext("page_title","Simple MVC Example");
-    addToContext("prueba","CIMEQH");
+    addToContext($_SESSION["nombre"],"nombre");
+    addToContext($_SESSION["apellido"],"apellido");
+  }
+  addToContext("prueba","CIMEQH");
 }
 
 site_init();

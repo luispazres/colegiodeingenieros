@@ -6,7 +6,7 @@
           $usuario = array();
           $sqlstr = sprintf("SELECT *
           FROM tblusuarios tblu, tblroles tblr, tblestadocuenta tble WHERE tblu.rolId=tblr.rolId
-          AND tblu.estadoCuentaId=tble.estadoCuentaId AND tble.estadoCuentaDescripcion='suspendido';");
+          AND tblu.estadoCuentaId=tble.estadoCuentaId AND tble.estadoCuentaId=4;");
           $usuario = obtenerRegistros($sqlstr);
           return $usuario;
     }
@@ -98,10 +98,8 @@
         $rolId,
         valstr($email),
         $fecha);
-        if(ejecutarNonQuery($strsql)){
-            return getLastInserId();
-        }
-        return 0;
+        ejecutarNonQueryConErrores($strsql);
+
     }
 
 ?>

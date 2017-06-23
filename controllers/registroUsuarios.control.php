@@ -23,8 +23,8 @@ require_once("models/usuarios.model.php");
       $usuarios["txtContrasena"]=$_POST["txtContrasena"];
       $usuarios["txtContrasenaConfirmacion"]=$_POST["txtContrasenaConfirmacion"];
       $usuarios["txtCorreo"]=$_POST["txtCorreo"];
-      $rolId = 3;
-      $estadoCuenta = 3;
+      $rolId = 4;
+      $estadoCuenta = 4;
       $resultado = 0;
 /*
 ($userId, $userPrimernombre, $userSegundonombre, $primerApellido, $segundoApellido,
@@ -60,10 +60,9 @@ $numeroColegiacion, $userCelular,$userTelefono, $userDireccion, $userPassword, $
     $usuarios["txtCorreo"],
     $fchingreso);
 
-    print_r($usuarios);
     echo $respueta;
 
-    $location="Location:index.php?page=login";
+    $location="Location:index.php?page=registroUsuarios".$respueta;
     header($location);
 
     }
