@@ -59,7 +59,7 @@
               <div class="col-md-3 left_col">
                 <div class="left_col scroll-view">
                   <div class="navbar nav_title" style="border: 0;">
-                    <a href="index.html" class="site_title"><i class="fa fa-paw"></i> <span>CIMEQH</span></a>
+                    <a href="index.php?page=home" class="site_title"><i class="fa fa-paw"></i> <span>CIMEQH</span></a>
                   </div>
 
                   <div class="clearfix"></div>
@@ -70,8 +70,8 @@
                       <img src="images/img.jpg" alt="..." class="img-circle profile_img">
                     </div>
                     <div class="profile_info">
-                      <span>Welcome,</span>
-                      <h2>John Doe</h2>
+                      <span>Bienvenido,</span>
+                      <h2>{{nombre}} {{apellido}}</h2>
                     </div>
                     <div class="clearfix"></div>
                   </div>
@@ -192,7 +192,7 @@
                     <ul class="nav navbar-nav navbar-right">
                       <li class="">
                         <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                          <img src="images/img.jpg" alt="">John Doe
+                          <img src="images/img.jpg" alt="">{{nombre}} {{apellido}}
                           <span class=" fa fa-angle-down"></span>
                         </a>
                         <ul class="dropdown-menu dropdown-usermenu pull-right">

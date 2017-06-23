@@ -74,11 +74,12 @@ CREATE TABLE `tbldocumentosaprobacion` (
   `documentosAprobacionId` int(11) NOT NULL AUTO_INCREMENT,
   `documentoDireccion` varchar(600) NOT NULL,
   `solicitudAprobacionId` int(11) NOT NULL,
+  `documentoNombre` varchar(600) NOT NULL,
   PRIMARY KEY (`documentosAprobacionId`),
   KEY `solicitudAprobacionId_idx` (`solicitudAprobacionId`),
   KEY `fksolicitudAprobacionId_idx` (`solicitudAprobacionId`),
   CONSTRAINT `fksolicitudAprobacionId` FOREIGN KEY (`solicitudAprobacionId`) REFERENCES `tblsolicitudaprobacion` (`solicitudAprobacionId`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=47 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=66 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -87,7 +88,7 @@ CREATE TABLE `tbldocumentosaprobacion` (
 
 LOCK TABLES `tbldocumentosaprobacion` WRITE;
 /*!40000 ALTER TABLE `tbldocumentosaprobacion` DISABLE KEYS */;
-INSERT INTO `tbldocumentosaprobacion` VALUES (39,'files/put_tris.pdf',79),(40,'files/PROYECTO DIGITALIZACION APROBACION DE PLANOS EN ENEE.pdf',79),(45,'files/PROYECTO DIGITALIZACION APROBACION DE PLANOS EN ENEE.pdf',82),(46,'files/PROYECTO DIGITALIZACION APROBACION DE PLANOS EN ENEE.pdf',83);
+INSERT INTO `tbldocumentosaprobacion` VALUES (64,'files/PROYECTO DIGITALIZACION APROBACION DE PLANOS EN ENEE (1)(1)(2).pdf',89,'PROYECTO DIGITALIZACION APROBACION DE PLANOS EN ENEE (1)(1)(2).pdf'),(65,'files/put_tris(1).pdf',90,'put_tris(1).pdf');
 /*!40000 ALTER TABLE `tbldocumentosaprobacion` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -102,10 +103,11 @@ CREATE TABLE `tbldocumentosrecepcion` (
   `documentoRecepcionId` int(11) NOT NULL AUTO_INCREMENT,
   `documentoRecepcionDireccion` varchar(600) NOT NULL,
   `solicitudRecepcionId` int(11) NOT NULL,
+  `documentoNombre` varchar(600) NOT NULL,
   PRIMARY KEY (`documentoRecepcionId`),
   KEY `solicitudRecepcionId_idx` (`solicitudRecepcionId`),
   CONSTRAINT `solicitudRecepcionId` FOREIGN KEY (`solicitudRecepcionId`) REFERENCES `tblsolicitudrecepcion` (`solicitudRecepcioId`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -114,7 +116,7 @@ CREATE TABLE `tbldocumentosrecepcion` (
 
 LOCK TABLES `tbldocumentosrecepcion` WRITE;
 /*!40000 ALTER TABLE `tbldocumentosrecepcion` DISABLE KEYS */;
-INSERT INTO `tbldocumentosrecepcion` VALUES (1,'files/PROYECTO DIGITALIZACION APROBACION DE PLANOS EN ENEE.pdf',1),(2,'files/put_tris.pdf',1);
+INSERT INTO `tbldocumentosrecepcion` VALUES (5,'files/PROYECTO DIGITALIZACION APROBACION DE PLANOS EN ENEE (1).pdf',4,'PROYECTO DIGITALIZACION APROBACION DE PLANOS EN ENEE (1).pdf'),(6,'files/put_tris.pdf',4,'put_tris.pdf'),(7,'files/put_tris(2).pdf',5,'put_tris(2).pdf'),(10,'files/put_tris(4).pdf',4,'put_tris(4).pdf'),(11,'files/PROYECTO DIGITALIZACION APROBACION DE PLANOS EN ENEE (1)(1)(4).pdf',4,'PROYECTO DIGITALIZACION APROBACION DE PLANOS EN ENEE (1)(1)(4).pdf');
 /*!40000 ALTER TABLE `tbldocumentosrecepcion` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -138,7 +140,7 @@ CREATE TABLE `tblestadoaprobacion` (
 
 LOCK TABLES `tblestadoaprobacion` WRITE;
 /*!40000 ALTER TABLE `tblestadoaprobacion` DISABLE KEYS */;
-INSERT INTO `tblestadoaprobacion` VALUES (1,'Aprobado'),(2,'Aprobado Con Observciones'),(3,'Rechazado'),(4,'En Revision');
+INSERT INTO `tblestadoaprobacion` VALUES (1,'Aprobado CIMEQH'),(2,'Aprobado ENEE'),(3,'Rechazado'),(4,'En Revision');
 /*!40000 ALTER TABLE `tblestadoaprobacion` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -210,7 +212,7 @@ CREATE TABLE `tblestadofactibilidad` (
 
 LOCK TABLES `tblestadofactibilidad` WRITE;
 /*!40000 ALTER TABLE `tblestadofactibilidad` DISABLE KEYS */;
-INSERT INTO `tblestadofactibilidad` VALUES (1,'Rechazado'),(2,'Aprobado'),(3,'Aprobado con Observaciones'),(4,'En Revision');
+INSERT INTO `tblestadofactibilidad` VALUES (1,'Aprobado CIMEQH'),(2,'Aprobado ENEE'),(3,'Rechazado'),(4,'En Revision');
 /*!40000 ALTER TABLE `tblestadofactibilidad` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -225,7 +227,7 @@ CREATE TABLE `tblestadorecepcion` (
   `estadoRecepcionId` int(11) NOT NULL AUTO_INCREMENT,
   `estadoRecepcionDescripcion` varchar(100) NOT NULL,
   PRIMARY KEY (`estadoRecepcionId`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -234,7 +236,7 @@ CREATE TABLE `tblestadorecepcion` (
 
 LOCK TABLES `tblestadorecepcion` WRITE;
 /*!40000 ALTER TABLE `tblestadorecepcion` DISABLE KEYS */;
-INSERT INTO `tblestadorecepcion` VALUES (1,'Pendiente'),(2,'Proyecto Recibido');
+INSERT INTO `tblestadorecepcion` VALUES (1,'Aprobado CIMEQH'),(2,'Aprobado ENEE'),(3,'Rechazado'),(4,'En Revision');
 /*!40000 ALTER TABLE `tblestadorecepcion` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -268,7 +270,7 @@ CREATE TABLE `tblproyectos` (
   CONSTRAINT `departamentoId` FOREIGN KEY (`departamentoId`) REFERENCES `tbldepartamentos` (`departamentoId`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `tipoId` FOREIGN KEY (`tipoId`) REFERENCES `tbltipoproyectos` (`tipoId`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `usuarioIdentidad` FOREIGN KEY (`usuarioIdentidad`) REFERENCES `tblusuarios` (`usuarioIdentidad`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -277,7 +279,7 @@ CREATE TABLE `tblproyectos` (
 
 LOCK TABLES `tblproyectos` WRITE;
 /*!40000 ALTER TABLE `tblproyectos` DISABLE KEYS */;
-INSERT INTO `tblproyectos` VALUES (5,'Luis Reyes','0801199503314','22308090','luis@hotmail.com','Res. Plaza','96425292',9,'Ingenieros',46,90,'CircunvalaciÃ³n','0801199503314','CIMEQH',5),(6,'Eduardo Reyes','0801199503315','96425295','paz@hotmail.com','Portal del Bosque','22308095',5,'Energia',45,66,'LA mosquiitia','0801199503314','EEH',6);
+INSERT INTO `tblproyectos` VALUES (7,'dfdf','0801199503315','96425295','luis@hotmail.com','dfdfdf','96425292',1,'cdccxc',67,88,'dfdfdfdf','0801199503314','CIMEQH',6),(8,'asasas','99525656330','4555','sdsdsd@ddsd.com','asasasas','545',1,'dsdsdsd',95,66,'sddddsd','0801199503314','EEH',5),(9,'Diana Reyes','0801199306645','5454','dfdfdfd@hotmail.es','dd','96425292',1,'sdsd',66,77,'sdsds','0801199503314','SANAA',6);
 /*!40000 ALTER TABLE `tblproyectos` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -292,7 +294,7 @@ CREATE TABLE `tblroles` (
   `rolId` int(11) NOT NULL AUTO_INCREMENT,
   `rolDescripcion` varchar(100) NOT NULL,
   PRIMARY KEY (`rolId`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -301,7 +303,7 @@ CREATE TABLE `tblroles` (
 
 LOCK TABLES `tblroles` WRITE;
 /*!40000 ALTER TABLE `tblroles` DISABLE KEYS */;
-INSERT INTO `tblroles` VALUES (1,'cimeqh'),(2,'enee'),(3,'publico');
+INSERT INTO `tblroles` VALUES (1,'cimeqh'),(2,'enee'),(3,'publico'),(4,'Ingeniero');
 /*!40000 ALTER TABLE `tblroles` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -319,12 +321,13 @@ CREATE TABLE `tblsolicitudaprobacion` (
   `estadoSolicitudAprobacion` int(11) NOT NULL,
   `proyectoId` int(11) NOT NULL,
   `codigoAprobacion` varchar(150) DEFAULT NULL,
+  `comentarioAprobacion` varchar(600) DEFAULT NULL,
   PRIMARY KEY (`solicitudAprobacionId`),
   KEY `fkProyectoId_idx` (`proyectoId`),
   KEY `estadoAprobacion_idx` (`estadoSolicitudAprobacion`),
-  CONSTRAINT `estadoAprobacionId` FOREIGN KEY (`estadoSolicitudAprobacion`) REFERENCES `tblestadoaprobacion` (`estadoAprobacionId`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `estadoAprobacionId` FOREIGN KEY (`estadoSolicitudAprobacion`) REFERENCES `tblestadoaprobacion` (`estadoAprobacionId`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `fkProyectoId` FOREIGN KEY (`proyectoId`) REFERENCES `tblproyectos` (`proyectoId`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=84 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=91 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -333,7 +336,7 @@ CREATE TABLE `tblsolicitudaprobacion` (
 
 LOCK TABLES `tblsolicitudaprobacion` WRITE;
 /*!40000 ALTER TABLE `tblsolicitudaprobacion` DISABLE KEYS */;
-INSERT INTO `tblsolicitudaprobacion` VALUES (79,87000,50,4,5,'a82dhxaq12ort6ki27'),(82,54545,50,4,5,'a82dhxaq6orut6i2a'),(83,54545,50,4,5,'a82dhxaqlorut6w2b');
+INSERT INTO `tblsolicitudaprobacion` VALUES (89,800000,700,2,7,'a82dhxaq1moryjz12h','Me cae por las patas.'),(90,777777,700,1,8,'a82dhxaq1horyk1s2i',NULL);
 /*!40000 ALTER TABLE `tblsolicitudaprobacion` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -353,12 +356,13 @@ CREATE TABLE `tblsolicituddespeje` (
   `solicitudDespejeCosto` float DEFAULT NULL,
   `tblsolicitudaprobacion_solicitudAprobacionId` int(11) NOT NULL,
   `estadoDespejeId` int(11) NOT NULL,
+  `comentarioDespeje` varchar(600) DEFAULT NULL,
   PRIMARY KEY (`solicitudDespejeId`),
   KEY `fk_tblsolicituddespeje_tblsolicitudaprobacion1_idx` (`tblsolicitudaprobacion_solicitudAprobacionId`),
   KEY `estadoId_idx` (`estadoDespejeId`),
   CONSTRAINT `estadoId` FOREIGN KEY (`estadoDespejeId`) REFERENCES `tblestadodespeje` (`estadoDespejeId`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `fk_tblsolicituddespeje_tblsolicitudaprobacion1` FOREIGN KEY (`tblsolicitudaprobacion_solicitudAprobacionId`) REFERENCES `tblsolicitudaprobacion` (`solicitudAprobacionId`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+  CONSTRAINT `fk_tblsolicituddespeje_tblsolicitudaprobacion1` FOREIGN KEY (`tblsolicitudaprobacion_solicitudAprobacionId`) REFERENCES `tblsolicitudaprobacion` (`solicitudAprobacionId`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -367,7 +371,7 @@ CREATE TABLE `tblsolicituddespeje` (
 
 LOCK TABLES `tblsolicituddespeje` WRITE;
 /*!40000 ALTER TABLE `tblsolicituddespeje` DISABLE KEYS */;
-INSERT INTO `tblsolicituddespeje` VALUES (2,2,55,45,'2017-06-17 00:00:00',NULL,79,4);
+INSERT INTO `tblsolicituddespeje` VALUES (3,777,777,7,'2017-06-30 00:00:00',NULL,89,4,'');
 /*!40000 ALTER TABLE `tblsolicituddespeje` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -397,7 +401,7 @@ CREATE TABLE `tblsolicitudfactibilidad` (
   CONSTRAINT `estadoFactibilidadId` FOREIGN KEY (`estadoFactibilidadId`) REFERENCES `tblestadofactibilidad` (`estadoFactibilidadId`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `proyectoId` FOREIGN KEY (`proyectoId`) REFERENCES `tblproyectos` (`proyectoId`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `voltajeId` FOREIGN KEY (`voltajeId`) REFERENCES `tblvoltajes` (`voltajeId`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -406,7 +410,7 @@ CREATE TABLE `tblsolicitudfactibilidad` (
 
 LOCK TABLES `tblsolicitudfactibilidad` WRITE;
 /*!40000 ALTER TABLE `tblsolicitudfactibilidad` DISABLE KEYS */;
-INSERT INTO `tblsolicitudfactibilidad` VALUES (6,2,2,45,90,100,4,6,NULL);
+INSERT INTO `tblsolicitudfactibilidad` VALUES (10,1,2,800,22,11,2,7,'Te lo aprobÃ© porque estas bien bueno');
 /*!40000 ALTER TABLE `tblsolicitudfactibilidad` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -425,8 +429,8 @@ CREATE TABLE `tblsolicitudrecepcion` (
   KEY `fk_tblSolicitudRecpcion_tblsolicitudaprobacion1_idx` (`solicitudAprobacionId`),
   KEY `estadoRecepcionId_idx` (`solicitudRecepcioEstado`),
   CONSTRAINT `estadoRecepcionId` FOREIGN KEY (`solicitudRecepcioEstado`) REFERENCES `tblestadorecepcion` (`estadoRecepcionId`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `fk_tblSolicitudRecpcion_tblsolicitudaprobacion1` FOREIGN KEY (`solicitudAprobacionId`) REFERENCES `tblsolicitudaprobacion` (`solicitudAprobacionId`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+  CONSTRAINT `fk_tblSolicitudRecpcion_tblsolicitudaprobacion1` FOREIGN KEY (`solicitudAprobacionId`) REFERENCES `tblsolicitudaprobacion` (`solicitudAprobacionId`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -435,7 +439,7 @@ CREATE TABLE `tblsolicitudrecepcion` (
 
 LOCK TABLES `tblsolicitudrecepcion` WRITE;
 /*!40000 ALTER TABLE `tblsolicitudrecepcion` DISABLE KEYS */;
-INSERT INTO `tblsolicitudrecepcion` VALUES (1,1,79);
+INSERT INTO `tblsolicitudrecepcion` VALUES (4,3,89),(5,3,90);
 /*!40000 ALTER TABLE `tblsolicitudrecepcion` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -509,6 +513,7 @@ CREATE TABLE `tblusuarios` (
   `estadoCuentaId` int(11) NOT NULL,
   `rolId` int(11) NOT NULL,
   `usuarioCorreo` varchar(100) NOT NULL,
+  `usuarioFechaIngreso` int(11) NOT NULL,
   PRIMARY KEY (`usuarioIdentidad`),
   KEY `rolId_idx` (`rolId`),
   KEY `estadoCuentaId_idx` (`estadoCuentaId`),
@@ -523,7 +528,7 @@ CREATE TABLE `tblusuarios` (
 
 LOCK TABLES `tblusuarios` WRITE;
 /*!40000 ALTER TABLE `tblusuarios` DISABLE KEYS */;
-INSERT INTO `tblusuarios` VALUES ('0801-1995-08222asdasd','asd','asd','asddfs','asd','qwe','asd','asd','asd','a3ac3570da3247fb6938d3a5543549ba',2,3,'j@superrito.com'),('0801-1995-085858','asd','asd','asd','sad','ads','99999','9999999','asdsdasad','4e55305a027551bf6e92a9019b57f80a',1,3,'j@superrito.com'),('0801199503314','Juan','Luis','Lopez','Paz','123456789','9876-5432','22244-8572','Colonia Palmira','47e2d80be5e155d4bade80d05828bf82',3,3,'prueba1@superrito.com'),('1','asd','asd','asddfs','dfdf','654','546','123','asdasd','0c9c61851b54a0765af2fe0502aee178',3,3,'j@superrito.com'),('1111111','X','Y','Z','W','11111','99-85','88-85','tegus','xD',3,3,''),('123123','jk','lp','xyz','abcd','1212132123','9966','5522','sdfdfsdfs','d41d8cd98f00b204e9800998ecf8427e',3,3,''),('123456789','jkkk','lllll','llll','ooooo','321654','99999','888888','asd','67e76f0191fa3a273ed2ef60c8c37789',3,3,'a@b.com'),('13212132132123','Juan','lp','asda','Paz','12123','9642-3311','2245-6875','asadsads','caf1a3dfb505ffed0d024130f58c5cfa',3,3,''),('321','asdadsasdads','zxczxzcx','sdfsdf','zxcfd','321','456','456','fg','6c4cd3e54f1558cdfcd36b9c7bdef137',3,3,'j@superrito.com'),('53535','ssa','sssd','dsdsds','cdcd','53535','545454','545454','sdsds','6900795a6abba4305e3905b1851c7d39',3,3,'luis@hotmail.es'),('789654','jkl','asdasd','vgfui','jhv','8745','987','09','kjkj','79c57c591d62a2c57d17b3be5cf0385a',3,3,''),('9999','dfsdsf','lp','5334','456456456','45343','9966','6345','fgjfgfgj','d6acc0b68b294c64de181af391941921',3,3,'');
+INSERT INTO `tblusuarios` VALUES ('0801199503314','Luis','Eduardo','Paz','Reyes','21548164','96425292','22308090','Portal del Bosque','76b98197d40a35db050f88c51c18c157',1,1,'luiseduardopazreyes@hotmail.es',1498148000),('56454564','kjkj','jjj','kjkjkj','kjkjk','55454','444','5555','sdsds','40cf74eac17703fe56b28d369ff966d5',1,4,'lslsl@gmail.com',1498252851);
 /*!40000 ALTER TABLE `tblusuarios` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -560,4 +565,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-06-20 10:17:55
+-- Dump completed on 2017-06-23 16:03:22

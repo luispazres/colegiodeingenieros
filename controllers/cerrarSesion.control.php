@@ -5,6 +5,7 @@
     session_destroy();/*destruye la informacion registrada de una variable de sesion*/
     header('Location:index.php?page=login');
     renderizar("cerrarSesion", $data);
+
   }
   run();
 ?>

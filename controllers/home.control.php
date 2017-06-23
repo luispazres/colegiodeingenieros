@@ -10,7 +10,7 @@
 
     if (mw_estaLogueado()) {
       if ($_SESSION["estado"]==1) {
-        if ($_SESSION["rol"]==4) {
+        if ($_SESSION["rol"]==4||$_SESSION["rol"]==1) {
           addCssRef("public/css/home.css");
           renderizar("home",array());
         }else {

@@ -42,7 +42,7 @@
                 <div class="x_content">
                   <br>
 
-                    <form id="demo-form2" action="index.php?page=registroUsuarios" class="form-horizontal form-label-left" method="post">
+                    <form id="demo-form2"  class="form-horizontal form-label-left" method="post">
 
                       <div class="form-group">
 

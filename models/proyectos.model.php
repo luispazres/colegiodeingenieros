@@ -46,14 +46,14 @@
         return $proyecto;
     }
 
-    
+
 
     function registrarProyecto($txtNombrePropietario,$txtIdentidadPropietario,$txtDireccionPropietario,$txtEmailPropietario,$txtTelefonoPropietario, $txtCelularPropietario, $txtProyectoNombre, $txtLatitud, $txtLongitud, $txtDescripcionProyecto,$cmbDepartamentoProyecto,$txtDireccionProyecto, $txtProyectoNombre,$tipos){
       $insertSQL = "INSERT INTO `tblProyectos` (`proyectoNombrePropietario`,`proyectoIdentidadPropietario`,
         `proyectoDireccionPropietario`, `proyectoCelularPropietario`,`proyectoEmailPropietario`,
         `proyectoTelefonoPropietario`,departamentoId, `proyectoDescrpcion`, proyectoLatitud, proyectoLongitud,
         `proyectoDireccion`, `usuarioIdentidad`,`proyectoNombre`,`tipoId`)
-      values ('%s','%s','%s','%s','%s','%s',%d,'%s',%f,%f,'%s','0801199503314','%s',%d);";
+      values ('%s','%s','%s','%s','%s','%s',%d,'%s',%f,%f,'%s','%s','%s',%d);";
       $insertSQL = sprintf($insertSQL,
                            valstr($txtNombrePropietario),
                            valstr($txtIdentidadPropietario),
@@ -66,6 +66,7 @@
                            $txtLatitud,
                            $txtLongitud,
                            valstr($txtDireccionProyecto),
+                           $_SESSION["userName"],
                            valstr($txtProyectoNombre),
                            $tipos);
       return ejecutarNonQueryConErrores($insertSQL);
