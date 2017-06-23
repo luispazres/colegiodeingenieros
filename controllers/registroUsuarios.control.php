@@ -63,7 +63,7 @@ $numeroColegiacion, $userCelular,$userTelefono, $userDireccion, $userPassword, $
     print_r($usuarios);
     echo $respueta;
 
-    $location="Location:index.php?page=registroUsuarios&error=".$respueta;
+    $location="Location:index.php?page=login";
     header($location);
 
     }
@@ -73,9 +73,8 @@ $numeroColegiacion, $userCelular,$userTelefono, $userDireccion, $userPassword, $
       }
 
     }
-    print_r($usuarios);
-    echo $respueta;
-    renderizar("registroUsuarios",  $htmlData);
+
+    renderizar("registroUsuarios",  $htmlData,'layoutSinSesion.view.tpl');
   }
   run();
 ?>

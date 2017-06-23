@@ -44,6 +44,8 @@
 
                     <form action="index.php?page=recepcionProyectos" id="demo-form2" data-parsley-validate class="form-horizontal form-label-left" enctype="multipart/form-data" method="post">
                       <input type="hidden" name="solicitudAprobacionId" id="solicitudAprobacionId" value="{{solicitudAprobacionId}}">
+                      <input type="hidden" name="recepcionId" id="recepcionId" value="{{recepcionId}}">
+                      <input type="hidden" name="accion" id="accion" value="{{accion}}">
                       <div class="form-group">
               					 <div class="row">
                                               <div class="col-md-6">

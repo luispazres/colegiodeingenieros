@@ -21,6 +21,16 @@
             //llamar al controlador
             require_once("controllers/home.control.php");
             break;
+
+        case "revisarSolicitudAprobacionEnee":
+            //llamar al controlador
+            require_once("controllers/revisarSolicitudAprobacionEnee.control.php");
+            break;
+
+        case "revisarSolicitudFactibilidadEnee":
+            //llamar al controlador
+            require_once("controllers/revisarSolicitudFactibilidadEnee.control.php");
+            break;
         case "cerrarSesion":
             //llamar al controlador
             require_once("controllers/cerrarSesion.control.php");

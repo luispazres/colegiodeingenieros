@@ -14,28 +14,61 @@
 
     if (isset($_POST["btnSolicitarAprobacion"])) {
 
-      $respuesta=registrarRecepcion($_POST["solicitudAprobacionId"]);
+      switch ($_POST["accion"]) {
+        case 'INS':
+        $respuesta=registrarRecepcion($_POST["solicitudAprobacionId"]);
 
-      $files = $_FILES['userfile']['name'];
+        $files = $_FILES['userfile']['name'];
 
-      //creamos una nueva instancia de la clase multiupload
-     $upload = new Multiupload();
-      //llamamos a la funcion upFiles y le pasamos el array de campos file del formulario
-      $isUpload = $upload->upFiles($files,$respuesta,"recepcion");
-       //llamamos a la funcion upFiles y le pasamos el array de campos file del formulari
-      if ($isUpload===FALSE) {
-         borrarRecepcion($respuesta);
-         $alerta=redirectWithMessage("Error al subir el archivo ","index.php?page=recepcionProyectos");
-      }else {
-         $header="Location:index.php?page=recepcionProyectos&respuesta=".$respuesta;
-         header($header);
-       }
-    }
+        //creamos una nueva instancia de la clase multiupload
+       $upload = new Multiupload();
+        //llamamos a la funcion upFiles y le pasamos el array de campos file del formulario
+        $isUpload = $upload->upFiles($files,$respuesta,"recepcion");
+         //llamamos a la funcion upFiles y le pasamos el array de campos file del formulari
+        if ($isUpload===FALSE) {
+           borrarRecepcion($respuesta);
+           $alerta=redirectWithMessage("Error al subir el archivo ","index.php?page=recepcionProyectos");
+        }else {
+           $header="Location:index.php?page=recepcionProyectos&respuesta=".$respuesta;
+           header($header);
+         }
+      }
+          break;
+
+        case 'UPD':
+
+          $files = $_FILES['userfile']['name'];
+
+          //creamos una nueva instancia de la clase multiupload
+          $upload = new Multiupload();
+          //llamamos a la funcion upFiles y le pasamos el array de campos file del formulario
+          $isUpload = $upload->upFiles($files,$_POSt["recepcionId"],"recepcion");
+           //llamamos a la funcion upFiles y le pasamos el array de campos file del formulari
+
+          $header="Location:index.php?page=recepcionProyectos&respuesta=".$respuesta;
+          header($header);
+
+          break;
+
+        default:
+          # code...
+          break;
+      }
+
+
 
     if(isset($_GET["proyectoId"])){
 
       $proyectos=obtnerAprobacionPorId($_GET["proyectoId"]);
       if($proyectos){
+        if (isset($_GET["accion"])) {
+          $htmlDatos["accion"] = $_GET["recepcionId"];
+        }
+
+        if (isset($_GET["recepcionId"])) {
+          $htmlDatos["recepcionId"] = $_GET["recepcionId"];
+        }
+
         $htmlDatos["proyectoId"] = $proyectos["proyectoId"];
         $htmlDatos["proyectoNombre"] = $proyectos["proyectoNombre"];
         $htmlDatos["departamentoNombre"] = $proyectos["departamentoDescripcion"];

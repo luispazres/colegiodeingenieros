@@ -141,6 +141,25 @@ and tblu.usuarioIdentidad=tblp.usuarioIdentidad and tbld.departamentoId=tblp.dep
     return $solicitudes;
 }
 
+function verSolicitudesAprobacionEnee(){
+    $solicitudes = array();
+    $sqlstr = "SELECT  estadoAprobacionDescripcion, proyectoNombre,departamentoDescripcion ,proyectoDireccion, proyectoDescrpcion,
+proyectoLatitud,proyectoLongitud,proyectoNombrePropietario,
+proyectoIdentidadPropietario, proyectoTelefonoPropietario, proyectoCelularPropietario,
+proyectoEmailPropietario, proyectoDireccionPropietario,
+concat(usuarioPrimerNombre, ' ' ,usuarioSegundoNombre ,' ',
+usuarioPrimerApellido, ' ', usuarioSegundoApellido) 'ingenieroNombre', usuarioNumeroColegiacion
+usuarioNumeroColegiacion, usuarioTelefono, usuarioCelular, solicitudAprobacionId,
+solicitudAaprobacionMontoEstimado, solicitudAprobacionCosto
+FROM cimeqh.tblsolicitudaprobacion tbls, tblproyectos tblp, tblestadoaprobacion tble,
+tblusuarios tblu, tbldepartamentos tbld
+where tbls.proyectoId=tblp.proyectoId and
+tble.estadoAprobacionId=tbls.estadoSolicitudAprobacion
+and tblu.usuarioIdentidad=tblp.usuarioIdentidad and tbld.departamentoId=tblp.departamentoId and tbls.estadoSolicitudAprobacion=1;";
+    $solicitudes = obtenerRegistros($sqlstr);
+    return $solicitudes;
+}
+
 function agregarComentarioAprobacion($solicitudId, $comentario, $estado){
   $sqlstr="UPDATE `tblsolicitudaprobacion`
 SET
@@ -155,7 +174,7 @@ $sqlstr = sprintf($sqlstr, $estado,$comentario,$solicitudId);
 
 function obtenerAprobacion(){
     $solicitudes = array();
-    $sqlstr = "SELECT if(ea.estadoAprobacionId=3,true,null) 'reintentar', p.proyectoId, p.proyectoNombre, p.proyectoNombrePropietario, p.proyectoIdentidadPropietario, sa.solicitudAprobacionId, ea.estadoAprobacionId, ea.estadoAprobacionDescripcion FROM tblsolicitudaprobacion as sa, tblproyectos as p, tblestadoaprobacion as ea where p.proyectoId=sa.proyectoId and sa.estadoSolicitudAprobacion=ea.estadoAprobacionId;";
+    $sqlstr = "SELECT if(ea.estadoAprobacionId=3,true,null) 'reintentar',sa.comentarioAprobacion, p.proyectoId, p.proyectoNombre, p.proyectoNombrePropietario, p.proyectoIdentidadPropietario, sa.solicitudAprobacionId, ea.estadoAprobacionId, ea.estadoAprobacionDescripcion FROM tblsolicitudaprobacion as sa, tblproyectos as p, tblestadoaprobacion as ea where p.proyectoId=sa.proyectoId and sa.estadoSolicitudAprobacion=ea.estadoAprobacionId;";
     $solicitudes = obtenerRegistros($sqlstr);
     return $solicitudes;
 }
