@@ -13,10 +13,10 @@
   switch ($_GET["accion"]) {
     case 'recepcion':
     if (isset($_GET["codigo"])) {
-      $revisar=obtenerDocumentosRecepcionPorId($_GET["codigo"]);
-      $nombre=obtenerUnDocumento($_GET["codigo"]);
-      renderizar("documentos",array('solicitud'=>$revisar,'nombre'=>$nombre["proyectoNombre"],'descripcion'=>$nombre["proyectoDescrpcion"]));
+      $revisar=obtenerDocumentosRecepcion($_GET["codigo"]);
+      $nombre=obtenerUnDocumentoRecepcion($_GET["codigo"]);
     }
+    renderizar("documentos",array('solicitud'=>$revisar,'nombre'=>$nombre["proyectoNombre"],'descripcion'=>$nombre["proyectoDescrpcion"]));
       break;
 
     case 'aprobacion':
