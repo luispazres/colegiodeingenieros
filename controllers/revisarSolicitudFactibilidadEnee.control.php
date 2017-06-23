@@ -3,6 +3,34 @@
   require_once("models/factibilidad.model.php");
 
   function run(){
+
+    if (mw_estaLogueado()) {
+      if ($_SESSION["estado"]==1) {
+        if ($_SESSION["rol"]==4) {
+          if (mw_estaLogueado()) {
+            if ($_SESSION["estado"]==1) {
+              if ($_SESSION["rol"]==2) {
+                addCssRef("public/css/home.css");
+                renderizar("home",array());
+              }else {
+                redirectWithMessage("No cuenta con los privilegios de usuario adecuado para ver esta páagina.","?page=login");
+              }
+            }else {
+            redirectWithMessage("Su cuenta todavia no ha sido verificada por el CIMEQH.","?page=login");
+            }
+          }else {
+            mw_redirectToLogin("page=login");
+          }
+        }else {
+          redirectWithMessage("No cuenta con los privilegios de usuario adecuado para ver esta páagina.","?page=login");
+        }
+      }else {
+      redirectWithMessage("Su cuenta todavia no ha sido verificada por el CIMEQH.","?page=login");
+      }
+    }else {
+      mw_redirectToLogin("page=login");
+    }
+
   $revisar = array();
 
   if(isset($_POST["btnRechazar"])){

@@ -8,27 +8,42 @@
   require_once("models/usuarios.model.php");
 
   function run(){
-  $usuario = array();
 
-  if(isset($_POST["btnRechazar"])){
+    if (mw_estaLogueado()) {
+      if ($_SESSION["estado"]==1) {
+        if ($_SESSION["rol"]==1) {
+          $usuario = array();
 
-    $numeroId="";
-    $estadoCuenta=2;
-    $numeroId=$_POST["usuarioIdentidad"];
-    actualizarEstado($numeroId,$estadoCuenta);
+          if(isset($_POST["btnRechazar"])){
+
+            $numeroId="";
+            $estadoCuenta=2;
+            $numeroId=$_POST["usuarioIdentidad"];
+            actualizarEstado($numeroId,$estadoCuenta);
+            }
+
+          if(isset($_POST["btnAceptar"])){
+            $respuesta="";
+            $numeroId="";
+            $estadoCuenta=1;
+            $numeroId=$_POST["usuarioIdentidad"];
+            $respuesta=actualizarEstado($numeroId,$estadoCuenta);
+            echo $respuesta;
+          }
+
+          $usuario=obtenerUsuarios();
+          renderizar("solicitudDeCuentas",array('usuario'=>$usuario));
+
+        }else {
+          redirectWithMessage("No cuenta con los privilegios de usuario adecuado para ver esta páagina.","?page=login");
+        }
+      }else {
+      redirectWithMessage("Su cuenta todavia no ha sido verificada por el CIMEQH.","?page=login");
+      }
+    }else {
+      mw_redirectToLogin("page=login");
     }
 
-  if(isset($_POST["btnAceptar"])){
-    $respuesta="";
-    $numeroId="";
-    $estadoCuenta=1;
-    $numeroId=$_POST["usuarioIdentidad"];
-    $respuesta=actualizarEstado($numeroId,$estadoCuenta);
-    echo $respuesta;
-  }
-
-  $usuario=obtenerUsuarios();
-  renderizar("solicitudDeCuentas",array('usuario'=>$usuario));
 
   }
   run();

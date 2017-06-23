@@ -103,7 +103,7 @@ $sqlstr = sprintf($sqlstr, $estado,$comentario,$solicitudId);
 
 function obtenerRecepcion(){
     $solicitudes = array();
-    $sqlstr = "SELECT * FROM tblsolicitudrecepcion as sr, tblsolicitudaprobacion as sa, tblproyectos as p, tblestadorecepcion as er where p.proyectoId=sa.proyectoId and sa.solicitudAprobacionId=sr.solicitudAprobacionId and sr.solicitudRecepcioEstado=er.estadoRecepcionId;";
+    $sqlstr = "SELECT if(er.estadoRecepcionId=3,true,null) 'reintentar', sr.solicitudRecepcioId, p.proyectoNombre, p.proyectoIdentidadPropietario,p.proyectoNombrePropietario, er.estadoRecepcionDescripcion,p.proyectoId,sa.solicitudAprobacionId FROM tblsolicitudrecepcion as sr, tblsolicitudaprobacion as sa, tblproyectos as p, tblestadorecepcion as er where p.proyectoId=sa.proyectoId and sa.solicitudAprobacionId=sr.solicitudAprobacionId and sr.solicitudRecepcioEstado=er.estadoRecepcionId;";
     $solicitudes = obtenerRegistros($sqlstr);
     return $solicitudes;
 }

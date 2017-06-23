@@ -9,6 +9,7 @@
   include 'clases\comentariosRecepcion.php';
 
   function run(){
+
     $solicitud = array();
     $htmlDatos = array();
 

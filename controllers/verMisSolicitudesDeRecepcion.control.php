@@ -9,11 +9,26 @@
   require_once("models/recepcion.model.php");
 
   function run(){
-    $solicitudes = array();
 
-    $solicitudes=obtenerRecepcion();
+    if (mw_estaLogueado()) {
+      if ($_SESSION["estado"]==1) {
+        if ($_SESSION["rol"]==4) {
+          $solicitudes = array();
 
-    renderizar("verMisSolicitudesDeRecepcion", array('solicitudes'=> $solicitudes));
+          $solicitudes=obtenerRecepcion();
+
+          renderizar("verMisSolicitudesDeRecepcion", array('solicitudes'=> $solicitudes));
+        }else {
+          redirectWithMessage("No cuenta con los privilegios de usuario adecuado para ver esta páagina.","?page=login");
+        }
+      }else {
+      redirectWithMessage("Su cuenta todavia no ha sido verificada por el CIMEQH.","?page=login");
+      }
+    }else {
+      mw_redirectToLogin("page=login");
+    }
+
+
   }
 
   run();

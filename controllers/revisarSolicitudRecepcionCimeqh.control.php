@@ -3,16 +3,8 @@
   require_once("models/recepcion.model.php");
 
   function run(){
-  $revisar = array();
-/*
-  if(isset($_POST["btnRechazar"])){
 
-    $numeroId="";
-    $estadoCuenta=2;
-    $numeroId=$_POST["usuarioIdentidad"];
-    actualizarEstado($numeroId,$estadoCuenta);
-    }
-
+<<<<<<< HEAD
   if(isset($_POST["btnAceptar"])){
     $respuesta="";
     $numeroId="";
@@ -31,10 +23,54 @@
     agregarComentarioRecepcion($_POST["codigoProyecto"],$_POST["comentario"],1);
   }
   }
+=======
+    if (mw_estaLogueado()) {
+      if ($_SESSION["estado"]==1) {
+        if ($_SESSION["rol"]==2) {
+          $revisar = array();
+        /*
+          if(isset($_POST["btnRechazar"])){
+
+            $numeroId="";
+            $estadoCuenta=2;
+            $numeroId=$_POST["usuarioIdentidad"];
+            actualizarEstado($numeroId,$estadoCuenta);
+            }
+>>>>>>> master
+
+          if(isset($_POST["btnAceptar"])){
+            $respuesta="";
+            $numeroId="";
+            $estadoCuenta=1;
+            $numeroId=$_POST["usuarioIdentidad"];
+            $respuesta=actualizarEstado($numeroId,$estadoCuenta);
+            echo $respuesta;
+          }
+        */
+        //Agregar un comentario segun sea aprobada o rechazada la solicitud
+
+          if (isset($_POST["btnComentarFactibilidad"])) {
+            if ($_POST["tipo"]=="rechazo") {
+            agregarComentarioFactibilidad($_POST["codigoProyecto"],$_POST["comentario"],1);
+          }elseif ($_POST["tipo"]=="aceptado") {
+            agregarComentarioFactibilidad($_POST["codigoProyecto"],$_POST["comentario"],2);
+          }
+          }
 
 
-  $revisar=obtenerSolicitudRecepcion();
-  renderizar("revisarSolicitudRecepcionCimeqh",array('solicitud'=>$revisar));
+          $revisar=obtenerSolicitudRecepcion();
+          renderizar("revisarSolicitudRecepcionCimeqh",array('solicitud'=>$revisar));
+
+        }else {
+          redirectWithMessage("No cuenta con los privilegios de usuario adecuado para ver esta páagina.","?page=login");
+        }
+      }else {
+      redirectWithMessage("Su cuenta todavia no ha sido verificada por el CIMEQH.","?page=login");
+      }
+    }else {
+      mw_redirectToLogin("page=login");
+    }
+
 
   }
   run();
