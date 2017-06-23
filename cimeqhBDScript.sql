@@ -392,6 +392,7 @@ CREATE TABLE `tblsolicitudfactibilidad` (
   `estadoFactibilidadId` int(11) NOT NULL,
   `proyectoId` int(11) NOT NULL,
   `comentario` varchar(500) DEFAULT NULL,
+  `factibilidadDocumento` varchar(600) DEFAULT NULL,
   PRIMARY KEY (`solicitudFactibilidadId`),
   KEY `proyectoId_idx` (`proyectoId`),
   KEY `voltajeId_idx` (`voltajeId`),
@@ -410,7 +411,7 @@ CREATE TABLE `tblsolicitudfactibilidad` (
 
 LOCK TABLES `tblsolicitudfactibilidad` WRITE;
 /*!40000 ALTER TABLE `tblsolicitudfactibilidad` DISABLE KEYS */;
-INSERT INTO `tblsolicitudfactibilidad` VALUES (10,1,2,800,22,11,2,7,'Te lo aprobÃ© porque estas bien bueno');
+INSERT INTO `tblsolicitudfactibilidad` VALUES (10,1,2,800,22,11,2,7,'Te lo aprobÃ© porque estas bien bueno',NULL);
 /*!40000 ALTER TABLE `tblsolicitudfactibilidad` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -514,6 +515,7 @@ CREATE TABLE `tblusuarios` (
   `rolId` int(11) NOT NULL,
   `usuarioCorreo` varchar(100) NOT NULL,
   `usuarioFechaIngreso` int(11) NOT NULL,
+  `usuarioComentario` varchar(600) CHARACTER SET utf8 DEFAULT NULL,
   PRIMARY KEY (`usuarioIdentidad`),
   KEY `rolId_idx` (`rolId`),
   KEY `estadoCuentaId_idx` (`estadoCuentaId`),
@@ -528,7 +530,7 @@ CREATE TABLE `tblusuarios` (
 
 LOCK TABLES `tblusuarios` WRITE;
 /*!40000 ALTER TABLE `tblusuarios` DISABLE KEYS */;
-INSERT INTO `tblusuarios` VALUES ('0801199503314','Luis','Eduardo','Paz','Reyes','21548164','96425292','22308090','Portal del Bosque','76b98197d40a35db050f88c51c18c157',1,1,'luiseduardopazreyes@hotmail.es',1498148000),('56454564','kjkj','jjj','kjkjkj','kjkjk','55454','444','5555','sdsds','40cf74eac17703fe56b28d369ff966d5',1,4,'lslsl@gmail.com',1498252851);
+INSERT INTO `tblusuarios` VALUES ('0801199503314','Luis','Eduardo','Paz','Reyes','21548164','96425292','22308090','Portal del Bosque','76b98197d40a35db050f88c51c18c157',4,4,'luiseduardopazreyes@hotmail.es',1498148000,NULL),('0801200003221','Luis','Fernando','Paz','Reyes','445454','84545454','54545854','dsdsds','2063278b6068554c955918b841b1091b',4,4,'luis@hotmail.es',1498256640,NULL);
 /*!40000 ALTER TABLE `tblusuarios` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -565,4 +567,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-06-23 16:03:22
+-- Dump completed on 2017-06-23 16:36:58
