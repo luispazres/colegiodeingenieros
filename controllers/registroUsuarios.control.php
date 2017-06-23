@@ -40,7 +40,7 @@ $numeroColegiacion, $userCelular,$userTelefono, $userDireccion, $userPassword, $
     if($fchingreso % 2 == 0){
       $contrasena = $usuarios["txtContrasena"] . $fchingreso;
     }else{
-      $contrasena = $fchingreso . $pswd;
+      $contrasena = $fchingreso . $usuarios["txtContrasena"];
     }
     //$pswdSalted = md5($pswdSalted);
     $contrasena = md5($contrasena);
