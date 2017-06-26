@@ -125,7 +125,7 @@ $solicitudDespejeCuadrillas,$solicitudDespejeFecha){
                                                   <div class='col-md-6'>
                                                       <div class='form-group'>
                                                           <label for='form_name'>Costo del Despeje *</label>
-                                                          <input id='potencia' type='number' name='potencia' class='form-control'>
+                                                          <input id='costo' type='number' name='costo' class='form-control'>
                                                       </div>
                                                   </div>
 
@@ -138,7 +138,7 @@ $solicitudDespejeCuadrillas,$solicitudDespejeFecha){
                           <div class='col-md-12'>
                           <div class='form-group'>
                           <!--Boton Submit-->
-                          <button type='submit' id='btnComentarFactibilidad' name='btnComentarFactibilidad' class='btn btn-default'>
+                          <button type='submit' id='btnComentarDespeje' name='btnComentarDespeje' class='btn btn-default'>
                             Actualizar
                           </button>
                           <!--Fin Boton Submit-->
