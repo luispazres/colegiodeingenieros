@@ -3,7 +3,7 @@
     <div class="col-md-12 col-sm-12 col-xs-12">
       <div class="x_panel">
         <div class="x_title">
-          <h2>Responsive example<small>Users</small></h2>
+          <h2><small>Users</small></h2>
           <ul class="nav navbar-right panel_toolbox">
             <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
             </li>
@@ -44,69 +44,57 @@
                   <td>{{proyectoNombrePropietario}}</td>
                   <td>{{ingenieroNombre}}</td>
                   <td>{{usuarioNumeroColegiacion}}</td>
-                  <td>{{estadoFactibilidadDescripcion}}</td>
-                  <td> <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-lg-{{solicitudFactibilidadId}}">Opciones</button>
-                    <div class="modal fade bs-example-modal-lg-{{solicitudFactibilidadId}}" tabindex="-1" role="dialog" aria-hidden="true">
+                  <td>{{estadoDespejeDescripcion}}</td>
+                  <td> <button id="btnOpciones12" type="button" class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-lg-{{solicitudAprobacionId}}" value="{{solicitudAprobacionId}}">Opciones</button>
+                    <div class="modal fade bs-example-modal-lg-{{solicitudAprobacionId}}" tabindex="-1" role="dialog" aria-hidden="true">
                       <div class="modal-dialog modal-lg">
-                        <div class="modal-content">
-
+                          <div class="modal-content">
                           <div class="modal-header">
-                            <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span>
-                            </button>
-                            <h4 class="modal-title" id="myModalLabel">Datos del Proyecto</h4>
+                          <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span>
+                          </button>
+                          <h4 class="modal-title" id="myModalLabel">Datos del Proyecto</h4>
                           </div>
                           <div class="modal-body">
-                            <h4>Datos del Proyecto</h4>
-                            Nombre del Proyecto: {{proyectoNombre}}
-                            <br>
-                            Departamento: {{departamentoDescripcion}}
-                            <br>
-                            Direccion Exacta del Proyecto: {{proyectoDireccion}}
-                            <br>
-                            Descripcion del Proyecto: {{proyectoDescrpcion}}
-                            <br>
-                            Coordenadas del Proyecto: Latitud: {{proyectoLatitud}} Longitud: {{proyectoLongitud}}
-                            <br>
-                            <h4>Datos del Propietario</h4>
-                            Nombre del Propietario: {{proyectoNombrePropietario}}
-                            <br>
-                            Identidad Propietario: {{proyectoIdentidadPropietario}}
-                            <br>
-                            Telefono Propietario: {{proyectoTelefonoPropietario}}
-                            <br>
-                            Celular Propietario: {{proyectoCelularPropietario}}
-                            <br>
-                            Email Propietario: {{proyectoEmailPropietario}}
-                            <br>
-                            Dirección Propietario: {{proyectoDireccionPropietario}}
-                            <br>
-                            <h4>Datos del Ingeniero</h4>
-                            Nombre del Ingeniero: {{ingenieroNombre}}
-                            <br>
-                            Numero de Colegiación: {{usuarioNumeroColegiacion}}
-                            <br>
-                            Telefono Ingeniero: {{usuarioTelefono}}
-                            <br>
-                            Celular Ingeniero: {{usuarioCelular}}
-                            <br>
-                            <h4>Datos de la Solicitud</h4>
-                            Voltaje: {{voltajeDescripcion}}
-                            <br>
-                            Tipo de Conexion: {{conexionDescripcion}}
-                            <br>
-                            Potencia: {{solicitudFactibilidadPotencia}}
-                            <br>
-                            Crecimiento Futuro: {{solicitudadFactibilidadCrecimientoEsperado}} %
-                            <br>
-                            KVA a Instalar: {{solicitudFactibilidadKva}}
-                            <br>
+                          <h4>Datos del Proyecto</h4>
+                          Nombre del Proyecto: {{proyectoNombre}}
+                          <br>
+                          Departamento: {{departamentoDescripcion}}
+                          <br>
+                          Direccion Exacta del Proyecto: {{proyectoDireccion}}
+                          <br>
+                          Descripcion del Proyecto: {{proyectoDescrpcion}}
+                          <br>
+                          Coordenadas del Proyecto: Latitud: {{proyectoLatitud}} Longitud: {{proyectoLongitud}}
+                          <br>
+                          <h4>Datos del Propietario</h4>
+                          Nombre del Propietario: {{proyectoNombrePropietario}}
+                          <br>
+                          Identidad Propietario: {{proyectoIdentidadPropietario}}
+                          <br>
+                          Telefono Propietario: {{proyectoTelefonoPropietario}}
+                          <br>
+                          Celular Propietario: {{proyectoCelularPropietario}}
+                          <br>
+                          Email Propietario: {{proyectoEmailPropietario}}
+                          <br>
+                          Dirección Propietario: {{proyectoDireccionPropietario}}
+                          <br>
+                          <h4>Datos del Ingeniero</h4>
+                          Nombre del Ingeniero: {{ingenieroNombre}}
+                          <br>
+                          Numero de Colegiación: {{usuarioNumeroColegiacion}}
+                          <br>
+                          Telefono Ingeniero: {{usuarioTelefono}}
+                          <br>
+                          Celular Ingeniero: {{usuarioCelular}}
+                          <br>
                           </div>
                           <div class="modal-footer">
-                              <form method="post" action="index.php?page=solicitudDeCuentas">
-                              <input id="usuarioIdentidad" type="hidden" name="usuarioIdentidad" value={{usuarioIdentidad}}>
-                              <a href="index.php?page=comentarios&tipo=rechazo&accion=factibilidad&codigo={{solicitudFactibilidadId}}"><input type="button" name="btnRechazar" id="btnRechazar" class="btn btn-danger" value="Rechazar Factibilidad">
-                                <a href="index.php?page=comentarios&tipo=aceptado&accion=factibilidad&codigo={{solicitudFactibilidadId}}"><input type="button" name="btnAceptar" id="btnAceptar" class="btn btn-success" value="Aceptar Factibilidad">
-                              </form>
+                          <form method="post" action="index.php?page=solicitudDeCuentas">
+                          <input id="usuarioIdentidad" type="hidden" name="usuarioIdentidad" value={{usuarioIdentidad}}>                          
+                          <a href="index.php?page=comentarios&tipo=rechazo&accion=aprobacion&codigo={{solicitudAprobacionId}}"><input type="button" name="btnRechazar" id="btnRechazar" class="btn btn-danger" value="Rechazar Factibilidad">
+                          <a href="index.php?page=comentarios&tipo=aceptado&accion=aprobacion&codigo={{solicitudAprobacionId}}"><input type="button" name="btnAceptar" id="btnAceptar" class="btn btn-success" value="Aceptar Factibilidad">
+                          </form>
                           </div>
                         </div>
                       </div>
