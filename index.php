@@ -61,6 +61,11 @@
             require_once("controllers/verMisSolicitudesDeDespeje.control.php");
             break;
 
+        case "revisarSolicitudDespejeCimeqh":
+                //llamar al controlador
+                require_once("controllers/revisarSolicitudDespejeCimeqh.control.php");
+                break;
+
         case "revisarSolicitudAprobacionCimeqh":
                 //llamar al controlador
                 require_once("controllers/revisarSolicitudAprobacionCimeqh.control.php");
