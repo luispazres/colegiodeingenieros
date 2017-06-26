@@ -1,3 +1,5 @@
+<body class="login">
+    <div class="contenido">
 <div>
   <a class="hiddenanchor" id="signup"></a>
   <a class="hiddenanchor" id="signin"></a>
@@ -29,8 +31,9 @@
             <br />
 
             <div>
-              <h1><i class="fa fa-paw"></i> Gentelella Alela!</h1>
-              <p>©2016 All Rights Reserved. Gentelella Alela! is a Bootstrap 3 template. Privacy and Terms</p>
+              <h1><i class="fa fa-paw"></i> CIMEQH</h1>
+                <a href="index.php?page=revisarSolicitudAprobacionPublico"><input class="btn btn-default submit" type="button" name="" value="Buscar Proyectos Aprobados"></a>
+              <p></p>
             </div>
           </div>
         </form>
@@ -65,8 +68,8 @@
             <br />
 
             <div>
-              <h1><i class="fa fa-paw"></i> Gentelella Alela!</h1>
-              <p>©2016 All Rights Reserved. Gentelella Alela! is a Bootstrap 3 template. Privacy and Terms</p>
+              <h1><i class="fa fa-paw"></i>CIMEQH</h1>
+              <p></p>
             </div>
           </div>
         </form>

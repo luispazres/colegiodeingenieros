@@ -15,21 +15,28 @@
             <!-- Animate.css -->
             <link href="vendors/animate.css/animate.min.css" rel="stylesheet">
 
+            <link href="vendors/iCheck/skins/flat/green.css" rel="stylesheet">
+            <!-- Datatables -->
+
             <!-- Custom Theme Style -->
             <link href="public/css/custom.min.css" rel="stylesheet">
         </head>
-        <body class="login">
 
-
-
-            <div class="contenido">
                 {{{page_content}}}
             </div>
 
-
-
-
-
+            <script src="vendors/jquery/dist/jquery.min.js"></script>
+            <!-- Bootstrap -->
+            <script src="vendors/bootstrap/dist/js/bootstrap.min.js"></script>
+            <!-- FastClick -->
+            <script src="vendors/fastclick/lib/fastclick.js"></script>
+            <!-- NProgress -->
+            <script src="vendors/nprogress/nprogress.js"></script>
+            <!-- iCheck -->
+            <script src="vendors/iCheck/icheck.min.js"></script>
+            <!-- Datatables -->
+            <!-- Custom Theme Scripts -->
+            <script src="public/js/custom.min.js"></script>
 
         </body>
     </html>
