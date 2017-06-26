@@ -38,7 +38,7 @@
 
 
           $revisar=verSolicitudesFactbilidad();
-          renderizar("revisarSolicitudFactibilidadCimeqh",array('solicitud'=>$revisar));
+          renderizar("revisarSolicitudFactibilidadCimeqh",array('solicitud'=>$revisar),"layoutCimeqh.view.tpl");
 
         }else {
           redirectWithMessage("No cuenta con los privilegios de usuario adecuado para ver esta páagina.","?page=login");

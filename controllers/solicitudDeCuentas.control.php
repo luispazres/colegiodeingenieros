@@ -63,10 +63,10 @@
              }
             echo $respuesta;
           }*/
+        }
 
-          $usuario=obtenerUsuarios();
-          renderizar("solicitudDeCuentas",array('usuario'=>$usuario));
-
+        $usuario=obtenerUsuarios();
+        renderizar("solicitudDeCuentas",array('usuario'=>$usuario),"layoutCimeqh.view.tpl");
         }else {
           redirectWithMessage("No cuenta con los privilegios de usuario adecuado para ver esta páagina.","?page=login");
         }
@@ -76,8 +76,9 @@
     }else {
       mw_redirectToLogin("page=login");
     }
+}
 
 
-  }
+
   run();
 ?>

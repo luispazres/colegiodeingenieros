@@ -38,7 +38,7 @@
 
 
           $revisar=obtenerSolicitudRecepcion();
-          renderizar("revisarSolicitudRecepcionEnee",array('solicitud'=>$revisar));
+          renderizar("revisarSolicitudRecepcionEnee",array('solicitud'=>$revisar),"layoutEnee.view.tpl");
 
         }else {
           redirectWithMessage("No cuenta con los privilegios de usuario adecuado para ver esta páagina.","?page=login");
