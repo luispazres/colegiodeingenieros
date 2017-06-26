@@ -10,7 +10,7 @@
           return false;
         }
     }
-    function mw_setEstaLogueado($usuario, $logueado,$rol,$estado,$nombre,$apellido){
+    function mw_setEstaLogueado($usuario, $logueado,$rol,$estado,$nombre,$apellido,$comentario){
         if($logueado){
             $_SESSION["userLogged"] = true;
             $_SESSION["userName"] = $usuario;
@@ -18,6 +18,7 @@
             $_SESSION["estado"] = $estado;
             $_SESSION["nombre"] = $nombre;
             $_SESSION["apellido"] = $apellido;
+            $_SESSION["comentario"] = $comentario;
         }else{
             $_SESSION["userLogged"] = false;
             $_SESSION["userName"] = "";
@@ -25,6 +26,7 @@
             $_SESSION["estado"] = "";
             $_SESSION["nombre"] ="";
             $_SESSION["apellido"] = "";
+            $_SESSION["comentario"] = $comentario;
         }
     }
     function mw_redirectToLogin($to){

@@ -15,7 +15,7 @@
           </div>
           <div>
             <input class="btn btn-default submit" type="submit" name="btnLogin" value="Entrar">
-            <a class="reset_pass" href="#">Lost your password?</a>
+            <a class="reset_pass" href="#">Olvidaste tu contraseña?</a>
           </div>
 
           <div class="clearfix"></div>

@@ -92,8 +92,10 @@
             }
 
           renderizar("recepcionProyectos", $htmlDatos);
-        }else {
-          redirectWithMessage("No cuenta con los privilegios de usuario adecuado para ver esta páagina.","?page=login");
+        }else if ($_SESSION["estado"]==4) {
+            redirectWithMessage("Su cuenta todavia no ha sido verificada por el CIMEQH.","?page=login");
+        }elseif ($_SESSION["estado"]==3) {
+          redirectWithMessage("Su cuenta ha sido supendida por: ".$_SESSION["comentario"],"?page=login");
         }
       }else {
       redirectWithMessage("Su cuenta todavia no ha sido verificada por el CIMEQH.","?page=login");

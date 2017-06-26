@@ -22,6 +22,11 @@
             require_once("controllers/home.control.php");
             break;
 
+        case "revisarSolicitudRecepcionEnee":
+            //llamar al controlador
+            require_once("controllers/revisarSolicitudRecepcionEnee.control.php");
+            break;
+
         case "revisarSolicitudAprobacionEnee":
             //llamar al controlador
             require_once("controllers/revisarSolicitudAprobacionEnee.control.php");
