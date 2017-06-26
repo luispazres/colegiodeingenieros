@@ -1,13 +1,12 @@
 <?php
 require_once("libs/dao.php");
-require_once('models/recepcion.model.php');
+require_once('models/factibilidad.model.php');
 
-class vistaComentariosRecepcion
+class vistaComentariosFactibilidad
 {
-
   public static function vista($tipo,$codigo,$proyectoNombre,$depto,$direccion,
-  $descripcion,$nombrePropietario,$nombreIngeniero,$numeroColeg){
-
+  $descripcion,$nombrePropietario,$nombreIngeniero,$numeroColeg,
+  $voltaje,$tipoConexion,$potencia,$crecimiento,$kva){
   $vista="<div class='right_col' role='main'>
         <div class=''>
           <div class='page-title'>
@@ -51,7 +50,7 @@ class vistaComentariosRecepcion
                     <div class='x_content'>
                       <br>
 
-                        <form method='post' action='index.php?page=revisarSolicitudRecepcionCimeqh' id='demo-form2' data-parsley-validate class='form-horizontal form-label-left'>
+                        <form method='post' action='index.php?page=revisarSolicitudFactibilidadCimeqh' id='demo-form2' data-parsley-validate class='form-horizontal form-label-left'>
                           <div class='form-group'>
 
                              <div class='row'>
@@ -101,16 +100,52 @@ class vistaComentariosRecepcion
                                                           <input id='numeroColeg' type='text' name='numeroColeg' class='form-control'  value='".$numeroColeg."' disabled='disabled'>
                                                       </div>
                                                   </div>
+
+                                                  <div class='col-md-6'>
+                                                      <div class='form-group'>
+                                                          <label for='form_name'>Voltaje *</label>
+                                                          <input id='voltaje' type='text' name='voltaje' class='form-control'  value='".$voltaje."' disabled='disabled'>
+                                                      </div>
+                                                  </div>
+
+                                                  <div class='col-md-6'>
+                                                      <div class='form-group'>
+                                                          <label for='form_name'>Tipo de Conexion *</label>
+                                                          <input id='tipoConexion' type='text' name='tipoConexion' class='form-control'  value='".$tipoConexion."' disabled='disabled'>
+                                                      </div>
+                                                  </div>
+
+                                                  <div class='col-md-6'>
+                                                      <div class='form-group'>
+                                                          <label for='form_name'>Potencia *</label>
+                                                          <input id='potencia' type='text' name='potencia' class='form-control'  value='".$potencia."' disabled='disabled'>
+                                                      </div>
+                                                  </div>
+
+                                                  <div class='col-md-6'>
+                                                      <div class='form-group'>
+                                                          <label for='form_name'>Crecimiento Futuro *</label>
+                                                          <input id='crecimiento' type='text' name='crecimiento' class='form-control'  value='".$crecimiento." %' disabled='disabled'>
+                                                      </div>
+                                                  </div>
+
+                                                  <div class='col-md-6'>
+                                                      <div class='form-group'>
+                                                          <label for='form_name'>KVA a Instalar *</label>
+                                                          <input id='kva' type='text' name='kva' class='form-control'  value='".$kva."' disabled='disabled'>
+                                                      </div>
+                                                  </div>
+
                                                   <div class='col-md-12'>
                                                    <div class='form-group'>
                                                        <label for='form_message'>Comentarios *</label>
-                                                       <textarea id='comentario' placeholder='Describa Porque ha sido rechazado/aprobado el proyecto' name='comentario' class='form-control' rows='4'></textarea>
+                                                       <textarea id='comentario' placeholder='Describa Porque ha sido rechazado el proyecto' name='comentario' class='form-control' rows='4'></textarea>
                                                    </div>
                                                </div>
                           <div class='col-md-12'>
                           <div class='form-group'>
                           <!--Boton Submit-->
-                          <button type='submit' id='btnComentarRecepcion' name='btnComentarRecepcion' class='btn btn-default'>
+                          <button type='submit' id='btnComentarFactibilidad' name='btnComentarFactibilidad' class='btn btn-default'>
                             Actualizar
                           </button>
                           <!--Fin Boton Submit-->
@@ -130,8 +165,7 @@ class vistaComentariosRecepcion
 
   public static function vistaEnee($tipo,$codigo,$proyectoNombre,$depto,$direccion,
   $descripcion,$nombrePropietario,$nombreIngeniero,$numeroColeg,
-  $monto,$costo){
-
+  $voltaje,$tipoConexion,$potencia,$crecimiento,$kva){
   $vista="<div class='right_col' role='main'>
         <div class=''>
           <div class='page-title'>
@@ -175,7 +209,7 @@ class vistaComentariosRecepcion
                     <div class='x_content'>
                       <br>
 
-                        <form method='post' action='index.php?page=revisarSolicitudAprobacionEnee' id='demo-form2' data-parsley-validate class='form-horizontal form-label-left'>
+                        <form method='post' action='index.php?page=revisarSolicitudFactibilidadEnee' id='demo-form2' data-parsley-validate class='form-horizontal form-label-left'>
                           <div class='form-group'>
 
                              <div class='row'>
@@ -228,29 +262,49 @@ class vistaComentariosRecepcion
 
                                                   <div class='col-md-6'>
                                                       <div class='form-group'>
-                                                          <label for='form_name'>Monto Estimado *</label>
-                                                          <input id='numeroColeg' type='text' name='numeroColeg' class='form-control'  value='".$monto.' Lempiras'. "' disabled='disabled'>
+                                                          <label for='form_name'>Voltaje *</label>
+                                                          <input id='voltaje' type='text' name='voltaje' class='form-control'  value='".$voltaje."' disabled='disabled'>
                                                       </div>
                                                   </div>
 
                                                   <div class='col-md-6'>
                                                       <div class='form-group'>
-                                                          <label for='form_name'>Costo de los timbres *</label>
-                                                          <input id='numeroColeg' type='text' name='numeroColeg' class='form-control'  value='".$costo.' Lempiras'."' disabled='disabled'>
+                                                          <label for='form_name'>Tipo de Conexion *</label>
+                                                          <input id='tipoConexion' type='text' name='tipoConexion' class='form-control'  value='".$tipoConexion."' disabled='disabled'>
                                                       </div>
                                                   </div>
 
+                                                  <div class='col-md-6'>
+                                                      <div class='form-group'>
+                                                          <label for='form_name'>Potencia *</label>
+                                                          <input id='potencia' type='text' name='potencia' class='form-control'  value='".$potencia."' disabled='disabled'>
+                                                      </div>
+                                                  </div>
+
+                                                  <div class='col-md-6'>
+                                                      <div class='form-group'>
+                                                          <label for='form_name'>Crecimiento Futuro *</label>
+                                                          <input id='crecimiento' type='text' name='crecimiento' class='form-control'  value='".$crecimiento." %' disabled='disabled'>
+                                                      </div>
+                                                  </div>
+
+                                                  <div class='col-md-6'>
+                                                      <div class='form-group'>
+                                                          <label for='form_name'>KVA a Instalar *</label>
+                                                          <input id='kva' type='text' name='kva' class='form-control'  value='".$kva."' disabled='disabled'>
+                                                      </div>
+                                                  </div>
 
                                                   <div class='col-md-12'>
                                                    <div class='form-group'>
                                                        <label for='form_message'>Comentarios *</label>
-                                                       <textarea id='comentario' placeholder='Describa Porque ha sido rechazado/aprobado el proyecto' name='comentario' class='form-control' rows='4'></textarea>
+                                                       <textarea id='comentario' placeholder='Describa Porque ha sido rechazado el proyecto' name='comentario' class='form-control' rows='4'></textarea>
                                                    </div>
                                                </div>
                           <div class='col-md-12'>
                           <div class='form-group'>
                           <!--Boton Submit-->
-                          <button type='submit' id='btnComentarAprobacion' name='btnComentarAprobacion' class='btn btn-default'>
+                          <button type='submit' id='btnComentarFactibilidad' name='btnComentarFactibilidad' class='btn btn-default'>
                             Actualizar
                           </button>
                           <!--Fin Boton Submit-->
