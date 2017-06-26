@@ -84,7 +84,11 @@
                     <div class="menu_section">
                       <h3>General</h3>
                       <ul class="nav side-menu">
-                        <li><a href="index.php?page=solicitudDeCuentas"><i class="fa fa-briefcase"></i>Revisar Solicitudes de Cuentas de Usuario<span class="fa fa-chevron-down"></span></a>
+                        <li><a ><i class="fa fa-user"></i>Control de Usuarios<span class="fa fa-chevron-down"></span></a>
+                          <ul class="nav child_menu">
+                            <li><a href="index.php?page=solicitudDeCuentas">Revisar Solicitudes de Cuentas</a></li>
+                            <li><a href="index.php?page=verUsuarios">Modificar Usuarios</a></li>
+                          </ul>
                         </li>
                         <li><a href="index.php?page=revisarSolicitudFactibilidadCimeqh"><i class="fa fa-list-alt"></i>Revisar Solicitudes de Factibilidad de Proyectos<span class="fa fa-chevron-down"></span></a>
                         </li>

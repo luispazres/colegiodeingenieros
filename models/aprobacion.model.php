@@ -13,7 +13,7 @@ VALUES
 
   if(ejecutarNonQuery($insertSQL)){
             $ultimoID=getLastInserId();
-            $codigo = base_convert('0801199503314',10,36).base_convert(rand(1,99),10,36).base_convert(time(), 10, 36).base_convert(getLastInserId(), 10, 36);
+            $codigo = base_convert($_SESSION["userName"],10,36).base_convert(time(), 10, 36).base_convert(getLastInserId(), 10, 36);
             $codigo= (string)$codigo;
             $insertSQL2 = "UPDATE `tblsolicitudaprobacion`
             SET `codigoAprobacion` = '%s'
