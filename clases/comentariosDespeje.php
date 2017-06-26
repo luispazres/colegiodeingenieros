@@ -122,13 +122,6 @@ $solicitudDespejeCuadrillas,$solicitudDespejeFecha){
                                                       </div>
                                                   </div>
 
-                                                  <div class='col-md-6'>
-                                                      <div class='form-group'>
-                                                          <label for='form_name'>Costo del Despeje *</label>
-                                                          <input id='costo' type='number' name='costo' class='form-control'>
-                                                      </div>
-                                                  </div>
-
                                                   <div class='col-md-12'>
                                                    <div class='form-group'>
                                                        <label for='form_message'>Comentarios *</label>
@@ -157,8 +150,8 @@ $solicitudDespejeCuadrillas,$solicitudDespejeFecha){
   }
 
   public static function vistaEnee($tipo,$codigo,$proyectoNombre,$depto,$direccion,
-  $descripcion,$nombrePropietario,$nombreIngeniero,$numeroColeg,
-  $voltaje,$tipoConexion,$potencia,$crecimiento,$kva){
+$descripcion,$nombrePropietario,$nombreIngeniero,$numeroColeg,$solicitudDespejeHoras,
+$solicitudDespejeCuadrillas,$solicitudDespejeFecha){
   $vista="<div class='right_col' role='main'>
         <div class=''>
           <div class='page-title'>
@@ -202,7 +195,7 @@ $solicitudDespejeCuadrillas,$solicitudDespejeFecha){
                     <div class='x_content'>
                       <br>
 
-                        <form method='post' action='index.php?page=revisarSolicitudFactibilidadEnee' id='demo-form2' data-parsley-validate class='form-horizontal form-label-left'>
+                        <form method='post' action='index.php?page=revisarSolicitudDespejeEnee' id='demo-form2' data-parsley-validate class='form-horizontal form-label-left'>
                           <div class='form-group'>
 
                              <div class='row'>
@@ -255,36 +248,29 @@ $solicitudDespejeCuadrillas,$solicitudDespejeFecha){
 
                                                   <div class='col-md-6'>
                                                       <div class='form-group'>
-                                                          <label for='form_name'>Voltaje *</label>
-                                                          <input id='voltaje' type='text' name='voltaje' class='form-control'  value='".$voltaje."' disabled='disabled'>
+                                                          <label for='form_name'>Horas Requeridas para el Despeje *</label>
+                                                          <input id='voltaje' type='text' name='voltaje' class='form-control'  value='".$solicitudDespejeHoras."' disabled='disabled'>
                                                       </div>
                                                   </div>
 
                                                   <div class='col-md-6'>
                                                       <div class='form-group'>
-                                                          <label for='form_name'>Tipo de Conexion *</label>
-                                                          <input id='tipoConexion' type='text' name='tipoConexion' class='form-control'  value='".$tipoConexion."' disabled='disabled'>
+                                                          <label for='form_name'>Cuadrillas a Trabajar *</label>
+                                                          <input id='tipoConexion' type='text' name='tipoConexion' class='form-control'  value='".$solicitudDespejeCuadrillas."' disabled='disabled'>
                                                       </div>
                                                   </div>
 
                                                   <div class='col-md-6'>
                                                       <div class='form-group'>
-                                                          <label for='form_name'>Potencia *</label>
-                                                          <input id='potencia' type='text' name='potencia' class='form-control'  value='".$potencia."' disabled='disabled'>
+                                                          <label for='form_name'>Fecha del Despeje *</label>
+                                                          <input id='potencia' type='text' name='potencia' class='form-control'  value='".$solicitudDespejeFecha."' disabled='disabled'>
                                                       </div>
                                                   </div>
 
                                                   <div class='col-md-6'>
                                                       <div class='form-group'>
-                                                          <label for='form_name'>Crecimiento Futuro *</label>
-                                                          <input id='crecimiento' type='text' name='crecimiento' class='form-control'  value='".$crecimiento." %' disabled='disabled'>
-                                                      </div>
-                                                  </div>
-
-                                                  <div class='col-md-6'>
-                                                      <div class='form-group'>
-                                                          <label for='form_name'>KVA a Instalar *</label>
-                                                          <input id='kva' type='text' name='kva' class='form-control'  value='".$kva."' disabled='disabled'>
+                                                          <label for='form_name'>Costo del Despeje *</label>
+                                                          <input id='costo' type='number' name='costo' class='form-control'>
                                                       </div>
                                                   </div>
 
@@ -297,7 +283,7 @@ $solicitudDespejeCuadrillas,$solicitudDespejeFecha){
                           <div class='col-md-12'>
                           <div class='form-group'>
                           <!--Boton Submit-->
-                          <button type='submit' id='btnComentarFactibilidad' name='btnComentarFactibilidad' class='btn btn-default'>
+                          <button type='submit' id='btnComentarDespeje' name='btnComentarDespeje' class='btn btn-default'>
                             Actualizar
                           </button>
                           <!--Fin Boton Submit-->

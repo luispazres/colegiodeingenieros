@@ -58,6 +58,24 @@ tblp.usuarioIdentidad=tblu.usuarioIdentidad and tblsd.estadoDespejeId=4;";
     return $solicitudFactibilidad;
 }
 
+function verSolicitudesDespejeEnee(){
+    $solicitudFactibilidad = array();
+    $sqlstr = "SELECT tbled.estadoDespejeDescripcion,solicitudDespejeId,solicitudDespejeHoras,solicitudDespejeCuadrillas,solicitudDespejeCantidadPersonal,
+solicitudDespejeFecha, proyectoNombrePropietario,proyectoIdentidadPropietario,proyectoDescrpcion,
+proyectoLatitud,proyectoLongitud,departamentoDescripcion,concat(usuarioPrimerNombre, ' ' ,usuarioSegundoNombre ,' ',
+usuarioPrimerApellido, ' ', usuarioSegundoApellido) 'ingenieroNombre',proyectoNombre,proyectoDescrpcion,
+usuarioNumeroColegiacion,proyectoDireccion,proyectoTelefonoPropietario,proyectoEmailPropietario,
+proyectoEmailPropietario,proyectoIdentidadPropietario,usuarioCelular,usuarioTelefono,proyectoCelularPropietario,
+proyectoTelefonoPropietario,proyectoDireccionPropietario
+FROM tblsolicituddespeje tblsd,tblsolicitudaprobacion tblsa, tblproyectos tblp, tblusuarios tblu,
+tbldepartamentos tblde, tblestadodespeje tbled
+where tblsd.tblsolicitudaprobacion_solicitudAprobacionId=tblsa.solicitudAprobacionId and
+tbled.estadoDespejeId=tblsd.estadoDespejeId
+and tblsa.proyectoId=tblp.proyectoId and tblde.departamentoId=tblp.departamentoId and
+tblp.usuarioIdentidad=tblu.usuarioIdentidad and tblsd.estadoDespejeId=1;";
+    $solicitudFactibilidad = obtenerRegistros($sqlstr);
+    return $solicitudFactibilidad;
+}
 
 function agregarComentarioDespeje($solicitudId, $costo, $comentario, $estado){
   $sqlstr="UPDATE `tblsolicituddespeje`
