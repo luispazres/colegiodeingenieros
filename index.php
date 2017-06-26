@@ -32,6 +32,11 @@
             require_once("controllers/revisarSolicitudAprobacionEnee.control.php");
             break;
 
+        case "revisarSolicitudAprobacionPublico":
+            //llamar al controlador
+            require_once("controllers/revisarSolicitudAprobacionPublico.control.php");
+            break;
+
         case "revisarSolicitudFactibilidadEnee":
             //llamar al controlador
             require_once("controllers/revisarSolicitudFactibilidadEnee.control.php");
