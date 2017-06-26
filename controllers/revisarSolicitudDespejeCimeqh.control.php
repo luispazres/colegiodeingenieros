@@ -1,6 +1,6 @@
 <?php
   require_once("libs/template_engine.php");
-  require_once("models/factibilidad.model.php");
+  require_once("models/despeje.model.php");
 
   function run(){
 
@@ -36,14 +36,8 @@
           }
           }
 
-
-<<<<<<< HEAD
-          $revisar=verSolicitudesFactbilidad();
-          renderizar("revisarSolicitudFactibilidadCimeqh",array('solicitud'=>$revisar));
-=======
-          $revisar=obtenerSolicitudRecepcion();
-          renderizar("revisarSolicitudRecepcionCimeqh",array('solicitud'=>$revisar),"layoutCimeqh.view.tpl");
->>>>>>> master
+          $revisar=verSolicitudesDespeje();
+          renderizar("revisarSolicitudDespejeCimeqh",array('solicitud'=>$revisar),"layoutCimeqh.view.tpl");
 
         }else {
           redirectWithMessage("No cuenta con los privilegios de usuario adecuado para ver esta páagina.","?page=login");
