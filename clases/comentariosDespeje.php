@@ -1,12 +1,12 @@
 <?php
 require_once("libs/dao.php");
-require_once('models/factibilidad.model.php');
+require_once('models/despeje.model.php');
 
-class vistaComentariosFactibilidad
+class vistaComentariosDespeje
 {
   public static function vista($tipo,$codigo,$proyectoNombre,$depto,$direccion,
-  $descripcion,$nombrePropietario,$nombreIngeniero,$numeroColeg,
-  $voltaje,$tipoConexion,$potencia,$crecimiento,$kva){
+$descripcion,$nombrePropietario,$nombreIngeniero,$numeroColeg,$solicitudDespejeHoras,
+$solicitudDespejeCuadrillas,$solicitudDespejeFecha){
   $vista="<div class='right_col' role='main'>
         <div class=''>
           <div class='page-title'>
@@ -50,7 +50,7 @@ class vistaComentariosFactibilidad
                     <div class='x_content'>
                       <br>
 
-                        <form method='post' action='index.php?page=revisarSolicitudFactibilidadCimeqh' id='demo-form2' data-parsley-validate class='form-horizontal form-label-left'>
+                        <form method='post' action='index.php?page=revisarSolicitudDespejeCimeqh' id='demo-form2' data-parsley-validate class='form-horizontal form-label-left'>
                           <div class='form-group'>
 
                              <div class='row'>
@@ -103,36 +103,29 @@ class vistaComentariosFactibilidad
 
                                                   <div class='col-md-6'>
                                                       <div class='form-group'>
-                                                          <label for='form_name'>Voltaje *</label>
-                                                          <input id='voltaje' type='text' name='voltaje' class='form-control'  value='".$voltaje."' disabled='disabled'>
+                                                          <label for='form_name'>Horas Requeridas para el Despeje *</label>
+                                                          <input id='voltaje' type='text' name='voltaje' class='form-control'  value='".$solicitudDespejeHoras."' disabled='disabled'>
                                                       </div>
                                                   </div>
 
                                                   <div class='col-md-6'>
                                                       <div class='form-group'>
-                                                          <label for='form_name'>Tipo de Conexion *</label>
-                                                          <input id='tipoConexion' type='text' name='tipoConexion' class='form-control'  value='".$tipoConexion."' disabled='disabled'>
+                                                          <label for='form_name'>Cuadrillas a Trabajar *</label>
+                                                          <input id='tipoConexion' type='text' name='tipoConexion' class='form-control'  value='".$solicitudDespejeCuadrillas."' disabled='disabled'>
                                                       </div>
                                                   </div>
 
                                                   <div class='col-md-6'>
                                                       <div class='form-group'>
-                                                          <label for='form_name'>Potencia *</label>
-                                                          <input id='potencia' type='text' name='potencia' class='form-control'  value='".$potencia."' disabled='disabled'>
+                                                          <label for='form_name'>Fecha del Despeje *</label>
+                                                          <input id='potencia' type='text' name='potencia' class='form-control'  value='".$solicitudDespejeFecha."' disabled='disabled'>
                                                       </div>
                                                   </div>
 
                                                   <div class='col-md-6'>
                                                       <div class='form-group'>
-                                                          <label for='form_name'>Crecimiento Futuro *</label>
-                                                          <input id='crecimiento' type='text' name='crecimiento' class='form-control'  value='".$crecimiento." %' disabled='disabled'>
-                                                      </div>
-                                                  </div>
-
-                                                  <div class='col-md-6'>
-                                                      <div class='form-group'>
-                                                          <label for='form_name'>KVA a Instalar *</label>
-                                                          <input id='kva' type='text' name='kva' class='form-control'  value='".$kva."' disabled='disabled'>
+                                                          <label for='form_name'>Costo del Despeje *</label>
+                                                          <input id='potencia' type='number' name='potencia' class='form-control'>
                                                       </div>
                                                   </div>
 

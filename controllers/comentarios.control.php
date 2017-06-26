@@ -4,9 +4,11 @@
   require_once('models/factibilidad.model.php');
   require_once('models/aprobacion.model.php');
   require_once('models/recepcion.model.php');
+  require_once('models/despeje.model.php');
   include 'clases\comentariosFactibilidad.php';
   include 'clases\comentariosAprobacion.php';
   include 'clases\comentariosRecepcion.php';
+  include 'clases\comentariosDespeje.php';
 
   function run(){
 
@@ -120,6 +122,30 @@
         $htmlDatos["ingenieroNombre"],$htmlDatos["usuarioNumeroColegiacion"]);
     }
     break;
+
+    case 'despeje':
+    $solicitud=obtenerSolicitudDespejePorId($_GET["codigo"]);
+    if($solicitud){
+      $htmlDatos["proyectoNombre"] = $solicitud["proyectoNombre"];
+      $htmlDatos["departamentoDescripcion"] = $solicitud["departamentoDescripcion"];
+      $htmlDatos["proyectoDireccion"] = $solicitud["proyectoDireccion"];
+      $htmlDatos["proyectoNombrePropietario"] = $solicitud["proyectoNombrePropietario"];
+      $htmlDatos["proyectoDescrpcion"] = $solicitud["proyectoDescrpcion"];
+      $htmlDatos["ingenieroNombre"] = $solicitud["ingenieroNombre"];
+      $htmlDatos["usuarioNumeroColegiacion"] = $solicitud["usuarioNumeroColegiacion"];
+      $htmlDatos["solicitudDespejeHoras"] = $solicitud["solicitudDespejeHoras"];
+      $htmlDatos["solicitudDespejeCuadrillas"] = $solicitud["solicitudDespejeCuadrillas"];
+      $htmlDatos["solicitudDespejeFecha"] = $solicitud["solicitudDespejeFecha"];
+      $htmlDatos["vista"]=vistaComentariosDespeje::vista($_GET["tipo"],$_GET["codigo"],
+      $htmlDatos["proyectoNombre"],$htmlDatos["departamentoDescripcion"],$htmlDatos["proyectoDireccion"],
+      $htmlDatos["proyectoDescrpcion"],$htmlDatos["proyectoNombrePropietario"],
+      $htmlDatos["ingenieroNombre"],$htmlDatos["usuarioNumeroColegiacion"],$htmlDatos["solicitudDespejeHoras"],
+    $htmlDatos["solicitudDespejeCuadrillas"],$htmlDatos["solicitudDespejeFecha"]);
+    }
+      break;
+
+
+
   }
 
     renderizar('comentarios',  $htmlDatos);
