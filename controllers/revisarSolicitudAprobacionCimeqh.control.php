@@ -21,7 +21,7 @@
 
           $revisar=verSolicitudesAprobacion();
           //$documentos=verSolicitudesArchivos($revisar[""]);
-          renderizar("revisarSolicitudAprobacionCimeqh",array('solicitud'=>$revisar));
+          renderizar("revisarSolicitudAprobacionCimeqh",array('solicitud'=>$revisar),"layoutCimeqh.view.tpl");
         }else {
           redirectWithMessage("No cuenta con los privilegios de usuario adecuado para ver esta páagina.","?page=login");
         }

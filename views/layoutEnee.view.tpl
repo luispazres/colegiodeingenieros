@@ -84,35 +84,13 @@
                     <div class="menu_section">
                       <h3>General</h3>
                       <ul class="nav side-menu">
-                        <li><a><i class="fa fa-briefcase"></i>Proyectos <span class="fa fa-chevron-down"></span></a>
-                          <ul class="nav child_menu">
-                            <li><a href="index.php?page=registroProyectos">Agregar Proyectos</a></li>
-                            <li><a href="index.php?page=verProyectos">Ver Proyectos Registrados</a></li>
-                          </ul>
+                        <li><a href="index.php?page=revisarSolicitudFactibilidadEnee"><i class="fa fa-briefcase"></i>Ver Solicitudes de Factibilidad de Proyectos<span class="fa fa-chevron-down"></span></a>
                         </li>
-                        <li><a><i class="fa fa-list-alt"></i> Solicitud de Factibilidad de Proyectos <span class="fa fa-chevron-down"></span></a>
-                          <ul class="nav child_menu">
-                            <li><a href="index.php?page=transicionFactibilidad">Realizar Solicitud de Factibilidad</a></li>
-                            <li><a href="index.php?page=verMisSolicitudesDeFactibilidad">Ver Mis Solicitudes de Factibilidad</a></li>
-                          </ul>
+                        <li><a href="index.php?page=revisarSolicitudAprobacionEnee"><i class="fa fa-list-alt"></i>Ver Solicitudes de Aprobación de Proyectos<span class="fa fa-chevron-down"></span></a>
                         </li>
-                        <li><a><i class="fa fa-check"></i> Solicitudes de Aprobación de Proyectos <span class="fa fa-chevron-down"></span></a>
-                          <ul class="nav child_menu">
-                            <li><a href="">Realizar Solicitud de Aprobación de Proyectos</a></li>
-                            <li><a href="index.php?page=verMisSolicitudesDeAprobacion">Ver Mis Solicitudes de Aprobación</a></li>
-                          </ul>
+                        <li><a href="index.php?page=revisarSolicitudRecepcionEnee"><i class="fa fa-check"></i> Ver Solicitudes de Recepción de Proyectos<span class="fa fa-chevron-down"></span></a>
                         </li>
-                        <li><a><i class="fa fa-cloud-upload"></i>Solicitudes de Recepción de Proyectos <span class="fa fa-chevron-down"></span></a>
-                          <ul class="nav child_menu">
-                            <li><a href="">Realizar Solicitud de Recepción de Proyectos</a></li>
-                            <li><a href="">Ver Mis Soliciutdes de Recepción</a></li>
-                          </ul>
-                        </li>
-                        <li><a><i class="fa fa-flash"></i> Solicitudes de Despeje de Energia <span class="fa fa-chevron-down"></span></a>
-                          <ul class="nav child_menu">
-                            <li><a href="">Realizar Solicitud de Despeje de Energia</a></li>
-                            <li><a href="">Ver Solicitudes de Despeje</a></li>
-                          </ul>
+                        <li><a><i class="fa fa-cloud-upload"></i>Ver Solicitudes de Despeje de Energía<span class="fa fa-chevron-down"></span></a>
                         </li>
                       </ul>
                     </div>
@@ -173,7 +151,7 @@
                     <a data-toggle="tooltip" data-placement="top" title="Lock">
                       <span class="glyphicon glyphicon-eye-close" aria-hidden="true"></span>
                     </a>
-                    <a data-toggle="tooltip" data-placement="top" title="Logout" href="login.html">
+                    <a data-toggle="tooltip" data-placement="top" title="Cerrar Sesión"href="index.php?page=cerrarSesion">
                       <span class="glyphicon glyphicon-off" aria-hidden="true"></span>
                     </a>
                   </div>
