@@ -39,7 +39,7 @@
                   <td>
                     <div class="btn-toolbar" role="toolbar">
 
-                      <a href="{{documentoDireccion}}" download><button type="button" class="btn btn-default btn-lg">
+                      <a href="{{documentoRecepcionDireccion}}" download><button type="button" class="btn btn-default btn-lg">
                       <span class="glyphicon glyphicon-download-alt" aria-hidden="true"></span> Descargar
                     </button></a>
                    </div>

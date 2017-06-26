@@ -27,6 +27,11 @@
             require_once("controllers/revisarSolicitudRecepcionEnee.control.php");
             break;
 
+        case "verMisDocumentosDeRecepcion":
+            //llamar al controlador
+            require_once("controllers/verMisDocumentosDeRecepcion.control.php");
+            break;
+
         case "revisarSolicitudAprobacionEnee":
             //llamar al controlador
             require_once("controllers/revisarSolicitudAprobacionEnee.control.php");

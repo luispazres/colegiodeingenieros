@@ -6,6 +6,7 @@
  */
   require_once("libs/template_engine.php");
   require_once("models/aprobacion.model.php");
+  require_once("models/recepcion.model.php");
 
   function run(){
 
@@ -15,11 +16,12 @@
           $respuesta="";
           $documentos = array();
 
-          if (isset($_GET["aprobacionId"])) {
-            $documentos=obtenerDocumentosAprobacionPorId($_GET["aprobacionId"]);
+
+          if (isset($_GET["recepcionId"])) {
+            $documentos=obtenerDocumentosRecepcion($_GET["recepcionId"]);
           }
 
-          renderizar("verMisDocumentosDeAprobacion",array('documentos'=>$documentos,'aprobacionId'=>$_GET["aprobacionId"]));
+          renderizar("verMisDocumentosDeRecepcion",array('documentos'=>$documentos,'recepcionId'=>$_GET["recepcionId"]));
 
         }else {
           redirectWithMessage("No cuenta con los privilegios de usuario adecuado para ver esta páagina.","?page=login");
