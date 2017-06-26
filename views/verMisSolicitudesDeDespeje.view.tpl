@@ -60,8 +60,7 @@
                             <h4 class="modal-title" id="myModalLabel">Dictamen</h4>
                           </div>
                           <div class="modal-body">
-                            <h4>Dictamen</h4>
-                            {{comentario}}
+                            {{comentarioDespeje}}
                           </div>
                           <div class="modal-footer">
                               {{if reintentar}}

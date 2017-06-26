@@ -58,6 +58,20 @@ tblp.usuarioIdentidad=tblu.usuarioIdentidad and tblsd.estadoDespejeId=4;";
     return $solicitudFactibilidad;
 }
 
+
+function agregarComentarioDespeje($solicitudId, $costo, $comentario, $estado){
+  $sqlstr="UPDATE `tblsolicituddespeje`
+  SET`solicitudDespejeCosto` = %d,
+  `estadoDespejeId` = %d,
+  `comentarioDespeje` = '%s'
+  WHERE `solicitudDespejeId` = %d;";
+$sqlstr = sprintf($sqlstr,$costo,$estado,$comentario,$solicitudId);
+  if(ejecutarNonQuery($sqlstr)){
+  return ejecutarNonQueryConErrores($sqlstr);
+  }
+}
+
+
 function obtenerSolicitudDespejePorId($solicitudId){
 $proyecto = array();
 $sqlstr = "SELECT estadoDespejeDescripcion,solicitudDespejeId,solicitudDespejeHoras,solicitudDespejeCuadrillas,solicitudDespejeCantidadPersonal,
