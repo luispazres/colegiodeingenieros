@@ -28,7 +28,7 @@
 
           $pswd = md5($pswd);
           if($usuario["usuarioContrasenia"] == $pswd){
-            mw_setEstaLogueado($userName, true,$usuario["rolId"],$usuario["estadoCuentaId"], $usuario["usuarioPrimerNombre"],$usuario["usuarioPrimerApellido"]);
+            mw_setEstaLogueado($userName, true,$usuario["rolId"],$usuario["estadoCuentaId"], $usuario["usuarioPrimerNombre"],$usuario["usuarioPrimerApellido"],$usuario["usuarioComentario"]);
             header("Location:index.php?page=home");
             die();
           }else{
