@@ -99,7 +99,11 @@
         $htmlDatos["proyectoDireccion"] = $solicitud["proyectoDireccion"];
         $htmlDatos["proyectoNombrePropietario"] = $solicitud["proyectoNombrePropietario"];
         $htmlDatos["proyectoDescrpcion"] = $solicitud["proyectoDescrpcion"];
-        $htmlDatos["ingenieroNombre"] = $solicitud["ingenieroNombre"];
+        $htmlDatos["usuarioPrimerNombre"] = $solicitud["usuarioPrimerNombre"];
+        $htmlDatos["usuarioSegundoNombre"] = $solicitud["usuarioSegundoNombre"];
+        $htmlDatos["usuarioSegundoApellido"] = $solicitud["usuarioSegundoApellido"];
+        $htmlDatos["usuarioPrimerApellido"] = $solicitud["usuarioPrimerApellido"];
+        $htmlDatos["ingenieroNombre"]=  $htmlDatos["usuarioPrimerNombre"]." ".  $htmlDatos["usuarioSegundoNombre"]." ".$htmlDatos["usuarioPrimerApellido"]." ".  $htmlDatos["usuarioSegundoApellido"];
         $htmlDatos["usuarioNumeroColegiacion"] = $solicitud["usuarioNumeroColegiacion"];
         $htmlDatos["solicitudAaprobacionMontoEstimado"] = $solicitud["solicitudAaprobacionMontoEstimado"];
         $htmlDatos["solicitudAprobacionCosto"] = $solicitud["solicitudAprobacionCosto"];
