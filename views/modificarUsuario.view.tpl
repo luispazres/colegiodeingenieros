@@ -41,15 +41,15 @@
                   <div class='x_content'>
                     <br>
 
-                      <form method='post' action='index.php?page=modificarUsuario' id='demo-form2' data-parsley-validate class='form-horizontal form-label-left'>
+                      <form method='post' action='index.php?page=verUsuarios' id='demo-form2' data-parsley-validate class='form-horizontal form-label-left'>
                         <div class='form-group'>
-
                            <div class='row'>
+
                                                 <div class='col-md-6'>
                                                     <div class='form-group'>
                                                         <label for='txtProyectoNombre'>Numero de Identidad *</label>
                                                         <input type='text' id='txtUs'class='form-control' name='txtUs' value='{{usuarioIdentidad}}' disabled='disabled'>
-                                                        <input type='hidden' id='codigoProyecto'class='form-control' name='codigoProyecto' value='".$codigo."'>
+                                                        <input type='hidden' id='usid'class='form-control' name='usid' value='{{usuarioIdentidad}}'>
                                                         <input type='hidden' id='tipo'class='form-control' name='tipo' value='".$tipo."'>
                                                     </div>
                                                 </div>
@@ -81,7 +81,7 @@
                                           <div class="col-md-6">
                                               <div class="form-group">
                                                   <label for="form_name">Estado Cuenta *</label>
-                                                  <select ng-model="datos.departamento" name="cmbEstadoCuenta" id="cmbEstadoCuenta" class="form-control margin ng-pristine ng-valid ui-corner-all formularios ng-touched">
+                                                  <select ng-model="datos.departamento" name="cmbTipoCuenta" id="cmbTipoCuenta" class="form-control margin ng-pristine ng-valid ui-corner-all formularios ng-touched">
                                                       {{foreach roles}}
                                                     <option value="{{rolId}}">{{rolDescripcion}}</option>
                                                       {{endfor roles}}
@@ -91,13 +91,14 @@
                                               <div class="col-md-6">
                                                   <div class="form-group">
                                                       <label for="form_lastname">Tipo de Cuenta *</label>
-                                                      <select ng-model="datos.departamento" name="cmbTipoCuenta" id="cmbTipoCuenta" class="form-control margin ng-pristine ng-valid ui-corner-all formularios ng-touched">
+                                                      <select ng-model="datos.departamento" name="cmbEstadoCuenta" id="cmbEstadoCuenta" class="form-control margin ng-pristine ng-valid ui-corner-all formularios ng-touched">
                                                           {{foreach estado}}
                                                         <option value="{{estadoCuentaId}}">{{estadoCuentaDescripcion}}</option>
                                                           {{endfor estado}}
               																				</select>
                                                   </div>
                                               </div>
+
                                               <div class='col-md-12'>
                                                <div class='form-group'>
                                                    <label for='form_message'>Direccion *</label>
@@ -105,13 +106,10 @@
                                                </div>
                                            </div>
                                         </div>
-
-
-
                         <div class='col-md-12'>
                         <div class='form-group'>
                         <!--Boton Submit-->
-                        <button type='submit' id='btnComentarAprobacion' name='btnComentarAprobacion' class='btn btn-default'>
+                        <button type='submit' id='btnActualizarUsuario' name='btnActualizarUsuario' class='btn btn-default'>
                           Actualizar
                         </button>
                         <!--Fin Boton Submit-->
