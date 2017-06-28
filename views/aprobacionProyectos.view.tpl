@@ -79,8 +79,8 @@
                                           <div class="row">
                                                                       <div class="col-md-6">
                                                                           <div class="form-group">
-                                                                              <label for="form_name">Latitud *</label>
-                                                                              <input id="form_name" type="text" name="name" class="form-control" value="{{proyectoLatitud}}" disabled="disabled">
+                                                                            <label for="form_name">Latitud *</label>
+                                                                            <input id="form_name" type="text" name="name" class="form-control" value="{{proyectoLatitud}}" disabled="disabled">
                                                                           </div>
                                                                       </div>
                                                                       <div class="col-md-6">

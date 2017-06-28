@@ -161,7 +161,8 @@ function agregarComentarioAprobacion($solicitudId, $comentario, $estado){
   $sqlstr="UPDATE `tblsolicitudaprobacion`
 SET
 `estadoSolicitudAprobacion` = %d,
-`comentarioAprobacion` ='%s'
+`comentarioAprobacion` ='%s',
+`solicitudAprobacionFecha` = CURDATE()
 WHERE `solicitudAprobacionId` = %d;";
 $sqlstr = sprintf($sqlstr, $estado,$comentario,$solicitudId);
   if(ejecutarNonQuery($sqlstr)){
