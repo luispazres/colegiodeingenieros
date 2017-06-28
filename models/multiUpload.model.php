@@ -52,6 +52,17 @@ class Multiupload
                           echo "subida correctamente";
                           break;
 
+                        case 'factibilidad':
+                          $strsql = "UPDATE `tblsolicitudfactibilidad` SET
+                          `factibilidadDocumentoDireccion` = '%s',
+                          `factibilidadDocumentoNombre` = '%s'
+                          WHERE `solicitudFactibilidadId` = %d;";
+                          $strsql = sprintf($strsql,  $direccion, $nombreArchivo,$Id);
+                          $resultado=0;
+                          $resultado=  ejecutarNonQuery($strsql);
+                          echo "subida correctamente";
+                          break;
+
                           case 'recepcion':
                             $strsql = "INSERT INTO `tbldocumentosrecepcion`(`documentoRecepcionDireccion`,`solicitudRecepcionId`,`documentoNombre`) VALUES('%s',%d,'%s');";
                             $strsql = sprintf($strsql,  $direccion, $Id,$nombreArchivo);

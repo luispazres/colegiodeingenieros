@@ -55,12 +55,13 @@
       $htmlDatos["voltajeDescripcion"] = $solicitud["voltajeDescripcion"];
       $htmlDatos["conexionDescripcion"] = $solicitud["conexionDescripcion"];
       $htmlDatos["solicitudFactibilidadPotencia"] = $solicitud["solicitudFactibilidadPotencia"];
+      $htmlDatos["solicitudFactibilidadId"] = $solicitud["solicitudFactibilidadId"];
       $htmlDatos["solicitudadFactibilidadCrecimientoEsperado"] = $solicitud["solicitudadFactibilidadCrecimientoEsperado"];
       $htmlDatos["solicitudFactibilidadKva"] = $solicitud["solicitudFactibilidadKva"];
       $htmlDatos["estadoFactibilidadDescripcion"] = $solicitud["estadoFactibilidadDescripcion"];
-      $htmlDatos["vista"]=vistaComentariosFactibilidad::vista($_GET["tipo"],$_GET["codigo"],$htmlDatos["proyectoNombre"],$htmlDatos["departamentoDescripcion"],$htmlDatos["proyectoDireccion"], $htmlDatos["proyectoDescrpcion"],
+      $htmlDatos["vista"]=vistaComentariosFactibilidad::vistaEnee($_GET["tipo"],$_GET["codigo"],$htmlDatos["proyectoNombre"],$htmlDatos["departamentoDescripcion"],$htmlDatos["proyectoDireccion"], $htmlDatos["proyectoDescrpcion"],
       $htmlDatos["proyectoNombrePropietario"],$htmlDatos["ingenieroNombre"],$htmlDatos["usuarioNumeroColegiacion"],$htmlDatos["voltajeDescripcion"],
-      $htmlDatos["conexionDescripcion"],$htmlDatos["solicitudFactibilidadPotencia"],$htmlDatos["solicitudadFactibilidadCrecimientoEsperado"],$htmlDatos["solicitudFactibilidadKva"]);
+      $htmlDatos["conexionDescripcion"],$htmlDatos["solicitudFactibilidadPotencia"],$htmlDatos["solicitudadFactibilidadCrecimientoEsperado"],$htmlDatos["solicitudFactibilidadKva"],$htmlDatos["solicitudFactibilidadId"]);
     }
 
 
@@ -74,7 +75,11 @@
       $htmlDatos["proyectoDireccion"] = $solicitud["proyectoDireccion"];
       $htmlDatos["proyectoNombrePropietario"] = $solicitud["proyectoNombrePropietario"];
       $htmlDatos["proyectoDescrpcion"] = $solicitud["proyectoDescrpcion"];
-      $htmlDatos["ingenieroNombre"] = $solicitud["ingenieroNombre"];
+      $htmlDatos["usuarioPrimerNombre"] = $solicitud["usuarioPrimerNombre"];
+      $htmlDatos["usuarioSegundoNombre"] = $solicitud["usuarioSegundoNombre"];
+      $htmlDatos["usuarioSegundoApellido"] = $solicitud["usuarioSegundoApellido"];
+      $htmlDatos["usuarioPrimerApellido"] = $solicitud["usuarioPrimerApellido"];
+      $htmlDatos["ingenieroNombre"]=  $htmlDatos["usuarioPrimerNombre"]." ".  $htmlDatos["usuarioSegundoNombre"]." ".$htmlDatos["usuarioPrimerApellido"]." ".  $htmlDatos["usuarioSegundoApellido"];
       $htmlDatos["usuarioNumeroColegiacion"] = $solicitud["usuarioNumeroColegiacion"];
       $htmlDatos["solicitudAaprobacionMontoEstimado"] = $solicitud["solicitudAaprobacionMontoEstimado"];
       $htmlDatos["solicitudAprobacionCosto"] = $solicitud["solicitudAprobacionCosto"];

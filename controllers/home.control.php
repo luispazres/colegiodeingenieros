@@ -11,14 +11,15 @@
     if (mw_estaLogueado()) {
       if ($_SESSION["estado"]==1) {
         if ($_SESSION["rol"]==4||$_SESSION["rol"]==1 || $_SESSION["rol"]==2) {
-          addCssRef("public/css/home.css");
 
           if ($_SESSION["rol"]==1) {
               renderizar("home",array(),"layoutCimeqh.view.tpl");
+                echo $_SESSION["rol"];
           }elseif ($_SESSION["rol"]==2) {
             renderizar("home",array(),"layoutEnee.view.tpl");
           }else {
             renderizar("home",array());
+            echo $_SESSION["rol"];
           }
 
 

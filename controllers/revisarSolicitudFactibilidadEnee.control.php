@@ -1,12 +1,13 @@
 <?php
   require_once("libs/template_engine.php");
   require_once("models/factibilidad.model.php");
+  require_once("models/multiUpload.model.php");
 
   function run(){
 
     if (mw_estaLogueado()) {
       if ($_SESSION["estado"]==1) {
-        if ($_SESSION["rol"]==4||$_SESSION["rol"]==1||$_SESSION["rol"]==2) {
+        if ($_SESSION["rol"]==2) {
           $revisar = array();
 
           if(isset($_POST["btnRechazar"])){
@@ -32,7 +33,15 @@
             if ($_POST["tipo"]=="rechazo") {
             agregarComentarioFactibilidad($_POST["codigoProyecto"],$_POST["comentario"],3);
           }elseif ($_POST["tipo"]=="aceptado") {
+
             agregarComentarioFactibilidad($_POST["codigoProyecto"],$_POST["comentario"],2);
+
+            $files = $_FILES['userfile']['name'];            
+
+            //creamos una nueva instancia de la clase multiupload
+            $upload = new Multiupload();
+            //llamamos a la funcion upFiles y le pasamos el array de campos file del formulario
+            $isUpload = $upload->upFiles($files,$_POST["factibilidadId"],"factibilidad");
           }
           }
 

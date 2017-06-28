@@ -165,7 +165,7 @@ class vistaComentariosFactibilidad
 
   public static function vistaEnee($tipo,$codigo,$proyectoNombre,$depto,$direccion,
   $descripcion,$nombrePropietario,$nombreIngeniero,$numeroColeg,
-  $voltaje,$tipoConexion,$potencia,$crecimiento,$kva){
+  $voltaje,$tipoConexion,$potencia,$crecimiento,$kva,$factibilidadId){
   $vista="<div class='right_col' role='main'>
         <div class=''>
           <div class='page-title'>
@@ -209,7 +209,7 @@ class vistaComentariosFactibilidad
                     <div class='x_content'>
                       <br>
 
-                        <form method='post' action='index.php?page=revisarSolicitudFactibilidadEnee' id='demo-form2' data-parsley-validate class='form-horizontal form-label-left'>
+                        <form action='index.php?page=revisarSolicitudFactibilidadEnee' id='demo-form2' data-parsley-validate enctype='multipart/form-data' class='form-horizontal form-label-left' method='post' >
                           <div class='form-group'>
 
                              <div class='row'>
@@ -218,6 +218,7 @@ class vistaComentariosFactibilidad
                                                           <label for='txtProyectoNombre'>Nombre del Proyecto *</label>
                                                           <input type='text' id='txtUs'class='form-control' name='txtUs' value='".$proyectoNombre."' disabled='disabled'>
                                                           <input type='hidden' id='codigoProyecto'class='form-control' name='codigoProyecto' value='".$codigo."'>
+                                                          <input type='hidden' id='factibilidadId'class='form-control' name='factibilidadId' value='".$factibilidadId."'>
                                                           <input type='hidden' id='tipo'class='form-control' name='tipo' value='".$tipo."'>
                                                       </div>
                                                   </div>
@@ -294,6 +295,13 @@ class vistaComentariosFactibilidad
                                                           <input id='kva' type='text' name='kva' class='form-control'  value='".$kva."' disabled='disabled'>
                                                       </div>
                                                   </div>
+                                                   <div class='col-md-6'>
+                                                       <div class='form-group'>
+                                                       <label for='userfile'>Documento</label>
+                                                       <input id='userfile' type='file' name='userfile[]' class='form-control' >
+                                                   </div>
+                                                 </div>
+
 
                                                   <div class='col-md-12'>
                                                    <div class='form-group'>
