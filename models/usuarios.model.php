@@ -26,13 +26,6 @@
         return $estado;
     }
 
-    function obtnerUsuriosPorId($numeroId){
-        $proyecto = array();
-        $sqlstr = "select * from tblusuarios as tblu, tblroles as tblr, tblestadocuenta as tble WHERE tblu.rolId=tblr.rolId
-        AND tblu.estadoCuentaId=tble.estadoCuentaId AND tblu.usuarioIdentidad='$numeroId';";
-        $sqlstr = sprintf($sqlstr, $numeroId);
-        $proyecto = obtenerUnRegistro($sqlstr);
-        }
 
     function obtenerUsuariosPorId($id){
           $usuario = array();

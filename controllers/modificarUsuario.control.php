@@ -13,14 +13,14 @@
           if(isset($_POST["btnActualizarUsuario"])){
             $respuesta="";
             $estadoCuenta=$_POST["cmbEstadoCuenta"];
-            $usuarioIdentidad=$_POST["txtUsuarioId"];
+            $usuarioIdentidad=$_POST["txtUs"];
             $rolId=$_POST["cmbTipoCuenta"];
             $respuesta=modificarUsuarios($usuarioIdentidad, $estadoCuenta, $rolId);
             }
 
           if(isset($_GET["usuarioId"])){
             $algo=$_GET["usuarioId"];
-            $usuarios=obtnerUsuriosPorId($algo);
+            $usuarios=obtenerUsuariosPorId($algo);
             if($usuarios){
               $htmlDatos["usuarioIdentidad"] = $usuarios["usuarioIdentidad"];
               $htmlDatos["usuarioPrimerNombre"] = $usuarios["usuarioPrimerNombre"];
