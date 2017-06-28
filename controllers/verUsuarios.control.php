@@ -32,6 +32,14 @@
               echo $respuesta;
             }
 
+            if(isset($_POST["btnActualizarUsuario"])){
+              $respuesta="";
+              $estadoCuenta=$_POST["cmbEstadoCuenta"];
+              $usuarioIdentidad=$_POST["usid"];
+              $rolId=$_POST["cmbTipoCuenta"];
+              $respuesta=modificarUsuarios($usuarioIdentidad, $estadoCuenta, $rolId);
+              }
+
             $usuario=obtenerTodosLosUsuarios();
             renderizar("verUsuarios",array('usuario'=>$usuario));
 

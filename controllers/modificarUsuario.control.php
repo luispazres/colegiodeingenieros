@@ -9,14 +9,7 @@
         if ($_SESSION["rol"]==1) {
           $usuarios = array();
           $htmlDatos = array();
-
-          if(isset($_POST["btnActualizarUsuario"])){
-            $respuesta="";
-            $estadoCuenta=$_POST["cmbEstadoCuenta"];
-            $usuarioIdentidad=$_POST["txtUs"];
-            $rolId=$_POST["cmbTipoCuenta"];
-            $respuesta=modificarUsuarios($usuarioIdentidad, $estadoCuenta, $rolId);
-            }
+        
 
           if(isset($_GET["usuarioId"])){
             $algo=$_GET["usuarioId"];

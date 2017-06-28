@@ -46,15 +46,15 @@
     }
 
     function modificarUsuarios($usuarioIdentidad, $estadoCuenta,$rolId){
-    $sqlstr="UPDATE `cimeqh`.`tblusuarios`
-    SET `estadoCuentaId` = $estadoCuenta,
-    `rolId` = $rolId
-    WHERE `usuarioIdentidad` = '$usuarioIdentidad';";
-    if(ejecutarNonQuery($sqlstr)){
-    return ejecutarNonQueryConErrores($sqlstr);
+    $sqlstr="UPDATE `tblusuarios`
+    SET `estadoCuentaId` = %d,
+    `rolId` = %d
+    WHERE `usuarioIdentidad` = '%s';";
+    $sqlstr = sprintf($sqlstr,$estadoCuenta,$rolId,$usuarioIdentidad);
+    ejecutarNonQueryConErrores($sqlstr);
     }
     return 0;
-    }
+
 
     function actualizarEstado($usuarioIdentidad, $estadoCuenta){
     $sqlstr="UPDATE `tblusuarios`
