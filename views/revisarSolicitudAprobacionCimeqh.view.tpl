@@ -42,7 +42,7 @@
                 <tr>
                   <td>{{proyectoNombre}}</td>
                   <td>{{proyectoNombrePropietario}}</td>
-                  <td>{{ingenieroNombre}}</td>
+                  <td>{{usuarioPrimerNombre}} {{usuarioSegundoNombre}} {{usuarioPrimerApellido}} {{usuarioSegundoApellido}}</td>
                   <td>{{usuarioNumeroColegiacion}}</td>
                   <td>{{estadoAprobacionDescripcion}}</td>
                   <td> <button id="btnOpciones12" type="button" class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-lg-{{solicitudAprobacionId}}" value="{{solicitudAprobacionId}}">Opciones</button>
@@ -80,7 +80,7 @@
                           Dirección Propietario: {{proyectoDireccionPropietario}}
                           <br>
                           <h4>Datos del Ingeniero</h4>
-                          Nombre del Ingeniero: {{ingenieroNombre}}
+                          Nombre del Ingeniero: {{usuarioPrimerNombre}} {{usuarioSegundoNombre}} {{usuarioPrimerApellido}} {{usuarioSegundoApellido}}
                           <br>
                           Numero de Colegiación: {{usuarioNumeroColegiacion}}
                           <br>

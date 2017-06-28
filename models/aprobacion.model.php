@@ -140,38 +140,26 @@ function obtenerSolicitudAprobacion(){
 
 function verSolicitudesAprobacion(){
     $solicitudes = array();
-    $sqlstr = "SELECT  estadoAprobacionDescripcion, proyectoNombre,departamentoDescripcion ,proyectoDireccion, proyectoDescrpcion,
-proyectoLatitud,proyectoLongitud,proyectoNombrePropietario,
-proyectoIdentidadPropietario, proyectoTelefonoPropietario, proyectoCelularPropietario,
-proyectoEmailPropietario, proyectoDireccionPropietario,
-concat(usuarioPrimerNombre, ' ' ,usuarioSegundoNombre ,' ',
-usuarioPrimerApellido, ' ', usuarioSegundoApellido) 'ingenieroNombre', usuarioNumeroColegiacion
-usuarioNumeroColegiacion, usuarioTelefono, usuarioCelular, solicitudAprobacionId,
-solicitudAaprobacionMontoEstimado, solicitudAprobacionCosto
-FROM cimeqh.tblsolicitudaprobacion tbls, tblproyectos tblp, tblestadoaprobacion tble,
-tblusuarios tblu, tbldepartamentos tbld
-where tbls.proyectoId=tblp.proyectoId and
-tble.estadoAprobacionId=tbls.estadoSolicitudAprobacion
-and tblu.usuarioIdentidad=tblp.usuarioIdentidad and tbld.departamentoId=tblp.departamentoId and tbls.estadoSolicitudAprobacion=4;";
+    $sqlstr = "SELECT *
+from tblproyectos as p, tblusuarios as u, tbldepartamentos as d, tblsolicitudaprobacion as sa, tblestadoaprobacion as ea
+ where p.proyectoId=sa.proyectoId
+ and p.usuarioIdentidad=u.usuarioIdentidad
+ and sa.estadoSolicitudAprobacion=ea.estadoAprobacionId
+ and p.departamentoId=d.departamentoId
+ and ea.estadoAprobacionId=4";
     $solicitudes = obtenerRegistros($sqlstr);
     return $solicitudes;
 }
 
 function verSolicitudesAprobacionEnee(){
     $solicitudes = array();
-    $sqlstr = "SELECT  estadoAprobacionDescripcion, proyectoNombre,departamentoDescripcion ,proyectoDireccion, proyectoDescrpcion,
-proyectoLatitud,proyectoLongitud,proyectoNombrePropietario,
-proyectoIdentidadPropietario, proyectoTelefonoPropietario, proyectoCelularPropietario,
-proyectoEmailPropietario, proyectoDireccionPropietario,
-concat(usuarioPrimerNombre, ' ' ,usuarioSegundoNombre ,' ',
-usuarioPrimerApellido, ' ', usuarioSegundoApellido) 'ingenieroNombre', usuarioNumeroColegiacion
-usuarioNumeroColegiacion, usuarioTelefono, usuarioCelular, solicitudAprobacionId,
-solicitudAaprobacionMontoEstimado, solicitudAprobacionCosto
-FROM cimeqh.tblsolicitudaprobacion tbls, tblproyectos tblp, tblestadoaprobacion tble,
-tblusuarios tblu, tbldepartamentos tbld
-where tbls.proyectoId=tblp.proyectoId and
-tble.estadoAprobacionId=tbls.estadoSolicitudAprobacion
-and tblu.usuarioIdentidad=tblp.usuarioIdentidad and tbld.departamentoId=tblp.departamentoId and tbls.estadoSolicitudAprobacion=1;";
+    $sqlstr = "SELECT *
+from tblproyectos as p, tblusuarios as u, tbldepartamentos as d, tblsolicitudaprobacion as sa, tblestadoaprobacion as ea
+ where p.proyectoId=sa.proyectoId
+ and p.usuarioIdentidad=u.usuarioIdentidad
+ and sa.estadoSolicitudAprobacion=ea.estadoAprobacionId
+ and p.departamentoId=d.departamentoId
+ and ea.estadoAprobacionId=1;";
     $solicitudes = obtenerRegistros($sqlstr);
     return $solicitudes;
 }

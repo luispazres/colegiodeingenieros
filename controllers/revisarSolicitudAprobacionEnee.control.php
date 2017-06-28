@@ -6,7 +6,7 @@
 
     if (mw_estaLogueado()) {
       if ($_SESSION["estado"]==1) {
-        if ($_SESSION["rol"]==2) {
+      if (/*$_SESSION["rol"]==2*/true) {
           $revisar = array();
           $error="";
         //Agregar un comentario segun sea aprobada o rechazada la solicitud
@@ -24,7 +24,7 @@
           //$documentos=verSolicitudesArchivos($revisar[""]);
           renderizar("revisarSolicitudAprobacionEnee",array('solicitud'=>$revisar),"layoutEnee.view.tpl");
         }else {
-          redirectWithMessage("No cuenta con los privilegios de usuario adecuado para ver esta páagina.","?page=login");
+          redirectWithMessage("No cuenta con los privilegios de usuario adecuado para ver esta página.","?page=login");
         }
       }else {
       redirectWithMessage("Su cuenta todavia no ha sido verificada por el CIMEQH.","?page=login");
