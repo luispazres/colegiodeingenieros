@@ -86,20 +86,13 @@ function borrarDocumentoAprobacion($documentoId,$direccion){
 
 function obtenerSolicitudAprobacionPorId($solicitudId){
     $proyecto = array();
-    $sqlstr = "SELECT  estadoAprobacionDescripcion, proyectoNombre,departamentoDescripcion ,proyectoDireccion, proyectoDescrpcion,
-    proyectoLatitud,proyectoLongitud,proyectoNombrePropietario,
-    proyectoIdentidadPropietario, proyectoTelefonoPropietario, proyectoCelularPropietario,
-    proyectoEmailPropietario, proyectoDireccionPropietario,
-    concat(usuarioPrimerNombre, ' ' ,usuarioSegundoNombre ,' ',
-    usuarioPrimerApellido, ' ', usuarioSegundoApellido) 'ingenieroNombre', usuarioNumeroColegiacion
-    usuarioNumeroColegiacion, usuarioTelefono, usuarioCelular, solicitudAprobacionId,
-    solicitudAaprobacionMontoEstimado, solicitudAprobacionCosto
-    FROM cimeqh.tblsolicitudaprobacion tbls, tblproyectos tblp, tblestadoaprobacion tble,
-    tblusuarios tblu, tbldepartamentos tbld
-    where tbls.proyectoId=tblp.proyectoId and
-    tble.estadoAprobacionId=tbls.estadoSolicitudAprobacion
-    and tblu.usuarioIdentidad=tblp.usuarioIdentidad and tbld.departamentoId=tblp.departamentoId and solicitudAprobacionId=%d;
-";
+    $sqlstr = "SELECT *
+from tblproyectos as p, tblusuarios as u, tbldepartamentos as d, tblsolicitudaprobacion as sa, tblestadoaprobacion as ea
+ where p.proyectoId=sa.proyectoId
+ and p.usuarioIdentidad=u.usuarioIdentidad
+ and sa.estadoSolicitudAprobacion=ea.estadoAprobacionId
+ and p.departamentoId=d.departamentoId
+ and sa.solicitudAprobacionId=%d";
     $sqlstr = sprintf($sqlstr, $solicitudId);
     $proyecto = obtenerUnRegistro($sqlstr);
     return $proyecto;
@@ -168,7 +161,8 @@ function agregarComentarioAprobacion($solicitudId, $comentario, $estado){
   $sqlstr="UPDATE `tblsolicitudaprobacion`
 SET
 `estadoSolicitudAprobacion` = %d,
-`comentarioAprobacion` ='%s'
+`comentarioAprobacion` ='%s',
+`solicitudAprobacionFecha` = CURDATE()
 WHERE `solicitudAprobacionId` = %d;";
 $sqlstr = sprintf($sqlstr, $estado,$comentario,$solicitudId);
   if(ejecutarNonQuery($sqlstr)){

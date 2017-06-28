@@ -12,9 +12,9 @@
 
           if (isset($_POST["btnComentarAprobacion"])) {
             if ($_POST["tipo"]=="rechazo") {
-            $error=agregarComentarioAprobacion($_POST["codigoProyecto"],$_POST["comentario"],1);
+            $error=agregarComentarioAprobacion($_POST["codigoProyecto"],$_POST["comentario"],3);
           }elseif ($_POST["tipo"]=="aceptado") {
-            agregarComentarioAprobacion($_POST["codigoProyecto"],$_POST["comentario"],2);
+            agregarComentarioAprobacion($_POST["codigoProyecto"],$_POST["comentario"],1);
           }
           }
 
