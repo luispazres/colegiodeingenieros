@@ -21,6 +21,10 @@
             $documentos=obtenerDocumentosRecepcion($_GET["recepcionId"]);
           }
 
+          if (isset($_POST["btnEliminarDocumento"])) {
+            borrarDocumentoRecepcion($_POST["txtDocumentoId"],$_POST["txtDocumentoDireccion"]);
+          }
+
           renderizar("verMisDocumentosDeRecepcion",array('documentos'=>$documentos,'recepcionId'=>$_GET["recepcionId"]));
 
         }else {

@@ -19,6 +19,10 @@
             $documentos=obtenerDocumentosAprobacionPorId($_GET["aprobacionId"]);
           }
 
+          if (isset($_POST["btnEliminarDocumento"])) {
+            borrarDocumentoAprobacion($_POST["txtDocumentoId"],$_POST["txtDocumentoDireccion"]);
+          }
+
           renderizar("verMisDocumentosDeAprobacion",array('documentos'=>$documentos,'aprobacionId'=>$_GET["aprobacionId"]));
 
         }else {

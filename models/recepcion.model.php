@@ -16,6 +16,14 @@ VALUES
 
 }
 
+function borrarDocumentoRecepcion($documentoId,$direccion){
+  unlink($direccion);
+   $sqlstr = sprintf("DELETE FROM `tbldocumentosrecepcion` WHERE `documentoRecepcionId`= %d;",$documentoId);
+   if(ejecutarNonQuery($sqlstr)){
+       return getLastInserId();
+   }
+}
+
 function borrarRecepcion($recepcionId){
    $sqlstr = sprintf("delete from tblsolicitudrecepcion where solicitudRecepcionId= %d",$recepcionId);
    if(ejecutarNonQuery($sqlstr)){

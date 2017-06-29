@@ -42,6 +42,20 @@
                       <a href="{{documentoDireccion}}" download><button type="button" class="btn btn-default btn-lg">
                       <span class="glyphicon glyphicon-download-alt" aria-hidden="true"></span> Descargar
                     </button></a>
+                    <form action="index.php?page=verMisDocumentosDeAprobacion&aprobacionId={{aprobacionId}}" method="post">
+
+                     <input type="hidden" name="txtDocumentoId" value="{{documentosAprobacionId}}">
+
+                     <input type="hidden" name="txtDocumentoDireccion" value="{{documentoDireccion}}">
+
+                     <button type="submit" id="btnEliminarDocumento" name="btnEliminarDocumento" class="btn btn-default btn-lg">
+
+                       <span class="glyphicon glyphicon-remove" aria-hidden="true"></span> Eliminar
+
+                     </button>
+
+                  </form>
+
                    </div>
                   </td>
                 </tr>
