@@ -49,8 +49,7 @@
                                                     <div class='form-group'>
                                                         <label for='txtProyectoNombre'>Numero de Identidad *</label>
                                                         <input type='text' id='txtUs'class='form-control' name='txtUs' value='{{usuarioIdentidad}}' disabled='disabled'>
-                                                        <input type='hidden' id='usid'class='form-control' name='usid' value='{{usuarioIdentidad}}'>
-                                                        <input type='hidden' id='tipo'class='form-control' name='tipo' value='".$tipo."'>
+                                                        <input type='hidden' id='usid'class='form-control' name='usid' value='{{usuarioIdentidad}}'>                                                        
                                                     </div>
                                                 </div>
                                                 <div class='col-md-6'>

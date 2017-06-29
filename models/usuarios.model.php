@@ -29,12 +29,21 @@
 
     function obtenerUsuariosPorId($id){
           $usuario = array();
-          $sqlstr = "select * from tblusuarios as u, tblroles as r, tblestadocuenta as ec  where u.estadoCuentaId=ec.estadoCuentaId and u.rolId=r.rolId and usuarioIdentidad='%s';";
+          $sqlstr = "select * from tblusuarios as u, tblroles as r, tblestadocuenta as ec  where
+          u.estadoCuentaId=ec.estadoCuentaId and u.rolId=r.rolId and usuarioIdentidad='%s';";
           $sqlstr = sprintf($sqlstr, valstr($id));
           $usuario = obtenerUnRegistro($sqlstr);
           return $usuario;
     }
 
+    function obtenerUsuariosMenosLogueado($id){
+          $usuario = array();
+          $sqlstr = "select * from tblusuarios as u, tblroles as r, tblestadocuenta as ec  where
+          u.estadoCuentaId=ec.estadoCuentaId and u.rolId=r.rolId and usuarioIdentidad!='%s';";
+          $sqlstr = sprintf($sqlstr, valstr($id));
+          $usuario = obtenerRegistros($sqlstr);
+          return $usuario;
+    }
 
     function obtenerTodosLosUsuarios(){
           $usuario = array();
@@ -44,6 +53,7 @@
           $usuario = obtenerRegistros($sqlstr);
           return $usuario;
     }
+
 
     function modificarUsuarios($usuarioIdentidad, $estadoCuenta,$rolId){
     $sqlstr="UPDATE `tblusuarios`

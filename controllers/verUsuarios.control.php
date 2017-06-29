@@ -14,6 +14,7 @@
         if ($_SESSION["rol"]==1) {
 
             $usuario = array();
+            $userId=$_SESSION["userName"];
 
             if(isset($_POST["btnRechazar"])){
 
@@ -39,8 +40,8 @@
               $rolId=$_POST["cmbTipoCuenta"];
               $respuesta=modificarUsuarios($usuarioIdentidad, $estadoCuenta, $rolId);
               }
-
-            $usuario=obtenerTodosLosUsuarios();
+              echo $userId;
+            $usuario=obtenerUsuariosMenosLogueado($userId);
             renderizar("verUsuarios",array('usuario'=>$usuario));
 
         }else {
