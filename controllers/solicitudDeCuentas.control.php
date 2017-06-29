@@ -100,7 +100,7 @@
              //$mail->addAttachment('/var/tmp/file.tar.gz');         // Add attachments
              //$mail->addAttachment('/tmp/image.jpg', 'new.jpg');    // Optional name
              $mail->isHTML(true);                                  // Set email format to HTML
-             $asunto = 'Alerta de aprobacion de cuenta.';
+             $asunto = 'Alerta de rechazo de cuenta.';
               $mail->Subject = "=?ISO-8859-1?B?".base64_encode($asunto)."=?=";
              $mail->Body    = "$mensaje $monto $comentario";
              $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
@@ -111,8 +111,7 @@
              }
           }
 
-
-
+          
         $usuario=obtenerUsuarios();
         renderizar("solicitudDeCuentas",array('usuario'=>$usuario),"layoutCimeqh.view.tpl");
         }else {

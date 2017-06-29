@@ -78,9 +78,11 @@
 
     function usuarioRechazado($usuarioIdentidad, $monto, $comentario){
     $sqlstr="UPDATE `tblusuarios`
-    SET `usuarioComentario` = $comentario,
-    `usuarioMora`=$monto
-    WHERE `usuarioIdentidad` = '$usuarioIdentidad';";
+    SET `usuarioComentario` = '%s',
+    `estadoCuentaId` = 2,
+    `usuarioMora` = %d
+    WHERE `usuarioIdentidad` = '%s';";
+    $sqlstr = sprintf($sqlstr,$comentario,$monto,$usuarioIdentidad);
     if(ejecutarNonQuery($sqlstr)){
     return ejecutarNonQueryConErrores($sqlstr);
     }
