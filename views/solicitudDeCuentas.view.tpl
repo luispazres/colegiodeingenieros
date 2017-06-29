@@ -84,8 +84,8 @@
                           <div class="modal-footer">
                               <form method="post" action="index.php?page=solicitudDeCuentas">
                               <input id="usuarioIdentidad" type="hidden" name="usuarioIdentidad" value={{usuarioIdentidad}}>
-                                <input id="usuarioCorreo" type="hidden" name="usuarioCorreo" value={{usuarioCorreo}}>
-                              <input type="submit" name="btnRechazar" id="btnRechazar" class="btn btn-danger" value="Rechazar Usuario">
+                              <input id="usuarioCorreo" type="hidden" name="usuarioCorreo" value={{usuarioCorreo}}>
+                              <a href="index.php?page=usuarioRechazado&codigo={{usuarioIdentidad}}&correo={{usuarioCorreo}}"><input type="button" name="btnRechazar" id="btnRechazar" class="btn btn-danger" value="Rechazar Usuario">                              
                               <input type="submit" name="btnAceptar" id="btnAceptar" class="btn btn-success" value="Aceptar Usuario">
                               </form>
                           </div>

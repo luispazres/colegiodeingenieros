@@ -65,6 +65,53 @@
           }
 
 
+          if(isset($_POST["btnEnviar"])){
+
+            if(isset($_POST["comentario"])){
+            $numeroId=$_POST["usuarioIdentidad"];
+            $comentario=$_POST["comentario"];
+            $monto="";
+            $mensaje="Su cuenta no se ha podido aprobar por el siguiente motivo: ";
+            $respuesta=usuarioRechazado($numeroId,$monto,$comentario);
+            }
+            if(isset($_POST["monto"])){
+            $numeroId=$_POST["usuarioIdentidad"];
+            $comentario="";
+            $monto=$_POST["monto"];
+            $mensaje="Lamentamos informarle que su cuenta ha sido rechazada debido a falta de pago, segun el CIMQH usted tiene un saldo pendiente de: ";
+            $respuesta=usuarioRechazado($numeroId,$monto,$comentario);
+            }
+
+           $mail = new PHPMailer;
+            $mail->SMTPDebug=2;
+            $mail->isSMTP();
+             $mail->Host = 'chimera.lunarpages.com';
+             $mail->SMTPAuth = true;
+             $mail->Username = 'cimeqh@conectahn.org';
+             $mail->Password = 'conecta2017';
+             $mail->SMTPSecure = 'ssl';
+             $mail->Port = 465;
+             $mail->setFrom('cimeqh@conectahn.org', 'CIMEQH');
+             $mail->addAddress($_POST["usuarioCorreo"], '');
+             //$mail->addAddress('ellen@example.com');
+             $mail->addReplyTo('cimeqh@conectahn.org', 'Information');
+             //$mail->addCC('cc@example.com');
+             //$mail->addBCC('bcc@example.com');
+             //$mail->addAttachment('/var/tmp/file.tar.gz');         // Add attachments
+             //$mail->addAttachment('/tmp/image.jpg', 'new.jpg');    // Optional name
+             $mail->isHTML(true);                                  // Set email format to HTML
+             $asunto = 'Alerta de rechazo de cuenta.';
+              $mail->Subject = "=?ISO-8859-1?B?".base64_encode($asunto)."=?=";
+             $mail->Body    = "$mensaje $monto $comentario";
+             $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
+             if(!$mail->send()) {
+
+             } else {
+
+             }
+          }
+
+          
         $usuario=obtenerUsuarios();
         renderizar("solicitudDeCuentas",array('usuario'=>$usuario),"layoutCimeqh.view.tpl");
         }else {

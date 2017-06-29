@@ -76,6 +76,19 @@
     return 0;
     }
 
+    function usuarioRechazado($usuarioIdentidad, $monto, $comentario){
+    $sqlstr="UPDATE `tblusuarios`
+    SET `usuarioComentario` = '%s',
+    `estadoCuentaId` = 2,
+    `usuarioMora` = %d
+    WHERE `usuarioIdentidad` = '%s';";
+    $sqlstr = sprintf($sqlstr,$comentario,$monto,$usuarioIdentidad);
+    if(ejecutarNonQuery($sqlstr)){
+    return ejecutarNonQueryConErrores($sqlstr);
+    }
+    return 0;
+    }
+
 
   function insertUsuario($userId, $userPrimernombre, $userSegundonombre, $primerApellido, $segundoApellido,
   $numeroColegiacion, $userCelular,$userTelefono, $userDireccion, $userPassword, $estadoCuenta, $rolId, $email,$fecha){

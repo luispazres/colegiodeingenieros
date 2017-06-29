@@ -182,6 +182,11 @@
                     require_once("controllers/comentarios.control.php");
                     break;
 
+                    case "usuarioRechazado":
+                        //llamar al controlador
+                    require_once("controllers/usuarioRechazado.control.php");
+                    break;
+
 
         /*case "login":
 =======
