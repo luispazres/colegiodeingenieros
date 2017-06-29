@@ -65,6 +65,13 @@
                             {{if reintentar}}
                                 <a href="index.php?page=factibilidadProyectos&proyectoId={{proyectoId}}&accion=UPD"><button type="button" class="btn btn-success">Modificar Solicitud</button></a>
                             {{endif reintentar}}
+                            {{ifnot reintentar}}
+                            <a href="{{factibilidadDocumentoDireccion}}" download>
+                              <button type="button" class="btn btn-primary btn-lg">
+                                <span class="glyphicon glyphicon-download-alt" aria-hidden="true"></span> Descargar Documento de la Enee
+                              </button>
+                            </a>
+                            {{endifnot reintentar}}
                           </div>
                         </div>
                       </div>

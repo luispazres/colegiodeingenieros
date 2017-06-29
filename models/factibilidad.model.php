@@ -115,7 +115,7 @@ function verSolicitudesFactbilidadEnee(){
 */
 function obtenerSolicitudesFactibilidad(){
     $solicitudes = array();
-    $sqlstr = "SELECT if(ef.estadoFactibilidadId=1 || ef.estadoFactibilidadId=3 || ef.estadoFactibilidadId=4,true,null) 'reintentar',sf.comentario,p.proyectoId, sf.solicitudFactibilidadId, p.proyectoNombre, p.proyectoNombrePropietario, p.proyectoIdentidadPropietario, ef.estadoFactibilidadDescripcion
+    $sqlstr = "SELECT if(ef.estadoFactibilidadId=1 || ef.estadoFactibilidadId=3 || ef.estadoFactibilidadId=4,true,false) 'reintentar',sf.factibilidadDocumentoNombre,sf.factibilidadDocumentoDireccion,sf.comentario,p.proyectoId, sf.solicitudFactibilidadId, p.proyectoNombre, p.proyectoNombrePropietario, p.proyectoIdentidadPropietario, ef.estadoFactibilidadDescripcion
 FROM tblsolicitudfactibilidad as sf, tblproyectos as p, tblestadofactibilidad as ef
 where p.proyectoId=sf.proyectoId and sf.estadoFactibilidadId=ef.estadoFactibilidadId;";
     $solicitudes = obtenerRegistros($sqlstr);

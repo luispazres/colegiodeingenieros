@@ -71,9 +71,12 @@
                     <tr>
                       <th>Código de la  Solicitud</th>
                       <th>Nombre del Proyecto</th>
+                      <th>Fecha de Aprobación</th>
                       <th>Nombre del Propietario</th>
                       <th>Identidad del Propietario</th>
+                      <th>Nombre del Ingeniero</th>
                       <th>Estado e la Solicitud</th>
+                      <th>Comentarios</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -81,9 +84,12 @@
                       <tr>
                         <td>{{solicitudAprobacionId}}</td>
                         <td>{{proyectoNombre}}</td>
+                        <td>{{solicitudAprobacionFecha}}</td>
                         <td>{{proyectoNombrePropietario}}</td>
                         <td>{{proyectoIdentidadPropietario}}</td>
+                        <td>{{usuarioPrimerNombre}} {{usuarioSegundoNombre}} {{usuarioPrimerApellido}} {{usuarioSegundoApellido}}</td>
                         <td>{{estadoAprobacionDescripcion}}</td>
+                        <td>{{comentarioAprobacion}}</td>
                       </tr>
                     {{endfor solicitudes}}
                   </tbody>
@@ -115,7 +121,7 @@
               </div>
             </div>
           </div>
-        </div>
+        
       </div>
     </div>
   </div>

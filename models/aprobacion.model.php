@@ -40,7 +40,7 @@ tblp.proyectoId=tbls.proyectoId and tblu.usuarioIdentidad=tblp.usuarioIdentidad 
 
 function obtenerSolicitudAprobacionPorCodigo($codigo){
     $solicitudes = array();
-    $sqlstr = "SELECT * FROM tblsolicitudaprobacion as sa,tblestadoaprobacion as ea, tblproyectos as p where sa.proyectoId=p.proyectoId and ea.estadoAprobacionId=sa.estadoSolicitudAprobacion  and sa.codigoAprobacion='%s';";
+    $sqlstr = "SELECT * FROM tblsolicitudaprobacion as sa,tblestadoaprobacion as ea, tblproyectos as p,tblusuarios as u where sa.proyectoId=p.proyectoId and ea.estadoAprobacionId=sa.estadoSolicitudAprobacion and p.usuarioIdentidad=u.usuarioIdentidad and sa.codigoAprobacion='%s';";
     $sqlstr = sprintf($sqlstr,$codigo);
     $solicitudes = obtenerRegistros($sqlstr);
     return $solicitudes;
