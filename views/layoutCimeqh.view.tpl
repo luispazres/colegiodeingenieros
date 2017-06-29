@@ -340,5 +340,25 @@
 
           </script>
 
+          <script>
+          $(".radioBtn").click(function() {
+            $("#comentario").attr("disabled", true);
+            $("#comentario").val("");
+            if ($("input[name=ynRadio]:checked").val() == "no") {
+              $("#comentario").attr("disabled", false);
+        }
+      });
+          </script>
+
+          <script>
+          $(".radioBtn").click(function() {
+            $("#monto").attr("disabled", true);
+            $("#monto").val("");
+            if ($("input[name=ynRadio]:checked").val() == "yes") {
+              $("#monto").attr("disabled", false);
+        }
+      });
+          </script>
+
         </body>
     </html>
