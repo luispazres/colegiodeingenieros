@@ -17,26 +17,34 @@
 
             <link href="vendors/iCheck/skins/flat/green.css" rel="stylesheet">
             <!-- Datatables -->
-
+            <link rel="stylesheet" href="public/dist/css/bootstrapValidator.min.css"/>
             <!-- Custom Theme Style -->
             <link href="public/css/custom.min.css" rel="stylesheet">
+
+            <script src="vendors/jquery/dist/jquery.min.js"></script>
         </head>
 
                 {{{page_content}}}
             </div>
 
-            <script src="vendors/jquery/dist/jquery.min.js"></script>
-            <!-- Bootstrap -->
+
+
+
+
+            <script type="text/javascript" src="public/dist/js/bootstrapValidator.js"></script>
+
             <script src="vendors/bootstrap/dist/js/bootstrap.min.js"></script>
-            <!-- FastClick -->
+
             <script src="vendors/fastclick/lib/fastclick.js"></script>
-            <!-- NProgress -->
+
             <script src="vendors/nprogress/nprogress.js"></script>
-            <!-- iCheck -->
+
             <script src="vendors/iCheck/icheck.min.js"></script>
-            <!-- Datatables -->
-            <!-- Custom Theme Scripts -->
+
             <script src="public/js/custom.min.js"></script>
+
+
+
 
         </body>
     </html>
