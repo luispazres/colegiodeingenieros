@@ -4,9 +4,20 @@
 
     function obtenerUsuarios(){
           $usuario = array();
-          $sqlstr = sprintf("SELECT *
+          $sqlstr = "SELECT *
           FROM tblusuarios tblu, tblroles tblr, tblestadocuenta tble WHERE tblu.rolId=tblr.rolId
-          AND tblu.estadoCuentaId=tble.estadoCuentaId AND tble.estadoCuentaId=4;");
+          AND tblu.estadoCuentaId=tble.estadoCuentaId AND tblu.estadoCuentaId=4;";
+          $usuario = obtenerRegistros($sqlstr);
+          return $usuario;
+    }
+
+
+    function obtenerUsuariosLogueado($id){
+          $usuario = array();
+          $sqlstr = "select * from tblusuarios as u, tblroles as r, tblestadocuenta as ec  where
+          u.estadoCuentaId=ec.estadoCuentaId and u.rolId=r.rolId
+          and usuarioIdentidad!='%s' AND u.estadoCuentaId=4;";
+          $sqlstr = sprintf($sqlstr, valstr($id));
           $usuario = obtenerRegistros($sqlstr);
           return $usuario;
     }

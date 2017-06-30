@@ -83,8 +83,8 @@
             }
 
            $mail = new PHPMailer;
-            $mail->SMTPDebug=2;
-            $mail->isSMTP();
+              $mail->SMTPDebug=0;
+              $mail->isSMTP();
              $mail->Host = 'chimera.lunarpages.com';
              $mail->SMTPAuth = true;
              $mail->Username = 'cimeqh@conectahn.org';
@@ -100,19 +100,15 @@
              //$mail->addAttachment('/var/tmp/file.tar.gz');         // Add attachments
              //$mail->addAttachment('/tmp/image.jpg', 'new.jpg');    // Optional name
              $mail->isHTML(true);                                  // Set email format to HTML
-             $asunto = 'Alerta de rechazo de cuenta.';
-              $mail->Subject = "=?ISO-8859-1?B?".base64_encode($asunto)."=?=";
+            $asunto = 'Alerta de rechazo de cuenta.';
+            $mail->Subject = "=?ISO-8859-1?B?".base64_encode($asunto)."=?=";
              $mail->Body    = "$mensaje $monto $comentario";
              $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
-             if(!$mail->send()) {
-
-             } else {
-
-             }
+             $mail->send();
           }
 
-          
-        $usuario=obtenerUsuarios();
+
+        $usuario=obtenerUsuariosLogueado($_SESSION["userName"]);
         renderizar("solicitudDeCuentas",array('usuario'=>$usuario),"layoutCimeqh.view.tpl");
         }else {
           redirectWithMessage("No cuenta con los privilegios de usuario adecuado para ver esta páagina.","?page=login");
