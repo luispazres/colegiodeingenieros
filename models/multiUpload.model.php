@@ -102,7 +102,7 @@ class Multiupload
     private function checkExtension($extension)
     {
         //aqui podemos añadir las extensiones que deseemos permitir
-        $extensiones = array("jpg","png","gif","pdf");
+        $extensiones = array("jpg","png","gif","pdf","");
         if(in_array(strtolower($extension), $extensiones))
         {
             return TRUE;
