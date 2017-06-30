@@ -42,12 +42,10 @@
                 <div class="x_content">
                   <br>
 
-                  <form action="index.php?page=solicitudDespeje" id="demo-form2" data-parsley-validate class="form-horizontal form-label-left" enctype="multipart/form-data" method="post">
+                  <form action="index.php?page=solicitudDespeje" id="defaultForm" data-parsley-validate class="form-horizontal form-label-left" enctype="multipart/form-data" method="post">
                       <input type="hidden" name="solicitudAprobacionId" id="solicitudAprobacionId" value="{{solicitudAprobacionId}}">
                       <input type="hidden" name="accion" id="accion" value="{{accion}}">
                       <input type="hidden" name="despejeId" id="despejeId" value="{{despejeId}}">
-                      <div class="form-group">
-
                          <div class="row">
                            <div class="col-md-6">
                                <div class="form-group">
@@ -87,9 +85,79 @@
                                                            <input type="submit" id="btnSolicitarDespeje" name="btnSolicitarDespeje" class="btn btn-default" value="Solicitar Despeje">
 
                     </form>
-          </div>
         </div>
       </div>
     </div>
 </div>
 </div>
+<script type="text/javascript">
+
+$(document).ready(function() {
+  $('#defaultForm').bootstrapValidator({
+    message: 'This value is not valid',
+      feedbackIcons: {
+          valid: 'glyphicon glyphicon-ok',
+          invalid: 'glyphicon glyphicon-remove',
+          validating: 'glyphicon glyphicon-refresh'
+      },
+      fields: {
+          txtTiempo: {
+            validators: {
+                notEmpty: {
+                    message: 'Campo obligatorio, no puede estar vacio.'
+                },
+                stringLength: {
+                    min: 1,
+                    max: 1000000000,
+                    message: 'Debe tener al menos un dígito.'
+                },
+                regexp: {
+                    regexp: /^[1-9][0-9]*$/,
+                    message: 'Solo se aceptan números y el primer dígito no puede ser 0.'
+                }
+            }
+          },
+          txtCuadrillas: {
+            validators: {
+                notEmpty: {
+                    message: 'Campo obligatorio, no puede estar vacio.'
+                },
+                stringLength: {
+                    min: 1,
+                    max: 10000000,
+                    message: 'Debe tener al menos un dígito.'
+                },
+                regexp: {
+                    regexp: /^[1-9][0-9]*$/,
+                    message: 'Solo se aceptan números y el primer dígito no puede ser 0.'
+                }
+            }
+          },
+          txtCantidadPersonal: {
+            validators: {
+                notEmpty: {
+                    message: 'Campo obligatorio, no puede estar vacio.'
+                },
+                stringLength: {
+                    min: 1,
+                    max: 1000000000000,
+                    message: 'Debe tener al menos un dígito.'
+                },
+                regexp: {
+                    regexp: /^[1-9][0-9]*$/,
+                    message: 'Solo se aceptan números y el primer dígito no puede ser 0.'
+                }
+            }
+          },
+          txtFecha: {
+            validators: {
+                notEmpty: {
+                    message: 'Campo obligatorio, no puede estar vacio.'
+                }
+            }
+          },
+      }
+  });
+});
+
+</script>

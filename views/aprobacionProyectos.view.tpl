@@ -42,11 +42,10 @@
                 <div class="x_content">
                   <br>
 
-                    <form action="index.php?page=aprobacionProyectos" id="demo-form2" data-parsley-validate class="form-horizontal form-label-left" enctype="multipart/form-data" method="post">
+                    <form action="index.php?page=aprobacionProyectos" id="defaultForm" data-parsley-validate class="form-horizontal form-label-left" enctype="multipart/form-data" method="post">
                       <input type="hidden" name="proyectoId" id="proyectoId" value="{{proyectoId}}">
                       <input type="hidden" name="aprobacionId" id="aprobacionId" value="{{aprobacionId}}">
                       <input type="hidden" name="accion" id="accion" value="{{accion}}">
-                      <div class="form-group">
               					 <div class="row">
                                               <div class="col-md-6">
                                                   <div class="form-group">
@@ -147,7 +146,7 @@
                                                                <div class="col-md-6">
                                                                    <div class="form-group">
                                                                        <label for="txtTotalTimbres">Total de Timbres a Pagar</label>
-                                                                       <input id="txtTotalTimbres" type="text" name="txtTotalTimbres" class="form-control" >
+                                                                       <input id="txtTotalTimbres" type="text" name="txtTotalTimbres" class="form-control" disabled="disabled">
                                                                    </div>
                                                                </div>
 
@@ -173,8 +172,6 @@
                                                                                 </div>
                                                                                 <button type="button" id="btnAgregarArchivo" name="btnAgregarArchivo" class="btn btn-round btn-primary">Agregar Otro Archivo</button>
                                                                             </div>
-              				</div>
-
               				<!--Boton Submit-->
               				<input type="submit" id="btnSolicitarAprobacion" name="btnSolicitarAprobacion" class="btn btn-default" value="Solicitar Aprobación">
               				<!--Fin Boton Submit-->
@@ -187,3 +184,35 @@
     </div>
 </div>
 </div>
+<script type="text/javascript">
+
+$(document).ready(function() {
+  $('#defaultForm').bootstrapValidator({
+    message: 'This value is not valid',
+      feedbackIcons: {
+          valid: 'glyphicon glyphicon-ok',
+          invalid: 'glyphicon glyphicon-remove',
+          validating: 'glyphicon glyphicon-refresh'
+      },
+      fields: {
+        txtMonto: {
+          validators: {
+              notEmpty: {
+                  message: 'Campo obligatorio, no puede estar vacio.'
+              },
+              stringLength: {
+                  min: 1,
+                  max: 10000000000000,
+                  message: 'Debe tener al menos un dígito.'
+              },
+              regexp: {
+                  regexp: /\d+(\.\d{1,2})?/,
+                  message: 'Solo se aceptan números.'
+              }
+          }
+        },
+      }
+  });
+});
+
+</script>

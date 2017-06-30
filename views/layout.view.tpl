@@ -49,8 +49,11 @@
             <link href="vendors/pnotify/dist/pnotify.buttons.css" rel="stylesheet">
             <link href="vendors/pnotify/dist/pnotify.nonblock.css" rel="stylesheet">
 
+            <link rel="stylesheet" href="public/dist/css/bootstrapValidator.min.css"/>
+
             <!-- Custom Theme Style -->
             <link href="public/css/custom.min.css" rel="stylesheet">
+              <script src="public/js/jquery.min.js"></script>
         </head>
         <body class="nav-md">
 
@@ -295,7 +298,10 @@
         </div>
 
           <!-- jQuery -->
-          <script src="public/js/jquery.min.js"></script>
+
+
+          <script type="text/javascript" src="public/dist/js/bootstrapValidator.js"></script>
+
           <!-- Bootstrap -->
           <script src="public/js/bootstrap.min.js"></script>
           <!-- FastClick -->
