@@ -91,8 +91,8 @@
                           <form method="post" action="index.php?page=solicitudDeCuentas">
                           <input id="usuarioIdentidad" type="hidden" name="usuarioIdentidad" value={{usuarioIdentidad}}>
                           <a href="index.php?page=documentos&accion=recepcion&codigo={{solicitudRecepcioId}}" target="_blank"><input type="button" name="btnDescargar" id="btnDescargar" class="btn btn-warning" value="Ver Documentos Agregados" target="_blank">
-                          <a href="index.php?page=comentarios&tipo=rechazo&accion=recepcion&codigo={{solicitudRecepcioId}}"><input type="button" name="btnRechazar" id="btnRechazar" class="btn btn-danger" value="Rechazar Factibilidad">
-                          <a href="index.php?page=comentarios&tipo=aceptado&accion=recepcion&codigo={{solicitudRecepcioId}}"><input type="button" name="btnAceptar" id="btnAceptar" class="btn btn-success" value="Aceptar Factibilidad">
+                          <a href="index.php?page=comentarios&tipo=rechazo&accion=recepcion&codigo={{solicitudRecepcioId}}"><input type="button" name="btnRechazar" id="btnRechazar" class="btn btn-danger" value="Rechazar Recepción">
+                          <a href="index.php?page=comentarios&tipo=aceptado&accion=recepcion&codigo={{solicitudRecepcioId}}"><input type="button" name="btnAceptar" id="btnAceptar" class="btn btn-success" value="Aceptar Recepción">
                           </form>
                           </div>
                         </div>
