@@ -65,8 +65,10 @@
                             {{if reintentar}}
                                   <a href="index.php?page=aprobacionProyectos&proyectoId={{proyectoId}}&aprobacionId={{solicitudAprobacionId}}&accion=UPD"><button type="button" class="btn btn-success">Modificar Solicitud de Aprobacion</button></a>
                             {{endif reintentar}}
-                            <a href="index.php?page=recepcionProyectos&proyectoId={{proyectoId}}&accion=INS"><button type="button" class="btn btn-success">Solicitar Recepción del Proyecto</button></a>
-                            <a href="index.php?page=solicitudDespeje&proyectoId={{proyectoId}}"><button type="button" class="btn btn-success">Solicitar Despeje de energia</button></a>
+                            {{ifnot reintentar}}
+                              <a href="index.php?page=recepcionProyectos&proyectoId={{proyectoId}}&accion=INS"><button type="button" class="btn btn-success">Solicitar Recepción del Proyecto</button></a>
+                              <a href="index.php?page=solicitudDespeje&proyectoId={{proyectoId}}"><button type="button" class="btn btn-success">Solicitar Despeje de energia</button></a>
+                            {{endifnot reintentar}}
                           </div>
                         </div>
                       </div>
