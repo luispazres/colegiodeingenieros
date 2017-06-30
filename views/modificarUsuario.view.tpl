@@ -42,14 +42,14 @@
                     <br>
 
                       <form method='post' action='index.php?page=verUsuarios' id='demo-form2' data-parsley-validate class='form-horizontal form-label-left'>
-                        <div class='form-group'>
+                      
                            <div class='row'>
 
                                                 <div class='col-md-6'>
                                                     <div class='form-group'>
                                                         <label for='txtProyectoNombre'>Numero de Identidad *</label>
                                                         <input type='text' id='txtUs'class='form-control' name='txtUs' value='{{usuarioIdentidad}}' disabled='disabled'>
-                                                        <input type='hidden' id='usid'class='form-control' name='usid' value='{{usuarioIdentidad}}'>                                                        
+                                                        <input type='hidden' id='usid'class='form-control' name='usid' value='{{usuarioIdentidad}}'>
                                                     </div>
                                                 </div>
                                                 <div class='col-md-6'>
@@ -115,7 +115,7 @@
                         </div>
                     </div>
               </form>
-            </div>
+
           </div>
         </div>
       </div>

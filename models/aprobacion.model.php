@@ -13,7 +13,7 @@ VALUES
 
   if(ejecutarNonQuery($insertSQL)){
             $ultimoID=getLastInserId();
-            $codigo = base_convert($_SESSION["userName"],10,36).base_convert(time(), 10, 36).base_convert(getLastInserId(), 10, 36);
+            $codigo = /*base_convert($_SESSION["userName"],10,36).*/base_convert(time(), 10, 36).base_convert(getLastInserId(), 10, 36);
             $codigo= (string)$codigo;
             $insertSQL2 = "UPDATE `tblsolicitudaprobacion`
             SET `codigoAprobacion` = '%s'
@@ -172,7 +172,23 @@ $sqlstr = sprintf($sqlstr, $estado,$comentario,$solicitudId);
 
 function obtenerAprobacion(){
     $solicitudes = array();
-    $sqlstr = "SELECT if(ea.estadoAprobacionId=3 || ea.estadoAprobacionId=1 || ea.estadoAprobacionId=4,true,false) 'reintentar',sa.comentarioAprobacion, p.proyectoId, p.proyectoNombre, p.proyectoNombrePropietario, p.proyectoIdentidadPropietario, sa.solicitudAprobacionId, ea.estadoAprobacionId, ea.estadoAprobacionDescripcion FROM tblsolicitudaprobacion as sa, tblproyectos as p, tblestadoaprobacion as ea where p.proyectoId=sa.proyectoId and sa.estadoSolicitudAprobacion=ea.estadoAprobacionId;";
+    $sqlstr = "SELECT
+	if(ea.estadoAprobacionId=3 || ea.estadoAprobacionId=1 || ea.estadoAprobacionId=4,true,false) 'reintentar',
+    if(exists(select * from tblsolicitudrecepcion as sr where sr.solicitudAprobacionId=sa.solicitudAprobacionId),false,true) 'recepcion',
+    if(exists(select * from tblsolicituddespeje as sd where sd.tblsolicitudaprobacion_solicitudAprobacionId=sa.solicitudAprobacionId),false,true) 'despeje',
+    sa.comentarioAprobacion,
+    p.proyectoId,
+    p.proyectoNombre,
+    p.proyectoNombrePropietario,
+    p.proyectoIdentidadPropietario,
+    sa.solicitudAprobacionId,
+    ea.estadoAprobacionId,
+    ea.estadoAprobacionDescripcion
+    FROM tblsolicitudaprobacion as sa,
+    tblproyectos as p,
+    tblestadoaprobacion as ea
+    where p.proyectoId=sa.proyectoId
+    and sa.estadoSolicitudAprobacion=ea.estadoAprobacionId;";
     $solicitudes = obtenerRegistros($sqlstr);
     return $solicitudes;
 }

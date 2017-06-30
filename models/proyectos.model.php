@@ -33,7 +33,18 @@
 
     function obtenerTodosLosProyectos(){
         $departamentos = array();
-        $sqlstr = "select * from tblproyectos as p, tbldepartamentos as d where d.departamentoId=p.departamentoId;";
+        $sqlstr = "select
+	(if (exists (select * from tblsolicitudaprobacion as sa where p.proyectoId=sa.proyectoId), false,true)) 'aprobacion',
+    (if (exists (select * from tblsolicitudfactibilidad as sf where p.proyectoId=sf.proyectoId), false,true)) 'factibilidad',
+    p.proyectoId,
+    p.proyectoNombrePropietario,
+    p.proyectoNombre,
+    p.proyectoDescrpcion,
+    d.departamentoDescripcion,
+    p.proyectoNombrePropietario,
+    p.proyectoIdentidadPropietario
+from tblproyectos as p, tbldepartamentos as d
+where d.departamentoId=p.departamentoId;";
         $departamentos = obtenerRegistros($sqlstr);
         return $departamentos;
     }

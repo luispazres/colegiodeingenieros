@@ -62,9 +62,18 @@
 
                           </div>
                           <div class="modal-footer">
-                            <a href="index.php?page=factibilidadProyectos&proyectoId={{proyectoId}}&accion=INS"><button type="button" class="btn btn-success">Solicitar Factibilidad</button></a>
-                            <a href="index.php?page=aprobacionProyectos&proyectoId={{proyectoId}}&accion=INS"><button type="button" class="btn btn-success">Solicitar Aprobación</button></a>
-
+                            {{if factibilidad}}
+                              <a href="index.php?page=factibilidadProyectos&proyectoId={{proyectoId}}&accion=INS"><button type="button" class="btn btn-success">Solicitar Factibilidad</button></a>
+                            {{endif factibilidad}}
+                            {{if aprobacion}}
+                              <a href="index.php?page=aprobacionProyectos&proyectoId={{proyectoId}}&accion=INS"><button type="button" class="btn btn-success">Solicitar Aprobación</button></a>
+                            {{endif aprobacion}}
+                            {{ifnot factibilidad}}
+                              <a href="index.php?page=factibilidadProyectos&proyectoId={{proyectoId}}&accion=INS"><button type="button" class="btn btn-success" disabled>Ya ha realizado una Solicitud de Factibilidad</button></a>
+                            {{endifnot factibilidad}}
+                            {{ifnot aprobacion}}
+                              <a href="index.php?page=aprobacionProyectos&proyectoId={{proyectoId}}&accion=INS"><button type="button" class="btn btn-success" disabled>Ya ha realizado una Solicitud de Aprobación</button></a>
+                            {{endifnot aprobacion}}
                           </div>
                         </div>
                       </div>
