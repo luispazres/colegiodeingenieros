@@ -62,19 +62,18 @@
               <div class="col-md-3 left_col">
                 <div class="left_col scroll-view">
                   <div class="navbar nav_title" style="border: 0;">
-                    <a href="index.php?page=home" class="site_title"><i class="fa fa-paw"></i> <span>CIMEQH</span></a>
+
+                    <a href="index.php?page=home"><img src="files/cimeqh_.jpg"  class="img-circle profile_img" alt="CIMEQH"></a>
+
                   </div>
 
                   <div class="clearfix"></div>
 
                   <!-- menu profile quick info -->
                   <div class="profile clearfix">
-                    <div class="profile_pic">
-                      <img src="images/img.jpg" alt="..." class="img-circle profile_img">
-                    </div>
                     <div class="profile_info">
                       <span>Bienvenido,</span>
-                      <h2>{{nombre}} {{apellido}}</h2>
+                      <h2 align="center">{{nombre}} {{apellido}}</h2>
                     </div>
                     <div class="clearfix"></div>
                   </div>
@@ -164,7 +163,7 @@
                             </a>
                           </li>
                           <li><a href="javascript:;">Help</a></li>
-                          <li><a href="login.html"><i class="fa fa-sign-out pull-right"></i> Log Out</a></li>
+                          <li><a href="index.php?page=cerrarSesion"><i class="fa fa-sign-out pull-right"></i> Cerrar Sesión</a></li>
                         </ul>
                       </li>
 
