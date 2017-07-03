@@ -248,52 +248,10 @@
           <script src="vendors/pdfmake/build/vfs_fonts.js"></script>
 
           <script src="vendors/bootstrap-progressbar/bootstrap-progressbar.min.js"></script>
-          <!-- iCheck -->
+        
           <script src="vendors/iCheck/icheck.min.js"></script>
-          <!-- PNotify -->
-        <!--  <script src="vendors/pnotify/dist/pnotify.js"></script>
-          <script src="vendors/pnotify/dist/pnotify.buttons.js"></script>
-          <script src="vendors/pnotify/dist/pnotify.nonblock.js"></script>
 
-          <script src="vendors/dropzone/dist/min/dropzone.min.js"></script>-->
-
-
-          <!-- Custom Theme Scripts -->
           <script src="public/js/custom.min.js"></script>
-
-          <script type="text/javascript">
-              var contadorImagenes=0;
-              $("#txtMonto").on('input',function(e){
-                var monto =$("#txtMonto").val();
-                var cantidadAPagar=0;
-                if (monto>=1 && monto<=100000) {
-                  cantidadAPagar=50;
-                }else if (monto>100000 && monto<=250000) {
-                  cantidadAPagar=150;
-                }else if (monto>250000 && monto<=500000) {
-                  cantidadAPagar=350;
-                }else if (monto>500000 && monto<=1000000) {
-                  cantidadAPagar=700;
-                }else if (monto>=1100000) {
-                  monto=monto-1000000;
-                  monto=parseInt(monto/100000);
-                  cantidadAPagar=(monto*30)+700;
-                  cantidadAPagar=parseInt(cantidadAPagar);
-                }
-                $("#txtTotalTimbres").val(cantidadAPagar);
-              });
-
-              $('#btnAgregarArchivo').click(function(){
-
-                if (contadorImagenes>5) {
-                  alert("Ha alcanzado el límite máximo de archivos.");
-                }else {
-                  $(".agregar-archivo").append("<div class='col-md-6'><div class='form-group'><label for='userfile'>Documento 2</label><input id='userfile' type='file' name='userfile[]' class='form-control' ></div></div>");
-                  contadorImagenes++;
-                }
-              });
-
-          </script>
 
         </body>
     </html>

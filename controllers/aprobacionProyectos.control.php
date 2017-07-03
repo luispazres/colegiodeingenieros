@@ -84,6 +84,7 @@
               $htmlDatos["proyectoCelularPropietario"] = $proyectos["proyectoCelularPropietario"];
               $htmlDatos["proyectoDireccionPropietario"] = $proyectos["proyectoDireccionPropietario"];
               $htmlDatos["proyectoTelefonoPropietario"] = $proyectos["proyectoTelefonoPropietario"];
+            
               }
             }
 

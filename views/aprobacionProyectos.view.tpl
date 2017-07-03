@@ -157,10 +157,11 @@
                                                                             </div>
   <form action="models/charge.model.php" method="post">
   <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-          data-key="<?php echo $stripe['publishable_key']; ?>"
+          data-key="pk_test_pNSNeMvq6cUCWFj7BcJUYltG"
           data-description="Access for a year"
-          data-amount="5000"
-          data-locale="auto"></script>
+          data-amount=
+          data-locale="auto">
+  </script>
 </form>
 
               				<!--Boton Submit-->
@@ -206,4 +207,34 @@ $(document).ready(function() {
   });
 });
 
+var contadorImagenes=0;
+$("#txtMonto").on('input',function(e){
+  var monto =$("#txtMonto").val();
+  var cantidadAPagar=0;
+  if (monto>=1 && monto<=100000) {
+    cantidadAPagar=50;
+  }else if (monto>100000 && monto<=250000) {
+    cantidadAPagar=150;
+  }else if (monto>250000 && monto<=500000) {
+    cantidadAPagar=350;
+  }else if (monto>500000 && monto<=1000000) {
+    cantidadAPagar=700;
+  }else if (monto>=1100000) {
+    monto=monto-1000000;
+    monto=parseInt(monto/100000);
+    cantidadAPagar=(monto*30)+700;
+    cantidadAPagar=parseInt(cantidadAPagar);
+  }
+  $("#txtTotalTimbres").val(cantidadAPagar);
+});
+
+$('#btnAgregarArchivo').click(function(){
+
+  if (contadorImagenes>5) {
+    alert("Ha alcanzado el límite máximo de archivos.");
+  }else {
+    $(".agregar-archivo").append("<div class='col-md-6'><div class='form-group'><label for='userfile'>Documento 2</label><input id='userfile' type='file' name='userfile[]' class='form-control' ></div></div>");
+    contadorImagenes++;
+  }
+});
 </script>
