@@ -235,9 +235,7 @@ class vistaComentariosFactibilidad
                     <div class='x_content'>
                       <br>
 
-                        <form action='index.php?page=revisarSolicitudFactibilidadEnee' id='demo-form2' data-parsley-validate enctype='multipart/form-data' class='form-horizontal form-label-left' method='post' >
-                          <div class='form-group'>
-
+                        <form action='index.php?page=revisarSolicitudFactibilidadEnee' id='defaultForm' name='defaultForm' data-parsley-validate enctype='multipart/form-data' class='form-horizontal form-label-left' method='post' >
                              <div class='row'>
                                                   <div class='col-md-6'>
                                                       <div class='form-group'>
@@ -336,21 +334,56 @@ class vistaComentariosFactibilidad
                                                    </div>
                                                </div>
                           <div class='col-md-12'>
-                          <div class='form-group'>
                           <!--Boton Submit-->
                           <button type='submit' id='btnComentarFactibilidad' name='btnComentarFactibilidad' class='btn btn-default'>
                             Actualizar
                           </button>
                           <!--Fin Boton Submit-->
-                          </div>
                       </div>
                 </form>
               </div>
-            </div>
           </div>
         </div>
     </div>
     </div>
+
+
+    <script type='text/javascript'>
+
+    $(document).ready(function() {
+      $('#defaultForm').bootstrapValidator({
+        message: 'This value is not valid',
+          feedbackIcons: {
+              valid: 'glyphicon glyphicon-ok',
+              invalid: 'glyphicon glyphicon-remove',
+              validating: 'glyphicon glyphicon-refresh'
+          },
+          fields: {
+              comentario: {
+                  validators: {
+                      notEmpty: {
+                          message: 'Campo obligatorio, no puede estar vacio.'
+                      },
+                      stringLength: {
+                          min: 2,
+                          max: 600,
+                          message: 'El comentario debe de tener minimo 2 dígitos.'
+                      },
+                  }
+              },
+              'userfile[]': {
+                  validators: {
+                      notEmpty: {
+                          message: 'Campo obligatorio, no puede estar vacio.'
+                      },
+                  }
+              },
+          }
+      });
+    });
+
+    </script>
+
 ";
 
       return $vista;
