@@ -1,14 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Secure Payment Form</title>
-<link rel="stylesheet" href="public/css/bootstrap.min.css">
-<link rel="stylesheet" href="public/css/bootstrap-formhelpers-min.css" media="screen">
-<link rel="stylesheet" href="public/css/bootstrapValidator-min.css"/>
-<link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" />
-<!--<link rel="stylesheet" href="css/bootstrap-side-notes.css" />-->
+
 <style type="text/css">
 .col-centered {
     display:inline-block;
@@ -21,11 +11,6 @@
 	margin-right: 9px;
 }
 </style>
-<script type="text/javascript" src="https://js.stripe.com/v2/"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-<script src="public/js/bootstrap.min.js"></script>
-<script src="public/js/bootstrap-formhelpers-min.js"></script>
-<script type="text/javascript" src="public/js/bootstrapValidator-min.js"></script>
 <script type="text/javascript">
 $(document).ready(function() {
     $('#payment-form').bootstrapValidator({
@@ -36,7 +21,6 @@ $(document).ready(function() {
             validating: 'glyphicon glyphicon-refresh'
         },
 		submitHandler: function(validator, form, submitButton) {
-                    // createToken returns immediately - the supplied callback submits the form if there are no errors
                     Stripe.card.createToken({
                         number: $('.card-number').val(),
                         cvc: $('.card-cvc').val(),
@@ -49,7 +33,7 @@ $(document).ready(function() {
 			address_state: $('.state').val(),
 			address_country: $('.country').val()
                     }, stripeResponseHandler);
-                    return false; // submit from callback
+                    return false;
         },
         fields: {
             street: {
@@ -204,32 +188,30 @@ $(document).ready(function() {
 });
 </script>
 <script type="text/javascript">
-            // this identifies your website in the createToken call below
+
             Stripe.setPublishableKey('pk_test_pNSNeMvq6cUCWFj7BcJUYltG');
 
             function stripeResponseHandler(status, response) {
                 if (response.error) {
-                    // re-enable the submit button
+
                     $('.submit-button').removeAttr("disabled");
-					// show hidden div
+
 					document.getElementById('a_x200').style.display = 'block';
-                    // show the errors on the form
+
                     $(".payment-errors").html(response.error.message);
                 } else {
                     var form$ = $("#payment-form");
-                    // token contains id, last4, and card type
+
                     var token = response['id'];
-                    // insert the token into the form so it gets submitted to the server
+
                     form$.append("<input type='hidden' name='stripeToken' value='" + token + "' />");
-                    // and submit
+
                     form$.get(0).submit();
                 }
             }
 
 
 </script>
-</head>
-<body>
 <form action="" method="POST" id="payment-form" class="form-horizontal">
   <div class="row row-centered">
   <div class="col-md-4 col-md-offset-4">
@@ -242,40 +224,11 @@ $(document).ready(function() {
     <p>This payment form requires your browser to have JavaScript enabled. Please activate JavaScript and reload this page. Check <a href="http://enable-javascript.com" target="_blank">enable-javascript.com</a> for more informations.</p>
   </div>
   </noscript>
-  <?php
-  require 'vendor/stripe/stripe-php/lib/Stripe/Stripe.php';
 
-
-$error = '';
-$success = '';
-
-if ($_POST) {
-  Stripe::setApiKey("sk_test_UDpydu1XVxuNRRRmOShf0iIl");
-
-  try {
-	if (empty($_POST['street']) || empty($_POST['city']) || empty($_POST['zip']))
-      throw new Exception("Fill out all required fields.");
-    if (!isset($_POST['stripeToken']))
-      throw new Exception("The Stripe Token was not generated correctly");
-    Stripe_Charge::create(array("amount" => 3000,
-                                "currency" => "hnl",
-                                "card" => $_POST['stripeToken'],
-								"description" => $_POST['email']));
-    $success = '<div class="alert alert-success">
-                <strong>Success!</strong> Your payment was successful.
-				</div>';
-  }
-  catch (Exception $e) {
-	$error = '<div class="alert alert-danger">
-			  <strong>Error!</strong> '.$e->getMessage().'
-			  </div>';
-  }
-}
-?>
   <div class="alert alert-danger" id="a_x200" style="display: none;"> <strong>Error!</strong> <span class="payment-errors"></span> </div>
   <span class="payment-success">
-  <?= $success ?>
-  <?= $error ?>
+  {{success}}
+  {{error}}
   </span>
   <fieldset>
 
