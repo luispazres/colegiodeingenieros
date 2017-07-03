@@ -155,6 +155,14 @@
                                                                                 </div>
                                                                                 <button type="button" id="btnAgregarArchivo" name="btnAgregarArchivo" class="btn btn-round btn-primary">Agregar Otro Archivo</button>
                                                                             </div>
+  <form action="models/charge.model.php" method="post">
+  <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+          data-key="<?php echo $stripe['publishable_key']; ?>"
+          data-description="Access for a year"
+          data-amount="5000"
+          data-locale="auto"></script>
+</form>
+
               				<!--Boton Submit-->
               				<input type="submit" id="btnSolicitarAprobacion" name="btnSolicitarAprobacion" class="btn btn-default" value="Solicitar Aprobación">
               				<!--Fin Boton Submit-->
