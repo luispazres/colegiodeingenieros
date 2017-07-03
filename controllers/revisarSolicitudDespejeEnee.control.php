@@ -6,7 +6,7 @@
 
     if (mw_estaLogueado()) {
       if ($_SESSION["estado"]==1) {
-        if ($_SESSION["rol"]==1) {
+        if ($_SESSION["rol"]==2) {
           $revisar = array();
 
           if(isset($_POST["btnRechazar"])){

@@ -61,7 +61,7 @@
               <div class="col-md-3 left_col">
                 <div class="left_col scroll-view">
                   <div class="navbar nav_title" style="border: 0;">
-                    <a href="index.html" class="site_title"><i class="fa fa-paw"></i> <span>CIMEQH</span></a>
+                    <a href="index.php?page=home"><img src="images/cimeqh_.jpg"  class="img-circle profile_img" alt="CIMEQH"></a>
                   </div>
 
                   <div class="clearfix"></div>
@@ -69,10 +69,10 @@
                   <!-- menu profile quick info -->
                   <div class="profile clearfix">
                     <div class="profile_pic">
-                      <img src="images/img.jpg" alt="..." class="img-circle profile_img">
                     </div>
                     <div class="profile_info">
-                      <span>Welcome,</span>
+                      <br>
+                      <span>Welcome</span>
                       <h2>{{nombre}} {{apellido}}</h2>
                     </div>
                     <div class="clearfix"></div>
@@ -98,7 +98,7 @@
                         </li>
                         <li><a href="index.php?page=revisarSolicitudRecepcionCimeqh"><i class="fa fa-cloud-upload"></i>Revisar Solicitudes de Recepcion de Proyectos<span class="fa fa-chevron-down"></span></a>
                         </li>
-                        <li><a><i class="fa fa-flash"></i>Revisar Solicitudes de Despeje de Energía<span class="fa fa-chevron-down"></span></a>
+                        <li><a href="index.php?page=revisarSolicitudDespejeCimeqh"><i class="fa fa-flash"></i>Revisar Solicitudes de Despeje de Energía<span class="fa fa-chevron-down"></span></a>
                         </li>
                       </ul>
                     </div>
