@@ -8,16 +8,13 @@
 
   require_once("models/aprobacion.model.php");
 
-    require 'vendor/stripe/stripe-php/lib/Stripe.php';
+  require 'vendor/stripe/stripe-php/lib/Stripe/Stripe.php';
 
   function run(){
 
+    $errores = array();
 
-
-    $error = '';
-    $success = '';
-
-    if (isset($_POST["btnPagarAprobacion"])) {
+    if ($_POST) {
       Stripe::setApiKey("sk_test_UDpydu1XVxuNRRRmOShf0iIl");
 
       try {
@@ -26,21 +23,21 @@
         if (!isset($_POST['stripeToken']))
           throw new Exception("The Stripe Token was not generated correctly");
         Stripe_Charge::create(array("amount" => 3000,
-                                    "currency" => "eur",
+                                    "currency" => "usd",
                                     "card" => $_POST['stripeToken'],
     								"description" => $_POST['email']));
-        $success = '<div class="alert alert-success">
+        $errores["success"] = '<div class="alert alert-success">
                     <strong>Success!</strong> Your payment was successful.
     				</div>';
       }
       catch (Exception $e) {
-    	$error = '<div class="alert alert-danger">
+    	$errores["error"] = '<div class="alert alert-danger">
     			  <strong>Error!</strong> '.$e->getMessage().'
     			  </div>';
       }
     }
 
-    renderizar("pagarAprobacion", array());
+    renderizar("pagarAprobacion", $errores);
   }
 
 
