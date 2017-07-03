@@ -50,9 +50,7 @@ class vistaComentariosFactibilidad
                     <div class='x_content'>
                       <br>
 
-                        <form method='post' action='index.php?page=revisarSolicitudFactibilidadCimeqh' id='demo-form2' data-parsley-validate class='form-horizontal form-label-left'>
-                          <div class='form-group'>
-
+                        <form method='post' action='index.php?page=revisarSolicitudFactibilidadCimeqh' id='defaultForm' name='defaultForm' data-parsley-validate class='form-horizontal form-label-left'>
                              <div class='row'>
                                                   <div class='col-md-6'>
                                                       <div class='form-group'>
@@ -139,26 +137,54 @@ class vistaComentariosFactibilidad
                                                   <div class='col-md-12'>
                                                    <div class='form-group'>
                                                        <label for='form_message'>Comentarios *</label>
-                                                       <textarea id='comentario' placeholder='Describa Porque ha sido rechazado el proyecto' name='comentario' class='form-control' rows='4'></textarea>
+                                                       <textarea id='txtcomentario' placeholder='Describa Porque ha sido rechazado el proyecto' name='txtcomentario' class='form-control' rows='4'></textarea>
                                                    </div>
                                                </div>
                           <div class='col-md-12'>
-                          <div class='form-group'>
                           <!--Boton Submit-->
                           <button type='submit' id='btnComentarFactibilidad' name='btnComentarFactibilidad' class='btn btn-default'>
                             Actualizar
                           </button>
                           <!--Fin Boton Submit-->
-                          </div>
                       </div>
                 </form>
               </div>
-            </div>
           </div>
         </div>
     </div>
     </div>
-";
+
+
+    <script type='text/javascript'>
+
+    $(document).ready(function() {
+      $('#defaultForm').bootstrapValidator({
+        message: 'This value is not valid',
+          feedbackIcons: {
+              valid: 'glyphicon glyphicon-ok',
+              invalid: 'glyphicon glyphicon-remove',
+              validating: 'glyphicon glyphicon-refresh'
+          },
+          fields: {
+              txtcomentario: {
+                  validators: {
+                      notEmpty: {
+                          message: 'Campo obligatorio, no puede estar vacio.'
+                      },
+                      stringLength: {
+                          min: 2,
+                          max: 600,
+                          message: 'El comentario debe de tener minimo 2 dígitos.'
+                      },
+                  }
+              },
+          }
+      });
+    });
+
+    </script>
+
+  ";
 
       return $vista;
   }
