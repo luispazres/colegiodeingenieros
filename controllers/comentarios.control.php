@@ -79,7 +79,7 @@
       $htmlDatos["usuarioSegundoNombre"] = $solicitud["usuarioSegundoNombre"];
       $htmlDatos["usuarioSegundoApellido"] = $solicitud["usuarioSegundoApellido"];
       $htmlDatos["usuarioPrimerApellido"] = $solicitud["usuarioPrimerApellido"];
-      $htmlDatos["ingenieroNombre"]=  $htmlDatos["usuarioPrimerNombre"]." ".  $htmlDatos["usuarioSegundoNombre"]." ".$htmlDatos["usuarioPrimerApellido"]." ".  $htmlDatos["usuarioSegundoApellido"];
+      $htmlDatos["ingenieroNombre"] =  $htmlDatos["usuarioPrimerNombre"]." ".  $htmlDatos["usuarioSegundoNombre"]." ".$htmlDatos["usuarioPrimerApellido"]." ".  $htmlDatos["usuarioSegundoApellido"];
       $htmlDatos["usuarioNumeroColegiacion"] = $solicitud["usuarioNumeroColegiacion"];
       $htmlDatos["solicitudAaprobacionMontoEstimado"] = $solicitud["solicitudAaprobacionMontoEstimado"];
       $htmlDatos["solicitudAprobacionCosto"] = $solicitud["solicitudAprobacionCosto"];
