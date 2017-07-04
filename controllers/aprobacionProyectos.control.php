@@ -1,7 +1,6 @@
 <?php
 
   require_once("libs/template_engine.php");
-  require_once('models/config.model.php');
   require_once("models/proyectos.model.php");
   require_once("models/aprobacion.model.php");
   require_once("models/multiUpload.model.php");
@@ -14,7 +13,7 @@
           $respuesta="";
           $htmlDatos = array( );
 
-          if (isset($_POST["btnSolicitarAprobacion"])) {
+        /*  if (isset($_POST["btnSolicitarAprobacion"])) {
 
             switch ($_POST["accion"]) {
               case 'INS':
@@ -58,7 +57,7 @@
             }
 
 
-          }
+          }*/
 
           if(isset($_GET["proyectoId"])){
 
@@ -84,7 +83,7 @@
               $htmlDatos["proyectoCelularPropietario"] = $proyectos["proyectoCelularPropietario"];
               $htmlDatos["proyectoDireccionPropietario"] = $proyectos["proyectoDireccionPropietario"];
               $htmlDatos["proyectoTelefonoPropietario"] = $proyectos["proyectoTelefonoPropietario"];
-            
+
               }
             }
 
