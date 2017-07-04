@@ -69,7 +69,7 @@
             throw new Exception("Fill out all required fields.");
           if (!isset($_POST['stripeToken']))
             throw new Exception("The Stripe Token was not generated correctly");
-          Stripe_Charge::create(array("amount" => $_POST["txtTotalTimbres"],
+          Stripe_Charge::create(array("amount" => ($_POST["txtTotalTimbres"]*100),
                                       "currency" => "hnl",
                                       "card" => $_POST['stripeToken'],
                       "description" => $_POST['email']));
