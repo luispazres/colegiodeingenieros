@@ -37,6 +37,7 @@
       $htmlDatos["vista"]=vistaComentariosFactibilidad::vista($_GET["tipo"],$_GET["codigo"],$htmlDatos["proyectoNombre"],$htmlDatos["departamentoDescripcion"],$htmlDatos["proyectoDireccion"], $htmlDatos["proyectoDescrpcion"],
       $htmlDatos["proyectoNombrePropietario"],$htmlDatos["ingenieroNombre"],$htmlDatos["usuarioNumeroColegiacion"],$htmlDatos["voltajeDescripcion"],
       $htmlDatos["conexionDescripcion"],$htmlDatos["solicitudFactibilidadPotencia"],$htmlDatos["solicitudadFactibilidadCrecimientoEsperado"],$htmlDatos["solicitudFactibilidadKva"]);
+      renderizar('comentarios',  $htmlDatos,"layoutCimeqh.view.tpl");
     }
 
 
@@ -62,6 +63,7 @@
       $htmlDatos["vista"]=vistaComentariosFactibilidad::vistaEnee($_GET["tipo"],$_GET["codigo"],$htmlDatos["proyectoNombre"],$htmlDatos["departamentoDescripcion"],$htmlDatos["proyectoDireccion"], $htmlDatos["proyectoDescrpcion"],
       $htmlDatos["proyectoNombrePropietario"],$htmlDatos["ingenieroNombre"],$htmlDatos["usuarioNumeroColegiacion"],$htmlDatos["voltajeDescripcion"],
       $htmlDatos["conexionDescripcion"],$htmlDatos["solicitudFactibilidadPotencia"],$htmlDatos["solicitudadFactibilidadCrecimientoEsperado"],$htmlDatos["solicitudFactibilidadKva"],$htmlDatos["solicitudFactibilidadId"]);
+      renderizar('comentarios',  $htmlDatos,"layoutEnee.view.tpl");
     }
 
 
@@ -88,6 +90,7 @@
       $htmlDatos["proyectoDescrpcion"],$htmlDatos["proyectoNombrePropietario"],
       $htmlDatos["ingenieroNombre"],$htmlDatos["usuarioNumeroColegiacion"],
       $htmlDatos["solicitudAaprobacionMontoEstimado"],$htmlDatos["solicitudAprobacionCosto"]);
+      renderizar('comentarios',  $htmlDatos,"layoutCimeqh.view.tpl");
     }
       break;
 
@@ -112,6 +115,7 @@
         $htmlDatos["proyectoDescrpcion"],$htmlDatos["proyectoNombrePropietario"],
         $htmlDatos["ingenieroNombre"],$htmlDatos["usuarioNumeroColegiacion"],
         $htmlDatos["solicitudAaprobacionMontoEstimado"],$htmlDatos["solicitudAprobacionCosto"]);
+        renderizar('comentarios',  $htmlDatos,"layoutEnee.view.tpl");
       }
         break;
 
@@ -129,8 +133,28 @@
         $htmlDatos["proyectoNombre"],$htmlDatos["departamentoDescripcion"],$htmlDatos["proyectoDireccion"],
         $htmlDatos["proyectoDescrpcion"],$htmlDatos["proyectoNombrePropietario"],
         $htmlDatos["ingenieroNombre"],$htmlDatos["usuarioNumeroColegiacion"]);
+        renderizar('comentarios',  $htmlDatos,"layoutCimeqh.view.tpl");
     }
     break;
+
+
+    case 'recepcionEnee':
+    $solicitud=obtenerSolicitudRecepcionPorId($_GET["codigo"]);
+    if($solicitud){
+      $htmlDatos["proyectoNombre"] = $solicitud["proyectoNombre"];
+      $htmlDatos["departamentoDescripcion"] = $solicitud["departamentoDescripcion"];
+      $htmlDatos["proyectoDireccion"] = $solicitud["proyectoDireccion"];
+      $htmlDatos["proyectoNombrePropietario"] = $solicitud["proyectoNombrePropietario"];
+      $htmlDatos["proyectoDescrpcion"] = $solicitud["proyectoDescrpcion"];
+      $htmlDatos["ingenieroNombre"] = $solicitud["ingenieroNombre"];
+      $htmlDatos["usuarioNumeroColegiacion"] = $solicitud["usuarioNumeroColegiacion"];
+      $htmlDatos["vista"]=vistaComentariosRecepcion::vistaEnee($_GET["tipo"],$_GET["codigo"],
+      $htmlDatos["proyectoNombre"],$htmlDatos["departamentoDescripcion"],$htmlDatos["proyectoDireccion"],
+      $htmlDatos["proyectoDescrpcion"],$htmlDatos["proyectoNombrePropietario"],
+      $htmlDatos["ingenieroNombre"],$htmlDatos["usuarioNumeroColegiacion"]);
+      renderizar('comentarios',  $htmlDatos,"layoutEnee.view.tpl");
+  }
+  break;
 
     case 'despeje':
     $solicitud=obtenerSolicitudDespejePorId($_GET["codigo"]);
@@ -149,7 +173,8 @@
       $htmlDatos["proyectoNombre"],$htmlDatos["departamentoDescripcion"],$htmlDatos["proyectoDireccion"],
       $htmlDatos["proyectoDescrpcion"],$htmlDatos["proyectoNombrePropietario"],
       $htmlDatos["ingenieroNombre"],$htmlDatos["usuarioNumeroColegiacion"],$htmlDatos["solicitudDespejeHoras"],
-    $htmlDatos["solicitudDespejeCuadrillas"],$htmlDatos["solicitudDespejeFecha"]);
+      $htmlDatos["solicitudDespejeCuadrillas"],$htmlDatos["solicitudDespejeFecha"]);
+      renderizar('comentarios',  $htmlDatos,"layoutCimeqh.view.tpl");
     }
       break;
 
@@ -170,13 +195,14 @@
         $htmlDatos["proyectoNombre"],$htmlDatos["departamentoDescripcion"],$htmlDatos["proyectoDireccion"],
         $htmlDatos["proyectoDescrpcion"],$htmlDatos["proyectoNombrePropietario"],
         $htmlDatos["ingenieroNombre"],$htmlDatos["usuarioNumeroColegiacion"],$htmlDatos["solicitudDespejeHoras"],
-      $htmlDatos["solicitudDespejeCuadrillas"],$htmlDatos["solicitudDespejeFecha"]);
+        $htmlDatos["solicitudDespejeCuadrillas"],$htmlDatos["solicitudDespejeFecha"]);
+        renderizar('comentarios',  $htmlDatos,"layoutEnee.view.tpl");
       }
         break;
 
   }
 
-    renderizar('comentarios',  $htmlDatos);
+
  }
 
  }
