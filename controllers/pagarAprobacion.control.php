@@ -17,7 +17,11 @@
   $errores = array();
   $htmlDatos = array();
 
-  if (isset($_POST["btnSolicitarAprobacion"])) {
+  if (isset($_POST["btnPagarAprobacion"])) {
+
+  }
+
+  if ($_POST) {
 
     switch ($_POST["accion"]) {
       case 'INS':
@@ -57,6 +61,29 @@
 
         break;
 
+        case 'PAY':
+        Stripe::setApiKey("sk_test_UDpydu1XVxuNRRRmOShf0iIl");
+
+        try {
+        if (empty($_POST['street']) || empty($_POST['city']) || empty($_POST['zip']))
+            throw new Exception("Fill out all required fields.");
+          if (!isset($_POST['stripeToken']))
+            throw new Exception("The Stripe Token was not generated correctly");
+          Stripe_Charge::create(array("amount" => $_POST["txtTotalTimbres"],
+                                      "currency" => "hnl",
+                                      "card" => $_POST['stripeToken'],
+                      "description" => $_POST['email']));
+            $htmlDatos["success"]  = '<div class="alert alert-success">
+                      <strong>Success!</strong> Your payment was successful.
+              </div>';
+        }
+        catch (Exception $e) {
+          borrarAprobacion($_POST["respuesta"]);
+          $htmlDatos["error"]  = '<div class="alert alert-danger">
+              <strong>Error!</strong> '.$e->getMessage().'
+              </div>';
+        }
+          break;
       default:
         # code...
         break;
@@ -64,32 +91,10 @@
 
   }
 
-  if (isset($_POST["btnPagarAprobacion"])) {
-    Stripe::setApiKey("sk_test_UDpydu1XVxuNRRRmOShf0iIl");
-
-    try {
-  	if (empty($_POST['street']) || empty($_POST['city']) || empty($_POST['zip']))
-        throw new Exception("Fill out all required fields.");
-      if (!isset($_POST['stripeToken']))
-        throw new Exception("The Stripe Token was not generated correctly");
-      Stripe_Charge::create(array("amount" => $_POST["txtTotalTimbres"],
-                                  "currency" => "hnl",
-                                  "card" => $_POST['stripeToken'],
-  								"description" => $_POST['email']));
-        $htmlDatos["success"]  = '<div class="alert alert-success">
-                  <strong>Success!</strong> Your payment was successful.
-  				</div>';
-    }
-    catch (Exception $e) {
-      borrarAprobacion($_POST["respuesta"]);
-  	  $htmlDatos["error"]  = '<div class="alert alert-danger">
-  			  <strong>Error!</strong> '.$e->getMessage().'
-  			  </div>';
-    }
-  }
 
 
-    renderizar("pagarAprobacion",   $htmlDatos);
+
+    renderizar("pagarAprobacion",   $htmlDatos,"layoutStripe.view.tpl");
   }
 
 

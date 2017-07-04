@@ -212,10 +212,10 @@ $(document).ready(function() {
 
 
 </script>
-<form action="" method="POST" id="payment-form" class="form-horizontal">
+<form action="index.php?page=pagarAprobacion" method="POST" id="payment-form" class="form-horizontal">
   <input type="hidden" name="txtTotalTimbres" value="{{txtTotalTimbres}}">
   <input type="hidden" name="respuesta" value="{{respuesta}}">
-
+  <input type="hidden" name="accion" value="PAY">
   <div class="row row-centered">
   <div class="col-md-4 col-md-offset-4">
   <div class="page-header">
@@ -365,7 +365,7 @@ $(document).ready(function() {
     <div class="control-group">
       <div class="controls">
         <center>
-          <button class="btn btn-success" name="btnAprobacion" type="submit">Pay Now</button>
+          <button class="btn btn-success" name="btnPagarAprobacion" id="btnPagarAprobacion" type="submit">Pay Now</button>
         </center>
       </div>
     </div>

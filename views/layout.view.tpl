@@ -12,7 +12,7 @@
             <link href="vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
 
 
-            <link href="pagar/css/bootstrapValidator-min.css" rel="stylesheet">
+            <link href="public/css/bootstrapValidator.css" rel="stylesheet">
             <link href="vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
             <!-- NProgress -->
             <link href="vendors/nprogress/nprogress.css" rel="stylesheet">
@@ -63,9 +63,9 @@
               <script src="public/js/jquery.min.js"></script>
               <script src="public/js/bootstrap.min.js"></script>
               <script src="pagar/js/bootstrap-formhelpers-min.js"></script>
-              <script src="public/js/bootstrapValidator-min.js"></script>
+              <script src="public/js/bootstrapValidator.js"></script>
 
-              <script type="text/javascript" src="https://js.stripe.com/v2/"></script>
+
 
         </head>
         <body class="nav-md">

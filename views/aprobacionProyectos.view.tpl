@@ -25,7 +25,7 @@
                 <div class="x_content">
                   <br>
 
-                    <form action="index.php?page=aprobacionProyectos" id="defaultForm" data-parsley-validate class="form-horizontal form-label-left" enctype="multipart/form-data" method="post">
+                    <form action="index.php?page=pagarAprobacion" id="defaultForm" data-parsley-validate class="form-horizontal form-label-left" enctype="multipart/form-data" method="post">
                       <input type="hidden" name="proyectoId" id="proyectoId" value="{{proyectoId}}">
                       <input type="hidden" name="aprobacionId" id="aprobacionId" value="{{aprobacionId}}">
                       <input type="hidden" name="accion" id="accion" value="{{accion}}">
@@ -129,7 +129,8 @@
                                                                <div class="col-md-6">
                                                                    <div class="form-group">
                                                                        <label for="txtTotalTimbres">Total de Timbres a Pagar</label>
-                                                                       <input id="txtTotalTimbres" type="text" name="txtTotalTimbres" class="form-control" disabled="disabled">
+                                                                       <input id="txtTotalTimbresTextBox" type="text" name="txtTotalTimbresTextBox" class="form-control" disabled="disabled">
+                                                                       <input id="txtTotalTimbres" type="hidden" name="txtTotalTimbres" class="form-control">
                                                                    </div>
                                                                </div>
 
@@ -155,14 +156,6 @@
                                                                                 </div>
                                                                                 <button type="button" id="btnAgregarArchivo" name="btnAgregarArchivo" class="btn btn-round btn-primary">Agregar Otro Archivo</button>
                                                                             </div>
-  <form action="models/charge.model.php" method="post">
-  <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-          data-key="pk_test_pNSNeMvq6cUCWFj7BcJUYltG"
-          data-description="Access for a year"
-          data-amount=
-          data-locale="auto">
-  </script>
-</form>
 
               				<!--Boton Submit-->
               				<input type="submit" id="btnSolicitarAprobacion" name="btnSolicitarAprobacion" class="btn btn-default" value="Solicitar Aprobación">
@@ -226,6 +219,7 @@ $("#txtMonto").on('input',function(e){
     cantidadAPagar=parseInt(cantidadAPagar);
   }
   $("#txtTotalTimbres").val(cantidadAPagar);
+  $("#txtTotalTimbresTextBox").val(cantidadAPagar);
 });
 
 $('#btnAgregarArchivo').click(function(){
