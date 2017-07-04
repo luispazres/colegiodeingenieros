@@ -45,8 +45,8 @@
                   <td>{{ingenieroNombre}}</td>
                   <td>{{usuarioNumeroColegiacion}}</td>
                   <td>{{estadoRecepcionDescripcion}}</td>
-                  <td> <button id="btnOpciones12" type="button" class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-lg-{{solicitudAprobacionId}}" value="{{solicitudAprobacionId}}">Opciones</button>
-                    <div class="modal fade bs-example-modal-lg-{{solicitudAprobacionId}}" tabindex="-1" role="dialog" aria-hidden="true">
+                  <td> <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-lg-{{solicitudRecepcioId}}">Opciones</button>
+                    <div class="modal fade bs-example-modal-lg-{{solicitudRecepcioId}}" tabindex="-1" role="dialog" aria-hidden="true">
                       <div class="modal-dialog modal-lg">
                           <div class="modal-content">
                           <div class="modal-header">
