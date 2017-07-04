@@ -74,7 +74,7 @@
     $sqlstr = sprintf($sqlstr,$estadoCuenta,$rolId,$usuarioIdentidad);
     ejecutarNonQueryConErrores($sqlstr);
     }
-    return 0;
+
 
 
     function actualizarEstado($usuarioIdentidad, $estadoCuenta){

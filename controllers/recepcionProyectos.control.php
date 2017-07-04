@@ -15,7 +15,7 @@
           $respuesta="";
           $htmlDatos = array( );
 
-          if (isset($_POST["btnSolicitarAprobacion"])) {
+        /*  if (isset($_POST["btnSolicitarAprobacion"])) {
 
             switch ($_POST["accion"]) {
               case 'INS':
@@ -57,7 +57,7 @@
                 # code...
                 break;
               }
-            }
+            }*/
 
 
 
