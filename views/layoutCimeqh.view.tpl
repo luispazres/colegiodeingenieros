@@ -12,7 +12,7 @@
 
             <link href="public/css/nprogress.css" rel="stylesheet">-->
 
-
+            <link rel="stylesheet" href="public/dist/css/bootstrapValidator.min.css"/>
             <link href="vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
             <!-- Font Awesome -->
             <link href="vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
@@ -48,11 +48,10 @@
             <link href="vendors/pnotify/dist/pnotify.css" rel="stylesheet">
             <link href="vendors/pnotify/dist/pnotify.buttons.css" rel="stylesheet">
             <link href="vendors/pnotify/dist/pnotify.nonblock.css" rel="stylesheet">
-            <link rel="stylesheet" href="public/dist/css/bootstrapValidator.min.css"/>
-
+            <script src="public/js/jquery.min.js"></script>
+            <script src="public/js/bootstrapValidator.js"></script>
             <!-- Custom Theme Style -->
             <link href="public/css/custom.min.css" rel="stylesheet">
-            <script src="public/js/jquery.min.js"></script>
         </head>
         <body class="nav-md">
 
@@ -178,8 +177,8 @@
                     <ul class="nav navbar-nav navbar-right">
                       <li class="">
                         <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                          <img src="images/img.jpg" alt="">John Doe
-                          <span class=" fa fa-angle-down"></span>
+                          <span class=" fa fa-user"></span>
+                          {{nombre}} {{apellido}}
                         </a>
                         <ul class="dropdown-menu dropdown-usermenu pull-right">
                           <li><a href="javascript:;"> Profile</a></li>

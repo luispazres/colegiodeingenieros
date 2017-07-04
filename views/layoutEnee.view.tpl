@@ -12,7 +12,7 @@
 
             <link href="public/css/nprogress.css" rel="stylesheet">-->
 
-
+            <link rel="stylesheet" href="public/dist/css/bootstrapValidator.min.css"/>
             <link href="vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
             <!-- Font Awesome -->
             <link href="vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
@@ -48,11 +48,11 @@
             <link href="vendors/pnotify/dist/pnotify.css" rel="stylesheet">
             <link href="vendors/pnotify/dist/pnotify.buttons.css" rel="stylesheet">
             <link href="vendors/pnotify/dist/pnotify.nonblock.css" rel="stylesheet">
-            <link rel="stylesheet" href="public/dist/css/bootstrapValidator.min.css"/>
+            <script src="public/js/jquery.min.js"></script>
+            <script src="public/js/bootstrapValidator.js"></script>
 
             <!-- Custom Theme Style -->
             <link href="public/css/custom.min.css" rel="stylesheet">
-            <script src="public/js/jquery.min.js"></script>
         </head>
         <body class="nav-md">
 

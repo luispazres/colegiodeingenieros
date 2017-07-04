@@ -52,7 +52,6 @@ class vistaComentariosRecepcion
                       <br>
 
                         <form method='post' action='index.php?page=revisarSolicitudRecepcionCimeqh' id='defaultForm' data-parsley-validate class='form-horizontal form-label-left'>
-                          <div class='form-group'>
 
                              <div class='row'>
                                                   <div class='col-md-6'>
@@ -108,23 +107,21 @@ class vistaComentariosRecepcion
                                                    </div>
                                                </div>
                           <div class='col-md-12'>
-                          <div class='form-group'>
                           <!--Boton Submit-->
                           <button type='submit' id='btnComentarRecepcion' name='btnComentarRecepcion' class='btn btn-default'>
                             Actualizar
                           </button>
                           <!--Fin Boton Submit-->
-                          </div>
                       </div>
                 </form>
               </div>
-            </div>
           </div>
         </div>
     </div>
     </div>
 
-<script>
+    <script type='text/javascript'>
+
     $(document).ready(function() {
       $('#defaultForm').bootstrapValidator({
         message: 'This value is not valid',
@@ -134,174 +131,16 @@ class vistaComentariosRecepcion
               validating: 'glyphicon glyphicon-refresh'
           },
           fields: {
-              txtNumeroId: {
-                  message: 'Este usuario es inválido',
+              comentario: {
                   validators: {
                       notEmpty: {
                           message: 'Campo obligatorio, no puede estar vacio.'
                       },
                       stringLength: {
-                          min: 13,
-                          max: 13,
-                          message: 'El número de identidad debe de tener 13 dígitos.'
+                          min: 2,
+                          max: 600,
+                          message: 'El comentario debe de tener minimo 2 dígitos.'
                       },
-                      regexp: {
-                          regexp: /^[0-9]*$/,
-                          message: 'Solo se aceptan números.'
-                      }
-                  }
-              },
-              txtNumeroColegiacion: {
-                validators: {
-                    notEmpty: {
-                        message: 'Campo obligatorio, no puede estar vacio.'
-                    },
-                    stringLength: {
-                        min: 1,
-                        max: 1000000,
-                        message: 'El campo no puede ser 0.'
-                    },
-                    regexp: {
-                        regexp: /^[1-9][0-9]*$/,
-                        message: 'Solo se aceptan números y el primer dígito no puede ser 0.'
-                    }
-                }
-            },
-            txtPrimerNombre: {
-              validators: {
-                  notEmpty: {
-                      message: 'Campo obligatorio, no puede estar vacio.'
-                  },
-                  stringLength: {
-                      min: 3,
-                      max: 30,
-                      message: 'El nombre debe tener al menos 3 letras.'
-                  },
-                  regexp: {
-                      regexp: /^[a-zA-Z]+$/,
-                      message: 'Solo se aceptan letras.'
-                  }
-              }
-          },
-          txtDireccion: {
-            validators: {
-                notEmpty: {
-                    message: 'Campo obligatorio, no puede estar vacio.'
-                },
-                stringLength: {
-                    min: 5,
-                    max: 300,
-                    message: 'La dirección debe ser más especifica.'
-                }
-            }
-        },
-          txtSegundoNombre: {
-            validators: {
-                notEmpty: {
-                    message: 'Campo obligatorio, no puede estar vacio.'
-                },
-                stringLength: {
-                    min: 3,
-                    max: 30,
-                    message: 'El nombre debe tener al menos 3 letras.'
-                },
-                regexp: {
-                    regexp: /^[a-zA-Z]+$/,
-                    message: 'Solo se aceptan letras.'
-                }
-            }
-        },
-        txtPrimerApellido: {
-          validators: {
-              notEmpty: {
-                  message: 'Campo obligatorio, no puede estar vacio.'
-              },
-              stringLength: {
-                  min: 3,
-                  max: 30,
-                  message: 'El nombre debe tener al menos 3 letras.'
-              },
-              regexp: {
-                  regexp: /^[a-zA-Z]+$/,
-                  message: 'Solo se aceptan letras.'
-              }
-          }
-      },
-      txtSegundoApellido: {
-        validators: {
-            notEmpty: {
-                message: 'Campo obligatorio, no puede estar vacio.'
-            },
-            stringLength: {
-                min: 3,
-                max: 30,
-                message: 'El nombre debe tener al menos 3 letras.'
-            },
-            regexp: {
-                regexp: /^[a-zA-Z]+$/,
-                message: 'Solo se aceptan letras.'
-            }
-        }
-    },
-              txtCorreo: {
-                  validators: {
-                      notEmpty: {
-                          message: 'El correo es un campo obligatorio no puede estar vacio.'
-                      },
-                      emailAddress: {
-                          message: 'Formato de correo incorrecta.'
-                      }
-                  }
-              },
-              txtNumeroCelular: {
-                validators: {
-                    notEmpty: {
-                        message: 'Campo obligatorio, no puede estar vacio.'
-                    },
-                    stringLength: {
-                        min: 8,
-                        max: 8,
-                        message: 'El número de celular debe tener 8 dígitos.'
-                    },
-                    regexp: {
-                        regexp: /^[1-9][0-9]*$/,
-                        message: 'Solo se aceptan números y el primer dígito no puede ser 0.'
-                    }
-                }
-              },
-              txtNumeroFijo: {
-                validators: {
-                    stringLength: {
-                        min: 8,
-                        max: 8,
-                        message: 'El número de celular debe tener 8 dígitos.'
-                    },
-                    regexp: {
-                        regexp: /^[1-9][0-9]*$/,
-                        message: 'Solo se aceptan números y el primer dígito no puede ser 0.'
-                    }
-                }
-              },
-              txtContrasena: {
-                  validators: {
-                      notEmpty: {
-                          message: 'Contraseña obligatoria no puede estar vacia.'
-                      },
-                      identical: {
-                          field: 'txtContrasenaConfirmacion',
-                          message: 'La contraseña y su confirmación no son los mismos'
-                      }
-                  }
-              },
-              txtContrasenaConfirmacion: {
-                  validators: {
-                      notEmpty: {
-                          message: 'La contraseña de confirmación es obligatoria y no puede estar vacía'
-                      },
-                      identical: {
-                          field: 'txtContrasena',
-                          message: 'La contraseña y su confirmación no son los mismos'
-                      }
                   }
               },
           }
@@ -309,11 +148,6 @@ class vistaComentariosRecepcion
     });
 
     </script>
-
-
-
-
-
 ";
 
       return $vista;
