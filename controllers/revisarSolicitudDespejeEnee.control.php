@@ -8,7 +8,7 @@
       if ($_SESSION["estado"]==1) {
         if ($_SESSION["rol"]==2) {
           $revisar = array();
-
+/*
           if(isset($_POST["btnRechazar"])){
 
             $numeroId="";
@@ -25,14 +25,14 @@
             $respuesta=actualizarEstado($numeroId,$estadoCuenta);
             echo $respuesta;
           }
-
+*/
         //Agregar un comentario segun sea aprobada o rechazada la solicitud
 
           if (isset($_POST["btnComentarDespeje"])) {
             if ($_POST["tipo"]=="rechazo") {
-            agregarComentarioDespeje($_POST["codigoProyecto"],$_POST["comentario"],3);
+            agregarComentarioDespeje($_POST["codigoProyecto"],$_POST["comentario"],3,$_POST["costo"]);
           }elseif ($_POST["tipo"]=="aceptado") {
-            agregarComentarioDespeje($_POST["codigoProyecto"],$_POST["comentario"],2);
+            agregarComentarioDespeje($_POST["codigoProyecto"],$_POST["comentario"],2,$_POST["costo"]);
           }
           }
 
