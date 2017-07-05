@@ -58,8 +58,41 @@
                             <h4 class="modal-title" id="myModalLabel">Dictamen</h4>
                           </div>
                           <div class="modal-body">
-                            <h4>Dictamen</h4>
-                            {{comentario}}
+                            Nombre del Proyecto: {{proyectoNombre}}
+                            <br>
+                            Departamento: {{departamentoDescripcion}}
+                            <br>
+                            Direccion Exacta del Proyecto: {{proyectoDireccion}}
+                            <br>
+                            Descripcion del Proyecto: {{proyectoDescrpcion}}
+                            <br>
+                            Coordenadas del Proyecto: Latitud: {{proyectoLatitud}} Longitud: {{proyectoLongitud}}
+                            <br>
+                            <h4>Datos del Propietario</h4>
+                            Nombre del Propietario: {{proyectoNombrePropietario}}
+                            <br>
+                            Identidad Propietario: {{proyectoIdentidadPropietario}}
+                            <br>
+                            Telefono Propietario: {{proyectoTelefonoPropietario}}
+                            <br>
+                            Celular Propietario: {{proyectoCelularPropietario}}
+                            <br>
+                            Email Propietario: {{proyectoEmailPropietario}}
+                            <br>
+                            Dirección Propietario: {{proyectoDireccionPropietario}}
+                            <br>
+                            <h4>Datos de la Solicitud</h4>
+                            Voltaje: {{voltajeDescripcion}}
+                            <br>
+                            Tipo de Conexion: {{conexionDescripcion}}
+                            <br>
+                            Potencia: {{solicitudFactibilidadPotencia}}
+                            <br>
+                            Crecimiento Futuro: {{solicitudadFactibilidadCrecimientoEsperado}} %
+                            <br>
+                            KVA a Instalar: {{solicitudFactibilidadKva}}
+                            <br>
+
                           </div>
                           <div class="modal-footer">
                             {{if reintentar}}

@@ -80,10 +80,10 @@ tblp.usuarioIdentidad=tblu.usuarioIdentidad and tblsd.estadoDespejeId=1;";
 function agregarComentarioDespeje($solicitudId, $comentario, $estado,$costo=0){
   $sqlstr="UPDATE `tblsolicituddespeje`
   SET  `estadoDespejeId` = %d,
-  `comentarioDespeje` = '%s',
-  `comentarioDespeje` = %f
+  `solicitudDespejeCosto` = %f,
+  `comentarioDespeje` = '%s'
   WHERE `solicitudDespejeId` = %d;";
-$sqlstr = sprintf($sqlstr,$estado,$comentario,$solicitudId,$costo);
+$sqlstr = sprintf($sqlstr,$estado,$costo,$comentario,$solicitudId);
 
   return ejecutarNonQueryConErrores($sqlstr);
 

@@ -42,7 +42,14 @@
     p.proyectoDescrpcion,
     d.departamentoDescripcion,
     p.proyectoNombrePropietario,
-    p.proyectoIdentidadPropietario
+    p.proyectoIdentidadPropietario,
+    p.proyectoDireccion,
+    p.proyectoLatitud,
+    p.proyectoLongitud,
+    p.proyectoCelularPropietario,
+    p.proyectoTelefonoPropietario,
+    p.proyectoEmailPropietario,
+    p.proyectoDireccionPropietario
 from tblproyectos as p, tbldepartamentos as d
 where d.departamentoId=p.departamentoId;";
         $departamentos = obtenerRegistros($sqlstr);

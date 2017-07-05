@@ -294,7 +294,7 @@ $solicitudDespejeCuadrillas,$solicitudDespejeFecha){
                                                   <div class='col-md-6'>
                                                       <div class='form-group'>
                                                           <label for='form_name'>Costo del Despeje *</label>
-                                                          <input id='costo' type='number' name='costo' class='form-control'>
+                                                          <input id='costo' type='text' name='costo' class='form-control'>
                                                       </div>
                                                   </div>
 
@@ -340,6 +340,22 @@ $solicitudDespejeCuadrillas,$solicitudDespejeFecha){
                           message: 'El comentario debe de tener minimo 2 dígitos.'
                       },
                   }
+              },
+              costo: {
+                validators: {
+                    notEmpty: {
+                        message: 'Campo obligatorio, no puede estar vacio.'
+                    },
+                    stringLength: {
+                        min: 1,
+                        max: 10000000000000,
+                        message: 'Debe tener al menos un dígito.'
+                    },
+                    regexp: {
+                        regexp: /\d+(\.\d{1,2})?/,
+                        message: 'Solo se aceptan números.'
+                    }
+                }
               },
           }
       });
