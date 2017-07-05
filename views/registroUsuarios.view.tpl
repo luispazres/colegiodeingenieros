@@ -77,13 +77,13 @@
                                               <div class="col-md-6">
                                                   <div class="form-group">
                                                       <label for="form_name">Numero de Celular *</label>
-                                                      <input id="txtNumeroCelular" type="text" name="txtNumeroCelular" class="form-control" placeholder="Ej. 99XX-XXXX *">
+                                                      <input id="txtNumeroCelular" type="text" name="txtNumeroCelular" class="form-control" placeholder="Ej. 99XX-XXXX *" maxlength="8">
                                                   </div>
                                               </div>
                                               <div class="col-md-6">
                                                   <div class="form-group">
                                                       <label for="form_lastname">Numero de Telefono Fijo *</label>
-                                                      <input id="txtNumeroFijo" type="text" name="txtNumeroFijo" class="form-control" placeholder="Ej. 22XX-XXXX *">
+                                                      <input id="txtNumeroFijo" type="text" name="txtNumeroFijo" class="form-control" placeholder="Ej. 22XX-XXXX *" maxlength="8">
                                                   </div>
                                               </div>
                                               <div class="col-md-6">
@@ -125,7 +125,7 @@
 
 <div class="form-group">
   <div class="col-md-9 col-sm-9 col-xs-12 col-md-offset-3">
-    <button name="btnRegistroUsuarios" id="btnRegistroUsuarios" type="submit" class="btn btn-primary btn-lg">Registrar</button>
+    <button name="btnRegistroUsuarios" id="btnRegistroUsuarios" type="submit" class="btn btn-primary btn-lg">Registrar</button>    
   </div>
 </div>
 

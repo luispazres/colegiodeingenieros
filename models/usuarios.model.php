@@ -11,7 +11,6 @@
           return $usuario;
     }
 
-
     function obtenerUsuariosLogueado($id){
           $usuario = array();
           $sqlstr = "select * from tblusuarios as u, tblroles as r, tblestadocuenta as ec  where
@@ -46,6 +45,17 @@
           $usuario = obtenerUnRegistro($sqlstr);
           return $usuario;
     }
+
+
+    function obtenerUsuariosPorMail($email){
+          $usuario = array();
+          $sqlstr = "select * from tblusuarios as u, tblroles as r, tblestadocuenta as ec  where
+          u.estadoCuentaId=ec.estadoCuentaId and u.rolId=r.rolId and usuarioCorreo='%s';";
+          $sqlstr = sprintf($sqlstr, valstr($email));
+          $usuario = obtenerUnRegistro($sqlstr);
+          return $usuario;
+    }
+
 
     function obtenerUsuariosMenosLogueado($id){
           $usuario = array();

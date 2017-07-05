@@ -45,24 +45,32 @@ $numeroColegiacion, $userCelular,$userTelefono, $userDireccion, $userPassword, $
     //$pswdSalted = md5($pswdSalted);
     $contrasena = md5($contrasena);
     //ingresar datos a la base de datos este caso tabla de usuarios
-    $respueta = insertUsuario($usuarios["txtNumeroId"],
-    $usuarios["txtPrimerNombre"],
-    $usuarios["txtSegundoNombre"],
-    $usuarios["txtPrimerApellido"],
-    $usuarios["txtSegundoApellido"],
-    $usuarios["txtNumeroColegiacion"],
-    $usuarios["txtNumeroCelular"],
-    $usuarios["txtNumeroFijo"],
-    $usuarios["txtDireccion"],
-    $contrasena,
-    $estadoCuenta,
-    $rolId,
-    $usuarios["txtCorreo"],
-    $fchingreso);
 
-    echo $respueta;
+    $user["mail"]=obtenerUsuariosPorMail($usuarios["txtCorreo"]);
+    $user["id"]=obtenerUsuariosPorId($usuarios["txtNumeroId"]);
 
-    $location="Location:index.php?page=registroUsuarios".$respueta;
+    if($user["mail"]=="" || $user["id"]=="")
+    {
+      $respueta = insertUsuario($usuarios["txtNumeroId"],
+      $usuarios["txtPrimerNombre"],
+      $usuarios["txtSegundoNombre"],
+      $usuarios["txtPrimerApellido"],
+      $usuarios["txtSegundoApellido"],
+      $usuarios["txtNumeroColegiacion"],
+      $usuarios["txtNumeroCelular"],
+      $usuarios["txtNumeroFijo"],
+      $usuarios["txtDireccion"],
+      $contrasena,
+      $estadoCuenta,
+      $rolId,
+      $usuarios["txtCorreo"],
+      $fchingreso);
+      redirectWithMessage("Su cuenta ha sido creada, esta debe ser verificada por el CIMEQH, se le notificara mediante un correo cuando su cuenta este activa.","?page=login");
+    }
+
+
+    echo $respueta;     
+    redirectWithMessage("Su cuenta ya existe verifique su correo para enterarse si esta ha sido verificada por el CIMEQH.","?page=login");
     header($location);
 
     }
@@ -73,7 +81,7 @@ $numeroColegiacion, $userCelular,$userTelefono, $userDireccion, $userPassword, $
 
     }
 
-    renderizar("registroUsuarios",  $htmlData,'layoutSinSesion.view.tpl');
+    renderizar("registroUsuarios",  $htmlData,'layoutSinSesion2.view.tpl');
   }
   run();
 ?>
