@@ -77,13 +77,12 @@ tblp.usuarioIdentidad=tblu.usuarioIdentidad and tblsd.estadoDespejeId=1;";
     return $solicitudFactibilidad;
 }
 
-function agregarComentarioDespeje($solicitudId, $costo, $comentario, $estado){
+function agregarComentarioDespeje($solicitudId, $comentario, $estado){
   $sqlstr="UPDATE `tblsolicituddespeje`
-  SET`solicitudDespejeCosto` = %d,
-  `estadoDespejeId` = %d,
+  SET  `estadoDespejeId` = %d,
   `comentarioDespeje` = '%s'
   WHERE `solicitudDespejeId` = %d;";
-$sqlstr = sprintf($sqlstr,$costo,$estado,$comentario,$solicitudId);
+$sqlstr = sprintf($sqlstr,$estado,$comentario,$solicitudId);
   if(ejecutarNonQuery($sqlstr)){
   return ejecutarNonQueryConErrores($sqlstr);
   }

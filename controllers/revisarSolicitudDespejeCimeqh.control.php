@@ -30,9 +30,9 @@
 
           if (isset($_POST["btnComentarDespeje"])) {
             if ($_POST["tipo"]=="rechazo") {
-            agregarComentarioDespeje($_POST["codigoProyecto"],$_POST["costo"],$_POST["comentario"],3);
+            agregarComentarioDespeje($_POST["codigoProyecto"],$_POST["comentario"],3);
           }elseif ($_POST["tipo"]=="aceptado") {
-            agregarComentarioDespeje($_POST["codigoProyecto"],$_POST["costo"],$_POST["comentario"],1);
+            agregarComentarioDespeje($_POST["codigoProyecto"],$_POST["comentario"],1);
           }
           }
 

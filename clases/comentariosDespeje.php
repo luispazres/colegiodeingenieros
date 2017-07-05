@@ -50,9 +50,7 @@ $solicitudDespejeCuadrillas,$solicitudDespejeFecha){
                     <div class='x_content'>
                       <br>
 
-                        <form method='post' action='index.php?page=revisarSolicitudDespejeCimeqh' id='demo-form2' data-parsley-validate class='form-horizontal form-label-left'>
-                          <div class='form-group'>
-
+                        <form method='post' action='index.php?page=revisarSolicitudDespejeCimeqh' id='defaultForm' name='defaultForm' data-parsley-validate class='form-horizontal form-label-left'>
                              <div class='row'>
                                                   <div class='col-md-6'>
                                                       <div class='form-group'>
@@ -129,21 +127,48 @@ $solicitudDespejeCuadrillas,$solicitudDespejeFecha){
                                                    </div>
                                                </div>
                           <div class='col-md-12'>
-                          <div class='form-group'>
                           <!--Boton Submit-->
                           <button type='submit' id='btnComentarDespeje' name='btnComentarDespeje' class='btn btn-default'>
                             Actualizar
                           </button>
                           <!--Fin Boton Submit-->
-                          </div>
                       </div>
                 </form>
               </div>
-            </div>
           </div>
         </div>
     </div>
     </div>
+
+    <script type='text/javascript'>
+
+    $(document).ready(function() {
+      $('#defaultForm').bootstrapValidator({
+        message: 'This value is not valid',
+          feedbackIcons: {
+              valid: 'glyphicon glyphicon-ok',
+              invalid: 'glyphicon glyphicon-remove',
+              validating: 'glyphicon glyphicon-refresh'
+          },
+          fields: {
+              comentario: {
+                  validators: {
+                      notEmpty: {
+                          message: 'Campo obligatorio, no puede estar vacio.'
+                      },
+                      stringLength: {
+                          min: 2,
+                          max: 600,
+                          message: 'El comentario debe de tener minimo 2 dígitos.'
+                      },
+                  }
+              },
+          }
+      });
+    });
+
+    </script>
+
 ";
 
       return $vista;
@@ -195,8 +220,7 @@ $solicitudDespejeCuadrillas,$solicitudDespejeFecha){
                     <div class='x_content'>
                       <br>
 
-                        <form method='post' action='index.php?page=revisarSolicitudDespejeEnee' id='demo-form2' data-parsley-validate class='form-horizontal form-label-left'>
-                          <div class='form-group'>
+                        <form method='post' action='index.php?page=revisarSolicitudDespejeEnee' id='defaultForm' name='defaultForm' data-parsley-validate class='form-horizontal form-label-left'>
 
                              <div class='row'>
                                                   <div class='col-md-6'>
@@ -281,21 +305,47 @@ $solicitudDespejeCuadrillas,$solicitudDespejeFecha){
                                                    </div>
                                                </div>
                           <div class='col-md-12'>
-                          <div class='form-group'>
                           <!--Boton Submit-->
                           <button type='submit' id='btnComentarDespeje' name='btnComentarDespeje' class='btn btn-default'>
                             Actualizar
                           </button>
                           <!--Fin Boton Submit-->
-                          </div>
                       </div>
                 </form>
               </div>
-            </div>
           </div>
         </div>
     </div>
     </div>
+
+    <script type='text/javascript'>
+
+    $(document).ready(function() {
+      $('#defaultForm').bootstrapValidator({
+        message: 'This value is not valid',
+          feedbackIcons: {
+              valid: 'glyphicon glyphicon-ok',
+              invalid: 'glyphicon glyphicon-remove',
+              validating: 'glyphicon glyphicon-refresh'
+          },
+          fields: {
+              comentario: {
+                  validators: {
+                      notEmpty: {
+                          message: 'Campo obligatorio, no puede estar vacio.'
+                      },
+                      stringLength: {
+                          min: 2,
+                          max: 600,
+                          message: 'El comentario debe de tener minimo 2 dígitos.'
+                      },
+                  }
+              },
+          }
+      });
+    });
+
+    </script>
 ";
 
       return $vista;
