@@ -75,7 +75,16 @@
     ejecutarNonQueryConErrores($sqlstr);
     }
 
+    function actualizarMora($estadoCuentaId, $mora, $usuarioIdentidad){
+      $sqlstr="UPDATE `tblusuarios`
+               SET
+               `estadoCuentaId` = %d,
+               `usuarioMora` = %f
+               WHERE `usuarioIdentidad` = '%s';";
+      $sqlstr = sprintf($sqlstr,$estadoCuentaId,$mora,$usuarioIdentidad);
+      return ejecutarNonQueryConErrores($sqlstr);
 
+    }
 
     function actualizarEstado($usuarioIdentidad, $estadoCuenta){
     $sqlstr="UPDATE `tblusuarios`

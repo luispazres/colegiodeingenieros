@@ -73,7 +73,7 @@
                 <div class="left_col scroll-view">
                   <div class="navbar nav_title" style="border: 0;">
 
-                    <a href="index.php?page=home"><img src="files/cimeqh_.jpg"  class="img-circle profile_img" alt="CIMEQH"></a>
+                    <a href="index.php?page=home"><img src="images/cimeqh_.jpg"  class="img-circle profile_img" alt="CIMEQH"></a>
 
                   </div>
 

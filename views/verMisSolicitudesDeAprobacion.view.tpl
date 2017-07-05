@@ -76,7 +76,7 @@
                                 <a href="index.php?page=recepcionProyectos&proyectoId={{proyectoId}}&accion=INS"><button type="button" class="btn btn-success">Solicitar Recepción del Proyecto</button></a>
                               {{endif recepcion}}
                               {{if despeje}}
-                              <a href="index.php?page=solicitudDespeje&proyectoId={{proyectoId}}"><button type="button" class="btn btn-success">Solicitar Despeje de energia</button></a>
+                              <a href="index.php?page=solicitudDespeje&proyectoId={{proyectoId}}&accion=INS"><button type="button" class="btn btn-success">Solicitar Despeje de energia</button></a>
                               {{endif despeje}}
                             {{endifnot reintentar}}
                           </div>

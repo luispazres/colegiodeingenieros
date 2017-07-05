@@ -32,6 +32,11 @@
             require_once("controllers/pagarAprobacion.control.php");
             break;
 
+        case "pagarDespeje":
+            //llamar al controlador
+            require_once("controllers/pagarDespeje.control.php");
+            break;
+
         case "pagarMora":
             //llamar al controlador
             require_once("controllers/pagarMora.control.php");

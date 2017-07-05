@@ -12,10 +12,6 @@
 }
 </style>
 <script type="text/javascript">
-
-
-
-
 $(document).ready(function() {
     $('#payment-form').bootstrapValidator({
         message: 'This value is not valid',
@@ -217,9 +213,9 @@ $(document).ready(function() {
 
 </script>
 <h1>{{respuesta}}</h1>
-<form action="index.php?page=pagarMora" method="POST" id="payment-form" class="form-horizontal">
-  <input type="hidden" name="solicitudAprobacionId" value="{{solicitudAprobacionId}}">
-  <input type="hidden" name="respuesta" value="{{respuesta}}">
+<form action="index.php?page=pagarDespeje" method="POST" id="payment-form" class="form-horizontal">
+  <input type="hidden" name="solicitudDespejeId" value="{{solicitudDespejeId}}">
+  <input type="hidden" name="solicitudDespejeCosto" value="{{solicitudDespejeCosto}}">
   <input type="hidden" name="accion" value="PAY">
   <div class="row row-centered">
   <div class="col-md-4 col-md-offset-4">
@@ -360,7 +356,7 @@ $(document).ready(function() {
         <h3 class="panel-title">Important notice</h3>
       </div>
       <div class="panel-body">
-        <p>Your card will be charged {{usuarioMora}} Lps. after submit.</p>
+        <p>Your card will be charged {{solicitudDespejeCosto}} Lps. after submit.</p>
         <p>Your account statement will show the following booking text:
           XXXXXXX </p>
       </div>
