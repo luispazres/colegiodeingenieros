@@ -35,8 +35,6 @@ $insertSQL = sprintf($insertSQL, $voltajeId, $conexionId, $potencia, $crecmiento
 return ejecutarNonQueryConErrores($insertSQL);
 }
 
-//<<<<<<< Updated upstream
-//=======
 function agregarComentarioFactibilidad($solicitudId, $comentario, $estado){
   $sqlstr="UPDATE `tblsolicitudfactibilidad`
   SET `estadoFactibilidadId` = $estado,
@@ -47,8 +45,6 @@ function agregarComentarioFactibilidad($solicitudId, $comentario, $estado){
   }
 }
 
-
-//>>>>>>> Stashed changes
 function verFactbilidadPorId($factId){
 $solicitudFactibilidad = array();
 $sqlstr = "SELECT  tblsf.solicitudFactibilidadId,proyectoNombre,departamentoDescripcion,proyectoDireccion,proyectoDescrpcion,
@@ -107,17 +103,21 @@ function verSolicitudesFactbilidadEnee(){
     $solicitudFactibilidad = obtenerRegistros($sqlstr);
     return $solicitudFactibilidad;
 }
-/*
-<<<<<<< Updated upstream
-=======
 
->>>>>>> Stashed changes
-*/
 function obtenerSolicitudesFactibilidad(){
     $solicitudes = array();
-    $sqlstr = "SELECT if(ef.estadoFactibilidadId=1 || ef.estadoFactibilidadId=3 || ef.estadoFactibilidadId=4,true,false) 'reintentar',sf.factibilidadDocumentoNombre,sf.factibilidadDocumentoDireccion,sf.comentario,p.proyectoId, sf.solicitudFactibilidadId, p.proyectoNombre, p.proyectoNombrePropietario, p.proyectoIdentidadPropietario, ef.estadoFactibilidadDescripcion
-FROM tblsolicitudfactibilidad as sf, tblproyectos as p, tblestadofactibilidad as ef
-where p.proyectoId=sf.proyectoId and sf.estadoFactibilidadId=ef.estadoFactibilidadId;";
+    $sqlstr = "SELECT if(ef.estadoFactibilidadId=1 || ef.estadoFactibilidadId=3 ||
+ ef.estadoFactibilidadId=4,true,false) 'reintentar',sf.factibilidadDocumentoNombre,
+ sf.factibilidadDocumentoDireccion,sf.comentario,p.proyectoId, sf.solicitudFactibilidadId,
+ p.proyectoNombre, p.proyectoNombrePropietario, p.proyectoIdentidadPropietario,
+ ef.estadoFactibilidadDescripcion,dep.departamentoDescripcion,p.proyectoDireccion,p.proyectoDescrpcion,
+ p.proyectoLongitud,p.proyectoLatitud,p.proyectoTelefonoPropietario,p.proyectoCelularPropietario,
+ p.proyectoEmailPropietario,p.proyectoDireccionPropietario,sf.solicitudFactibilidadKva,sf.solicitudFactibilidadPotencia,
+ vol.voltajeDescripcion,con.conexionDescripcion,sf.solicitudadFactibilidadCrecimientoEsperado
+FROM tblsolicitudfactibilidad as sf, tblproyectos as p, tblestadofactibilidad as ef,
+tbldepartamentos as dep,tblvoltajes as vol, tblconexiones as con
+where p.proyectoId=sf.proyectoId and sf.estadoFactibilidadId=ef.estadoFactibilidadId and
+p.departamentoId=dep.departamentoId and sf.conexionId=con.conexionId and sf.voltajeId=vol.voltajeId;";
     $solicitudes = obtenerRegistros($sqlstr);
     return $solicitudes;
 }
