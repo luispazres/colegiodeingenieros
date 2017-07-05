@@ -24,18 +24,18 @@
                 <div class="x_content">
                   <br>
 
-                    <form id="demo-form2" action="index.php?page=solicitudDeCuentas" class="form-horizontal form-label-left" method="post">
+                    <form id="defaultForm" action="index.php?page=solicitudDeCuentas" class="form-horizontal form-label-left" method="post">
 
                       <div class="form-group">
 
                          <div class="row">
                                               <div class="col-md-6">
                                                   <div class="form-group">
-                                                      <input type="radio" name="ynRadio" class="radioBtn" value="no" checked/>Agregar un comentario
+                                                      <input type="radio" name="ynRadio" id="ynRadio" class="radioBtn" value="yes" checked="checked" />Agregar un comentario
                                                   </div>
                                               </div>
                                               <div class="col-md-6">
-                                                <input type="radio" name="ynRadio" class="radioBtn" value="yes" /> Usuario esta en Mora
+                                                <input type="radio" name="ynRadio" id="ynRadio" class="radioBtn" value="no" /> Usuario esta en Mora
                                                 <input type="hidden" name="usuarioIdentidad" id="usuarioIdentidad" value="{{usuarioIdentidad}}">
                                                 <input type="hidden" name="usuarioCorreo" id="usuarioCorreo" value="{{usuarioCorreo}}">
                                                   <div class="form-group">
@@ -44,17 +44,17 @@
                                           </div>
 
                          <div class="row">
-                                              <div class="col-md-6">
+                                              <div class="col-md-6 comentario">
                                                   <div class="form-group">
                                                       <label for="form_name">Agregar Comentario*</label>
-                                                      <textarea id="comentario" name="comentario" class="form-control" rows="4"></textarea>
+                                                      <textarea id="comentario" name="comentario" class="form-control" rows="4" disabled></textarea>
                                                   </div>
                                               </div>
-                                              <div class="col-md-6">
+                                              <div class="col-md-6 mora">
                                                   <div class="form-group">
 
                                                       <label for="form_lastname">Monto que el Usuario debe *</label>
-                                                      <input type="number" id="monto" name="monto" class="form-control" disabled/>
+                                                      <input type="text" id="monto" name="monto" class="form-control" disabled/>
                                                   </div>
                                               </div>
                                           </div>
@@ -72,3 +72,71 @@
 </div>
 </div>
 </div>
+
+<script>
+$(document).ready(function() {
+         $(".radioBtn").click(function() {
+           $("#comentario").attr("disabled", true);
+           $("#comentario").val("");
+           $("#monto").attr("disabled", true);
+           $("#monto").val("");
+           if ($("input[name=ynRadio]:checked").val() == "yes") {
+             $("#comentario").attr("disabled", false);
+
+               $('#defaultForm').bootstrapValidator({
+                 message: 'This value is not valid',
+                   feedbackIcons: {
+                       valid: 'glyphicon glyphicon-ok',
+                       invalid: 'glyphicon glyphicon-remove',
+                       validating: 'glyphicon glyphicon-refresh'
+                   },
+                   fields: {
+                       comentario: {
+                           validators: {
+                               notEmpty: {
+                                   message: 'Campo obligatorio, no puede estar vacio.'
+                               },
+                               stringLength: {
+                                   min: 2,
+                                   max: 600,
+                                   message: 'El comentario debe de tener minimo 2 dígitos.'
+                               },
+                           }
+                       },
+                   }
+               });
+
+       }else {
+         $("#monto").attr("disabled", false);
+
+           $('#defaultForm').bootstrapValidator({
+             message: 'This value is not valid',
+               feedbackIcons: {
+                   valid: 'glyphicon glyphicon-ok',
+                   invalid: 'glyphicon glyphicon-remove',
+                   validating: 'glyphicon glyphicon-refresh'
+               },
+               fields: {
+                   monto: {
+                     validators: {
+                         notEmpty: {
+                             message: 'Campo obligatorio, no puede estar vacio.'
+                         },
+                         stringLength: {
+                             min: 1,
+                             max: 4,
+                             message: 'Debe tener al menos un dígito y no más de 4.'
+                         },
+                         regexp: {
+                             regexp: /\d+(\.\d{1,2})?/,
+                             message: 'Solo se aceptan números.'
+                         }
+                     }
+                   },
+               }
+           });
+
+       }
+     });
+      });
+         </script>

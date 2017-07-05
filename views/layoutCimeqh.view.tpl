@@ -48,10 +48,11 @@
             <link href="vendors/pnotify/dist/pnotify.css" rel="stylesheet">
             <link href="vendors/pnotify/dist/pnotify.buttons.css" rel="stylesheet">
             <link href="vendors/pnotify/dist/pnotify.nonblock.css" rel="stylesheet">
+            <link href="public/css/custom.min.css" rel="stylesheet">
             <script src="public/js/jquery.min.js"></script>
             <script src="public/js/bootstrapValidator.js"></script>
             <!-- Custom Theme Style -->
-            <link href="public/css/custom.min.css" rel="stylesheet">
+
         </head>
         <body class="nav-md">
 
@@ -306,59 +307,11 @@
           <script src="vendors/bootstrap-progressbar/bootstrap-progressbar.min.js"></script>
           <!-- iCheck -->
           <script src="vendors/iCheck/icheck.min.js"></script>
-          <!-- PNotify -->
-        <!--  <script src="vendors/pnotify/dist/pnotify.js"></script>
-          <script src="vendors/pnotify/dist/pnotify.buttons.js"></script>
-          <script src="vendors/pnotify/dist/pnotify.nonblock.js"></script>
-
-          <script src="vendors/dropzone/dist/min/dropzone.min.js"></script>-->
-
 
           <!-- Custom Theme Scripts -->
           <script src="public/js/custom.min.js"></script>
 
-          <script type="text/javascript">
-              $("#txtMonto").on('input',function(e){
-                var monto =$("#txtMonto").val();
-                var cantidadAPagar=0;
-                if (monto>=1 && monto<=100000) {
-                  cantidadAPagar=50;
-                }else if (monto>100000 && monto<=250000) {
-                  cantidadAPagar=150;
-                }else if (monto>250000 && monto<=500000) {
-                  cantidadAPagar=350;
-                }else if (monto>500000 && monto<=1000000) {
-                  cantidadAPagar=700;
-                }else if (monto>=1100000) {
-                  monto=monto-1000000;
-                  monto=parseInt(monto/100000);
-                  cantidadAPagar=(monto*30)+700;
-                  cantidadAPagar=parseInt(cantidadAPagar);
-                }
-                $("#txtTotalTimbres").val(cantidadAPagar);
-              });
-
-          </script>
-
-          <script>
-          $(".radioBtn").click(function() {
-            $("#comentario").attr("disabled", true);
-            $("#comentario").val("");
-            if ($("input[name=ynRadio]:checked").val() == "no") {
-              $("#comentario").attr("disabled", false);
-        }
-      });
-          </script>
-
-          <script>
-          $(".radioBtn").click(function() {
-            $("#monto").attr("disabled", true);
-            $("#monto").val("");
-            if ($("input[name=ynRadio]:checked").val() == "yes") {
-              $("#monto").attr("disabled", false);
-        }
-      });
-          </script>
+        
 
         </body>
     </html>

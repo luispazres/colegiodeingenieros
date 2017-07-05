@@ -75,13 +75,15 @@
                                               </div>
                                           </div>
                                           <div class="row">
-                                                               <div class="col-md-6">
-                                                                   <div class="form-group">
-                                                                       <label for="txtFecha">Fecha que requiere el despeje *</label>
-                                                                       <input id="txtFecha" type="date" name="txtFecha" class="form-control" placeholder="N° de identidad del propietario *">
-                                                                   </div>
-                                                               </div>
-                                                           </div>
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                            <div class="input-group date">
+                                              <label for="txtFecha">Fecha del Despeje</label>
+                                              <input type="text" id="txtFecha" name="txtFecha" class="form-control"><span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+                                            </div>
+                                          </div>
+                                             </div>
+                                           </div>
                                                            <input type="submit" id="btnSolicitarDespeje" name="btnSolicitarDespeje" class="btn btn-default" value="Solicitar Despeje">
 
                     </form>
@@ -91,8 +93,19 @@
 </div>
 </div>
 <script type="text/javascript">
+var date = new Date();
+date.setDate(date.getDate());
+$('#txtFecha').datepicker({
+    startDate: date,
+    todayBtn: "linked",
+    language: "es",
+    autoclose: true,
+    todayHighlight: true
+});
 
 $(document).ready(function() {
+
+
   $('#defaultForm').bootstrapValidator({
     message: 'This value is not valid',
       feedbackIcons: {

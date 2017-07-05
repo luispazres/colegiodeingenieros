@@ -11,7 +11,7 @@
 
             <link href="vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
 
-
+            <link href="public/css/bootstrap-datepicker.css" rel="stylesheet">
             <link href="public/css/bootstrapValidator.css" rel="stylesheet">
             <link href="vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
             <!-- NProgress -->
@@ -63,6 +63,7 @@
               <script src="public/js/bootstrap.min.js"></script>
               <script src="pagar/js/bootstrap-formhelpers-min.js"></script>
               <script src="public/js/bootstrapValidator.js"></script>
+              <script src="public/js/bootstrap-datepicker.js"></script>
 
         </head>
         <body class="nav-md">
