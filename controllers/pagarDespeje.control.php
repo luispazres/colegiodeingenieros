@@ -1,19 +1,24 @@
 <?php
-/* Categorias Controller
- * 2015-03-05
- * Created By OJBA
- * Last Modification 2015-03-05 19:25:00
- */
-  require_once("libs/template_engine.php");
-  require_once("models/usuarios.model.php");
 
+  require_once("libs/template_engine.php");
+
+  require_once("models/proyectos.model.php");
+  require_once("models/aprobacion.model.php");
+  require_once("models/multiUpload.model.php");
+  require_once("models/despeje.model.php");
 
   function run(){
 
-
   require 'pagar/lib/Stripe.php';
   $htmlDatos = array();
-  $htmlDatos=obtenerUsuariosPorId($_SESSION["userName"]);
+  $despeje = array( );
+  $htmlDatos=array();
+
+  if (isset($_GET["despejeId"])) {
+    $despeje=obtenerUnDespeje($_GET["despejeId"]);
+    $htmlDatos["solicitudDespejeCosto"]=$despeje["solicitudDespejeCosto"];
+    $htmlDatos["solicitudDespejeId"]=$despeje["solicitudDespejeId"];
+  }
 
   if ($_POST) {
         Stripe::setApiKey("sk_test_UDpydu1XVxuNRRRmOShf0iIl");
@@ -23,11 +28,11 @@
             throw new Exception("Fill out all required fields.");
           if (!isset($_POST['stripeToken']))
             throw new Exception("The Stripe Token was not generated correctly");
-          Stripe_Charge::create(array("amount" => ($htmlDatos["usuarioMora"]*100),
+          Stripe_Charge::create(array("amount" => ($_POST["solicitudDespejeCosto"]*100),
                                       "currency" => "hnl",
                                       "card" => $_POST['stripeToken'],
                       "description" => $_POST['email']));
-                      $htmlDatos["respuesta"]=actualizarMora(1,0,$_SESSION["userName"]);
+                      pagarDespeje($_POST["solicitudDespejeId"],5);
             $htmlDatos["success"]  = '<div class="alert alert-success">
                       <strong>Success!</strong> Your payment was successful.
               </div>';
@@ -38,15 +43,10 @@
               <strong>Error!</strong> '.$e->getMessage().'
               </div>';
         }
-
-
   }
 
-
-    renderizar("pagarMora",  $htmlDatos,"layoutStripe.view.tpl");
+    renderizar("pagarDespeje",  $htmlDatos,"layoutStripe.view.tpl");
   }
-
-
 
   run();
 ?>

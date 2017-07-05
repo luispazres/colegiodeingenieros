@@ -77,15 +77,16 @@ tblp.usuarioIdentidad=tblu.usuarioIdentidad and tblsd.estadoDespejeId=1;";
     return $solicitudFactibilidad;
 }
 
-function agregarComentarioDespeje($solicitudId, $comentario, $estado){
+function agregarComentarioDespeje($solicitudId, $comentario, $estado,$costo=0){
   $sqlstr="UPDATE `tblsolicituddespeje`
   SET  `estadoDespejeId` = %d,
-  `comentarioDespeje` = '%s'
+  `comentarioDespeje` = '%s',
+  `comentarioDespeje` = %f
   WHERE `solicitudDespejeId` = %d;";
-$sqlstr = sprintf($sqlstr,$estado,$comentario,$solicitudId);
-  if(ejecutarNonQuery($sqlstr)){
+$sqlstr = sprintf($sqlstr,$estado,$comentario,$solicitudId,$costo);
+
   return ejecutarNonQueryConErrores($sqlstr);
-  }
+
 }
 
 
@@ -112,9 +113,31 @@ return $proyecto;
 
 function obtenerDespeje(){
     $solicitudes = array();
-    $sqlstr = "SELECT if(ed.estadoDespejeId=1 || ed.estadoDespejeId=3 || ed.estadoDespejeId=4,true,null) 'reintentar',sd.solicitudDespejeId,ed.estadoDespejeDescripcion,sd.solicitudDespejeId, sd.estadoDespejeId,sa.solicitudAprobacionId,p.proyectoId,p.proyectoNombre,p.proyectoNombrePropietario,p.proyectoIdentidadPropietario,sd.solicitudDespejeFecha,sd.solicitudDespejeHoras,sd.solicitudDespejeCantidadPersonal,sd.solicitudDespejeCantidadPersonal,sd.comentarioDespeje FROM tblsolicituddespeje as sd, tblsolicitudaprobacion as sa, tblproyectos as p, tblestadodespeje as ed where p.proyectoId=sa.proyectoId and sa.solicitudAprobacionId=sd.tblsolicitudaprobacion_solicitudAprobacionId and sd.estadoDespejeId=ed.estadoDespejeId;";
+    $sqlstr = "SELECT if(ed.estadoDespejeId=1 || ed.estadoDespejeId=3 || ed.estadoDespejeId=4,true,false) 'reintentar',sd.solicitudDespejeId,ed.estadoDespejeDescripcion,sd.solicitudDespejeId, sd.estadoDespejeId,sa.solicitudAprobacionId,p.proyectoId,p.proyectoNombre,p.proyectoNombrePropietario,p.proyectoIdentidadPropietario,sd.solicitudDespejeFecha,sd.solicitudDespejeHoras,sd.solicitudDespejeCantidadPersonal,sd.solicitudDespejeCantidadPersonal,sd.comentarioDespeje FROM tblsolicituddespeje as sd, tblsolicitudaprobacion as sa, tblproyectos as p, tblestadodespeje as ed where p.proyectoId=sa.proyectoId and sa.solicitudAprobacionId=sd.tblsolicitudaprobacion_solicitudAprobacionId and sd.estadoDespejeId=ed.estadoDespejeId;";
     $solicitudes = obtenerRegistros($sqlstr);
     return $solicitudes;
+}
+
+function obtenerUnDespeje($id){
+    $solicitudes = array();
+    $sqlstr = "SELECT *
+    FROM tblsolicituddespeje as sd, tblsolicitudaprobacion as sa, tblproyectos as p, tblestadodespeje as ed
+    where p.proyectoId=sa.proyectoId
+    and sa.solicitudAprobacionId=sd.tblsolicitudaprobacion_solicitudAprobacionId
+    and sd.estadoDespejeId=ed.estadoDespejeId
+    and sd.solicitudDespejeId=%d;";
+    $sqlstr = sprintf($sqlstr, $id);
+    $solicitudes = obtenerUnRegistro($sqlstr);
+    return $solicitudes;
+}
+
+function pagarDespeje($id, $estadoId){
+  $sqlstr="UPDATE `tblsolicituddespeje`
+  SET  `estadoDespejeId` = %d
+  WHERE `solicitudDespejeId` = %d;";
+$sqlstr = sprintf($sqlstr,$estadoId,$id);
+
+  return ejecutarNonQueryConErrores($sqlstr);
 }
 
  ?>
