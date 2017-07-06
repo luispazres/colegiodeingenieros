@@ -183,12 +183,24 @@ function obtenerAprobacion(){
     p.proyectoIdentidadPropietario,
     sa.solicitudAprobacionId,
     ea.estadoAprobacionId,
-    ea.estadoAprobacionDescripcion
+    ea.estadoAprobacionDescripcion,
+    dep.departamentoDescripcion,
+    p.proyectoDireccion,
+    p.proyectoDescrpcion,
+    p.proyectoLatitud,
+    p.proyectoLongitud,
+    p.proyectoTelefonoPropietario,
+    p.proyectoCelularPropietario,
+    p.proyectoEmailPropietario,
+    p.proyectoDireccionPropietario,
+    sa.solicitudAaprobacionMontoEstimado,
+    sa.solicitudAprobacionCosto
     FROM tblsolicitudaprobacion as sa,
     tblproyectos as p,
-    tblestadoaprobacion as ea
+    tblestadoaprobacion as ea,
+    tbldepartamentos as dep
     where p.proyectoId=sa.proyectoId
-    and sa.estadoSolicitudAprobacion=ea.estadoAprobacionId;";
+    and sa.estadoSolicitudAprobacion=ea.estadoAprobacionId and p.departamentoId=dep.departamentoId;";
     $solicitudes = obtenerRegistros($sqlstr);
     return $solicitudes;
 }
