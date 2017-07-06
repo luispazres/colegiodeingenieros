@@ -113,7 +113,19 @@ return $proyecto;
 
 function obtenerDespeje(){
     $solicitudes = array();
-    $sqlstr = "SELECT if(ed.estadoDespejeId=1 || ed.estadoDespejeId=3 || ed.estadoDespejeId=4,true,false) 'reintentar',sd.solicitudDespejeId,ed.estadoDespejeDescripcion,sd.solicitudDespejeId, sd.estadoDespejeId,sa.solicitudAprobacionId,p.proyectoId,p.proyectoNombre,p.proyectoNombrePropietario,p.proyectoIdentidadPropietario,sd.solicitudDespejeFecha,sd.solicitudDespejeHoras,sd.solicitudDespejeCantidadPersonal,sd.solicitudDespejeCantidadPersonal,sd.comentarioDespeje FROM tblsolicituddespeje as sd, tblsolicitudaprobacion as sa, tblproyectos as p, tblestadodespeje as ed where p.proyectoId=sa.proyectoId and sa.solicitudAprobacionId=sd.tblsolicitudaprobacion_solicitudAprobacionId and sd.estadoDespejeId=ed.estadoDespejeId;";
+    $sqlstr = "SELECT if(ed.estadoDespejeId=1 || ed.estadoDespejeId=3 || ed.estadoDespejeId=4,true,false) 'reintentar',
+sd.solicitudDespejeId,ed.estadoDespejeDescripcion,sd.solicitudDespejeId,sd.estadoDespejeId,
+sa.solicitudAprobacionId,p.proyectoId,p.proyectoNombre,p.proyectoNombrePropietario,
+p.proyectoIdentidadPropietario,sd.solicitudDespejeFecha,sd.solicitudDespejeHoras,sd.solicitudDespejeCantidadPersonal,
+sd.solicitudDespejeCantidadPersonal,sd.comentarioDespeje,dep.departamentoDescripcion,p.proyectoDireccion,
+p.proyectoDescrpcion,p.proyectoLatitud,p.proyectoLongitud,p.proyectoCelularPropietario,p.proyectoTelefonoPropietario,
+p.proyectoEmailPropietario,p.proyectoDireccionPropietario,sd.solicitudDespejeCantidadPersonal,sd.solicitudDespejeCuadrillas,
+DATE_FORMAT(sd.solicitudDespejeFecha,'%d/%m/%Y') 'fecha',sd.solicitudDespejeHoras,sd.solicitudDespejeCosto
+FROM tblsolicituddespeje as sd,tblsolicitudaprobacion as sa,tblproyectos as p,
+tblestadodespeje as ed, tbldepartamentos as dep
+where p.proyectoId=sa.proyectoId and
+sa.solicitudAprobacionId=sd.tblsolicitudaprobacion_solicitudAprobacionId and
+sd.estadoDespejeId=ed.estadoDespejeId and dep.departamentoId=p.departamentoId;";
     $solicitudes = obtenerRegistros($sqlstr);
     return $solicitudes;
 }

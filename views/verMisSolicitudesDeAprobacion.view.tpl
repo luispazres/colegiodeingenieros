@@ -44,50 +44,49 @@
                   <td>{{proyectoNombrePropietario}}</td>
                   <td>{{proyectoIdentidadPropietario}}</td>
                   <td>{{estadoAprobacionDescripcion}}</td>
-                  <td>
+                  <td><a href="index.php?page=verMisDocumentosDeAprobacion&aprobacionId={{solicitudAprobacionId}}"><button type="button" class="btn btn-success btn-xs">Ver Documentos</button></a>
                     <button type="button" class="btn btn-primary btn-xs" data-toggle="modal" data-target=".bs-example-modal-lg-{{solicitudAprobacionId}}">Ver</button>
-                    <a href="index.php?page=verMisDocumentosDeAprobacion&aprobacionId={{solicitudAprobacionId}}"><button type="button" class="btn btn-success btn-xs">Ver Documentos</button></a>
                     <div class="modal fade bs-example-modal-lg-{{solicitudAprobacionId}}" tabindex="-1" role="dialog" aria-hidden="true">
                       <div class="modal-dialog modal-lg">
-                        <div class="modal-content">
-
+                          <div class="modal-content">
                           <div class="modal-header">
-                            <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span>
-                            </button>
-                            <h4 class="modal-title" id="myModalLabel">Dictamen</h4>
+                          <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span>
+                          </button>
+                          <h4 class="modal-title" id="myModalLabel">Datos del Proyecto</h4>
                           </div>
                           <div class="modal-body">
-                            <h4>Datos del Proyecto</h4>
-                            Nombre del Proyecto: {{proyectoNombre}}
-                            <br>
-                            Departamento: {{departamentoDescripcion}}
-                            <br>
-                            Direccion Exacta del Proyecto: {{proyectoDireccion}}
-                            <br>
-                            Descripcion del Proyecto: {{proyectoDescrpcion}}
-                            <br>
-                            Coordenadas del Proyecto: Latitud: {{proyectoLatitud}} Longitud: {{proyectoLongitud}}
-                            <br>
-                            <h4>Datos del Propietario</h4>
-                            Nombre del Propietario: {{proyectoNombrePropietario}}
-                            <br>
-                            Identidad Propietario: {{proyectoIdentidadPropietario}}
-                            <br>
-                            Telefono Propietario: {{proyectoTelefonoPropietario}}
-                            <br>
-                            Celular Propietario: {{proyectoCelularPropietario}}
-                            <br>
-                            Email Propietario: {{proyectoEmailPropietario}}
-                            <br>
-                            Dirección Propietario: {{proyectoDireccionPropietario}}
-                            <br>                          
-                            <h4>Datos de la Solicitud</h4>
-                            Monto Estimado del Proyecto: {{solicitudAaprobacionMontoEstimado}}
-                            <br>
-                            Total de Timbres a Pagar: {{solicitudAprobacionCosto}}
-                            <br>
+                          <h4>Datos del Proyecto</h4>
+                          Nombre del Proyecto: {{proyectoNombre}}
+                          <br>
+                          Departamento: {{departamentoDescripcion}}
+                          <br>
+                          Direccion Exacta del Proyecto: {{proyectoDireccion}}
+                          <br>
+                          Descripcion del Proyecto: {{proyectoDescrpcion}}
+                          <br>
+                          Coordenadas del Proyecto: Latitud: {{proyectoLatitud}} Longitud: {{proyectoLongitud}}
+                          <br>
+                          <h4>Datos del Propietario</h4>
+                          Nombre del Propietario: {{proyectoNombrePropietario}}
+                          <br>
+                          Identidad Propietario: {{proyectoIdentidadPropietario}}
+                          <br>
+                          Telefono Propietario: {{proyectoTelefonoPropietario}}
+                          <br>
+                          Email Propietario: {{proyectoEmailPropietario}}
+                          <br>
+                          Dirección Propietario: {{proyectoDireccionPropietario}}
+                          <br>
+                          <h4>Datos del Ingeniero</h4>
+                          Nombre del Ingeniero: {{ingenieroNombre}}
+                          <br>
+                          Numero de Colegiación: {{usuarioNumeroColegiacion}}
+                          <br>
+                          Telefono Ingeniero: {{usuarioTelefono}}
+                          <br>
+                          Celular Ingeniero: {{usuarioCelular}}
+                          <br>
                           </div>
-
                           <div class="modal-footer">
                             {{if reintentar}}
                                   <a href="index.php?page=aprobacionProyectos&proyectoId={{proyectoId}}&aprobacionId={{solicitudAprobacionId}}&accion=UPD"><button type="button" class="btn btn-success">Modificar Solicitud de Aprobacion</button></a>
@@ -109,7 +108,6 @@
                           </div>
                         </div>
                       </div>
-
                     </div>
                   </td>
                 </tr>

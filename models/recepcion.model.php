@@ -110,7 +110,28 @@ $sqlstr = sprintf($sqlstr, $estado,$comentario,$solicitudId);
 
 function obtenerRecepcion(){
     $solicitudes = array();
-    $sqlstr = "SELECT if(er.estadoRecepcionId=3 || er.estadoRecepcionId=1 || er.estadoRecepcionId=4 ,true,null) 'reintentar',sr.comentario, sr.solicitudRecepcioId, p.proyectoNombre, p.proyectoIdentidadPropietario,p.proyectoNombrePropietario, er.estadoRecepcionDescripcion,p.proyectoId,sa.solicitudAprobacionId FROM tblsolicitudrecepcion as sr, tblsolicitudaprobacion as sa, tblproyectos as p, tblestadorecepcion as er where p.proyectoId=sa.proyectoId and sa.solicitudAprobacionId=sr.solicitudAprobacionId and sr.solicitudRecepcioEstado=er.estadoRecepcionId;";
+    $sqlstr = "SELECT if(er.estadoRecepcionId=3 || er.estadoRecepcionId=1 || er.estadoRecepcionId=4 ,true,null) 'reintentar',
+sr.comentario,
+sr.solicitudRecepcioId,
+p.proyectoNombre,
+p.proyectoIdentidadPropietario,
+p.proyectoNombrePropietario,
+er.estadoRecepcionDescripcion,
+p.proyectoId,
+sa.solicitudAprobacionId,
+dep.departamentoDescripcion,
+p.proyectoDireccion,
+p.proyectoDescrpcion,
+p.proyectoLatitud,
+p.proyectoLongitud,
+p.proyectoTelefonoPropietario,
+p.proyectoCelularPropietario,
+p.proyectoEmailPropietario,
+p.proyectoDireccionPropietario
+FROM tblsolicitudrecepcion as sr, tblsolicitudaprobacion as sa, tblproyectos as p,
+tblestadorecepcion as er , tbldepartamentos as dep
+where p.proyectoId=sa.proyectoId and sa.solicitudAprobacionId=sr.solicitudAprobacionId and
+sr.solicitudRecepcioEstado=er.estadoRecepcionId and dep.departamentoId=p.departamentoId;";
     $solicitudes = obtenerRegistros($sqlstr);
     return $solicitudes;
 }
