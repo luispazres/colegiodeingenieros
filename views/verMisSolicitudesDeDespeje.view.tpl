@@ -99,7 +99,7 @@
                                 <a href="index.php?page=pagarDespeje&proyectoId={{proyectoId}}&despejeId={{solicitudDespejeId}}&accion=PAY"><button type="button" class="btn btn-success">Aceptar Fecha y Pagar despeje de Energia</button></a>
                               {{endif pospuesto}}
                               {{if reintentar}}
-                                <a href="index.php?page=solicitudDespeje&proyectoId={{proyectoId}}&despejeId={{solicitudDespejeId}}&accion=UPD"><button type="button" class="btn btn-success">Modificar Solicitud de Aprobacion</button></a>
+                                <a href="index.php?page=solicitudDespeje&proyectoId={{proyectoId}}&despejeId={{solicitudDespejeId}}&accion=UPD"><button type="button" class="btn btn-warning">Modificar Solicitud de Aprobacion</button></a>
                               {{endif reintentar}}
                               {{ifnot reintentar}}
                                 <a href="index.php?page=pagarDespeje&proyectoId={{proyectoId}}&despejeId={{solicitudDespejeId}}&accion=PAY"><button type="button" class="btn btn-primary">Pagar despeje de Energia</button></a>

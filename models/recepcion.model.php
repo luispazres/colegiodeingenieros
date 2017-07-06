@@ -131,7 +131,7 @@ p.proyectoDireccionPropietario
 FROM tblsolicitudrecepcion as sr, tblsolicitudaprobacion as sa, tblproyectos as p,
 tblestadorecepcion as er , tbldepartamentos as dep
 where p.proyectoId=sa.proyectoId and sa.solicitudAprobacionId=sr.solicitudAprobacionId and
-sr.solicitudRecepcioEstado=er.estadoRecepcionId and dep.departamentoId=p.departamentoId;";
+sr.solicitudRecepcioEstado=er.estadoRecepcionId and dep.departamentoId=p.departamentoId and p.usuarioIdentidad='".$_SESSION["userName"]."' ;";
     $solicitudes = obtenerRegistros($sqlstr);
     return $solicitudes;
 }

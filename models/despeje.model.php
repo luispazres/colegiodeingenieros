@@ -120,11 +120,12 @@ $sqlstr = sprintf($sqlstr, $solicitudId);
 $proyecto = obtenerUnRegistro($sqlstr);
 return $proyecto;
 }
-
-
+
 function obtenerDespeje(){
     $solicitudes = array();
     $sqlstr = "SELECT if(ed.estadoDespejeId=1 || ed.estadoDespejeId=3 || ed.estadoDespejeId=4,true,false) 'reintentar',
+if(ed.estadoDespejeId=3 ,true,false) 'pospuesto',
+
 sd.solicitudDespejeId,ed.estadoDespejeDescripcion,sd.solicitudDespejeId,sd.estadoDespejeId,
 sa.solicitudAprobacionId,p.proyectoId,p.proyectoNombre,p.proyectoNombrePropietario,
 p.proyectoIdentidadPropietario,sd.solicitudDespejeFecha,sd.solicitudDespejeHoras,sd.solicitudDespejeCantidadPersonal,
@@ -136,7 +137,8 @@ FROM tblsolicituddespeje as sd,tblsolicitudaprobacion as sa,tblproyectos as p,
 tblestadodespeje as ed, tbldepartamentos as dep
 where p.proyectoId=sa.proyectoId and
 sa.solicitudAprobacionId=sd.tblsolicitudaprobacion_solicitudAprobacionId and
-sd.estadoDespejeId=ed.estadoDespejeId and dep.departamentoId=p.departamentoId;";
+sd.estadoDespejeId=ed.estadoDespejeId and dep.departamentoId=p.departamentoId and p.usuarioIdentidad='".$_SESSION["userName"]."';";
+    //$sqlstr = sprintf($sqlstr);
     $solicitudes = obtenerRegistros($sqlstr);
     return $solicitudes;
 }
