@@ -154,8 +154,7 @@ class vistaComentariosRecepcion
   }
 
   public static function vistaEnee($tipo,$codigo,$proyectoNombre,$depto,$direccion,
-  $descripcion,$nombrePropietario,$nombreIngeniero,$numeroColeg,
-  $monto,$costo){
+  $descripcion,$nombrePropietario,$nombreIngeniero,$numeroColeg){
 
   $vista="<div class='right_col' role='main'>
         <div class=''>
@@ -200,8 +199,8 @@ class vistaComentariosRecepcion
                     <div class='x_content'>
                       <br>
 
-                        <form method='post' action='index.php?page=revisarSolicitudAprobacionEnee' id='defaultForm' data-parsley-validate class='form-horizontal form-label-left'>
-                          <div class='form-group'>
+                        <form method='post' action='index.php?page=revisarSolicitudRecepcionEnee' id='defaultForm' data-parsley-validate class='form-horizontal form-label-left'>
+
 
                              <div class='row'>
                                                   <div class='col-md-6'>
@@ -251,21 +250,6 @@ class vistaComentariosRecepcion
                                                       </div>
                                                   </div>
 
-                                                  <div class='col-md-6'>
-                                                      <div class='form-group'>
-                                                          <label for='form_name'>Monto Estimado *</label>
-                                                          <input id='numeroColeg' type='text' name='numeroColeg' class='form-control'  value='".$monto.' Lempiras'. "' disabled='disabled'>
-                                                      </div>
-                                                  </div>
-
-                                                  <div class='col-md-6'>
-                                                      <div class='form-group'>
-                                                          <label for='form_name'>Costo de los timbres *</label>
-                                                          <input id='numeroColeg' type='text' name='numeroColeg' class='form-control'  value='".$costo.' Lempiras'."' disabled='disabled'>
-                                                      </div>
-                                                  </div>
-
-
                                                   <div class='col-md-12'>
                                                    <div class='form-group'>
                                                        <label for='form_message'>Comentarios *</label>
@@ -273,21 +257,49 @@ class vistaComentariosRecepcion
                                                    </div>
                                                </div>
                           <div class='col-md-12'>
-                          <div class='form-group'>
                           <!--Boton Submit-->
-                          <button type='submit' id='btnComentarAprobacion' name='btnComentarAprobacion' class='btn btn-default'>
+                          <button type='submit' id='btnComentarRecepcion' name='btnComentarRecepcion' class='btn btn-default'>
                             Actualizar
                           </button>
                           <!--Fin Boton Submit-->
-                          </div>
                       </div>
                 </form>
               </div>
-            </div>
+
           </div>
         </div>
     </div>
     </div>
+
+
+        <script type='text/javascript'>
+
+        $(document).ready(function() {
+          $('#defaultForm').bootstrapValidator({
+            message: 'This value is not valid',
+              feedbackIcons: {
+                  valid: 'glyphicon glyphicon-ok',
+                  invalid: 'glyphicon glyphicon-remove',
+                  validating: 'glyphicon glyphicon-refresh'
+              },
+              fields: {
+                  comentario: {
+                      validators: {
+                          notEmpty: {
+                              message: 'Campo obligatorio, no puede estar vacio.'
+                          },
+                          stringLength: {
+                              min: 2,
+                              max: 600,
+                              message: 'El comentario debe de tener minimo 2 dígitos.'
+                          },
+                      }
+                  },
+              }
+          });
+        });
+
+        </script>
 ";
 
       return $vista;
