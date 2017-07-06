@@ -166,7 +166,7 @@
 
             <footer>
               <div class="pull-right">
-                Gentelella - Bootstrap Admin Template by <a href="https://colorlib.com">Colorlib</a>
+                CIMEQH para más<a href="http://www.cimeqh.org/"> Información</a>
               </div>
               <div class="clearfix"></div>
             </footer>
@@ -199,13 +199,10 @@
           <script src="vendors/pdfmake/build/vfs_fonts.js"></script>
 
           <script src="vendors/bootstrap-progressbar/bootstrap-progressbar.min.js"></script>
-          <!-- iCheck -->
+
           <script src="vendors/iCheck/icheck.min.js"></script>
 
-          <!-- Custom Theme Scripts -->
           <script src="public/js/custom.min.js"></script>
-
-
 
         </body>
     </html>
