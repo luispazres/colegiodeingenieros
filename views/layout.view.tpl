@@ -53,7 +53,6 @@
             <!-- JQVMap -->
             <link href="vendors/jqvmap/dist/jqvmap.min.css" rel="stylesheet"/>
             <!-- bootstrap-daterangepicker -->
-            <link href="vendors/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet">
 
             <link href="pagar/css/bootstrap-formhelpers.css" rel="stylesheet">
 

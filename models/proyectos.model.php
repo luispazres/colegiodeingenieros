@@ -51,8 +51,8 @@
     p.proyectoEmailPropietario,
     p.proyectoDireccionPropietario
 from tblproyectos as p, tbldepartamentos as d
-where d.departamentoId=p.departamentoId;";
-        $departamentos = obtenerRegistros($sqlstr);
+where d.departamentoId=p.departamentoId and p.usuarioIdentidad='%s';";
+        $departamentos = obtenerRegistros($sqlstr, $_SESSION["userName"]);
         return $departamentos;
     }
 

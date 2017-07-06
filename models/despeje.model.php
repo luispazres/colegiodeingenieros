@@ -83,10 +83,21 @@ function agregarComentarioDespeje($solicitudId, $comentario, $estado,$costo=0){
   `solicitudDespejeCosto` = %f,
   `comentarioDespeje` = '%s'
   WHERE `solicitudDespejeId` = %d;";
-$sqlstr = sprintf($sqlstr,$estado,$costo,$comentario,$solicitudId);
+  $sqlstr = sprintf($sqlstr,$estado,$costo,$comentario,$solicitudId);
 
   return ejecutarNonQueryConErrores($sqlstr);
+}
 
+function posponerDespeje($solicitudId, $costo, $fecha,$comentario,$estado){
+  $sqlstr="UPDATE `tblsolicituddespeje`
+  SET  `estadoDespejeId` = %d,
+  `solicitudDespejeCosto` = %f,
+  `comentarioDespeje` = '%s',
+  `solicitudDespejeFecha`='%s'
+  WHERE `solicitudDespejeId` = %d;";
+  $sqlstr = sprintf($sqlstr,$estado,$costo,$comentario,$fecha,$solicitudId);
+
+  return ejecutarNonQueryConErrores($sqlstr);
 }
 
 
@@ -113,7 +124,8 @@ return $proyecto;
 
 function obtenerDespeje(){
     $solicitudes = array();
-    $sqlstr = "SELECT if(ed.estadoDespejeId=1 || ed.estadoDespejeId=3 || ed.estadoDespejeId=4,true,false) 'reintentar',sd.solicitudDespejeId,ed.estadoDespejeDescripcion,sd.solicitudDespejeId, sd.estadoDespejeId,sa.solicitudAprobacionId,p.proyectoId,p.proyectoNombre,p.proyectoNombrePropietario,p.proyectoIdentidadPropietario,sd.solicitudDespejeFecha,sd.solicitudDespejeHoras,sd.solicitudDespejeCantidadPersonal,sd.solicitudDespejeCantidadPersonal,sd.comentarioDespeje FROM tblsolicituddespeje as sd, tblsolicitudaprobacion as sa, tblproyectos as p, tblestadodespeje as ed where p.proyectoId=sa.proyectoId and sa.solicitudAprobacionId=sd.tblsolicitudaprobacion_solicitudAprobacionId and sd.estadoDespejeId=ed.estadoDespejeId;";
+    $sqlstr = "SELECT if(ed.estadoDespejeId=1 || ed.estadoDespejeId=3 || ed.estadoDespejeId=4,true,false) 'reintentar',if(ed.estadoDespejeId=3 ,true,false) 'pospuesto',sd.solicitudDespejeId,ed.estadoDespejeDescripcion,sd.solicitudDespejeId, sd.estadoDespejeId,sa.solicitudAprobacionId,p.proyectoId,p.proyectoNombre,p.proyectoNombrePropietario,p.proyectoIdentidadPropietario,sd.solicitudDespejeFecha,sd.solicitudDespejeHoras,sd.solicitudDespejeCantidadPersonal,sd.solicitudDespejeCantidadPersonal,sd.comentarioDespeje FROM tblsolicituddespeje as sd, tblsolicitudaprobacion as sa, tblproyectos as p, tblestadodespeje as ed where p.proyectoId=sa.proyectoId and sa.solicitudAprobacionId=sd.tblsolicitudaprobacion_solicitudAprobacionId and sd.estadoDespejeId=ed.estadoDespejeId and p.usuarioIdentidad='%s';";
+    $sqlstr = sprintf($sqlstr, $_SESSION["userName"]);
     $solicitudes = obtenerRegistros($sqlstr);
     return $solicitudes;
 }

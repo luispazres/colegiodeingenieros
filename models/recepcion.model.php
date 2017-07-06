@@ -110,8 +110,8 @@ $sqlstr = sprintf($sqlstr, $estado,$comentario,$solicitudId);
 
 function obtenerRecepcion(){
     $solicitudes = array();
-    $sqlstr = "SELECT if(er.estadoRecepcionId=3 || er.estadoRecepcionId=1 || er.estadoRecepcionId=4 ,true,null) 'reintentar',sr.comentario, sr.solicitudRecepcioId, p.proyectoNombre, p.proyectoIdentidadPropietario,p.proyectoNombrePropietario, er.estadoRecepcionDescripcion,p.proyectoId,sa.solicitudAprobacionId FROM tblsolicitudrecepcion as sr, tblsolicitudaprobacion as sa, tblproyectos as p, tblestadorecepcion as er where p.proyectoId=sa.proyectoId and sa.solicitudAprobacionId=sr.solicitudAprobacionId and sr.solicitudRecepcioEstado=er.estadoRecepcionId;";
-    $solicitudes = obtenerRegistros($sqlstr);
+    $sqlstr = "SELECT if(er.estadoRecepcionId=3 || er.estadoRecepcionId=1 || er.estadoRecepcionId=4 ,true,null) 'reintentar',sr.comentario, sr.solicitudRecepcioId, p.proyectoNombre, p.proyectoIdentidadPropietario,p.proyectoNombrePropietario, er.estadoRecepcionDescripcion,p.proyectoId,sa.solicitudAprobacionId FROM tblsolicitudrecepcion as sr, tblsolicitudaprobacion as sa, tblproyectos as p, tblestadorecepcion as er where p.proyectoId=sa.proyectoId and sa.solicitudAprobacionId=sr.solicitudAprobacionId and sr.solicitudRecepcioEstado=er.estadoRecepcionId and p.usuarioIdentidad='%s';";
+    $solicitudes = obtenerRegistros($sqlstr, $_SESSION["userName"]);
     return $solicitudes;
 }
  ?>

@@ -92,8 +92,8 @@
                           <div class="modal-footer">
                           <form method="post" action="index.php?page=solicitudDeCuentas">
                           <input id="usuarioIdentidad" type="hidden" name="usuarioIdentidad" value={{usuarioIdentidad}}>
-                          <a href="index.php?page=comentarios&tipo=rechazo&accion=despeje&codigo={{solicitudDespejeId}}"><input type="button" name="btnRechazar" id="btnRechazar" class="btn btn-danger" value="Rechazar Factibilidad">
-                          <a href="index.php?page=comentarios&tipo=aceptado&accion=despeje&codigo={{solicitudDespejeId}}"><input type="button" name="btnAceptar" id="btnAceptar" class="btn btn-success" value="Aceptar Factibilidad">
+                          <a href="index.php?page=comentarios&tipo=rechazo&accion=despeje&codigo={{solicitudDespejeId}}"><input type="button" name="btnRechazar" id="btnRechazar" class="btn btn-danger" value="Rechazar Despeje">
+                          <a href="index.php?page=comentarios&tipo=aceptado&accion=despeje&codigo={{solicitudDespejeId}}"><input type="button" name="btnAceptar" id="btnAceptar" class="btn btn-success" value="Aceptar Despeje">
                           </form>
                           </div>
                         </div>
