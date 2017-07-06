@@ -57,8 +57,35 @@
                             <h4 class="modal-title" id="myModalLabel">Dictamen</h4>
                           </div>
                           <div class="modal-body">
-                            <h4>Dictamen</h4>
-                            {{comentarioAprobacion}}
+                            <h4>Datos del Proyecto</h4>
+                            Nombre del Proyecto: {{proyectoNombre}}
+                            <br>
+                            Departamento: {{departamentoDescripcion}}
+                            <br>
+                            Direccion Exacta del Proyecto: {{proyectoDireccion}}
+                            <br>
+                            Descripcion del Proyecto: {{proyectoDescrpcion}}
+                            <br>
+                            Coordenadas del Proyecto: Latitud: {{proyectoLatitud}} Longitud: {{proyectoLongitud}}
+                            <br>
+                            <h4>Datos del Propietario</h4>
+                            Nombre del Propietario: {{proyectoNombrePropietario}}
+                            <br>
+                            Identidad Propietario: {{proyectoIdentidadPropietario}}
+                            <br>
+                            Telefono Propietario: {{proyectoTelefonoPropietario}}
+                            <br>
+                            Celular Propietario: {{proyectoCelularPropietario}}
+                            <br>
+                            Email Propietario: {{proyectoEmailPropietario}}
+                            <br>
+                            Dirección Propietario: {{proyectoDireccionPropietario}}
+                            <br>                          
+                            <h4>Datos de la Solicitud</h4>
+                            Monto Estimado del Proyecto: {{solicitudAaprobacionMontoEstimado}}
+                            <br>
+                            Total de Timbres a Pagar: {{solicitudAprobacionCosto}}
+                            <br>
                           </div>
 
                           <div class="modal-footer">
