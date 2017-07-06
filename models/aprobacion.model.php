@@ -200,8 +200,8 @@ function obtenerAprobacion(){
     tblestadoaprobacion as ea,
     tbldepartamentos as dep
     where p.proyectoId=sa.proyectoId
-    and sa.estadoSolicitudAprobacion=ea.estadoAprobacionId and p.departamentoId=dep.departamentoId;";
-    $solicitudes = obtenerRegistros($sqlstr);
+    and sa.estadoSolicitudAprobacion=ea.estadoAprobacionId and p.departamentoId=dep.departamentoId and p.usuarioIdentidad='%s';";
+    $solicitudes = obtenerRegistros($sqlstr,$_SESSION["userName"]);
     return $solicitudes;
 }
 
