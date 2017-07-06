@@ -187,7 +187,7 @@
 
             <footer>
               <div class="pull-right">
-                Gentelella - Bootstrap Admin Template by <a href="https://colorlib.com">Colorlib</a>
+                Stripe para más información haga click<a href="https://stripe.com/"> haga click aquí</a>
               </div>
               <div class="clearfix"></div>
             </footer>

@@ -219,7 +219,7 @@ $(document).ready(function() {
   <div class="row row-centered">
   <div class="col-md-4 col-md-offset-4">
   <div class="page-header">
-    <h2 class="gdfg">Secure Payment Form</h2>
+    <h2 class="gdfg">Formulario de Pago Seguro</h2>
   </div>
   <noscript>
   <div class="bs-callout bs-callout-danger">
@@ -236,46 +236,46 @@ $(document).ready(function() {
   <fieldset>
 
   <!-- Form Name -->
-  <legend>Billing Details</legend>
+  <legend>Detalles de Facturación</legend>
 
   <!-- Street -->
   <div class="form-group">
-    <label class="col-sm-4 control-label" for="textinput">Street</label>
+    <label class="col-sm-4 control-label" for="textinput">Calle</label>
     <div class="col-sm-6">
-      <input type="text" name="street" placeholder="Street" class="address form-control">
+      <input type="text" name="street" placeholder="Calle" class="address form-control">
     </div>
   </div>
 
   <!-- City -->
   <div class="form-group">
-    <label class="col-sm-4 control-label" for="textinput">City</label>
+    <label class="col-sm-4 control-label" for="textinput">Ciudad</label>
     <div class="col-sm-6">
-      <input type="text" name="city" placeholder="City" class="city form-control">
+      <input type="text" name="city" placeholder="Ciudad" class="city form-control">
     </div>
   </div>
 
   <!-- State -->
   <div class="form-group">
-    <label class="col-sm-4 control-label" for="textinput">State</label>
+    <label class="col-sm-4 control-label" for="textinput">Estado/Departamento</label>
     <div class="col-sm-6">
-      <input type="text" name="state" maxlength="65" placeholder="State" class="state form-control">
+      <input type="text" name="state" maxlength="65" placeholder="Estado/Departamento" class="state form-control">
     </div>
   </div>
 
   <!-- Postcal Code -->
   <div class="form-group">
-    <label class="col-sm-4 control-label" for="textinput">Postal Code</label>
+    <label class="col-sm-4 control-label" for="textinput">Código Postal</label>
     <div class="col-sm-6">
-      <input type="text" name="zip" maxlength="9" placeholder="Postal Code" class="zip form-control">
+      <input type="text" name="zip" maxlength="9" placeholder="Código Postal" class="zip form-control">
     </div>
   </div>
 
   <!-- Country -->
   <div class="form-group">
-    <label class="col-sm-4 control-label" for="textinput">Country</label>
+    <label class="col-sm-4 control-label" for="textinput">País</label>
     <div class="col-sm-6">
       <!--input type="text" name="country" placeholder="Country" class="country form-control"-->
-      <div class="country bfh-selectbox bfh-countries" name="country" placeholder="Select Country" data-flags="true" data-filter="true"> </div>
+      <div class="country bfh-selectbox bfh-countries" name="country" placeholder="Seleccione su País" data-flags="true" data-filter="true"> </div>
     </div>
   </div>
 
@@ -292,23 +292,23 @@ $(document).ready(function() {
 
     <!-- Card Holder Name -->
     <div class="form-group">
-      <label class="col-sm-4 control-label"  for="textinput">Card Holder's Name</label>
+      <label class="col-sm-4 control-label"  for="textinput">Nombre del Tarjetahabiente</label>
       <div class="col-sm-6">
-        <input type="text" name="cardholdername" maxlength="70" placeholder="Card Holder Name" class="card-holder-name form-control">
+        <input type="text" name="cardholdername" maxlength="70" placeholder="Nombre del Tarjetahabiente" class="card-holder-name form-control">
       </div>
     </div>
 
     <!-- Card Number -->
     <div class="form-group">
-      <label class="col-sm-4 control-label" for="textinput">Card Number</label>
+      <label class="col-sm-4 control-label" for="textinput">Número de la Tarjeta</label>
       <div class="col-sm-6">
-        <input type="text" id="cardnumber" maxlength="19" placeholder="Card Number" class="card-number form-control">
+        <input type="text" id="cardnumber" maxlength="19" placeholder="Número de la Tarjeta" class="card-number form-control">
       </div>
     </div>
 
     <!-- Expiry-->
     <div class="form-group">
-      <label class="col-sm-4 control-label" for="textinput">Card Expiry Date</label>
+      <label class="col-sm-4 control-label" for="textinput">Fecha de Expiración de la Tarjeta</label>
       <div class="col-sm-6">
         <div class="form-inline">
           <select name="select2" data-stripe="exp-month" class="card-expiry-month stripe-sensitive required form-control">
@@ -355,9 +355,9 @@ $(document).ready(function() {
         <h3 class="panel-title">Important notice</h3>
       </div>
       <div class="panel-body">
-        <p>Your card will be charged 305Lps. after submit.</p>
-        <p>Your account statement will show the following booking text:
-          XXXXXXX </p>
+        <p>Su tarjeta será cargada con 305Lps. después de enviar el formulario.</p>
+        <p>El motivo del pago es por la constancia para la recepción de su proyecto:
+          <!--XXXXXXX--> </p>
       </div>
     </div>
 
@@ -365,7 +365,7 @@ $(document).ready(function() {
     <div class="control-group">
       <div class="controls">
         <center>
-          <button class="btn btn-success" name="btnPagarAprobacion" id="btnPagarAprobacion" type="submit">Pay Now</button>
+          <button class="btn btn-success" name="btnPagarAprobacion" id="btnPagarAprobacion" type="submit">Pagar Ahora</button>
         </center>
       </div>
     </div>
