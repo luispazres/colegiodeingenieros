@@ -16,9 +16,14 @@
             <input type="password" name="txtPswd" id="txtPswd" class="form-control" placeholder="Contraseña" required="" />
           </div>
           <div>
-            <input class="btn btn-default submit" type="submit" name="btnLogin" value="Entrar">
-            <a class="reset_pass" href="#">Olvidaste tu contraseña?</a>
-          </div>
+            <div class="clearfix"></div>
+
+                <input class="btn btn-success submit" type="submit" name="btnLogin" value="Entrar">
+                <a href="#signup" class="to_register"><input type="button" class="btn btn-dark submit" value="He olvidado mi contraseña"></a>
+                </p>
+                <div class="clearfix"></div>
+
+
 
           <div class="clearfix"></div>
 
@@ -32,7 +37,7 @@
 
             <div>
               <h1><i class="fa fa-paw"></i> CIMEQH</h1>
-                <a href="index.php?page=revisarSolicitudAprobacionPublico"><input class="btn btn-default submit" type="button" name="" value="Buscar Proyectos Aprobados"></a>
+                <a href="index.php?page=revisarSolicitudAprobacionPublico"><input class="btn btn-info submit" type="button" name="" value="Buscar Proyectos Aprobados"></a>
               <p></p>
             </div>
           </div>
@@ -43,26 +48,19 @@
     <div id="register" class="animate form registration_form">
       <section class="login_content">
         <form>
-          <h1>Create Account</h1>
+          <h1>Recuperar Contraseña</h1>
           <div>
-            <input type="text" class="form-control" placeholder="Username" required="" />
+            <input type="email" class="form-control" placeholder="Ingresar Correo Electronico" required="" />
           </div>
           <div>
-            <input type="email" class="form-control" placeholder="Email" required="" />
-          </div>
-          <div>
-            <input type="password" class="form-control" placeholder="Password" required="" />
-          </div>
-          <div>
-            <a class="btn btn-default submit" href="index.html">Submit</a>
+            <a class="btn btn-success submit" class="to_register" href="index.html">Enviar</a>
           </div>
 
           <div class="clearfix"></div>
 
           <div class="separator">
-            <p class="change_link">Already a member ?
-              <a href="#signin" class="to_register"> Log in </a>
-            </p>
+            <p class="change_link">No necesita recuperar su contraseña?  </p>
+              <a href="#signin" class="to_register"><input type="button" class="btn btn-danger submit" value="Regresar"></a>
 
             <div class="clearfix"></div>
             <br />
