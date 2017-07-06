@@ -60,7 +60,39 @@
                             <h4 class="modal-title" id="myModalLabel">Dictamen</h4>
                           </div>
                           <div class="modal-body">
-                            {{comentarioDespeje}}
+                            <h4>Datos del Proyecto</h4>
+                            Nombre del Proyecto: {{proyectoNombre}}
+                            <br>
+                            Departamento: {{departamentoDescripcion}}
+                            <br>
+                            Direccion Exacta del Proyecto: {{proyectoDireccion}}
+                            <br>
+                            Descripcion del Proyecto: {{proyectoDescrpcion}}
+                            <br>
+                            Coordenadas del Proyecto: Latitud: {{proyectoLatitud}} Longitud: {{proyectoLongitud}}
+                            <br>
+                            <h4>Datos del Propietario</h4>
+                            Nombre del Propietario: {{proyectoNombrePropietario}}
+                            <br>
+                            Identidad Propietario: {{proyectoIdentidadPropietario}}
+                            <br>
+                            Telefono Propietario: {{proyectoTelefonoPropietario}}
+                            <br>
+                            Celular Propietario: {{proyectoCelularPropietario}}
+                            <br>
+                            Email Propietario: {{proyectoEmailPropietario}}
+                            <br>
+                            Dirección Propietario: {{proyectoDireccionPropietario}}
+                            <br>
+                            <h4>Datos del Despeje</h4>
+                            Fecha del Despeje: {{fecha}}
+                            <br>
+                            Despeje Hora: {{solicitudDespejeHoras}}
+                            <br>
+                            Cantidad de Personal: {{solicitudDespejeCantidadPersonal}}
+                            <br>
+                            Costo del Despeje: {{solicitudDespejeCosto}}
+                            <br>
                           </div>
                           <div class="modal-footer">
                               {{if pospuesto}}
