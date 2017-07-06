@@ -20,7 +20,7 @@
             switch ($_POST["accion"]) {
               case 'INS':
                 $respuesta=registrarDespeje($_POST["txtTiempo"],$_POST["txtCuadrillas"],$_POST["txtCantidadPersonal"],$_POST["txtFecha"],$_POST["solicitudAprobacionId"]);
-
+                $respuesta=$_POST["txtFecha"];
                 $header="Location:index.php?page=solicitudDespeje&respuesta=".$respuesta;
                 header($header);
                 break;

@@ -100,7 +100,8 @@ $('#txtFecha').datepicker({
     todayBtn: "linked",
     language: "es",
     autoclose: true,
-    todayHighlight: true
+    todayHighlight: true,
+    format: "yy/mm/dd"
 });
 
 $(document).ready(function() {

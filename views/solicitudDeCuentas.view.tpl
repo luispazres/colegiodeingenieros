@@ -3,27 +3,17 @@
     <div class="col-md-12 col-sm-12 col-xs-12">
       <div class="x_panel">
         <div class="x_title">
-          <h2>Responsive example<small>Users</small></h2>
+          <h2>Solicitudes de Cuentas<small>Usuarios</small></h2>
           <ul class="nav navbar-right panel_toolbox">
             <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
             </li>
-            <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
-              <ul class="dropdown-menu" role="menu">
-                <li><a href="#">Settings 1</a>
-                </li>
-                <li><a href="#">Settings 2</a>
-                </li>
-              </ul>
-            </li>
-            <li><a class="close-link"><i class="fa fa-close"></i></a>
-            </li>
+
           </ul>
           <div class="clearfix"></div>
         </div>
         <div class="x_content">
           <p class="text-muted font-13 m-b-30">
-            Responsive is an extension for DataTables that resolves that problem by optimising the table's layout for different screen sizes through the dynamic insertion and removal of columns from the table.
+          
           </p>
 
           <table id="datatable-responsive" class="table table-striped table-bordered dt-responsive nowrap" cellspacing="0" width="100%">
@@ -85,7 +75,7 @@
                               <form method="post" action="index.php?page=solicitudDeCuentas">
                               <input id="usuarioIdentidad" type="hidden" name="usuarioIdentidad" value={{usuarioIdentidad}}>
                               <input id="usuarioCorreo" type="hidden" name="usuarioCorreo" value={{usuarioCorreo}}>
-                              <a href="index.php?page=usuarioRechazado&codigo={{usuarioIdentidad}}&correo={{usuarioCorreo}}"><input type="button" name="btnRechazar" id="btnRechazar" class="btn btn-danger" value="Rechazar Usuario">                              
+                              <a href="index.php?page=usuarioRechazado&codigo={{usuarioIdentidad}}&correo={{usuarioCorreo}}"><input type="button" name="btnRechazar" id="btnRechazar" class="btn btn-danger" value="Rechazar Usuario">
                               <input type="submit" name="btnAceptar" id="btnAceptar" class="btn btn-success" value="Aceptar Usuario">
                               </form>
                           </div>

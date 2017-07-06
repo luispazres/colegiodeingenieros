@@ -19,9 +19,7 @@
             renderizar("home",array(),"layoutEnee.view.tpl");
           }else {
             renderizar("home",array());
-            echo $_SESSION["rol"];
           }
-
 
         }else {
           redirectWithMessage("No cuenta con los privilegios de usuario adecuado para ver esta páagina.","?page=login");
@@ -36,7 +34,5 @@
     }
 
   }
-
-
   run();
 ?>
