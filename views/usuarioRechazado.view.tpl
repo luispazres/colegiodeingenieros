@@ -31,7 +31,7 @@
                          <div class="row">
                                               <div class="col-md-6">
                                                   <div class="form-group">
-                                                      <input type="radio" name="ynRadio" id="ynRadio" class="radioBtn" value="yes" checked="checked" />Agregar un comentario
+                                                      <input type="radio" name="ynRadio" id="ynRadio" class="radioBtn" value="yes" />Agregar un comentario
                                                   </div>
                                               </div>
                                               <div class="col-md-6">
@@ -83,6 +83,7 @@ $(document).ready(function() {
            if ($("input[name=ynRadio]:checked").val() == "yes") {
              $("#comentario").attr("disabled", false);
 
+               $('#defaultForm').bootstrapValidator("destroy");
                $('#defaultForm').bootstrapValidator({
                  message: 'This value is not valid',
                    feedbackIcons: {
@@ -108,7 +109,7 @@ $(document).ready(function() {
 
        }else {
          $("#monto").attr("disabled", false);
-
+          $('#defaultForm').bootstrapValidator("destroy");
            $('#defaultForm').bootstrapValidator({
              message: 'This value is not valid',
                feedbackIcons: {
@@ -139,4 +140,4 @@ $(document).ready(function() {
        }
      });
       });
-         </script>
+</script>
