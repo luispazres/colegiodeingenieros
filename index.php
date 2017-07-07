@@ -4,7 +4,7 @@
 
     require_once("libs/utilities.php");
 
-    $pageRequest = "login";
+    $pageRequest = "landingPage";
 
     if(isset($_GET["page"])){
         $pageRequest = $_GET["page"];
