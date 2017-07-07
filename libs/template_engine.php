@@ -1,5 +1,5 @@
 <?php
-
+    //Función que renderiza una vista con sus respectivos datos, si no se le especifica un layout toma uno por defecto
     function renderizar($vista, $datos, $layoutFile = "layout.view.tpl"){
         if(!is_array($datos)){
             http_response_code(404);
@@ -142,6 +142,7 @@
         return $renderedHTML;
     }
 
+    //Aquí se encuentran ciertas funciones que se pueden utilizar en la vistas para manejar datos.
     function parseTemplate($htmlTemplate){
 
         $regexp_array = array( 'foreach'   => '(\{\{foreach \w*\}\})',

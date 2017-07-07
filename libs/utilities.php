@@ -1,4 +1,5 @@
 <?php
+    //En este archivo se encuentran funciones para utilizar en el sitio.
     $global_context = array();
 
     function addToContext($key,$value){
@@ -6,6 +7,7 @@
         $global_context[$key] = $value;
     }
 
+    //La única que se utliza es esta que sirve para regirigir a una página y al final mostrar un mensaje.
     function redirectWithMessage($message, $url="index.php"){
       echo "<script>alert('$message'); window.location='$url';</script>";
       die();

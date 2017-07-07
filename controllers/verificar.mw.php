@@ -1,6 +1,8 @@
 <?php
 //middleware de verificación
+//Aqui se encuentran todas la información de sesión del usuario y las funcionas para verificar si ya ha iniciado sesión
 
+    //Función que verifica si un usuario esta loggeado
     function mw_estaLogueado(){
         if( isset($_SESSION["userLogged"]) && $_SESSION["userLogged"] == true){
           return true;
@@ -10,6 +12,8 @@
           return false;
         }
     }
+
+    //Inicializa o destruye la información de sesión según si el usuario entra o sale
     function mw_setEstaLogueado($usuario, $logueado,$rol,$estado,$nombre,$apellido,$comentario){
         if($logueado){
             $_SESSION["userLogged"] = true;
@@ -29,6 +33,8 @@
             $_SESSION["comentario"] = $comentario;
         }
     }
+
+    //Redirige hacia el login
     function mw_redirectToLogin($to){
         $loginstring = urlencode("?".$to);
         $url = "index.php?page=login&returnUrl=".$loginstring;
