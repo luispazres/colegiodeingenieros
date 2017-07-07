@@ -47,20 +47,19 @@
 
     <div id="register" class="animate form registration_form">
       <section class="login_content">
-        <form>
+        <form method="post" action="index.php?page=login">
           <h1>Recuperar Contraseña</h1>
           <div>
-            <input type="email" class="form-control" placeholder="Ingresar Correo Electronico" required="" />
+            <input type="email" id="txtcorreo" name="txtcorreo" class="form-control" placeholder="Ingresar Correo Electronico" required="" />
           </div>
           <div>
-            <a class="btn btn-success submit" class="to_register" href="index.html">Enviar</a>
+            <button type="submit" name="btnRestore" id="btnRestore" class="btn btn-primary btn-lg">Enviar</button>
           </div>
 
           <div class="clearfix"></div>
 
           <div class="separator">
-            <p class="change_link">No necesita recuperar su contraseña?  </p>
-              <a href="#signin" class="to_register"><input type="button" class="btn btn-danger submit" value="Regresar"></a>
+              No necesita recuperar su contraseña <a href="#signin" class="to_register"><input type="button"  class="btn btn-danger submit" value="Regresar"></a>
 
             <div class="clearfix"></div>
             <br />

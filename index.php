@@ -212,6 +212,11 @@
                     require_once("controllers/usuarioRechazado.control.php");
                     break;
 
+                    case "restablecerPass":
+                        //llamar al controlador
+                    require_once("controllers/restablecerPass.control.php");
+                    break;
+
         default:
             require_once("controllers/error.control.php");
 

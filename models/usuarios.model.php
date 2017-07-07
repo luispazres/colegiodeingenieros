@@ -11,6 +11,37 @@
           return $usuario;
     }
 
+
+    function obtenerIdporCorreo($email){
+      $usuario =array();
+      $query= "select usuarioIdentidad
+      from tblusuarios
+      WHERE `usuarioCorreo` = '%s';";
+      $query=sprintf($query,valstr($email));
+      $usuario= obtenerUnRegistro($query);
+      return $usuario;
+    }
+
+    function generarToken($token,$id){
+      $usuario= array();
+      $query= "UPDATE `cimeqh`.`tblusuarios`
+      SET `usuarioToken` = '%s'
+      WHERE `usuarioIdentidad` = '%s';";
+      $query=sprintf($query,$token,$id);
+      ejecutarNonQueryConErrores($query);
+    }
+
+    function agregarContrasena($password, $id){
+      $usuario=array();
+      $query="UPDATE `tblusuarios`
+      SET `usuarioContrasenia` = '%s',
+      `usuarioToken` = ''
+      WHERE `usuarioIdentidad` = '%s';";
+      $query=sprintf($query,$password,$id);
+      ejecutarNonQueryConErrores($query);
+    }
+
+
     function obtenerUsuariosLogueado($id){
           $usuario = array();
           $sqlstr = "select * from tblusuarios as u, tblroles as r, tblestadocuenta as ec  where
