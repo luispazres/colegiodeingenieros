@@ -201,6 +201,7 @@ $(document).ready(function() {
 });
 
 var contadorImagenes=0;
+/*Algoritmo que calcula el valor de los timbres a pagar*/
 $("#txtMonto").on('input',function(e){
   var monto =$("#txtMonto").val();
   var cantidadAPagar=0;
@@ -222,6 +223,7 @@ $("#txtMonto").on('input',function(e){
   $("#txtTotalTimbresTextBox").val(cantidadAPagar);
 });
 
+/*Validación para no subir tantos archivos*/
 $('#btnAgregarArchivo').click(function(){
 
   if (contadorImagenes>5) {

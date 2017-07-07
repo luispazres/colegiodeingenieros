@@ -4,7 +4,7 @@
 
     require_once("libs/utilities.php");
 
-    $pageRequest = "login";
+    $pageRequest = "landingPage";
 
     if(isset($_GET["page"])){
         $pageRequest = $_GET["page"];
@@ -25,6 +25,11 @@
         case "revisarSolicitudRecepcionEnee":
             //llamar al controlador
             require_once("controllers/revisarSolicitudRecepcionEnee.control.php");
+            break;
+
+        case "landingPage":
+            //llamar al controlador
+            require_once("controllers/landingPage.control.php");
             break;
 
         case "posponerDespeje":
