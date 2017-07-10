@@ -118,7 +118,8 @@ FROM tblsolicitudfactibilidad as sf, tblproyectos as p, tblestadofactibilidad as
 tbldepartamentos as dep,tblvoltajes as vol, tblconexiones as con
 where p.proyectoId=sf.proyectoId and sf.estadoFactibilidadId=ef.estadoFactibilidadId and
 p.departamentoId=dep.departamentoId and sf.conexionId=con.conexionId and sf.voltajeId=vol.voltajeId and p.usuarioIdentidad='%s';";
-    $solicitudes = obtenerRegistros($sqlstr, $_SESSION["userName"]);
+    $sqlstr = sprintf($sqlstr, $_SESSION["userName"]);
+    $solicitudes = obtenerRegistros($sqlstr);
     return $solicitudes;
 }
 

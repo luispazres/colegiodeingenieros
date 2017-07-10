@@ -50,10 +50,11 @@
     p.proyectoTelefonoPropietario,
     p.proyectoEmailPropietario,
     p.proyectoDireccionPropietario
-from tblproyectos as p, tbldepartamentos as d
-where d.departamentoId=p.departamentoId and p.usuarioIdentidad='%s';";
-        $departamentos = obtenerRegistros($sqlstr, $_SESSION["userName"]);
-        return $departamentos;
+    from tblproyectos as p, tbldepartamentos as d
+    where d.departamentoId=p.departamentoId and p.usuarioIdentidad='%s';";
+    $sqlstr = sprintf($sqlstr, $_SESSION["userName"]);
+    $departamentos = obtenerRegistros($sqlstr);
+    return $departamentos;
     }
 
     function obtnerProyectosPorId($proyectoId){

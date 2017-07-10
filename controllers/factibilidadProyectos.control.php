@@ -53,10 +53,6 @@
                   //header($location);
                   echo $resultado;
                   break;
-
-                default:
-                  # code...
-                  break;
               }
             }
           renderizar("factibilidadProyectos",  $htmlDatos);

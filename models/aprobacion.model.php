@@ -176,32 +176,18 @@ function obtenerAprobacion(){
 	if(ea.estadoAprobacionId=3 || ea.estadoAprobacionId=1 || ea.estadoAprobacionId=4,true,false) 'reintentar',
     if(exists(select * from tblsolicitudrecepcion as sr where sr.solicitudAprobacionId=sa.solicitudAprobacionId),false,true) 'recepcion',
     if(exists(select * from tblsolicituddespeje as sd where sd.tblsolicitudaprobacion_solicitudAprobacionId=sa.solicitudAprobacionId),false,true) 'despeje',
-    sa.comentarioAprobacion,
-    p.proyectoId,
-    p.proyectoNombre,
-    p.proyectoNombrePropietario,
-    p.proyectoIdentidadPropietario,
-    sa.solicitudAprobacionId,
-    ea.estadoAprobacionId,
-    ea.estadoAprobacionDescripcion,
-    dep.departamentoDescripcion,
-    p.proyectoDireccion,
-    p.proyectoDescrpcion,
-    p.proyectoLatitud,
-    p.proyectoLongitud,
-    p.proyectoTelefonoPropietario,
-    p.proyectoCelularPropietario,
-    p.proyectoEmailPropietario,
-    p.proyectoDireccionPropietario,
-    sa.solicitudAaprobacionMontoEstimado,
-    sa.solicitudAprobacionCosto
-    FROM tblsolicitudaprobacion as sa,
-    tblproyectos as p,
-    tblestadoaprobacion as ea,
-    tbldepartamentos as dep
+    sa.comentarioAprobacion, p.proyectoId, p.proyectoNombre, p.proyectoNombrePropietario,
+    p.proyectoIdentidadPropietario, sa.solicitudAprobacionId, ea.estadoAprobacionId,
+    ea.estadoAprobacionDescripcion, dep.departamentoDescripcion, p.proyectoDireccion,
+    p.proyectoDescrpcion, p.proyectoLatitud, p.proyectoLongitud,  p.proyectoTelefonoPropietario,
+    p.proyectoCelularPropietario,  p.proyectoEmailPropietario,  p.proyectoDireccionPropietario,
+    sa.solicitudAaprobacionMontoEstimado,  sa.solicitudAprobacionCosto
+    FROM tblsolicitudaprobacion as sa,  tblproyectos as p,
+    tblestadoaprobacion as ea,  tbldepartamentos as dep
     where p.proyectoId=sa.proyectoId
     and sa.estadoSolicitudAprobacion=ea.estadoAprobacionId and p.departamentoId=dep.departamentoId and p.usuarioIdentidad='%s';";
-    $solicitudes = obtenerRegistros($sqlstr,$_SESSION["userName"]);
+    $sqlstr = sprintf($sqlstr, $_SESSION["userName"]);
+    $solicitudes = obtenerRegistros($sqlstr);
     return $solicitudes;
 }
 
