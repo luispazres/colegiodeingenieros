@@ -13,10 +13,25 @@
     $documentos = array( );
     $date="";
     if (isset($_POST["btnBuscar"])) {
-      $proyecto=obtenerSolicitudAprobacionPorCodigo($_POST["txtCodigo"]);
-      $documentos=obtenerDocumentosSolicitudAprobacionPorCodigo($_POST["txtCodigo"]);
-      $date= new DateTime($proyecto[0]["solicitudAprobacionFecha"]);
-      $proyecto[0]["solicitudAprobacionFecha"]=date_format($date, 'Y-m-d');
+      if($_POST["txtCodigo"] != null)
+      {
+        $proyecto=obtenerSolicitudAprobacionPorCodigo($_POST["txtCodigo"]);
+        if($proyecto != null)
+        {
+          $documentos=obtenerDocumentosSolicitudAprobacionPorCodigo($_POST["txtCodigo"]);
+          $date= new DateTime($proyecto[0]["solicitudAprobacionFecha"]);
+          $proyecto[0]["solicitudAprobacionFecha"]=date_format($date, 'Y-m-d');
+        }
+        else
+        {
+          redirectWithMessage("El código ingresado no existe","?page=revisarSolicitudAprobacionPublico");
+        }
+      }
+      else {
+        {
+          redirectWithMessage("Favor ingrese el código de aprovación","?page=revisarSolicitudAprobacionPublico");
+        }
+      }
     }
 
     renderizar("revisarSolicitudAprobacionPublico",   array("solicitudes"=>$proyecto,"documentos"=>$documentos), 'layoutSinSesion.view.tpl');
