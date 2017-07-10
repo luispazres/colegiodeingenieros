@@ -82,8 +82,8 @@
                   <!-- menu profile quick info -->
                   <div class="profile clearfix">
                     <div class="profile_info">
-                      <span>Bienvenido,</span>
-                      <h2 align="center">{{nombre}} {{apellido}}</h2>
+                      <span>Bienvenido</span>
+                      <h2>{{nombre}} {{apellido}}</h2>
                     </div>
                     <div class="clearfix"></div>
                   </div>

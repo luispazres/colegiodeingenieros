@@ -87,10 +87,10 @@
                       <h3>Opciones</h3>
                       <ul class="nav side-menu">
                         <li><a ><i class="fa fa-user"></i>Control de Usuarios<span class="fa fa-chevron-down"></span></a>
-                          <ul class="nav child_menu">
-                            <li><a href="index.php?page=solicitudDeCuentas">Revisar Solicitudes de Cuentas</a></li>
-                            <li><a href="index.php?page=verUsuarios">Modificar Usuarios</a></li>
-                          </ul>
+                        <ul class="nav child_menu">
+                        <li><a href="index.php?page=solicitudDeCuentas">Revisar Solicitudes de Cuentas</a></li>
+                        <li><a href="index.php?page=verUsuarios">Modificar Usuarios</a></li>
+                        </ul>
                         </li>
                         <li><a href="index.php?page=revisarSolicitudFactibilidadCimeqh"><i class="fa fa-list-alt"></i>Revisar Solicitudes de Factibilidad de Proyectos</a>
                         </li>
