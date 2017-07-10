@@ -34,7 +34,7 @@
       }
     }
 
-    renderizar("revisarSolicitudAprobacionPublico",   array("solicitudes"=>$proyecto,"documentos"=>$documentos), 'layoutSinSesion.view.tpl');
+    renderizar("revisarSolicitudAprobacionPublico",   array("solicitudes"=>$proyecto,"documentos"=>$documentos), 'layoutSinSesion2.view.tpl');
 
   }
 
