@@ -76,17 +76,7 @@
                           Email Propietario: {{proyectoEmailPropietario}}
                           <br>
                           Dirección Propietario: {{proyectoDireccionPropietario}}
-                          <br>
-                          <h4>Datos del Ingeniero</h4>
-                          Nombre del Ingeniero: {{ingenieroNombre}}
-                          <br>
-                          Numero de Colegiación: {{usuarioNumeroColegiacion}}
-                          <br>
-                          Telefono Ingeniero: {{usuarioTelefono}}
-                          <br>
-                          Celular Ingeniero: {{usuarioCelular}}
-                          <br>
-                          </div>
+                          <br>                          
                           <div class="modal-footer">
                             {{if reintentar}}
                                   <a href="index.php?page=aprobacionProyectos&proyectoId={{proyectoId}}&aprobacionId={{solicitudAprobacionId}}&accion=UPD"><button type="button" class="btn btn-success">Modificar Solicitud de Aprobacion</button></a>
