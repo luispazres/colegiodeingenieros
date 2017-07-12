@@ -28,15 +28,16 @@
           <div class="clearfix"></div>
 
           <div class="separator">
-            <p class="change_link">Primera vez?
-              <a href="index.php?page=registroUsuarios" class="to_register"> Crea Una Cuenta </a>
-            </p>
+            <h2 class="change_link">Primera vez?</h2>
+              <a href="index.php?page=registroUsuarios" ><button type="button" name="btnRestore" id="btnRestore" class="btn btn-warning btn-lg">Crear Cuenta</button>
+
+
 
             <div class="clearfix"></div>
             <br />
 
             <div>
-              <h1><i class="fa fa-paw"></i> CIMEQH</h1>
+              <h1>CIMEQH</h1>
                 <a href="index.php?page=revisarSolicitudAprobacionPublico"><input class="btn btn-info submit" type="button" name="" value="Buscar Proyectos Aprobados"></a>
               <p></p>
             </div>
@@ -65,7 +66,7 @@
             <br />
 
             <div>
-              <h1><i class="fa fa-paw"></i>CIMEQH</h1>
+              <h1>CIMEQH</h1>
               <p></p>
             </div>
           </div>

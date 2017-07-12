@@ -26,6 +26,9 @@
                     <li class="page-scroll">
                         <a href="#contact">Contacto</a>
                     </li>
+                    <li class="page-scroll">
+                        <a href="?page=login">Login</a>
+                    </li>
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
@@ -36,16 +39,9 @@
     <!-- Header -->
     <header>
         <div class="container" id="maincontent" tabindex="-1">
-            <div class="row">
-                <div class="col-lg-12">
-                    <img class="img-responsive" src="img/profile.png" alt="">
-                    <div class="intro-text">
-                        <h1 class="name">Start Bootstrap</h1>
-                        <hr class="star-light">
-                        <span class="skills">Web Developer - Graphic Artist - User Experience Designer</span>
-                    </div>
-                </div>
-            </div>
+          <div class="embed-responsive embed-responsive-16by9">
+            <iframe class="embed-responsive-item" src="images/animacion/Untitled-2.html" width="100" height="100" frameborder="0"></iframe>
+          </div>
         </div>
     </header>
 
