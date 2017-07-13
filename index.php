@@ -81,6 +81,12 @@
             //llamar al controlador
             require_once("controllers/revisarSolicitudFactibilidadEnee.control.php");
             break;
+
+            case "reporteSolicitudAprobacion":
+                //llamar al controlador
+                require_once("controllers/reporteSolicitudAprobacion.control.php");
+                break;
+
         case "cerrarSesion":
             //llamar al controlador
             require_once("controllers/cerrarSesion.control.php");

@@ -3,7 +3,7 @@
     <div class="col-md-12 col-sm-12 col-xs-12">
       <div class="x_panel">
         <div class="x_title">
-          <h2>Mis Solicitudes de Aprobación<small></small></h2>
+          <h2><small>Users</small></h2>
           <ul class="nav navbar-right panel_toolbox">
             <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
             </li>
@@ -23,30 +23,29 @@
         </div>
         <div class="x_content">
           <p class="text-muted font-13 m-b-30">
+            Responsive is an extension for DataTables that resolves that problem by optimising the table's layout for different screen sizes through the dynamic insertion and removal of columns from the table.
           </p>
 
           <table id="datatable-responsive" class="table table-striped table-bordered dt-responsive nowrap" cellspacing="0" width="100%">
             <thead>
               <tr>
-                <th>Código de la  Solicitud</th>
-                <th>Nombre del Proyecto</th>
-                <th>Nombre del Propietario</th>
-                <th>Identidad del Propietario</th>
-                <th>Estado e la Solicitud</th>
+                <th>Nombre Proyecto</th>
+                <th>Propietario Nombre</th>
+                <th>Nombre Usuario</th>
+                <th>Numero Colegiación</th>
+                <th>Estado de la Solicitud</th>
                 <th>Acciones</th>
               </tr>
             </thead>
             <tbody>
-              {{foreach solicitudes}}
+              {{foreach solicitud}}
                 <tr>
-                  <td>{{solicitudAprobacionId}}</td>
                   <td>{{proyectoNombre}}</td>
                   <td>{{proyectoNombrePropietario}}</td>
-                  <td>{{proyectoIdentidadPropietario}}</td>
+                  <td>{{usuarioPrimerNombre}} {{usuarioSegundoNombre}} {{usuarioPrimerApellido}} {{usuarioSegundoApellido}}</td>
+                  <td>{{usuarioNumeroColegiacion}}</td>
                   <td>{{estadoAprobacionDescripcion}}</td>
-                  <td><a href="index.php?page=verMisDocumentosDeAprobacion&aprobacionId={{solicitudAprobacionId}}"><button type="button" class="btn btn-success btn-xs">Ver Documentos</button></a>
-                    <a href="index.php?page=comentarios&accion=reporte&codigo={{solicitudAprobacionId}}"><button type="button" class="btn btn-warning btn-xs">Revisar Reporte</button></a>
-                    <button type="button" class="btn btn-primary btn-xs" data-toggle="modal" data-target=".bs-example-modal-lg-{{solicitudAprobacionId}}">Ver</button>
+                  <td> <button id="btnOpciones12" type="button" class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-lg-{{solicitudAprobacionId}}" value="{{solicitudAprobacionId}}">Opciones</button>
                     <div class="modal fade bs-example-modal-lg-{{solicitudAprobacionId}}" tabindex="-1" role="dialog" aria-hidden="true">
                       <div class="modal-dialog modal-lg">
                           <div class="modal-content">
@@ -74,38 +73,43 @@
                           <br>
                           Telefono Propietario: {{proyectoTelefonoPropietario}}
                           <br>
+                          Celular Propietario: {{proyectoCelularPropietario}}
+                          <br>
                           Email Propietario: {{proyectoEmailPropietario}}
                           <br>
                           Dirección Propietario: {{proyectoDireccionPropietario}}
                           <br>
+                          <h4>Datos del Ingeniero</h4>
+                          Nombre del Ingeniero: {{usuarioPrimerNombre}} {{usuarioSegundoNombre}} {{usuarioPrimerApellido}} {{usuarioSegundoApellido}}
+                          <br>
+                          Numero de Colegiación: {{usuarioNumeroColegiacion}}
+                          <br>
+                          Telefono Ingeniero: {{usuarioTelefono}}
+                          <br>
+                          Celular Ingeniero: {{usuarioCelular}}
+                          <br>
+                          <h4>Datos de la Solicitud</h4>
+                          Monto Estimado del Proyecto: {{solicitudAaprobacionMontoEstimado}}
+                          <br>
+                          Total de Timbres a Pagar: {{solicitudAprobacionCosto}}
+                          <br>
+                          </div>
                           <div class="modal-footer">
-                            {{if reintentar}}
-                                  <a href="index.php?page=aprobacionProyectos&proyectoId={{proyectoId}}&aprobacionId={{solicitudAprobacionId}}&accion=UPD"><button type="button" class="btn btn-success">Modificar Solicitud de Aprobacion</button></a>
-                            {{endif reintentar}}
-                            {{ifnot reintentar}}
-                              {{ifnot recepcion}}
-                                <a href="index.php?page=recepcionProyectos&proyectoId={{proyectoId}}&accion=INS"><button type="button" class="btn btn-success" disabled>Ya ha Realizado uan Solicitud de Recepción del Proyecto</button></a>
-                              {{endifnot recepcion}}
-                              {{ifnot despeje}}
-                                <a href="index.php?page=solicitudDespeje&proyectoId={{proyectoId}}"><button type="button" class="btn btn-success" disabled>Ya ha Realizado uan Solicitud Despeje de energia</button></a>
-                              {{endifnot despeje}}
-                              {{if recepcion}}
-                                <a href="index.php?page=recepcionProyectos&proyectoId={{proyectoId}}&accion=INS"><button type="button" class="btn btn-success">Solicitar Recepción del Proyecto</button></a>
-                              {{endif recepcion}}
-                              {{if despeje}}
-                              <a href="index.php?page=solicitudDespeje&proyectoId={{proyectoId}}&accion=INS"><button type="button" class="btn btn-success">Solicitar Despeje de energia</button></a>
-                              {{endif despeje}}
-                            {{endifnot reintentar}}
+                          <form method="post" action="index.php?page=solicitudDeCuentas">
+                          <input id="usuarioIdentidad" type="hidden" name="usuarioIdentidad" value={{usuarioIdentidad}}>
+                          <a href="index.php?page=documentos&accion=aprobacion&codigo={{solicitudAprobacionId}}" target="_blank"><input type="button" name="btnDescargar" id="btnDescargar" class="btn btn-warning" value="Ver Documentos Agregados" target="_blank">
+                          <a href="index.php?page=comentarios&tipo=rechazo&accion=aprobacion&codigo={{solicitudAprobacionId}}"><input type="button" name="btnRechazar" id="btnRechazar" class="btn btn-danger" value="Rechazar Aprobación">
+                          <a href="index.php?page=comentarios&tipo=aceptado&accion=aprobacion&codigo={{solicitudAprobacionId}}"><input type="button" name="btnAceptar" id="btnAceptar" class="btn btn-success" value="Aceptar Aprobación">
+                          </form>
                           </div>
                         </div>
                       </div>
                     </div>
                   </td>
                 </tr>
-              {{endfor solicitudes}}
+              {{endfor solicitud}}
             </tbody>
           </table>
-          </div>
         </div>
       </div>
     </div>
