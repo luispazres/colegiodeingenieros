@@ -27,7 +27,7 @@
                         <a href="#contact">Contacto</a>
                     </li>
                     <li class="page-scroll">
-                        <a href="?page=login">Login</a>
+                        <a href="?page=login">Ingresar</a>
                     </li>
                 </ul>
             </div>
@@ -42,10 +42,10 @@
           <div class="embed-responsive embed-responsive-16by9">
             <iframe class="embed-responsive-item" src="images/animacion/Untitled-2.html" width="100%" height="100%" frameborder="0"></iframe>
           </div>
-          <h2>Hola amiguitos</h2>
-          <p>Freelancer is a free bootstrap theme created by Start Bootstrap. The download includes the complete source files including HTML, CSS, and JavaScript as well as optional LESS stylesheets for easy customization.</p>
+          <h2>CIMEQH</h2>
+          <p>La plataforma virtual de CIMEQH te permite realizar todos lo tramites que necesitas sin necesidad de salir de la comodidad de tu hogar u oficina, en la cual puedes relizar tramites para Despeje de Energía Electrica, Factibilidad de Proyectos, Aprobación de proyectos y Recepción de proyectos</p>
           <a href="?page=login" class="btn btn-lg btn-outline">
-              <i class="fa fa-sign-in"></i> Ingresar
+              <i class="fa fa-sign-in"></i> Ingresar</a>
         </div>
     </header>
 
@@ -54,7 +54,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
-                    <h2>Portfolio</h2>
+                    <h2>Portafolio</h2>
                     <hr class="star-primary">
                 </div>
             </div>
@@ -66,7 +66,7 @@
                                 <i class="fa fa-search-plus fa-3x"></i>
                             </div>
                         </div>
-                        <img src="img/portfolio/cabin.png" class="img-responsive" alt="Cabin">
+                        <img src="images/cimeqh_.jpg" class="img-responsive" alt="Cabin">
                     </a>
                 </div>
                 <div class="col-sm-4 portfolio-item">
@@ -76,7 +76,7 @@
                                 <i class="fa fa-search-plus fa-3x"></i>
                             </div>
                         </div>
-                        <img src="img/portfolio/cake.png" class="img-responsive" alt="Slice of cake">
+                        <img src="images/eneelogo.jpg" class="img-responsive" alt="Slice of cake">
                     </a>
                 </div>
                 <div class="col-sm-4 portfolio-item">
@@ -86,10 +86,10 @@
                                 <i class="fa fa-search-plus fa-3x"></i>
                             </div>
                         </div>
-                        <img src="img/portfolio/circus.png" class="img-responsive" alt="Circus tent">
+                        <img src="images/welcome.png" class="img-responsive" alt="Circus tent">
                     </a>
                 </div>
-                <div class="col-sm-4 portfolio-item">
+                <!--div class="col-sm-4 portfolio-item">
                     <a href="#portfolioModal4" class="portfolio-link" data-toggle="modal">
                         <div class="caption">
                             <div class="caption-content">
@@ -118,7 +118,7 @@
                         </div>
                         <img src="img/portfolio/submarine.png" class="img-responsive" alt="Submarine">
                     </a>
-                </div>
+                </div-->
             </div>
         </div>
     </section>
@@ -128,21 +128,18 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
-                    <h2>About</h2>
+                    <h2>Sobre nosotros</h2>
                     <hr class="star-light">
                 </div>
             </div>
             <div class="row">
                 <div class="col-lg-4 col-lg-offset-2">
-                    <p>Freelancer is a free bootstrap theme created by Start Bootstrap. The download includes the complete source files including HTML, CSS, and JavaScript as well as optional LESS stylesheets for easy customization.</p>
+                    <p>El colegio de Ingenieros Mecánicos, Electricistas y Químicos de Honduras y Ramas Afines. Es una institución sin fines de lucro, apolítica, cuyo objetivo principal es el de velar por el desarrollo tecnológico del pais mediante la regulación del ejercicio profesional y actualización de sus agremiados</p>
                 </div>
                 <div class="col-lg-4">
-                    <p>Whether you're a student looking to showcase your work, a professional looking to attract clients, or a graphic artist looking to share your projects, this template is the perfect starting point!</p>
+                    <p>procurando capacitarlos para que adquieran conocimientos, destrezas y habilidades adicionales, a fin de lograr mayor productividad y competitividad en los servicios profesionales; asi como promover la protección económica  y solidaridad entre  los miembros.</p>
                 </div>
                 <div class="col-lg-8 col-lg-offset-2 text-center">
-                    <a href="#" class="btn btn-lg btn-outline">
-                        <i class="fa fa-download"></i> Download Theme
-                    </a>
                 </div>
             </div>
         </div>
@@ -153,7 +150,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
-                    <h2>Contact Me</h2>
+                    <h2>Contactanos</h2>
                     <hr class="star-primary">
                 </div>
             </div>
@@ -165,28 +162,28 @@
                         <div class="row control-group">
                             <div class="form-group col-xs-12 floating-label-form-group controls">
                                 <label for="name">Name</label>
-                                <input type="text" class="form-control" placeholder="Name" id="name" required data-validation-required-message="Please enter your name.">
+                                <input type="text" class="form-control" placeholder="Nombre" id="name" required data-validation-required-message="Please enter your name.">
                                 <p class="help-block text-danger"></p>
                             </div>
                         </div>
                         <div class="row control-group">
                             <div class="form-group col-xs-12 floating-label-form-group controls">
                                 <label for="email">Email Address</label>
-                                <input type="email" class="form-control" placeholder="Email Address" id="email" required data-validation-required-message="Please enter your email address.">
+                                <input type="email" class="form-control" placeholder="Correo" id="email" required data-validation-required-message="Please enter your email address.">
                                 <p class="help-block text-danger"></p>
                             </div>
                         </div>
                         <div class="row control-group">
                             <div class="form-group col-xs-12 floating-label-form-group controls">
                                 <label for="phone">Phone Number</label>
-                                <input type="tel" class="form-control" placeholder="Phone Number" id="phone" required data-validation-required-message="Please enter your phone number.">
+                                <input type="tel" class="form-control" placeholder="Número de teléfono" id="phone" required data-validation-required-message="Please enter your phone number.">
                                 <p class="help-block text-danger"></p>
                             </div>
                         </div>
                         <div class="row control-group">
                             <div class="form-group col-xs-12 floating-label-form-group controls">
                                 <label for="message">Message</label>
-                                <textarea rows="5" class="form-control" placeholder="Message" id="message" required data-validation-required-message="Please enter a message."></textarea>
+                                <textarea rows="5" class="form-control" placeholder="Mensaje" id="message" required data-validation-required-message="Please enter a message."></textarea>
                                 <p class="help-block text-danger"></p>
                             </div>
                         </div>
@@ -194,7 +191,7 @@
                         <div id="success"></div>
                         <div class="row">
                             <div class="form-group col-xs-12">
-                                <button type="submit" class="btn btn-success btn-lg">Send</button>
+                                <button type="submit" class="btn btn-success btn-lg">Enviar</button>
                             </div>
                         </div>
                     </form>
@@ -209,33 +206,28 @@
             <div class="container">
                 <div class="row">
                     <div class="footer-col col-md-4">
-                        <h3>Location</h3>
-                        <p>3481 Melrose Place
-                            <br>Beverly Hills, CA 90210</p>
+                        <h3>Localización</h3>
+                        <p>Colonia Florencia Sur, Primera Calle, Contiguo a Embajada de Perú
+                            <br>Apartado Postal 2446, Tegucigalpa M.D.C., Francisco Morazán, Honduras</p>
                     </div>
-                    <div class="footer-col col-md-4">
-                        <h3>Around the Web</h3>
-                        <ul class="list-inline">
-                            <li>
-                                <a href="#" class="btn-social btn-outline"><span class="sr-only">Facebook</span><i class="fa fa-fw fa-facebook"></i></a>
-                            </li>
-                            <li>
-                                <a href="#" class="btn-social btn-outline"><span class="sr-only">Google Plus</span><i class="fa fa-fw fa-google-plus"></i></a>
-                            </li>
-                            <li>
-                                <a href="#" class="btn-social btn-outline"><span class="sr-only">Twitter</span><i class="fa fa-fw fa-twitter"></i></a>
-                            </li>
-                            <li>
-                                <a href="#" class="btn-social btn-outline"><span class="sr-only">Linked In</span><i class="fa fa-fw fa-linkedin"></i></a>
-                            </li>
-                            <li>
-                                <a href="#" class="btn-social btn-outline"><span class="sr-only">Dribble</span><i class="fa fa-fw fa-dribbble"></i></a>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="footer-col col-md-4">
-                        <h3>About Freelancer</h3>
-                        <p>Freelance is a free to use, open source Bootstrap theme created by <a href="http://startbootstrap.com">Start Bootstrap</a>.</p>
+                    <div class="footer-col col-md-4 col-md-offset-4">
+                      <ul class="list-inline">
+                          <li>
+                              <a href="#" class="btn-social btn-outline"><span class="sr-only">Facebook</span><i class="fa fa-fw fa-facebook"></i></a>
+                          </li>
+                          <li>
+                              <a href="#" class="btn-social btn-outline"><span class="sr-only">Google Plus</span><i class="fa fa-fw fa-google-plus"></i></a>
+                          </li>
+                          <li>
+                              <a href="#" class="btn-social btn-outline"><span class="sr-only">Twitter</span><i class="fa fa-fw fa-twitter"></i></a>
+                          </li>
+                          <li>
+                              <a href="#" class="btn-social btn-outline"><span class="sr-only">Linked In</span><i class="fa fa-fw fa-linkedin"></i></a>
+                          </li>
+                          <li>
+                              <a href="#" class="btn-social btn-outline"><span class="sr-only">Dribble</span><i class="fa fa-fw fa-dribbble"></i></a>
+                          </li>
+                      </ul>
                     </div>
                 </div>
             </div>
@@ -244,7 +236,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-lg-12">
-                        Copyright &copy; Your Website 2016
+                        Copyright &copy; www.cimeqh.org 2017
                     </div>
                 </div>
             </div>

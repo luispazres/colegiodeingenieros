@@ -43,7 +43,7 @@ from tblestadorecepcion tblre,tblsolicitudrecepcion tblr, tblusuarios tblu
 ,tblsolicitudaprobacion tbla, tblproyectos tblp, tbldepartamentos tbld
 where tblr.solicitudRecepcioEstado=tblre.estadoRecepcionId and tbld.departamentoId=tblp.departamentoId and tblu.usuarioIdentidad=tblp.usuarioIdentidad
 and tblr.solicitudAprobacionId=tbla.solicitudAprobacionId and tblp.proyectoId=tbla.proyectoId
-and solicitudRecepcioEstado=4;";
+and solicitudRecepcioEstado=1;";
     $solicitudes = obtenerRegistros($sqlstr);
     return $solicitudes;
 }
