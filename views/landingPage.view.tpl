@@ -38,10 +38,14 @@
 
     <!-- Header -->
     <header>
-        <div class="container" id="maincontent" tabindex="-1">
+        <div class="container" id="maincontent" tabindex="0">
           <div class="embed-responsive embed-responsive-16by9">
-            <iframe class="embed-responsive-item" src="images/animacion/Untitled-2.html" width="100" height="100" frameborder="0"></iframe>
+            <iframe class="embed-responsive-item" src="images/animacion/Untitled-2.html" width="100%" height="100%" frameborder="0"></iframe>
           </div>
+          <h2>Hola amiguitos</h2>
+          <p>Freelancer is a free bootstrap theme created by Start Bootstrap. The download includes the complete source files including HTML, CSS, and JavaScript as well as optional LESS stylesheets for easy customization.</p>
+          <a href="?page=login" class="btn btn-lg btn-outline">
+              <i class="fa fa-sign-in"></i> Ingresar
         </div>
     </header>
 
