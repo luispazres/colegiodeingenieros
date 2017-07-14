@@ -45,8 +45,10 @@
                   <td>{{proyectoIdentidadPropietario}}</td>
                   <td>{{estadoAprobacionDescripcion}}</td>
                   <td><a href="index.php?page=verMisDocumentosDeAprobacion&aprobacionId={{solicitudAprobacionId}}"><button type="button" class="btn btn-success btn-xs">Ver Documentos</button></a>
-                    <a href="index.php?page=reporteSolicitudAprobacion&id={{codigoAprobacion}}"><button type="button" class="btn btn-warning btn-xs">Revisar Reporte</button></a>
                     <button type="button" class="btn btn-primary btn-xs" data-toggle="modal" data-target=".bs-example-modal-lg-{{solicitudAprobacionId}}">Ver</button>
+                    {{if aprobado}}
+                        <a href="index.php?page=reporteSolicitudAprobacion&id={{codigoAprobacion}}"><button type="button" class="btn btn-warning btn-xs">Revisar Reporte</button></a>
+                    {{endif aprobado}}
                     <div class="modal fade bs-example-modal-lg-{{solicitudAprobacionId}}" tabindex="-1" role="dialog" aria-hidden="true">
                       <div class="modal-dialog modal-lg">
                           <div class="modal-content">

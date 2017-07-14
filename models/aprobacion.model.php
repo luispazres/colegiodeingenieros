@@ -173,6 +173,7 @@ $sqlstr = sprintf($sqlstr, $estado,$comentario,$solicitudId);
 function obtenerAprobacion(){
     $solicitudes = array();
     $sqlstr = "SELECT
+	if(ea.estadoAprobacionId=2 ,true,false) 'aprobado',
 	if(ea.estadoAprobacionId=3 || ea.estadoAprobacionId=1 || ea.estadoAprobacionId=4,true,false) 'reintentar',
     if(exists(select * from tblsolicitudrecepcion as sr where sr.solicitudAprobacionId=sa.solicitudAprobacionId),false,true) 'recepcion',
     if(exists(select * from tblsolicituddespeje as sd where sd.tblsolicitudaprobacion_solicitudAprobacionId=sa.solicitudAprobacionId),false,true) 'despeje',
@@ -185,7 +186,8 @@ function obtenerAprobacion(){
     FROM tblsolicitudaprobacion as sa,  tblproyectos as p,
     tblestadoaprobacion as ea,  tbldepartamentos as dep
     where p.proyectoId=sa.proyectoId
-    and sa.estadoSolicitudAprobacion=ea.estadoAprobacionId and p.departamentoId=dep.departamentoId and p.usuarioIdentidad='%s';";
+    and sa.estadoSolicitudAprobacion=ea.estadoAprobacionId and p.departamentoId=dep.departamentoId and p.usuarioIdentidad='%s';
+    ";
     $sqlstr = sprintf($sqlstr, $_SESSION["userName"]);
     $solicitudes = obtenerRegistros($sqlstr);
     return $solicitudes;

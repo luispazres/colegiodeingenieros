@@ -11,7 +11,7 @@
           $solicitudes = array();
 
           $solicitudes=obtenerAprobacion();
-
+          
           renderizar("verMisSolicitudesDeAprobacion", array('solicitudes'=> $solicitudes));
         }else {
           redirectWithMessage("No cuenta con los privilegios de usuario adecuado para ver esta páagina.","?page=login");
