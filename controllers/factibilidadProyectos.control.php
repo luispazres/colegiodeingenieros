@@ -45,6 +45,7 @@
                   //$location="Location:index.php?page=factibilidadProyectos&error=".$resultado;
                   //header($location);
                 //  echo $resultado;
+                redirectWithMessage("La Factibilidad ha sido Efectuada.","?page=verMisSolicitudesDeFactibilidad");
                   break;
 
                 case 'UPD':
@@ -52,6 +53,7 @@
                   //$location="Location:index.php?page=factibilidadProyectos&error=".$resultado;
                   //header($location);
                   echo $resultado;
+                  redirectWithMessage("El cambio se ha realizado.","?page=verMisSolicitudesDeFactibilidad");
                   break;
               }
             }

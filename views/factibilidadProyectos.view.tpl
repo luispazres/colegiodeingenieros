@@ -143,8 +143,8 @@
               		<div class="row">
                                               <div class="col-md-6">
                                                   <div class="form-group">
-                                                      <label for="txtPotencia">Potencia *</label>
-                                                      <input id="txtPotencia" type="text" name="txtPotencia"  class="form-control" placeholder="Potencia *">
+                                                      <label for="txtPotencia">Potencia Demandada KW *</label>
+                                                      <input id="txtPotencia" type="text" name="txtPotencia"  class="form-control" placeholder="Potencia Demandada KW *">
                                                   </div>
                                               </div>
               																<div class="col-md-6">
@@ -156,7 +156,7 @@
                                               <div class="col-md-6">
                                                   <div class="form-group">
                                                       <label for="txtKva">KVA a Instalar</label>
-                                                      <input type="text" id="txtKva" name="txtKva" id="txtCrecimientoEsperado" class="form-control" placeholder="Crecimiento Futuro Esperado en % *">
+                                                      <input type="text" id="txtKva" name="txtKva" id="txtCrecimientoEsperado" class="form-control" placeholder="KVA a Instalar *">
                                                   </div>
                                               </div>
               		</div>

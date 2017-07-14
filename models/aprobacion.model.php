@@ -177,7 +177,7 @@ function obtenerAprobacion(){
     if(exists(select * from tblsolicitudrecepcion as sr where sr.solicitudAprobacionId=sa.solicitudAprobacionId),false,true) 'recepcion',
     if(exists(select * from tblsolicituddespeje as sd where sd.tblsolicitudaprobacion_solicitudAprobacionId=sa.solicitudAprobacionId),false,true) 'despeje',
     sa.comentarioAprobacion, p.proyectoId, p.proyectoNombre, p.proyectoNombrePropietario,
-    p.proyectoIdentidadPropietario, sa.solicitudAprobacionId, ea.estadoAprobacionId,
+    p.proyectoIdentidadPropietario,sa.codigoAprobacion, sa.solicitudAprobacionId, ea.estadoAprobacionId,
     ea.estadoAprobacionDescripcion, dep.departamentoDescripcion, p.proyectoDireccion,
     p.proyectoDescrpcion, p.proyectoLatitud, p.proyectoLongitud,  p.proyectoTelefonoPropietario,
     p.proyectoCelularPropietario,  p.proyectoEmailPropietario,  p.proyectoDireccionPropietario,

@@ -18,33 +18,7 @@
 
     if(isset($_GET["accion"])){
 
-    switch ($_GET["accion"]) {
-
-      case 'reporte':
-      $solicitud=obtenerSolicitudAprobacionPorId($_GET["codigo"]);
-      if($solicitud){
-        $htmlDatos["proyectoNombre"] = $solicitud["proyectoNombre"];
-        $htmlDatos["departamentoDescripcion"] = $solicitud["departamentoDescripcion"];
-        $htmlDatos["proyectoDireccion"] = $solicitud["proyectoDireccion"];
-        $htmlDatos["proyectoNombrePropietario"] = $solicitud["proyectoNombrePropietario"];
-        $htmlDatos["proyectoDescrpcion"] = $solicitud["proyectoDescrpcion"];
-        $htmlDatos["usuarioPrimerNombre"] = $solicitud["usuarioPrimerNombre"];
-        $htmlDatos["usuarioSegundoNombre"] = $solicitud["usuarioSegundoNombre"];
-        $htmlDatos["usuarioSegundoApellido"] = $solicitud["usuarioSegundoApellido"];
-        $htmlDatos["usuarioPrimerApellido"] = $solicitud["usuarioPrimerApellido"];
-        $htmlDatos["ingenieroNombre"] =  $htmlDatos["usuarioPrimerNombre"]." ".  $htmlDatos["usuarioSegundoNombre"]." ".$htmlDatos["usuarioPrimerApellido"]." ".  $htmlDatos["usuarioSegundoApellido"];
-        $htmlDatos["usuarioNumeroColegiacion"] = $solicitud["usuarioNumeroColegiacion"];
-        $htmlDatos["solicitudAaprobacionMontoEstimado"] = $solicitud["solicitudAaprobacionMontoEstimado"];
-        $htmlDatos["solicitudAprobacionCosto"] = $solicitud["solicitudAprobacionCosto"];
-        $htmlDatos["vista"]=vistaReporteAprobacion::vista($_GET["codigo"],
-        $htmlDatos["proyectoNombre"],$htmlDatos["departamentoDescripcion"],$htmlDatos["proyectoDireccion"],
-        $htmlDatos["proyectoDescrpcion"],$htmlDatos["proyectoNombrePropietario"],
-        $htmlDatos["ingenieroNombre"],$htmlDatos["usuarioNumeroColegiacion"],
-        $htmlDatos["solicitudAaprobacionMontoEstimado"],$htmlDatos["solicitudAprobacionCosto"]);
-        renderizar('comentarios',  $htmlDatos,"layoutCimeqh.view.tpl");
-      }
-
-
+    switch ($_GET["accion"]) {    
 
     case 'factibilidad':
     $solicitud=verFactbilidadPorId($_GET["codigo"]);
