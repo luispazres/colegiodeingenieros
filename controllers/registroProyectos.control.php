@@ -22,14 +22,14 @@
             $proyecto["txtTelefonoPropietario"]=$_POST["txtTelefonoPropietario"];
             $proyecto["txtCelularPropietario"]=$_POST["txtCelularPropietario"];
             $proyecto["txtNombreProyecto"]=$_POST["txtNombreProyecto"];
-            $proyecto["txtLatitud"]=$_POST["txtLatitud"];
-            $proyecto["txtLongitud"]=$_POST["txtLongitud"];
+            $proyecto["txtUtmEste"]=$_POST["txtUtmEste"];
+            $proyecto["txtUtmNorte"]=$_POST["txtUtmNorte"];
+            $proyecto["txtUtmZona"]=$_POST["txtUtmZona"];
             $proyecto["txtIdentidadPropietario"]=$_POST["txtIdentidadPropietario"];
             $proyecto["cmbDepartamentoProyecto"]=$_POST["cmbProyectoDepartamento"];
             $proyecto["txtDireccionProyecto"]=$_POST["txtDireccionProyecto"];
             $proyecto["txtDescripcionProyecto"]=$_POST["txtDescripcionProyecto"];
             $proyecto["cmbProyectoTipo"]=$_POST["cmbProyectoTipo"];
-
             $respueta=registrarProyecto($proyecto["txtNombrePropietario"],
             $proyecto["txtIdentidadPropietario"],
             $proyecto["txtDireccionPropietario"],
@@ -37,14 +37,15 @@
             $proyecto["txtTelefonoPropietario"],
             $proyecto["txtCelularPropietario"],
             $proyecto["txtNombreProyecto"],
-            $proyecto["txtLatitud"],
-            $proyecto["txtLongitud"],
+            $proyecto["txtUtmEste"],
+            $proyecto["txtUtmNorte"],
             $proyecto["txtDescripcionProyecto"],
             $proyecto["cmbDepartamentoProyecto"],
             $proyecto["txtDireccionProyecto"],
             $proyecto["txtNombreProyecto"],
-            $proyecto["cmbProyectoTipo"]);
-
+            $proyecto["cmbProyectoTipo"],
+            $proyecto["txtUtmZona"]);
+            redirectWithMessage("El proyecto ha sido agregado exitosamente","index.php?page=verProyectos");
             $location="Location:index.php?page=registroProyectos&error=".$respueta;
             header($location);
           }

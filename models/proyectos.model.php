@@ -67,12 +67,29 @@
 
 
 
-    function registrarProyecto($txtNombrePropietario,$txtIdentidadPropietario,$txtDireccionPropietario,$txtEmailPropietario,$txtTelefonoPropietario, $txtCelularPropietario, $txtProyectoNombre, $txtLatitud, $txtLongitud, $txtDescripcionProyecto,$cmbDepartamentoProyecto,$txtDireccionProyecto, $txtProyectoNombre,$tipos){
-      $insertSQL = "INSERT INTO `tblProyectos` (`proyectoNombrePropietario`,`proyectoIdentidadPropietario`,
-        `proyectoDireccionPropietario`, `proyectoCelularPropietario`,`proyectoEmailPropietario`,
-        `proyectoTelefonoPropietario`,departamentoId, `proyectoDescrpcion`, proyectoLatitud, proyectoLongitud,
-        `proyectoDireccion`, `usuarioIdentidad`,`proyectoNombre`,`tipoId`)
-      values ('%s','%s','%s','%s','%s','%s',%d,'%s',%f,%f,'%s','%s','%s',%d);";
+function registrarProyecto($txtNombrePropietario,
+$txtIdentidadPropietario,
+$txtDireccionPropietario,
+$txtEmailPropietario,
+$txtTelefonoPropietario,
+$txtCelularPropietario,
+$txtProyectoNombre,
+$txtLatitud,
+$txtLongitud,
+$txtDescripcionProyecto,
+$cmbDepartamentoProyecto,
+$txtDireccionProyecto,
+$txtProyectoNombre,
+$tipos,
+$zonaUtm){
+$insertSQL = "INSERT INTO `tblProyectos` (`proyectoNombrePropietario`,
+`proyectoIdentidadPropietario`,`proyectoCelularPropietario`,
+`proyectoEmailPropietario`,`proyectoDireccionPropietario`,
+`proyectoTelefonoPropietario`,`departamentoId`,
+`proyectoDescrpcion`,`proyectoLatitud`,`proyectoLongitud`,
+`proyectoDireccion`,`usuarioIdentidad`,`proyectoNombre`,
+`tipoId`,`zonaUtm`)
+values ('%s','%s','%s','%s','%s','%s',%d,'%s',%f,%f,'%s','%s','%s',%d,'%s');";
       $insertSQL = sprintf($insertSQL,
                            valstr($txtNombrePropietario),
                            valstr($txtIdentidadPropietario),
@@ -87,7 +104,8 @@
                            valstr($txtDireccionProyecto),
                            $_SESSION["userName"],
                            valstr($txtProyectoNombre),
-                           $tipos);
+                           $tipos,
+                           $zonaUtm);
       return ejecutarNonQueryConErrores($insertSQL);
     }
  ?>

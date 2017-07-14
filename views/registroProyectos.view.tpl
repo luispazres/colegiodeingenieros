@@ -17,7 +17,7 @@
           <div class="col-md-12 col-sm-12 col-xs-12">
             <div class="x_panel">
               <div class="x_title">
-                  <h2>Datos del Proyecto</h2>                  
+                  <h2>Datos del Proyecto</h2>
                   <div class="clearfix"></div>
                 </div>
                 <div class="x_content">
@@ -37,7 +37,7 @@
                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Numero de Identidad del Propietario<span class="required">
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input type="text" id="txtIdentidadPropietario" name='txtIdentidadPropietario' required="required" class="form-control col-md-7 col-xs-12">
+                          <input type="text" id="txtIdentidadPropietario" name='txtIdentidadPropietario' required="required" class="form-control col-md-7 col-xs-12" maxlength="13">
                         </div>
                       </div>
                       <div class="form-group">
@@ -60,14 +60,14 @@
                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Telefono del Propietario<span class="required">
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input type="text" id="txtTelefonoPropietario" name='txtTelefonoPropietario' required="required" class="form-control col-md-7 col-xs-12">
+                          <input type="text" id="txtTelefonoPropietario" name='txtTelefonoPropietario' required="required" class="form-control col-md-7 col-xs-12" maxlength="8">
                         </div>
                       </div>
                       <div class="form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Celular del Propietario<span class="required">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name" >Celular del Propietario<span class="required">
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input type="text" id="txtCelularPropietario" name='txtCelularPropietario' required="required" class="form-control col-md-7 col-xs-12">
+                          <input type="text" id="txtCelularPropietario" name='txtCelularPropietario' required="required" class="form-control col-md-7 col-xs-12" maxlength="8">
                         </div>
                       </div>
                       <div class="form-group">
@@ -78,17 +78,24 @@
                         </div>
                       </div>
                       <div class="form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name" >Longitud<span class="required">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name" >UTM Este<span class="required">
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input type="text" id="txtNombreProyecto" name='txtNombreProyecto' required="required" class="form-control col-md-7 col-xs-12" placeholder="Coordenadas">
+                          <input type="text" id="txtUtmEste" name='txtUtmEste' required="required" class="form-control col-md-7 col-xs-12" placeholder="Coordenadas">
                         </div>
                       </div>
                       <div class="form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name" >Latitud<span class="required">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name" >UTM Norte<span class="required">
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input type="text" id="txtNombreProyecto" name='txtNombreProyecto' required="required" class="form-control col-md-7 col-xs-12" placeholder="Coordenadas">
+                          <input type="text" id="txtUtmNorte" name='txtUtmNorte' required="required" class="form-control col-md-7 col-xs-12" placeholder="Coordenadas">
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name" >Zona UTM<span class="required">
+                        </label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                          <input type="text" id="txtUtmZona" name='txtUtmZona' required="required" class="form-control col-md-7 col-xs-12" placeholder="Coordenadas">
                         </div>
                       </div>
                       <div class="form-group">
@@ -167,6 +174,54 @@ $(document).ready(function() {
                   }
               }
           },
+          txtUtmEste: {
+            validators: {
+                notEmpty: {
+                    message: 'Campo obligatorio, no puede estar vacio.'
+                },
+                stringLength: {
+                    min: 1,
+                    max: 1000000,
+                    message: 'El campo no puede ser 0.'
+                },
+                regexp: {
+                    regexp: /^[0-9.0-9]*$/,
+                    message: 'Solo se aceptan números y el primer dígito no puede ser 0.'
+                }
+            }
+        },
+        txtUtmNorte: {
+          validators: {
+              notEmpty: {
+                  message: 'Campo obligatorio, no puede estar vacio.'
+              },
+              stringLength: {
+                  min: 1,
+                  max: 1000000,
+                  message: 'El campo no puede ser 0.'
+              },
+              regexp: {
+                  regexp: /^[0-9.0-9]*$/,
+                  message: 'Solo se aceptan números y el primer dígito no puede ser 0.'
+              }
+          }
+      },
+        txtUtmZona: {
+          validators: {
+              notEmpty: {
+                  message: 'Campo obligatorio, no puede estar vacio.'
+              },
+              stringLength: {
+                  min: 1,
+                  max: 1000000,
+                  message: 'El campo no puede ser 0.'
+              },
+              regexp: {
+                  regexp: /^[0-9 A-Z]*$/,
+                  message: 'El formato de la coordenada es incorrecto.'
+              }
+          }
+      },
           txtNumeroColegiacion: {
             validators: {
                 notEmpty: {
