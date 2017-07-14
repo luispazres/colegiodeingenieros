@@ -118,6 +118,20 @@
                         </div>
                       </div>
                       <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Seleccione Zona del Proyecto</label>
+                        <div class="col-md-9 col-sm-9 col-xs-12">
+                          <select class="form-control" name="cmbProyectoDepartamento" id="cmbDepartamentoProyecto">
+                              <option value="">Seleccione Zona del proyecto</option>
+                              <option value="">Centro Sur Distrito Ciudad</option>
+                              <option value="">Centro Sur Area Regional</option>
+                              <option value="">Nor Occidente Distrito Ciudad</option>
+                              <option value="">Nor Occidente Area Regional</option>
+                              <option value="">Litoral Atlantico Distrito Ciudad</option>
+                              <option value="">Litoral Atlantico Area Regional</option>
+                          </select>
+                        </div>
+                      </div>
+                      <div class="form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12">Seleccione el Tipo del Proyecto</label>
                         <div class="col-md-9 col-sm-9 col-xs-12">
                           <select class="form-control" name="cmbProyectoTipo" id="cmbProyectoTipo">
