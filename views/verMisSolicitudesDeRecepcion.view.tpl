@@ -77,9 +77,9 @@
                             <br>
                             Dirección Propietario: {{proyectoDireccionPropietario}}
                             <br>
-                            {{if comentariosAprobacion}}
-                              <h4>comentario: {{comentariosAprobacion}}</h4>
-                            {{endif comentariosAprobacion}}
+                            {{if comentario}}
+                              <h4>comentario: {{comentario}}</h4>
+                            {{endif comentario}}
                           </div>
                           <div class="modal-footer">
                             {{if reintentar}}

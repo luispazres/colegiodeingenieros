@@ -65,7 +65,7 @@ order by proyectoNombre limit 1;";
 function obtenerSolicitudRecepcionPorId($solicitudId){
     $solicitudes = array();
     $sqlstr = "SELECT proyectoNombre,departamentoDescripcion ,proyectoDireccion, proyectoDescrpcion,
-    proyectoLatitud,proyectoLongitud,proyectoNombrePropietario,
+    proyectoLatitud,proyectoLongitud,proyectoNombrePropietario,comentario,
     proyectoIdentidadPropietario, proyectoTelefonoPropietario, proyectoCelularPropietario,
     proyectoEmailPropietario, proyectoDireccionPropietario,
     concat(usuarioPrimerNombre, ' ' ,usuarioSegundoNombre ,' ',

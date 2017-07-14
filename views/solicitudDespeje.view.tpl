@@ -75,6 +75,13 @@
                                               </div>
                                           </div>
                                           <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                  <label for="userfile">Documento</label>
+                                                  <input id="userfile" type="file" name="userfile[]" class="form-control"  >
+                                                </div>
+                                            </div>                                             
+
                                             <div class="col-md-3">
                                                 <div class="form-group">
                                             <div class="input-group date">
@@ -83,9 +90,10 @@
                                             </div>
                                           </div>
                                              </div>
+                                             </div>
+                                              </div>
                                            </div>
-                                                           <input type="submit" id="btnSolicitarDespeje" name="btnSolicitarDespeje" class="btn btn-default" value="Solicitar Despeje">
-
+                    <input type="submit" id="btnSolicitarDespeje" name="btnSolicitarDespeje" class="btn btn-default" value="Solicitar Despeje">
                     </form>
         </div>
       </div>
