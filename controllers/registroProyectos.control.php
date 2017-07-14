@@ -47,6 +47,7 @@
             $proyecto["txtUtmZona"]);
             redirectWithMessage("El proyecto ha sido agregado exitosamente","index.php?page=verProyectos");
             $location="Location:index.php?page=registroProyectos&error=".$respueta;
+            redirectWithMessage("El proyecto se registro con exito.","?page=verProyectos");
             header($location);
           }
 

@@ -76,12 +76,16 @@
                             Email Propietario: {{proyectoEmailPropietario}}
                             <br>
                             Dirección Propietario: {{proyectoDireccionPropietario}}
-                            <br>                            
+                            <br>
+                            {{if comentariosAprobacion}}
+                              <h4>comentario: {{comentariosAprobacion}}</h4>
+                            {{endif comentariosAprobacion}}
                           </div>
                           <div class="modal-footer">
                             {{if reintentar}}
                               <a href="index.php?page=recepcionProyectos&proyectoId={{proyectoId}}&aprobacionId={{solicitudAprobacionId}}&recepcionId={{solicitudRecepcioId}}&accion=UPD"><button type="button" class="btn btn-success">Modificar Solicitud de Aprobacion</button></a>
                             {{endif reintentar}}
+
                           </div>
                         </div>
                       </div>

@@ -73,9 +73,9 @@
                 <div class="left_col scroll-view">
                   <div class="navbar nav_title" style="border: 0;">
 
-                    <a href="index.php?page=home"><img src="images/cimeqh_.jpg"  class="img-circle profile_img" alt="CIMEQH"></a>
+                    <a href="index.php?page=home"><img src="images/ingeniero.jpg"  class="img-circle profile_img" alt="Ingeniero"></a>
 
-                  </div>
+                  </div><br><br><br><br><br><br><br>
 
                   <div class="clearfix"></div>
 

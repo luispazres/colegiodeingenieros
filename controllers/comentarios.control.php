@@ -9,7 +9,6 @@
   include 'clases\comentariosAprobacion.php';
   include 'clases\comentariosRecepcion.php';
   include 'clases\comentariosDespeje.php';
-  include 'clases\reporteAprobacion.php';
 
   function run(){
 
@@ -18,7 +17,7 @@
 
     if(isset($_GET["accion"])){
 
-    switch ($_GET["accion"]) {    
+    switch ($_GET["accion"]) {
 
     case 'factibilidad':
     $solicitud=verFactbilidadPorId($_GET["codigo"]);

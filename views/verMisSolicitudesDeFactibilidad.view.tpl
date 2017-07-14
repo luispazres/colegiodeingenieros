@@ -105,6 +105,9 @@
                               </button>
                             </a>
                             {{endifnot reintentar}}
+                            {{if comentariosAprobacion}}
+                              <h4>comentario: {{comentariosAprobacion}}</h4>
+                            {{endif comentariosAprobacion}}
                           </div>
                         </div>
                       </div>
