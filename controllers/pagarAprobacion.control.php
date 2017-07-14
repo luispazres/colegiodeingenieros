@@ -18,7 +18,7 @@
   $htmlDatos = array();
 
   if (isset($_POST["btnPagarAprobacion"])) {
-
+      redirectWithMessage("El pago se realizo con exito","?page=verProyectos");
   }
 
   if ($_POST) {

@@ -78,6 +78,9 @@
                           <br>
                           Dirección Propietario: {{proyectoDireccionPropietario}}
                           <br>
+                          {{if comentarioAprobacion}}
+                              <h2>comentario: {{comentarioAprobacion}}</h2>
+                          {{endif comentarioAprobacion}}
                           <div class="modal-footer">
                             {{if reintentar}}
                                   <a href="index.php?page=aprobacionProyectos&proyectoId={{proyectoId}}&aprobacionId={{solicitudAprobacionId}}&accion=UPD"><button type="button" class="btn btn-success">Modificar Solicitud de Aprobacion</button></a>
@@ -96,6 +99,7 @@
                               <a href="index.php?page=solicitudDespeje&proyectoId={{proyectoId}}&accion=INS"><button type="button" class="btn btn-success">Solicitar Despeje de energia</button></a>
                               {{endif despeje}}
                             {{endifnot reintentar}}
+
                           </div>
                         </div>
                       </div>

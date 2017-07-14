@@ -36,7 +36,7 @@
                 # code...
                 break;
             }
-
+            redirectWithMessage("La solicitud de despeje se realizo con exito.","?page=verMisSolicitudesDeDespeje");
 
 
           }
