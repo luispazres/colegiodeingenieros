@@ -10,8 +10,13 @@
         if ($_SESSION["rol"]==4) {
           $solicitudes = array();
 
+          if(isset($_GET["codigo"])){
+            $codigo=$_GET["codigo"];
+            unlink("temp/$codigo.png");
+          }
+
           $solicitudes=obtenerAprobacion();
-          
+
           renderizar("verMisSolicitudesDeAprobacion", array('solicitudes'=> $solicitudes));
         }else {
           redirectWithMessage("No cuenta con los privilegios de usuario adecuado para ver esta páagina.","?page=login");

@@ -26,11 +26,9 @@
           <h1>Descargue el Siguiente Codigo QR y el Timbre Electronico</h1>
           <img src="temp/{{codigoAprobacion}}.png" height="300px" width="300px">
         </div>
-        <h1>Hola {{codigoqr}}</h1>
       </div>
-    <form>
-      <button type="submit" class="btn btn-warning btn-lg">Descargar Codigo QR</button>
-    </form>
+      <button type="button" class="btn btn-warning btn-lg">Descargar Codigo QR</button>
+      <a href="index.php?page=verMisSolicitudesDeAprobacion&codigo={{codigoAprobacion}}"  <button type="submit" id="btnQr" name="btnQr" class="btn btn-success btn-lg">Regresar</button></a>
       </a>
     </div>
   </div>

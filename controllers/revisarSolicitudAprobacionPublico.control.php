@@ -12,11 +12,29 @@
     $proyecto = array();
     $documentos = array( );
     $date="";
-    
-    if(isset($_GET["codigo"])){
-      $proyecto=$_GET["codigo"];
+
+    if (isset($_GET["codigo"])) {
+      if($_GET["codigo"] != null)
+      {
+        $proyecto=obtenerSolicitudAprobacionPorCodigo($_GET["codigo"]);
+        if($proyecto != null)
+        {
+          $documentos=obtenerDocumentosSolicitudAprobacionPorCodigo($_GET["codigo"]);
+          //$date= new DateTime($proyecto[0]["solicitudAprobacionFecha"]);
+          //$proyecto[0]["solicitudAprobacionFecha"]=date_format($date, 'Y-m-d');
+        }
+        else
+        {
+          redirectWithMessage("El código ingresado no existe","?page=revisarSolicitudAprobacionPublico");
+        }
+      }
+      else {
+        {
+          redirectWithMessage("Favor ingrese el código de aprovación","?page=revisarSolicitudAprobacionPublico");
+        }
+      }
     }
-    
+
     if (isset($_POST["btnBuscar"])) {
       if($_POST["txtCodigo"] != null)
       {

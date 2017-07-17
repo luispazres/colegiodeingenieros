@@ -10,12 +10,12 @@
           $revisar = array();
           $htmlDatos= array();
           $error="";
-            
+
             $htmlDatos["codigoAprobacion"] = $_GET["id"];
             $codigo=$htmlDatos["codigoAprobacion"];
             $htmlDatos["link"] = "http://conectahn.org/colegiodeingenieros/index.php?page=revisarSolicitudAprobacionPublico&codigo=";
             $htmlDatos["codigoqr"] = QRcode::png($htmlDatos["link"].$htmlDatos["codigoAprobacion"],"temp/$codigo.png",QR_ECLEVEL_H,4,1);
-            renderizar("reporteSolicitudAprobacion",$htmlDatos,"layoutSinSesion2.view.tpl");
+            renderizar("reporteSolicitudAprobacion",$htmlDatos,"layout.view.tpl");
 
 
         }else {
