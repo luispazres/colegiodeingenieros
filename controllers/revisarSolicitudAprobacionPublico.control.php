@@ -12,6 +12,11 @@
     $proyecto = array();
     $documentos = array( );
     $date="";
+    
+    if(isset($_GET["codigo"])){
+      $proyecto=$_GET["codigo"];
+    }
+    
     if (isset($_POST["btnBuscar"])) {
       if($_POST["txtCodigo"] != null)
       {

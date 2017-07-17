@@ -1,7 +1,7 @@
 <?php
   require_once("libs/template_engine.php");
   require_once("models/aprobacion.model.php");
-  require_once("libs/dompdf/dompdf_config.inc.php");
+  include_once("libs/phpqrcode/qrlib.php");
 
   function run(){
     if (mw_estaLogueado()) {
@@ -10,10 +10,12 @@
           $revisar = array();
           $htmlDatos= array();
           $error="";
-
+            
             $htmlDatos["codigoAprobacion"] = $_GET["id"];
-            $htmlDatos["codigoqr"] = 'https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=ejemplo';
-            renderizar("reporteSolicitudAprobacion",$htmlDatos,"layout.view.tpl");
+            $codigo=$htmlDatos["codigoAprobacion"];
+            $htmlDatos["link"] = "http://conectahn.org/colegiodeingenieros/index.php?page=revisarSolicitudAprobacionPublico&codigo=";
+            $htmlDatos["codigoqr"] = QRcode::png($htmlDatos["link"].$htmlDatos["codigoAprobacion"],"temp/$codigo.png",QR_ECLEVEL_H,4,1);
+            renderizar("reporteSolicitudAprobacion",$htmlDatos,"layoutSinSesion2.view.tpl");
 
 
         }else {

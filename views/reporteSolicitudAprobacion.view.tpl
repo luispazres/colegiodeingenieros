@@ -21,14 +21,16 @@
           </ul>
           <div class="clearfix"></div>
         </div>
-        <a href="images/cimeqh_.jpg&{{codigoqr}}" download="qrcode">
+        <a href="temp/{{codigoAprobacion}}.png" download="qrcode">
         <div class="x_content">
           <h1>Descargue el Siguiente Codigo QR y el Timbre Electronico</h1>
-          <img src="{{codigoqr}}" height="300px" width="300px">          
+          <img src="temp/{{codigoAprobacion}}.png" height="300px" width="300px">
         </div>
-        <h1>Hola {{codigoqr}}{{codigoAprobacion}}</h1>
+        <h1>Hola {{codigoqr}}</h1>
       </div>
-      <button type="button" class="btn btn-warning btn-lg">Descargar Codigo QR</button>
+    <form>
+      <button type="submit" class="btn btn-warning btn-lg">Descargar Codigo QR</button>
+    </form>
       </a>
     </div>
   </div>
